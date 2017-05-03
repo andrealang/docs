@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-03-14"
 
 ---
 
@@ -14,8 +15,6 @@ copyright:
 
 # ﻿C# for device developers
 {: #c_sharp}
-Last updated: 02 Aug 2016
-{: .last-updated}
 
 You can use C# to build and customize devices that interact with your organization on {{site.data.keyword.iot_full}}. Use the information and examples that are provided to start developing your devices by using C#.
 {:shortdesc}
@@ -23,7 +22,7 @@ You can use C# to build and customize devices that interact with your organizati
 ## Downloading the C# client and resources
 {: #csharp_client_download}
 
-To access the C# client and resources for {{site.data.keyword.iot_short_notm}}, go to the [iot-csharp](https://github.com/ibm-watson-iot/iot-csharp) repository in GitHub and complete the installation instructions.
+To access the C# client and resources for {{site.data.keyword.iot_short_notm}}, go to the [iot-csharp ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-watson-iot/iot-csharp){: new_window} repository in GitHub and complete the installation instructions.
 
 
 ## Constructor

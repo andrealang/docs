@@ -1,19 +1,21 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
-{:screen:  .screen}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
+
 
 # Authentification des utilisateurs avec des données d'identification Google
 {: #google-auth}
 
-Dernière mise à jour : 22 juillet 2016
-
-Vous pouvez configurer la protection des ressources dans le service {{site.data.keyword.amashort}}, en utilisant Google en tant que fournisseur d'identité. Les utilisateurs de votre application mobile ou Web peuvent alors s'authentifier avec leurs données d'identification Google.
+Vous pouvez configurer la protection des ressources dans le service {{site.data.keyword.amafull}}, en utilisant Google en tant que fournisseur d'identité. Les utilisateurs de votre application mobile ou Web peuvent alors s'authentifier avec leurs données d'identification Google.
 {:shortdesc}
 
 **Important :** il n'est pas nécessaire d'installer séparément le SDK client fourni par Google. Le SDK Google est installé automatiquement par les gestionnaires de dépendances lors de la configuration du SDK client de {{site.data.keyword.amashort}}.
@@ -35,7 +37,7 @@ Le diagramme suivant représente l'intégration entre {{site.data.keyword.amasho
 * Le SDK client de {{site.data.keyword.amashort}} utilise le SDK Google pour lancer le processus d'authentification. Lorsque l'authentification aboutit, le SDK Google renvoie un jeton d'accès Google.
 * Le jeton d'accès Google est considéré comme une réponse à la demande d'authentification. Il est envoyé au service {{site.data.keyword.amashort}}.
 * Le service valide la réponse à la demande d'authentification auprès des serveurs Google.
-* Si la validation aboutit, le service {{site.data.keyword.amashort}} génère un en-tête d'autorisation et le renvoie au SDK client de {{site.data.keyword.amashort}}. L'en-tête d'autorisation contient deux jetons : un jeton qui contient des informations sur les droits d'accès, et un autre jeton qui contient des informations sur l'utilisateur, le périphérique et l'application.
+* Si la validation aboutit, le service {{site.data.keyword.amashort}} génère un en-tête d'autorisation et le renvoie au SDK client de {{site.data.keyword.amashort}}. L'en-tête d'autorisation contient deux jetons : un jeton qui contient des informations sur les droits d'accès, et un autre jeton qui contient des informations sur l'utilisateur, l'appareil et l'application.
 * A partir de ce moment, toutes les demandes faites avec le SDK client de {{site.data.keyword.amashort}} contiennent un nouvel en-tête d'autorisation.
 * Le SDK client de {{site.data.keyword.amashort}} renvoie automatiquement la demande d'origine qui avait déclenché le flux d'autorisation.
 * Le SDK serveur de {{site.data.keyword.amashort}} extrait l'en-tête d'autorisation de la demande, la valide auprès du service {{site.data.keyword.amashort}}, et donne l'accès à la ressource de back end.
@@ -47,7 +49,7 @@ Le flux de requête d'une application Web {{site.data.keyword.amashort}} est sim
 {{site.data.keyword.amashort}} protège l'application et non pas une ressource de back end {{site.data.keyword.Bluemix_notm}}.
 
   * La requête initiale est envoyée par l'application Web (depuis un formulaire de connexion, par exemple).
-  * La redirection finale vise la zone protégée de l'application Web elle-même et non pas une ressource de back end protégée. 
+  * La redirection finale vise la zone protégée de l'application Web elle-même et non pas une ressource de back end protégée.
 
 
 
@@ -56,6 +58,4 @@ Le flux de requête d'une application Web {{site.data.keyword.amashort}} est sim
 
 * [Activation de l'authentification Google pour les applications Android](google-auth-android.html)
 * [Activation de l'authentification Google pour les applications iOS (SDK Swift)](google-auth-ios-swift-sdk.html)
-* [Activation de l'authentification Google pour les applications iOS (SDK Objective-C)](google-auth-ios.html)
 * [Activation de l'authentification Google pour les applications Cordova](google-auth-cordova.html)
-

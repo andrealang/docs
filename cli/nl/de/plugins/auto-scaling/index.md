@@ -1,12 +1,13 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2016
+  years: 2015，2017
 
- 
+lastupdated: "2011-01-12"
+
 
 ---
 
@@ -17,13 +18,11 @@ copyright:
 # Benutzerschnittstelle (CLI) für Autoskalierung
 {: #autoscalingcli}
 
-*Letzte Aktualisierung: 25. Februar 2016*
-{: .last-updated}
 
 Sie können den Service {{site.data.keyword.autoscaling}} unter Verwendung der {{site.data.keyword.autoscaling}}-CLI für {{site.data.keyword.Bluemix_notm}} konfigurieren. Die {{site.data.keyword.autoscaling}}-CLI unterstützt Linux64, Win64 und OSX und stellt eine ähnliche Funktionalität wie die REST-konforme API für Autoskalierung (Auto-Scaling RESTful API) bereit.
 {: shortdesc}
 
-Bevor Sie beginnen, müssen Sie die {{site.data.keyword.Bluemix_notm}}-CLI installieren. Anweisungen hierzu enthält das Dokument zum [Download der {{site.data.keyword.Bluemix_notm}}-CLI](http://plugins.{DomainName}/ui/home.html){: new_window}.
+Bevor Sie beginnen, müssen Sie die {{site.data.keyword.Bluemix_notm}}-CLI installieren. Anweisungen hierzu enthält die Seite zum [Herunterladen der {{site.data.keyword.Bluemix_notm}} CLI ![Symbol für externen Link](../../../icons/launch-glyph.svg)](http://plugins.ng.bluemix.net/ui/home.html){: new_window}.
 
 ## {{site.data.keyword.Bluemix_notm}}-CLI-Plug-in hinzufügen
 
@@ -85,7 +84,7 @@ bx as policy-show <APP_NAME> [--json]
 
 ## Zuordnung einer Autoskalierungsrichtlinie aufheben
 
-Sie können eine Autoskalierungsrichtlinie von einer App entfernen. Führen Sie den folgenden Befehl aus:
+Sie können eine Autoskalierungsrichtlinie aus einer App entfernen. Führen Sie den folgenden Befehl aus:
 
 ```
 bx as policy-detach <APP_NAME>
@@ -117,8 +116,6 @@ bx as policy-enable|policy-disable <APP_NAME>
 
 Sie können das Protokoll der Autoskalierungsaktivität einer bestimmten App anzeigen. In der Befehlszeilenschnittstelle wird eine Tabelle der Autoskalierungsprotokolleinträge angezeigt.
 
-
-
 ```
 bx as history-show <APP_NAME>  [--start-date=<start_timestamp>]  [--end-date=<end_timestamp>]  [--json]
 ```
@@ -128,19 +125,19 @@ bx as history-show <APP_NAME>  [--start-date=<start_timestamp>]  [--end-date=<en
 <dt class="pt dlterm">&lt;APP_NAME&gt;</dt>
 <dd class="pd">Der Name der App, für die das Protokoll der Autoskalierungsrichtlinie angezeigt werden soll.
 <dt class="pt dlterm">&lt;start_timestamp&gt;</dt>
-<dd class="pd">Die Zeitmarke für den Beginn des Protokollbereichs. Die unterstützten Formate sind `jjjj-MM-ttTHH:mm:ss+/-hhmm, jjjj-MM-ttTHH:mm:ssZ`. Standardmäßig ist die Zeitmarke auf 50 Stunden vor der aktuellen Uhrzeit eingestellt. Detaillierte Informationen zum Zeitmarkenformat enthält der <a href="https://www.w3.org/TR/NOTE-datetime" target="_blank">W3C-Standard 'Date and Time Formats'</a>. 
+<dd class="pd">Die Zeitmarke für den Beginn des Protokollbereichs. Die unterstützten Formate sind `jjjj-MM-ttTHH:mm:ss+/-hhmm, jjjj-MM-ttTHH:mm:ssZ`. Standardmäßig ist die Zeitmarke auf 50 Stunden vor der aktuellen Uhrzeit eingestellt. Detaillierte Informationen zum Zeitmarkenformat enthält der <a href="https://www.w3.org/TR/NOTE-datetime" target="_blank">W3C-Standard 'Date and Time Formats'</a>.
 <dt class="pt dlterm">&lt;end_timestamp&gt;</dt>
-<dd class="pd">Die Zeitmarke für das Ende des Protokollbereichs. Die unterstützten Formate sind `jjjj-MM-ttTHH:mm:ss+/-hhmm, jjjj-MM-ttTHH:mm:ssZ`. Standardmäßig ist die Zeitmarke auf die aktuelle Uhrzeit eingestellt. Detaillierte Informationen zum Zeitmarkenformat enthält der <a href="https://www.w3.org/TR/NOTE-datetime" target="_blank">W3C-Standard 'Date and Time Formats'</a>. 
+<dd class="pd">Die Zeitmarke für das Ende des Protokollbereichs. Die unterstützten Formate sind `jjjj-MM-ttTHH:mm:ss+/-hhmm, jjjj-MM-ttTHH:mm:ssZ`. Standardmäßig ist die Zeitmarke auf die aktuelle Uhrzeit eingestellt. Detaillierte Informationen zum Zeitmarkenformat enthält der <a href="https://www.w3.org/TR/NOTE-datetime" target="_blank">W3C-Standard 'Date and Time Formats'</a>.
 </dl>
+
+
 
 **Tipp:** Sie können auch die Option **--json** verwenden, um eine Quelltextformatierung der ursprünglichen JSON-Antwort zu erstellen.
 
 # Zugehörige Links
-{: #rellinks}
+{: rellinks}
 ## Allgemein
-{: #general}
-* [{{site.data.keyword.autoscaling}}-Service](../../../services/Auto-Scaling/index.html)
-* [{{site.data.keyword.Bluemix_notm}}-CLI](http://plugins.{DomainName}/ui/home.html){: new_window}
-* [W3C-Standard 'Date and Time Formats'](https://www.w3.org/TR/NOTE-datetime){: new_window}
-
-
+{: general}
+* [{{site.data.keyword.autoscaling}}-Service](/docs/services/Auto-Scaling/index.html)
+* [{{site.data.keyword.Bluemix_notm}} CLI ![Symbol für externen Link](../../../icons/launch-glyph.svg)](http://plugins.ng.bluemix.net/ui/home.html){: new_window}
+* [W3C-Standard 'Date and Time Formats' ![Symbol für externen Link](../../../icons/launch-glyph.svg)](https://www.w3.org/TR/NOTE-datetime){: new_window}

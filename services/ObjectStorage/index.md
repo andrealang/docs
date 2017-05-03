@@ -1,26 +1,30 @@
 ---
 
 copyright:
-  years: 2014, 2016
+  years: 2014, 2017
+lastupdated: "2017-02-23"
 
 ---
-
 {:new_window: target="_blank"}
-
-# Getting started with {{site.data.keyword.objectstorageshort}}  {: #getting-started-with-object-storage}
-
-Last updated: 25 August 2016
-{: .last-updated}
-
-{{site.data.keyword.objectstoragefull}} provides you with access to a fully provisioned Swift {{site.data.keyword.objectstorageshort}} account to manage your data. Swift provides a fully distributed, API-accessible storage platform. You can use it directly in your applications or for backups, making it ideal for cost effective, scale-out storage.
-
-**Note:** Provider side encryption is not provided. It is the responsibility of the client application to encrypt data before uploading.
+{:shortdesc: .shortdesc}
 
 
-To get started with {{site.data.keyword.objectstorageshort}}:
+# Getting started with {{site.data.keyword.objectstorageshort}} {: #getting-started-with-object-storage}
 
-1.	Provision your {{site.data.keyword.objectstorageshort}} instance from the {{site.data.keyword.Bluemix_notm}} catalog.
-2.	Configure your {{site.data.keyword.objectstorageshort}} instance and click **Create**. If you initially choose the **Leave Unbound** option for the **App** field, you can still bind the service instance to your {{site.data.keyword.Bluemix_notm}} application after you complete the configuration. For instructions, see [Binding your app](../ObjectStorage/objectstorge_usingobjectstorage.html#using-object-storage-from-bluemix-app).
+
+{{site.data.keyword.objectstoragefull}} provides unstructured cloud data storage. You can store and access your content, as well as interactively compose and connect to apps and services.
+{: shortdesc}
+
+
+1. Provision your service instance from the {{site.data.keyword.Bluemix_notm}} catalog. Configure your instance and click **Create**. If you initially choose the **Leave Unbound** option for the **App** field, you can bind the service instance to your {{site.data.keyword.Bluemix_notm}} app later.
+
+2. In your service instance dashboard, create a container to start storing objects.
+
+3. Add a file to your container by using the **Actions** menu.
+
+4. To test access to your objects, click **Download** and review the file.
+
+5. When you're ready, [bind the service](/docs/services/reqnsi.html#add_service) to an application.
 
 
 
@@ -38,10 +42,10 @@ To get started with {{site.data.keyword.objectstorageshort}}:
 
 ## Tutorials and Samples
 {: #samples}
-* [Connecting to {{site.data.keyword.objectstoragefull}} with Java](https://developer.ibm.com/recipes/tutorials/connecting-to-ibm-object-storage-for-bluemix-with-java/){: new_window}
+* [Connecting to IBM {{site.data.keyword.objectstorageshort}} for {{site.data.keyword.Bluemix_notm}} with Java](https://developer.ibm.com/recipes/tutorials/connecting-to-ibm-object-storage-for-bluemix-with-java/){: new_window}
 * [Use Python to access your {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.objectstorageshort}}](https://developer.ibm.com/recipes/tutorials/use-python-to-access-your-bluemix-object-storage/){: new_window}
 * [Use PHP to leverage {{site.data.keyword.objectstorageshort}}](https://developer.ibm.com/recipes/tutorials/use-php-to-leverage-object-storage-for-bluemix/){: new_window}
-* [Use pkgcloud to access {{site.data.keyword.objectstoragefull}} with Node.js](https://developer.ibm.com/recipes/tutorials/use-pkgcloud-to-access-ibm-object-storage-for-bluemix-with-node-js/){: new_window}
+* [Use Node js to access Object Storage for Bluemix](https://developer.ibm.com/recipes/tutorials/use-pkgcloud-to-access-ibm-object-storage-for-bluemix-with-node-js/){: new-window}
 
 ## Compatible Runtimes
 {: #buildpacks}

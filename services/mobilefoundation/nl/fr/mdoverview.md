@@ -1,22 +1,19 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated:  "2017-02-17"
 
 ---
 
-#	A propos de {{site.data.keyword.mobilefoundation_short}}
+#	A propos de Mobile Foundation
 {: #overview_mobilefoundation}
-
-Dernière mise à jour : 3 août 2016
-{: .last-updated}
 
 Le service {{site.data.keyword.mobilefoundation_short}} permet de
 configurer rapidement un environnement de serveur
-{{site.data.keyword.mobilefirst}} sur {{site.data.keyword.Bluemix}}. Vous pouvez développer, tester et gérer des applications mobiles depuis cet environnement de cloud. 
+{{site.data.keyword.mobilefirst}} sur {{site.data.keyword.Bluemix}}. Vous pouvez développer, tester et gérer des applications mobiles depuis cet environnement de cloud.
 
-{{site.data.keyword.mobilefoundation_short}} offre aux
-utilisateurs une méthode facile et guidée pour configurer un environnement {{site.data.keyword.mfserver_short_notm}} <!--in the {{site.data.keyword.containerlong}} -->sur {{site.data.keyword.Bluemix_notm}}.
+{{site.data.keyword.mobilefoundation_short}} offre aux utilisateurs une méthode facile et guidée pour configurer un environnement {{site.data.keyword.mfserver_short_notm}} <!--in the {{site.data.keyword.containerlong}} --> sur {{site.data.keyword.Bluemix_notm}}.
 
 {{site.data.keyword.mobilefoundation_short}} comprend les
 composants suivants :
@@ -57,17 +54,18 @@ d'{{site.data.keyword.mfp_cli_long_notm}} avec {{site.data.keyword.mobilefoundat
 
 <!--{{site.data.keyword.mobilefoundation_short}} service provisions a container in your space in {{site.data.keyword.Bluemix_notm}}. You can see the details of the container that is created, view the container performance, and access the server logs from your {{site.data.keyword.Bluemix_notm}} dashboard.-->
 
-## Aide et support pour {{site.data.keyword.mobilefoundation_short}}
+## Aide Mobile Foundation
 {: #getting_help_mobilefoundation}
 
 Si vous avez des problèmes ou des questions quand vous utilisez {{site.data.keyword.mobilefoundation_short}}, vous pouvez obtenir de l'aide en recherchant des informations précises ou en posant des questions via un forum. Vous pouvez aussi ouvrir un ticket de demande de service.
 
 Quand vous utilisez les forums pour poser une question, prenez soin d'étiqueter cette dernière de façon à ce qu'elle soit vue par les équipes de développement {{site.data.keyword.Bluemix_notm}}.
 
-Si vous avez des questions techniques sur le développement ou le déploiement d'une application avec {{site.data.keyword.mobilefoundation_short}}, postez votre question sur [stackoverflow](http://stackoverflow.com/search?q=ibm-mobilefirst+bluemix){:new_window} et marquez votre question avec les étiquettes `bluemix` et `ibm-mobilefirst`.
+En cas de questions d'ordre technique sur le développement et le déploiement d'une application avec {{site.data.keyword.mobilefoundation_short}}, postez votre question sur le forum [Stack Overflow ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://stackoverflow.com/search?q=ibm-mobilefirst+bluemix){:new_window} en lui adjoignant les balises `bluemix` et `ibm-mobilefirst`.
 
-Pour des questions relatives au service et aux instructions de mise en route, utilisez le forum [IBM developerWorks - dW Answers](https://developer.ibm.com/answers/topics/mobilefirst/?smartspace=bluemix){:new_window}. Incluez les étiquettes `bluemix` et `mobilefirst`.
+Pour des questions relatives au service et aux instructions de mise en route, utilisez le forum [IBM developerWorks dW Answers ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://developer.ibm.com/answers/topics/mobilefirst/?smartspace=bluemix){:new_window}. Incluez les étiquettes `bluemix` et `mobilefirst`.
 
-Voir la rubrique expliquant comment [obtenir de l'aide](https://www.{DomainName}/docs/support/index.html#getting-help) pour plus de détails sur l'utilisation des forums.
+Pour plus d'informations sur l'utilisation des forums, voir la rubrique décrivant [Comment obtenir de l'aide ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.{DomainName}/docs/support/index.html#getting-help){: new_window}.
 
-Pour plus d'informations sur l'ouverture d'un ticket de demande de service IBM, sur les niveaux de support disponibles ou les niveaux de gravité des tickets, voir la rubrique décrivant [comment contacter le support](https://www.{DomainName}/docs/support/index.html#contacting-support).
+Pour plus d'informations sur l'ouverture d'un ticket de demande de service IBM, sur les niveaux de support disponibles ou les niveaux de gravité des tickets, voir la rubrique décrivant
+[Comment contacter le support ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.{DomainName}/docs/support/index.html#contacting-support){: new_window}.

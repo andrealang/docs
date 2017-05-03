@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated: "2017-02-17"
 
 ---
 
@@ -13,8 +14,6 @@ copyright:
 
 # Connecting and configuring a historian service by using {{site.data.keyword.messagehub}}  
 {: #messagehub_main}
-Last updated: 29 September 2016
-{: .last-updated}
 
 Connecting {{site.data.keyword.messagehub_full}} to {{site.data.keyword.iot_short}} provides a scalable, high-throughput message bus for historical data storage. {{site.data.keyword.messagehub}} is built on Apache Kafka, which is an open-source, high-throughput messaging system that provides a low-latency platform for handling real-time data feeds.
 
@@ -23,7 +22,7 @@ Connecting {{site.data.keyword.messagehub_full}} to {{site.data.keyword.iot_shor
 
 Before connecting a {{site.data.keyword.messagehub}} to your {{site.data.keyword.iot_short}} service, complete the following tasks:
 
-- Set up {{site.data.keyword.messagehub}} in the same {{site.data.keyword.Bluemix_notm}} space as your {{site.data.keyword.iot_short_notm}} by using the {{site.data.keyword.Bluemix_notm}} Catalog. For more information about {{site.data.keyword.messagehub}}, see the [Getting started with {{site.data.keyword.messagehub}}](https://console.{DomainName}/docs/services/MessageHub/index.html){: new_window}.
+- Set up {{site.data.keyword.messagehub}} in the same {{site.data.keyword.Bluemix_notm}} space as your {{site.data.keyword.iot_short_notm}} by using the {{site.data.keyword.Bluemix_notm}} Catalog. For more information about {{site.data.keyword.messagehub}}, see the [Getting started with {{site.data.keyword.messagehub}}](https://console.{DomainName}/docs/services/MessageHub/index.html).
 
 - Ensure that you have developer privileges in the {{site.data.keyword.Bluemix_notm}} organization and that you are signed in via {{site.data.keyword.Bluemix_notm}}. If you are not signed in through {{site.data.keyword.Bluemix_notm}}, or do not have developer privileges in this {{site.data.keyword.Bluemix_notm}} organization, you are not able to authorize the binding of {{site.data.keyword.messagehub}} and the {{site.data.keyword.iot_short_notm}}.
 

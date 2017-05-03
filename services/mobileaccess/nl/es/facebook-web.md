@@ -1,14 +1,13 @@
 ---
 
 copyright:
-  year: 2016
+  year: 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
 
 # Habilitación de la autenticación de Facebook para apps de Web
-
-Última actualización: 15 de junio de 2016
-{: .last-updated}
+{: #facebook_web}
 
 Utilice Facebook para autenticar usuarios para la app web.
 
@@ -28,7 +27,7 @@ Para utilizar Facebook como proveedor de identidad en su sitio web, debe añadir
 1. En la página **Configuración**, pulse **Añadir plataforma** y elija **Sitio web**.
 1. Guarde los cambios realizados.
 1. Pulse **Inicio de sesión de Facebook** en la barra lateral izquierda.
-1. Especifique el punto final de devolución de llamada del servidor de autorización en el cuadro **URI de redirección de OAuth válidos**: https://imf-newauthserver.bluemix.net/oauth/{bluemix_app_guid}/callback. Guarde los cambios realizados.
+1. Especifique el punto final de devolución de llamada del servidor de autorización en el recuadro **URI de redirección de OAuth válidos**: https://imf-newauthserver.bluemix.net/oauth/{bluemix_app_guid}/callback. Guarde los cambios realizados.
 
 
 
@@ -37,8 +36,8 @@ Para utilizar Facebook como proveedor de identidad en su sitio web, debe añadir
 Una vez que tenga el ID de la aplicación de Facebook y el secreto de la app, y que la autenticación de Facebook esté configurada para prestar servicio a clientes web, puede habilitar la autenticación de Facebook en el panel de control de {{site.data.keyword.Bluemix_notm}}.
 
 1. Abra la app en el panel de control de {{site.data.keyword.Bluemix_notm}}.
-1. Pulse el mosaico de {{site.data.keyword.amashort}}. Se cargará el panel de control de {{site.data.keyword.amashort}}.
-1. Pulse el título de Facebook.
+1. Pulse el icono de {{site.data.keyword.amashort}}. Se cargará el panel de control de {{site.data.keyword.amashort}}.
+1. Pulse el icono de Facebook.
 1. Especifique el ID de aplicación de Facebook y el secreto de la app, y guarde los cambios.
 
 
@@ -63,7 +62,8 @@ Para iniciar el proceso de autorización:
   El parámetro `state` no se utiliza por ahora y se puede dejar en blanco.
   El parámetro `redirect_uri` es el uri para la redirección después de una autenticación satisfactoria o con error con Facebook.
 
-1. Una vez que haya redirigido al punto final de autorización, obtendrá un formulario de inicio de sesión desde Facebook. Especifique el nombre de usuario y la contraseña para redirigir al `redirect_uri`.
+1. Una vez que haya redirigido al punto final de autorización, obtendrá un formulario de inicio de sesión desde      
+   Facebook. Especifique el nombre de usuario y la contraseña para redirigir al `redirect_uri`.
    La respuesta que se obtiene después de la redirección contiene el código de autorización en los parámetros de consulta de la solicitud.
 
 1. Realice una solicitud `POST` para el punto final del elemento de servidor de autorización:
@@ -85,5 +85,3 @@ Asegúrese de enviar esta solicitud `POST` en el plazo de 10 minutos porque el c
 ## Prueba de autenticación
 Ahora puede empezar a realizar solicitudes a los recursos protegidos.
 Todas las solicitudes para recursos protegidos deben contener el `access_token` en el campo de cabecera de solicitud de autorización.
-
-

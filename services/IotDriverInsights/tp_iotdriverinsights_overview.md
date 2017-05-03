@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016
-
+  years: 2016, 2017
+lastupdated: "2017-03-03"
 ---
 
 {:new_window: target="_blank"}
@@ -14,8 +14,6 @@ copyright:
 
 # About Trajectory Pattern Analysis
 {: #tp_iotdriverinsights_overview}
-Last updated: 16 June 2016
-{: .last-updated}
 
 Trajectory Pattern Analysis API is a service that is provided by {{site.data.keyword.iotdriverinsights_full}} that you can use to analyze the Origin/Destination (O/D) and route patterns of driving trips from car probe data.
 
@@ -60,4 +58,4 @@ The Trajectory Pattern Analysis REST API provides requests that you can use to c
    - `getODList` returns the list of O/D pattern information of the specified arguments
    - `deleteJobResult` deletes all of the analyzed results that are related to a job
 
-For more information, see the [{{site.data.keyword.iotdriverinsights_short}} API](http://ibm.biz/IoTDriverBehavior_APIdoc){:new_window} documentation.
+For more information, see the [{{site.data.keyword.iotdriverinsights_short}} API ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://ibm.biz/IoTDriverBehavior_APIdoc){:new_window} documentation.

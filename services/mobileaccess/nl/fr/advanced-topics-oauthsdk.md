@@ -1,17 +1,17 @@
 ---
 
 copyright:
-  years: 2015, 2016
-  
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-08"
+
 ---
+
+{:codeblock:.codeblock}
 
 # Communication entre applications de back end et services
 {: #backend-comm}
 
-Dernière mise à jour : 21 juillet 2016
-{: .last-updated}
-
-Dans certains scénarios, vous pouvez être amené à envoyer des demandes à partir d'une application de back end qui s'exécute sur {{site.data.keyword.Bluemix}} à un autre système de back end qui est protégé par le service {{site.data.keyword.amashort}} (le service {{site.data.keyword.cloudant}}, par exemple). Dans ce cas, vous devez ajouter un jeton OAuth à la demande.
+Dans certains scénarios, vous pouvez être amené à envoyer des demandes à partir d'une application de back end qui s'exécute sur {{site.data.keyword.Bluemix}} à un autre système de back end qui est protégé par le service {{site.data.keyword.amafull}} (le service {{site.data.keyword.cloudant}}, par exemple). Dans ce cas, vous devez ajouter un jeton OAuth à la demande.
 
 Utilisez le module `bms-mca-oauth-sdk npmjs` pour obtenir et injecter des jetons OAuth dans les demandes.
 
@@ -23,6 +23,7 @@ Sur une ligne de commande, ouvrez le répertoire de l'application Node.js et lan
 ```Bash
 npm install -save bms-mca-oauth-sdk
 ```
+{: codeblock}
 
 ## Utilisation du module bms-mca-oauth-sdk
 {: #using-sdk}
@@ -45,7 +46,7 @@ var options = {
 	// Alternatively, you can get these property values by clicking Show Credentials
 	// on the {{site.data.keyword.amashort}} Service tile in your {{site.data.keyword.Bluemix_notm}} application dashboard
 
-	appId: "appId",				// Bleumix applicationGUID, a.k.a tenantId
+	appId: "tenantID",				// a.k.a. Bluemix applicationGUID
 	clientId: "clientId",			
 	secret: "secret",
 	serverUrl: "serverUrl"
@@ -63,3 +64,4 @@ oauthSDK.getAuthorizationHeader(options).then(function(authHeader){
 });
 
 ```
+{: codeblock}

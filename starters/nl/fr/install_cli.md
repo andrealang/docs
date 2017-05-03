@@ -1,12 +1,13 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2015, 2016
+  years: 2015，2017
 
- 
+lastupdated: "2017-01-12"
+
 
 ---
 
@@ -27,54 +28,50 @@ copyright:
 {:service_instance_name: data-hd-keyref="service_instance_name"}
 {:user_ID: data-hd-keyref="user_ID"}
 
-# Déploiement de votre application avec l'interface de ligne de commande
-*Dernière mise à jour : 24 février 2016*
-{: .last-updated}
+# Téléchargement, modification et redéploiement de votre application Cloud Foundry à l'aide de l'interface de ligne de commande
 
-Vous pouvez utiliser l'interface de ligne de commande pour déployer et modifier des applications et des instances de service.
+Utilisez l'interface de ligne de commande Cloud Foundry pour télécharger, modifier et redéployer vos instances de service et applications Cloud Foundry.
 {:shortdesc}
 
-Avant de commencer, installez les interfaces de ligne de commande de Cloud Foundry et de {{site.data.keyword.Bluemix}}.
+Avant de commencer, téléchargez et installez l'interface de ligne de commande Cloud Foundry. 
 
 <p>
-<a class="xref" href="https://github.com/cloudfoundry/cli/releases" target="_blank" title="(S'ouvre dans un nouvel onglet ou une nouvelle fenêtre)"> <img class="image" src="images/btn_cf_commandline.svg" alt="Télécharger l'interface de ligne de commande Cloud Foundry" /> </a> <a class="xref" href="http://clis.ng.bluemix.net/ui/home.html" target="_blank" title="(S'ouvre dans un nouvel onglet ou une nouvelle fenêtre)"> <img class="image" src="images/btn_bx_commandline.svg" alt="Télécharger l'interface de ligne de commande {{site.data.keyword.Bluemix}}" /> </a>
+<a class="xref" href="https://github.com/cloudfoundry/cli/releases" target="_blank" title="(Ouverture dans un nouvel onglet ou une nouvelle fenêtre)"><img class="image" src="images/btn_cf_commandline.svg" alt="Télécharger l'interface de ligne de commande Cloud Foundry" /> </a>
 </p>
 
-**Restriction :** les outils de ligne de commande ne sont pas pris en charge par Cygwin. Utilisez-les dans une fenêtre de ligne
-de commande autre que Cygwin.
+**Restriction :** l'outil de ligne de commande n'est pas pris en charge par Cygwin. Utilisez-le dans une fenêtre de ligne de commande autre que Cygwin.
 {:prereq}
 
-Une fois les interfaces de ligne de commande installées, vous pouvez commencer :
+Une fois l'interface de ligne de commande installée, vous pouvez commencer :
 
-  1. {: download} Téléchargez votre code de démarrage. 
-      
-    <a class="xref" href="http://bluemix.net" target="_blank" title="(Ouverture dans un nouvel onglet ou une nouvelle fenêtre)"><img class="image" src="images/btn_starter-code.svg" alt="Télécharger le code de démarrage" /> </a>
+  1. {: download} Téléchargez le code de votre application dans un nouveau répertoire afin de configurer votre environnement de développement.
   
-  2. Décompressez le package dans un nouveau répertoire pour configurer votre environnement de développement.
-  3. Placez-vous dans le nouveau répertoire.
-  
+    <a class="xref" href="http://bluemix.net" target="_blank" title="(Ouverture dans un nouvel onglet ou une nouvelle fenêtre)"><img class="image" src="images/btn_starter-code.svg" alt="Télécharger le code de l'application" /> </a>
+
+  2. Placez-vous dans le répertoire dans lequel se trouve votre code.
+
   <pre class="pre">cd <var class="keyword varname">votre_nouveau_répertoire</var></pre>
-  
-   4.  Modifiez le code de votre application si nécessaire. Il est recommandé d'exécuter l'application localement avant de la déployer dans {{site.data.keyword.Bluemix}}.<br><br>Remarquez
-le fichier `manifest.yml`. Lorsque vous déployez à nouveau votre application dans {{site.data.keyword.Bluemix}}, il est
-utilisé pour déterminer l'adresse URL de votre application, l'allocation de mémoire, le nombre d'instance et d'autres paramètres essentiels. Vous pouvez
-[en apprendre plus sur le fichier manifeste](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html){: new_window} dans la
-documentation Cloud Foundry.
-  
-  5. Connectez-vous à {{site.data.keyword.Bluemix}}.
-  
-  <pre class="pre">bluemix api https://api.<span class="keyword" data-hd-keyref="DomainName">nom_domaine</span></pre>
-  
-  6. Connectez-vous à {{site.data.keyword.Bluemix_notm}}.
- 
-  <pre class="pre">bluemix login -u <var class="keyword varname" data-hd-keyref="user_ID">nom_utilisateur</var> -o
-<var class="keyword varname" data-hd-keyref="org_name">nom_org</var> -s <var class="keyword varname" data-hd-keyref="space_name">nom_espace</var></pre>
-  
-  7. Déployez votre application dans {{site.data.keyword.Bluemix_notm}}. Pour plus d'informations sur la commande cf push, voir
-[Téléchargement de votre application](/docs/starters/upload_app.html).
-  
+
+  3.  Modifiez le code de votre application si nécessaire. Par exemple, si vous utilisez une application exemple {{site.data.keyword.Bluemix}} et qu'elle contient le fichier `src/main/webapp/index.html`, vous pouvez le modifier et éditer "Thanks for creating ..." pour indiquer un nouveau contenu. Vérifiez que l'application s'exécute en local avant de la déployer à nouveau dans {{site.data.keyword.Bluemix_notm}}.
+
+    Tenez compte du fichier `manifest.yml`. Lorsque vous déployez à nouveau votre application dans {{site.data.keyword.Bluemix_notm}}, il est utilisé pour déterminer l'adresse URL de votre application, l'allocation de mémoire, le nombre d'instance et d'autres paramètres essentiels. Vous pouvez [en apprendre davantage sur le fichier manifeste ![](../icons/launch-glyph.svg "")](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html){: new_window} dans la documentation Cloud Foundry.
+
+    Prêtez également attention au fichier `README.md`, qui contient des détails tels que les instructions de génération, le cas échéant.
+
+    Remarque : Si votre application est une application Liberty, vous devez la générer avant de la redéployer.
+
+  4. Connectez-vous à {{site.data.keyword.Bluemix_notm}}.
+
+  <pre class="pre">cf api https://api.<span class="keyword" data-hd-keyref="DomainName">nom_domaine</span></pre>
+
+  <pre class="pre">cf login -u <var class="keyword varname" data-hd-keyref="user_ID">nom_utilisateur</var> -o <var class="keyword varname" data-hd-keyref="org_name">nom_organisation</var> -s <var class="keyword varname" data-hd-keyref="space_name">nom_espace</var></pre>
+
+  Si vous vous servez d'un ID fédéré, utilisez l'option `-sso`.
+
+  <pre class="pre">cf login -u <var class="keyword varname" data-hd-keyref="user_ID">nom_utilisateur</var> -o <var class="keyword varname" data-hd-keyref="org_name">nom_organisation</var> -s <var class="keyword varname" data-hd-keyref="space_name">nom_espace</var> -sso</pre>
+
+  5. A partir de <var class="keyword varname">votre_nouveau_répertoire</var>, redéployez votre application dans {{site.data.keyword.Bluemix_notm}} à l'aide de la commande `cf push`. Pour plus d'informations sur la commande `cf push`, voir [Téléchargement de votre application](/docs/starters/upload_app.html).
+
   <pre class="pre">cf push <var class="keyword varname" data-hd-keyref="app_name">nom_app</var></pre>
-  
-  8. Accédez à votre application en entrant l'adresse URL suivante dans votre navigateur :
-  
-  <pre class="codeblock"><code><var class="keyword varname" data-hd-keyref="host">hôte</var>.<span class="keyword" data-hd-keyref="APPDomain">nom_domaine_app</span></code></pre>
+
+  6. Accédez à votre application via https://<var class="keyword varname" data-hd-keyref="app_name">nom_app</var>.<span class="keyword" data-hd-keyref="APPDomain">NomDomaineApp</span>.

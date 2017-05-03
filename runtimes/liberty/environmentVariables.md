@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-02-07"
 
 ---
 
@@ -13,9 +14,6 @@ copyright:
 # Environment variables
 {: #environment_variables}
 
-Last Updated: 10 June 2016
-{: .last-updated}
-
 Environment variables supported by Liberty for Java.
 
 <table>
@@ -26,12 +24,12 @@ Environment variables supported by Liberty for Java.
 
 <tr>
 <td>BLUEMIX_APP_MGMT_ENABLE</td>
-<td>Enable [App Management utilities](../../manageapps/app_mng.html)</td>
+<td>Enable [App Management utilities](/docs/manageapps/app_mng.html)</td>
 </tr>
 
 <tr>
 <td>BLUEMIX_APP_MGMT_INSTALL</td>
-<td>Install [App Management utilities](../../manageapps/app_mng.html)</td>
+<td>Install [App Management utilities](/docs/manageapps/app_mng.html)</td>
 </tr>
 
 <tr>
@@ -45,7 +43,7 @@ Environment variables supported by Liberty for Java.
 </tr>
 
 <tr>
-<td>JBP_CONFIG_DYNATRACEAGENT</td>
+<td>JBP_CONFIG_DYNATRACEAPPMONAGENT</td>
 <td>Configure the [Dynatrace agent location information](dynatrace.html#configuring_liberty_app)</td>
 </tr>
 
@@ -85,6 +83,11 @@ Environment variables supported by Liberty for Java.
 </tr>
 
 <tr>
+<td>LBP_SERVICE_CONFIG_xxxx</td>
+<td>[Override service configuration](autoConfig.html#override_service_config)</td>
+</tr>
+
+<tr>
 <td>HTTP_PROXY</td>
 <td>Set proxy server information</td>
 </tr>
@@ -101,8 +104,8 @@ Environment variables supported by Liberty for Java.
 </table>
 
 # rellinks
-{: #rellinks}
+{: #rellinks notoc}
 ## general
-{: #general}
+{: #general notoc}
 * [Liberty runtime](index.html)
 * [Liberty Profile Overview](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_about.html)

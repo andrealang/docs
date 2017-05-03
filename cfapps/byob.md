@@ -1,12 +1,14 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2015，2016
+  years: 2015，2017
 
- 
+lastupdated: "2016-03-15"
+
+
 
 ---
 
@@ -17,8 +19,6 @@ copyright:
 {:pre: .pre}
 
 # Using community buildpacks
-*Last updated: 15 March 2016*
-{: .last-updated}
 
 If you can't find a starter in the {{site.data.keyword.Bluemix}} Catalog that provides the runtime you want, you can bring an external buildpack to {{site.data.keyword.Bluemix_notm}}. You can specify a custom, Cloud Foundry-compatible buildpack when you deploy your app by using the cf push command.
 {:shortdesc}
@@ -82,6 +82,14 @@ cf push app_name -p app_path -b https://github.com/dmikusa-pivotal/cf-php-build-
 ```
 {:pre}
 
+It is also possbile to edit your project's `manifest.yml` file to add a `buildpack` line:
+
+```
+buildpack: https://github.com/cloudfoundry/python-buildpack.git
+```
+{:pre}
+
+
 ## Specifying the Java buildpack version
 
 <ul>
@@ -93,5 +101,3 @@ Use the <strong>cf set-env</strong> command. For example, enter the following co
 </li>
 <li>
 Use the <code>manifest.yml</code> file. You can add the environment variable and the value that you want to specify directly to the file. For detailed information, see <a href="https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#env-block">Environment variables</a>.</li></ul>
-  
-

@@ -1,12 +1,8 @@
-﻿---
-
- 
+---
 
 copyright:
-
-  years: 2015, 2016
-
- 
+  years: 2015, 2017
+lastupdated: "2017-2-21"
 
 ---
 
@@ -18,18 +14,18 @@ copyright:
 
 #Criando um botão Implementar no {{site.data.keyword.Bluemix_notm}} {: #deploy-button} 
 
-*Última atualização: 2 de março de 2016*
-{: .last-updated} 
-
-O botão Implementar no {{site.data.keyword.Bluemix}} é uma maneira eficiente de compartilhar seu app público de origem Git para que outras pessoas possam experimentar com o código e implementá-lo no IBM {{site.data.keyword.Bluemix_notm}}. O botão requer configuração mínima e é possível inseri-lo em qualquer lugar que suporte marcação. Qualquer
-pessoa que clicar no botão cria uma cópia clonada do código em um novo repositório Git de modo que seu app original permaneça não afetado. 
+O botão Implementar no {{site.data.keyword.Bluemix}} é uma maneira eficiente de compartilhar seu app público de origem Git para que outras pessoas possam experimentar com o código e implementá-lo no IBM {{site.data.keyword.Bluemix_notm}}. O botão requer configuração mínima e é possível inseri-lo em qualquer lugar que suporte marcação. Qualquer pessoa que clicar no botão cria uma cópia clonada do código em um novo repositório Git de modo que seu app original permaneça não afetado. 
 {: shortdesc} 
 
-**Dica:** se a marca da empresa for importante, será possível [integrar um fluxo Implementar no iFrame do {{site.data.keyword.Bluemix_notm}}](../develop/deploy_button_embed.html) a seu conteúdo, em vez de inserir um botão. Quando as pessoas criam uma cópia clonada de seu app público de origem Git, elas permanecem em seu conteúdo em vez de serem redirecionadas ao website bluemix.net. 
+**Dica:** se a marca da empresa for importante, será possível [integrar um fluxo
+Implementar no iFrame do {{site.data.keyword.Bluemix_notm}}](/docs/develop/deploy_button_embed.html) em seu conteúdo, em vez de inserir um botão. Quando as pessoas criam uma cópia clonada de seu app público de origem Git, elas permanecem em seu conteúdo em vez de serem redirecionadas ao website bluemix.net. 
+
+**Nota**: o recurso de cadeias de ferramentas agora está disponível. Qualquer pessoa que clicar no botão Implementar no
+{{site.data.keyword.Bluemix_notm}} poderá clicar no link no banner para tentar implementar o seu aplicativo usando uma cadeia de ferramentas.
 
 Quando alguém clica em seu botão, ocorrem estas ações: 
 
-1. Se a pessoa não tiver uma conta {{site.data.keyword.Bluemix}} ativa, uma conta para teste deve ser criada. 
+1. Se a pessoa não tiver uma conta {{site.data.keyword.Bluemix_notm}} ativa, uma conta para teste deve ser criada. 
 
 2. A pessoa pode selecionar uma região, uma organização, um espaço e um nome de app. O nome do app sugerido é construído a partir do nome anterior do app, do nome do usuário da pessoa e do horário. 
 
@@ -79,13 +75,13 @@ Para criar um botão Implementar no {{site.data.keyword.Bluemix_notm}}:
 Ramificação principal padrão:
 </p>
 <pre class="codeblock">
-&lt;a href="https://bluemix.net/deploy?repository=&lt;git_repository_URL>" # [required]&gt;&lt;img src="https://bluemix.net/deploy/button.png" alt="Deploy to Bluemix"&gt;&lt;/a&gt;
+&lt;a href="https://bluemix.net/deploy?repository=&lt;git_repository_URL>" # [required]&gt;&lt;img src="https://bluemix.net/deploy/button.png" alt="Implementar no Bluemix"&gt;&lt;/a&gt;
 </pre>
 <p>
 Ramificação Git especificada:
 </p>
 <pre class="codeblock">
-&lt;a href="https://bluemix.net/deploy?repository=&lt;git_repository_URL&gt;&branch=&lt;git_branch>" # [required]&gt;&lt;img src="https://bluemix.net/deploy/button.png" alt="Deploy to Bluemix"&gt;&lt;/a&gt;
+&lt;a href="https://bluemix.net/deploy?repository=&lt;git_repository_URL&gt;&branch=&lt;git_branch>" # [required]&gt;&lt;img src="https://bluemix.net/deploy/button.png" alt="Implementar no Bluemix"&gt;&lt;/a&gt;
 </pre>
 </li>
 <li>Redução de preço:
@@ -93,12 +89,12 @@ Ramificação Git especificada:
 Ramificação principal padrão:
 </p>
 <pre class="codeblock">
-[&#33;[Deploy to Bluemix]&#40;https://bluemix.net/deploy/button.png&#41;]&#40;https://bluemix.net/deploy?repository=&lt;git_repository_URL> # [required]&#41;
+[&excl;[Deploy to Bluemix]&lpar;https://bluemix.net/deploy/button.png&rpar;]&lpar;https://bluemix.net/deploy?repository=&lt;git_repository_URL> # [required]&rpar;
 </pre>
 <p>Ramificação Git especificada:
 </p>
 <pre class="codeblock">
-[&#33;[Deploy to Bluemix]&#40;https://bluemix.net/deploy/button.png&#41;]&#40;https://bluemix.net/deploy?repository=&lt;git_repository_URL> &branch=&lt;git_branch&gt; # [required]&#41;
+[&excl;[Deploy to Bluemix]&lpar;https://bluemix.net/deploy/button.png&rpar;]&lpar;https://bluemix.net/deploy?repository=&lt;git_repository_URL> &branch=&lt;git_branch&gt; # [required]&rpar;
 </pre>
 </li>
 </ul>
@@ -119,7 +115,7 @@ Revise estas considerações quando estiver customizando o fragmento para o bot�
 	
 	* Se você preferir armazenar a imagem localmente, será possível fazer download da imagem e armazená-la no repositório Git. Ajuste o caminho para usar o local relativo da imagem. 
 	
-	* Se você deseja usar uma versão traduzida do botão, é possível referenciá-la remotamente ou fazer download dela a partir do [ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button](ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button). 
+	* Se você desejar usar uma versão traduzida do botão, será possível referenciá-la remotamente ou fazer download em [ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button){:new_window}. 
 	
 ##Considerações de repositório para o botão {: #button-repo} 
 
@@ -131,11 +127,12 @@ Revise estas considerações para o repositório do projeto que você usará no 
 Com o arquivo manifest, é possível especificar: 
     <ul>
     <li>Um nome de app exclusivo.</li>  
-    <li>Serviços declarados: Uma extensão manifest, que cria ou procura por serviços obrigatórios ou opcionais que devem ser configurados antes que o app seja implementado, como um serviço de cache de dados. É possível localizar uma lista de serviços, rótulos e planos elegíveis do     {{site.data.keyword.Bluemix_notm}}, usando a <a href="https://github.com/cloudfoundry/cli/releases">Interface da linha de comandos CF</a> para executar o comando <code>cf marketplace</code> ou procurando no <a href="https://console.ng.bluemix.net/?ssoLogout=true&cm_mmc=developerWorks-_-dWdevcenter-_-devops-services-_-lp#/store">catálogo do {{site.data.keyword.Bluemix_notm}}</a>. 
+    <li>Serviços declarados: Uma extensão manifest, que cria ou procura por serviços obrigatórios ou opcionais que devem ser configurados antes que o app seja implementado, como um serviço de cache de dados. É possível localizar uma lista de serviços, rótulos e planos elegíveis do {{site.data.keyword.Bluemix_notm}} usando o <a class="xref" href="https://github.com/cloudfoundry/cli/releases" target="_blank" title="(Abre em uma nova guia ou janela)">CF Command Line Interface<img class="image" src="../icons/launch-glyph.svg" alt="Ícone de link externo"/></a> para executar o comando <code>cf marketplace</code> ou procurando o <a class="xref" href="https://console.ng.bluemix.net/?ssoLogout=true&cm_mmc=developerWorks-_-dWdevcenter-_-devops-services-_-lp#/store" target="_blank" title="(Abre em uma nova guia ou janela)"> catálogo do {{site.data.keyword.Bluemix_notm}}<img class="image" src="../icons/launch-glyph.svg" alt="Ícone de link externo"/></a>. 
     
+        
     <strong>Nota:</strong> serviços declarados são uma extensão IBM do formato de manifest padrão do Cloud Foundry. Essa extensão pode ser revisada em uma liberação futura conforme o recurso evolui e melhora.
 	
-	<a href="http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#minimal-manifest" target="_blank">Aprenda a criar um arquivo <code>manifest.yml</code>.</a>  
+	<a class="xref" href="http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#minimal-manifest" target="_blank" title="(Abre em uma nova guia ou janela)">Aprender a criar um arquivo <code>manifest.yml</code><img class="image" src="../icons/launch-glyph.svg" alt="Ícone de link externo"/></a>.  
 <pre class="codeblock">
 	---
     #Modelo de manifest.yml
@@ -167,14 +164,15 @@ Com o arquivo manifest, é possível especificar:
 </pre>
    </li>
    </ul>
-	<li> Se o repositório precisar ser construído antes da implementação do app, uma construção automatizada do código no repositório será acionada antes da implementação. As construções automatizadas ocorrem quando um arquivo do script de construção é detectado no diretório-raiz do repositório. 
+	<li> Se o app deve ser construído antes de poder ser implementado, deve-se incluir um arquivo de construção em seu repositório. Se um arquivo do script de
+construção for detectado no diretório-raiz do repositório, uma construção automatizada do código será acionada antes da implementação. 
 	
 	Construtores suportados: 
 	    <ul>
-		<li> <a href="http://ant.apache.org/manual/using.html" target="_blank">Ant:</a> /<code>build.xml</code>, que constrói a saída para a pasta <code>./output/</code> </li>
-		<li> <a href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#gradle" target="_blank">Gradle:</a> <code>/build.gradle</code>, que constrói a saída para a pasta <code>.</code> </i>
-		<li> <a href="http://gruntjs.com/getting-started#the-gruntfile" target="_blank">Grunt:</a> <code>/Gruntfile.js</code>, que constrói a saída para a pasta <code>.</code> </li>
-		<li> <a href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#maven" target="_blank">Maven:</a> <code>/pom.xml</code>, que constrói a saída para a pasta <code>./target/</code></li>
+		<li> <a class="xref" href="http://ant.apache.org/manual/using.html" target="_blank" title="(Abre em uma nova guia ou janela)">Ant:<img class="image" src="../icons/launch-glyph.svg" alt="Ícone de link externo"/></a> /<code>build.xml</code>, que constrói a saída para a pasta <code>./output/</code> </li>
+		<li> <a class="xref" href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#gradle" target="_blank" title="(Abre em uma nova guia ou janela)">Gradle:<img class="image" src="../icons/launch-glyph.svg" alt="Ícone de link externo"/></a> <code>/build.gradle</code>, que constrói a saída para a pasta <code>. </code> </li>
+		<li> <a class="xref" href="http://gruntjs.com/getting-started#the-gruntfile" target="_blank" title="(Abre em uma nova guia ou janela)">Grunt:<img class="image" src="../icons/launch-glyph.svg" alt="Ícone de link externo"/></a> <code>/Gruntfile.js</code>, que constrói a saída para a pasta <code>. </code> </li>
+		<li> <a class="xref" href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#maven" target="_blank" title="(Abre em uma nova guia ou janela)">Maven:<img class="image" src="../icons/launch-glyph.svg" alt="Ícone de link externo"/></a> <code>/pom.xml</code>, que constrói a saída para a pasta <code>./target/</code></li>
 	   </ul>
 	</li>	
 	<li>Para configurar o pipeline para o projeto em um diretório <code>.bluemix</code>, inclua um arquivo <code>pipeline.yml</code>. É possível criar um arquivo <code>pipeline.yml</code> manualmente ou gerar um a partir de um projeto existente do DevOps Services. Para criar um arquivo pipeline.yml a partir de um projeto do {{site.data.keyword.jazzhub_short}} e incluí-lo em seu repositório, conclua estas etapas. 
@@ -187,14 +185,18 @@ Com o arquivo manifest, é possível especificar:
 <li>No diretório-raiz de seu projeto, crie um diretório <code>.bluemix</code>.</li>
 <li>Faça upload do arquivo <code>pipeline.yml</code> para o repositório <code>.bluemix</code>.</li>
 </ol> </li>
-	<li>Se você estiver implementando um app em um contêiner usando <stong>IBM Containers</strong>, deverá incluir o Dockerfile no diretório-raiz do repositório e, em um diretório <code>.bluemix</code>, incluir um arquivo <code>pipeline.yml</code>. 
+	<li>Para implementar um app em um contêiner usando o <strong>IBM Containers</strong>, deve-se incluir o Dockerfile no diretório-raiz do repositório e, em um
+diretório <code>.bluemix</code>, incluir um arquivo <code>pipeline.yml</code>. 
 	<ul>
-	    <li> Para aprender mais sobre a criação de Dockerfiles, <a href="https://docs.docker.com/reference/builder/" target="_blank">consulte a documentação do Docker</a>. </li>
-	    <li>É possível criar um arquivo <code>pipeline.yml</code> manualmente ou gerar um a partir de um projeto existente do DevOps Services. Para criar um <code>pipeline.yml</code> manualmente especificamente para contêineres, <a href="https://github.com/Puquios/" target="_blank">consulte os exemplos em GitHub</a>. </li>
+	    <li>O Dockerfile age como uma espécie de script de construção para o app. Se um Dockerfile for detectado no repositório, o app será construído automaticamente em
+uma imagem antes que seja implementado em um contêiner. Se o próprio app precisar ser construído antes do app ser construído em uma imagem, inclua um script de construção
+para o app, assim como um Dockerfile, conforme descrito anteriormente.</li>
+	    <li> Para aprender mais sobre a criação de Dockerfiles, <a class="xref" href="https://docs.docker.com/reference/builder/" target="_blank" title="(Abre em uma nova guia ou janela)">veja a documentação do Docker<img class="image" src="../icons/launch-glyph.svg" alt="Ícone de link externo"/></a>. </li>
+	    <li>É possível criar um arquivo <code>pipeline.yml</code> manualmente ou gerar um a partir de um projeto existente do DevOps Services. Para criar um <code>pipeline.yml</code> manualmente que seja especificamente para contêineres, <a class="xref" href="https://github.com/Puquios/" target="_blank" title="(Abre em uma nova guia ou janela)">veja os exemplos em GitHub<img class="image" src="../icons/launch-glyph.svg" alt="Ícone de link externo"/></a>. </li>
         </ul>
 
  </li>
  </ul>
 </ul>
 
-Para obter ajuda com resolução de problemas, consulte [O botão Implementar no Bluemix não implementa um app](../troubleshoot/index.html#deploytobluemixbuttondoesntdeployanapp){:new_window}.	
+Para obter ajuda com resolução de problemas, consulte [O botão Implementar no Bluemix não implementa um app](/docs/troubleshoot/index.html#deploytobluemixbuttondoesntdeployanapp){:new_window}.	

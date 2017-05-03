@@ -1,21 +1,19 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2015，2016
+  years: 2015，2017
 
- 
+lastupdated: "2016-04-18"
 
 ---
 
-{:shortdesc: .shortdesc} 
+{:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 
 # Criando apps Cloud Foundry
-*Última atualização: 18 de abril de 2016*
-{: .last-updated}
 
 Com
 o {{site.data.keyword.Bluemix}}, é possível
@@ -54,7 +52,7 @@ Para iniciar a criação de seu aplicativo, execute as etapas a seguir:
 para escolher um iniciador, especificar um nome e selecionar como deseja codificar.
   4. Quando concluir a experiência orientada, clique em **VISUALIZAR
 A VISÃO GERAL DO APP**. A Visão geral de seu app é exibida no Painel.
-  5. É possível incluir um serviço no app clicando em **INCLUIR UM SERVIÇO OU UMA API** na Visão geral do app na interface com o usuário do Bluemix. Procure e selecione serviços a partir do catálogo ou role até o término do catálogo e clique em **Serviços experimentais do {{site.data.keyword.Bluemix_notm}}** para procurar serviços experimentais. Ou, é possível usar a interface de linha de comandos cf. Consulte Opções para trabalhar com apps.
+  5. É possível incluir um serviço no app clicando em **INCLUIR UM SERVIÇO OU UMA API** na Visão geral do app na interface com o usuário do {{site.data.keyword.Bluemix_notm}}. Procure e selecione serviços a partir do catálogo ou role até o término do catálogo e clique em **Serviços experimentais do {{site.data.keyword.Bluemix_notm}}** para procurar serviços experimentais. Ou, é possível usar a interface de linha de comandos cf. Consulte Opções para trabalhar com apps.
   6. Na Visão geral do app, clique em Incluir Git para salvar a origem do aplicativo em um repositório Git e criar um projeto hospedado pelo Git. Também é possível implementar o aplicativo a partir de
 {{site.data.keyword.jazzhub_title}}.
 
@@ -87,17 +85,17 @@ Use as dicas a seguir enquanto desenvolve seus apps da web:
 <dd>Não especifique qualquer armazenamento local para seus aplicativos. Cada instância de seu aplicativo, mesmo que apenas uma instância esteja em execução,
 pode ser reiniciada ou movida para uma máquina virtual diferente a qualquer momento, em
 geral para balanceamento de carga. Qualquer coisa armazenada no armazenamento local é apagada quando o
-aplicativo é movido ou excluído. Use um dos serviços de armazenamento de dados do Bluemix para persistência.</dd>
+aplicativo é movido ou excluído. Use um dos serviços de armazenamento de dados do
+{{site.data.keyword.Bluemix_notm}} para persistência.</dd>
 <dt>Limites de recursos</dt>
 <dd>Esteja ciente dos limites sobre as quantidades de recursos que podem ser usados
 por uma conta para teste. Os limites
 são os seguintes:
 <table style="width:100%">
+<caption>Tabela 1. Limites de recurso do {{site.data.keyword.Bluemix_notm}} para uma conta para teste</caption>
   <th>Tipo de recurso</th>	<th>Limite de quantidade</th>
 <tr><td>Número de serviços que são usados em todos os apps</td> <td>10</td>
 <tr><td>Memória usada em todos os apps</td> <td>	2 G</td>
 <tr><td>Número de rotas</td> <td>500</td>
 </table>
 </dd></dl>
-
-*Tabela 1. Lista de recursos do {{site.data.keyword.Bluemix_notm}} para uma conta para teste*

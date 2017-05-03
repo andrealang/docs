@@ -4,8 +4,8 @@
 
 copyright:
 
-  years: 2015, 2016
-
+  years: 2015, 2017
+lastupdated: "2017-01-11"
  
 
 ---
@@ -51,9 +51,6 @@ copyright:
 # Pricing
 {: #pricing}
 
-*Last updated: 13 September 2016*
-{: .last-updated}
-
 You can run applications in {{site.data.keyword.Bluemix}} and try {{site.data.keyword.Bluemix_notm}} services for free. You can sign up for a free 30-day trial that gives you additional allowances, including free support. After 30 days, you can choose an account type and pay only for what you use beyond the free allowances. Bluemix provides a cost calculator for you to estimate the cost beforehand and the Usage Dashboard view for you to check the actual cost after you build your apps.
 {:shortdesc}
 
@@ -75,7 +72,8 @@ One month after the trial expiration, your applications and service configuratio
 
 ![Process flowchart of {{site.data.keyword.Bluemix_notm}} account management](acctmgmt600.png)
 
-*Figure 1. Process flowchart of {{site.data.keyword.Bluemix_notm}} account management*
+Figure 1. Process flowchart of {{site.data.keyword.Bluemix_notm}} account management
+{: #pricing_figure1}
 
 
 If you convert your account during your free trial, your free allowances are limited to allowances normally provided by each service. The allowances are no longer unlimited use allowances that are offered by many of the IBM services during the free trial.
@@ -84,7 +82,7 @@ If you convert your account during your free trial, your free allowances are lim
 ##What it costs
 {: #what_it_costs}
 
-Charges vary depending on the resources used by a particular service, runtime, container, virtual server, or support option. The resources can be the number of API calls, the number of instances, memory, storage, and so on. {{site.data.keyword.Bluemix_notm}} also provides detailed cost estimators, and a down-to-the-penny cost calculator to help you plan for charges. You can check the actual cost after you build your apps by using the *Usage Dashboard* view. For more detailed information about charges, see [How you are charged](index.html#charges).
+Charges vary depending on the resources used by a particular service, runtime, container, or support option. The resources can be the number of API calls, the number of instances, memory, storage, and so on. {{site.data.keyword.Bluemix_notm}} also provides detailed cost estimators, and a down-to-the-penny cost calculator to help you plan for charges. You can check the actual cost after you build your apps by using the *Usage Dashboard* view. For more detailed information about charges, see [How you are charged](index.html#charges).
  
 
 ##Promo code
@@ -118,9 +116,9 @@ You can convert your free trial into a billable account at any time. All of your
 
 After you create a billable account, you can edit the information that you provided. Click the **Profile Settings icon**, then click **Account &gt; Account Type** to edit your information.
 
-If you encounter any problems with {{site.data.keyword.Bluemix_notm}} when you are using a Pay-As-You-Go or a Subscription account, see [Getting online help](https://www.ng.bluemix.net/docs/troubleshoot/getting_customer_support.html#online_help) for more information.
+If you encounter any problems with {{site.data.keyword.Bluemix_notm}} when you are using a Pay-As-You-Go or a Subscription account, see [Getting online help](/docs/troubleshoot/getting_customer_support.html#online_help) for more information.
 
-**Note:** If you link your {{site.data.keyword.Bluemix_notm}} billing account with a SoftLayer account, starting on the first of the next month, your {{site.data.keyword.Bluemix_notm}} charges will be on your SoftLayer invoice. For more details, see [Viewing credits](../admin//softlayerlink.html#bill_usage).
+**Note:** If you link your {{site.data.keyword.Bluemix_notm}} billing account with a SoftLayer account, starting on the first of the next month, your {{site.data.keyword.Bluemix_notm}} and SoftLayer charges will be on your {{site.data.keyword.Bluemix_notm}} invoice. For more details, see [Viewing credits](/docs/admin//softlayerlink.html#bill_usage).
 
 ###Pay-As-You-Go account
 {: #pay-as-you-go}
@@ -221,8 +219,7 @@ In the simple tier model, the unit price is determined by the tier that the quan
 | Tier 3: 2001 - 3000                  |   $0.75 USD                       |
 | Tier 4: 3001 - 4000           |      $0.60 USD                    |
 |Tier 5: &gt; 4000 | $0.40 USD | 
-
-*Table 1. Simple tier pricing table*
+{:caption="Table 1. Simple tier pricing table" caption-side="top"}
 
 The following table illustrates how much you pay with a plan that is based on a simple tier pricing model:
 
@@ -233,7 +230,7 @@ The following table illustrates how much you pay with a plan that is based on a 
 |2500 |	2500 × 0.75 = 1875 |	$1875 USD|
 |... |	... |	...|
 |5200 |	5200 × 0.40 = 2080 |$2080 USD|
-*Table 2. Charge calculation by using the simple tier pricing model*
+{:caption="Table 2. Charge calculation by using the simple tier pricing model" caption-side="top"}
 
 ####Graduated tier
 {: #graduated_tier}
@@ -247,7 +244,7 @@ In the graduated tier model, the unit price per tier decreases as your level of 
 |    Tier 3: 2001 - 3000 |	$0.75 USD |
 |    Tier 4: 3001 - 4000 |	$0.60 USD |
 |    Tier 5: &gt; 4000 |	$0.40 USD |
-*Table 3. Graduated tier pricing table*
+{:caption="Table 3. Graduated tier pricing table" caption-side="top"}
 
 The following table illustrates how much you pay with a plan that is based on a graduated tier pricing model:
 
@@ -258,7 +255,7 @@ The following table illustrates how much you pay with a plan that is based on a 
 |2500 |	(1000 × 1 (unit price for Tier 1)) + (1000 × 0.90 (unit price for Tier 2)) + (500 × 0.75 (unit price for Tier 3)) = 2275 |	$2275 USD |
 |... |	... |	...|
 |5200 |	(1000 × 1 (unit price for Tier 1)) + (1000 × 0.90 (unit price for Tier 2)) + (1000 × 0.75 (unit price for Tier 3)) + (1000 × 0.60 (unit price for Tier 4)) + (1200 × 0.40 (unit price for Tier 5)) = 3730 |	$3730 USD|
-*Table 4. Charge calculation by using the graduated tier pricing model*
+{:caption="Table 4. Charge calculation by using the graduated tier pricing model" caption-side="top"}
 
 ####Block tier
 {: #block_tier}
@@ -272,7 +269,7 @@ In the block tier model, the price is a set charge for the quantity you use with
 | Tier 3: &lt;= 3000 |	$2800 USD|
 | Tier 4: &lt;= 4000 |	$3500 USD|
 | Tier 5: &lt;= 10000 |	$5000 USD|
-*Table 5. Block tier pricing table*
+{:caption="Table 5. Block tier pricing table" caption-side="top"}
 
 The following table illustrates how much you pay with a plan that is based on a block tier pricing model:
 
@@ -282,28 +279,15 @@ The following table illustrates how much you pay with a plan that is based on a 
 |1500 |	The number of items falls into Tier 2, so the total price is $1900 USD. |	$1900 USD|
 |... |	... |	...|
 |5200 |	The number of items falls into Tier 5, so the total price is $5000 USD. |	$5000 USD|
-*Table 6. Charge calculation by using the block tier pricing model*
-
-### Free allowances for virtual servers
-{: #vms}
-
-You can use {{site.data.keyword.virtualmachineslong}} in the IBM public cloud as a beta feature at no charge. Free allowances are provided for the number of virtual server images that you can create, the number of IP addresses that are assigned, as well as the amount of memory that can be used.
-
-The following items are the free allowances for the {{site.data.keyword.virtualmachineslong}} beta:
-
-* 2 instances
-* 2 virtual CPUs
-* 8 GB memory
-* 200 GB block storage
-* 5 public IP addresses
-
+{:caption="Table 6. Charge calculation by using the block tier pricing model" caption-side="top"}
 
 ##How to estimate your costs
 {: #cost}
 
 You can use different methods to know how much you need to pay for using {{site.data.keyword.Bluemix_notm}} to build and host your app.
 
-* The cost estimators on the {{site.data.keyword.Bluemix_notm}} Pricing page provides a rough estimation of the cost based on the size of your app.
+* The cost estimators on the {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.pricing_sheet}} 
+provides a rough estimation of the cost based on the size of your app.
 * The cost calculator on the {{site.data.keyword.Bluemix_notm}} Pricing page provides accurate app prices based on your input of runtime and service usages.
 * You can also calculate your cost manually.
 
@@ -312,7 +296,7 @@ You can use different methods to know how much you need to pay for using {{site.
 
 You can quickly price your app by using the cost calculators that are provided by {{site.data.keyword.Bluemix_notm}}.
 
-1. Go to the {{site.data.keyword.Bluemix_notm}} [pricing page](https://console.{DomainName}/pricing/). 
+1. Go to the {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.pricing_sheet}}. 
 2. Use one of the **Estimate Your Costs** widgets, or click **Open Calculator** to use the **Down to the penny pricing calculator**.
 
 To use the calculator, type your projected monthly usage of the listed resources; for example, number of instances or push notifications. Click inside the **Monthly Usage** field for hints about the units that are expected in the field. The calculator displays the price for your input immediately. You can also adjust the calculator to display yearly costs instead of monthly costs.
@@ -346,7 +330,7 @@ To keep the example simple, assume that the prices in the following table do not
 |Data Cache - Standard |	5 GB of cache space and a replica |	$155.00 USD/instance |
 |Data Cache - Premium |	25 GB of cache space and a replica |	$505.00 USD/instance|
 |IBM Cloudant® NoSQL DB for {{site.data.keyword.Bluemix_notm}} |	2 GB of free data storage<br/>50,000 light API calls free per month<br/>10,000 heavy API calls free per month | $1.00 USD/GB<br/>$0.03 USD/1000 light API calls<br/>$0.15 USD/1000 heavy API calls |
-*Table 7. Pricing sheet*
+{:caption="Table 7. Pricing sheet" caption-side="top"}
 
 ###Calculating the application price
 
@@ -406,34 +390,36 @@ Although the United States dollar (USD) is used in the pricing examples, other c
 |SEK |	  Swedish krona|
 |USD |    United States dollar|
 |ZAR |	  South African rand|
-*Table 8. Supported currencies* 
+{:caption="Table 8. Supported currencies" caption-side="top"}
+
+**Note:** If you have linked your {{site.data.keyword.Bluemix_notm}} and SoftLayer accounts, the single invoice you receive is in United States dollars (USD) only.  
 
 ##Usage dashboard
 {: #usage}
 
-As an account owner or a billing manager, you can use the Usage Dashboard view to see the real-time charges for the runtimes and services that are used per month in your organizations. You can see the runtime GB-hours and service consumption in all regions, or you can select to see a particular region and space, for the past 12 months.
+As an account owner or a billing manager, you can use the Usage Dashboard page to see the real-time charges for the runtimes and services that are used per month in your organizations. You can see the runtime GB-hours and service consumption in all regions, or you can select to see a particular region and space, for the past 12 months.
 
-To open the Usage Dashboard view, click the **{{site.data.keyword.avatar}}** icon ![Avatar icon](../icons/i-avatar-icon.svg) &gt; **Account** &gt; *your_account_name* &gt; **Usage Dashboard**. In the view, you can see a summary of the runtime and service usage for the account. Billing managers can see the details for only the organizations in which they are billing managers.
+To open the **Usage Dashboard** page, click **Account** &gt; *your_account_name* &gt; **Usage Dashboard**. In the page, you can see a summary of the runtime and service usage for the account. Billing managers can see the details for only the organizations in which they are billing managers.
 
 The account owner is charged for the total usage that is incurred across all organizations at the end of each billing cycle. Each billing cycle lasts one month.
 
-Account owners can filter the usage summary by region and organization. If you are an account owner, set **Organization** as **All Organizations** to see the usage for the entire account for a 12-month period. Click a particular month to see the usage for that month. The charges shown represent the amount that you, as account owner, are billed for that month.
+Account owners can filter the usage summary by region and organization. If you are an account owner, set **Organization** to **All Organizations** to see the usage for the entire account for a 12-month period. Click a particular month to see the usage for that month.  The charges shown represent the amount that you, as the account owner, are billed for that month.
 
 If you select a specific organization for the **Organization**, you can see the total usage for that organization, including any usage as part of a free tier. The charges shown for the organization are not the charges that you are billed. The free tier usage is shown as free at the account level, but not at the organizational level. Therefore, when you view the organizational usage, you see the real usage for that organization including both free and charged usage. All organizational usage is rolled up to the account usage after the free tier is removed.
 
 ##Viewing credits
 {: #credits}
 
-As an account owner or a billing manager, you can use the Usage Dashboard view to see any credits for your account. You might have credits if, for example, you linked a SoftLayer account with a {{site.data.keyword.Bluemix_notm}} account.
+As an account owner or a billing manager, you can use the **Usage Dashboard** page to see any credits for your account. 
 
-To open the Usage Dashboard view, click the **{{site.data.keyword.avatar}}** icon ![Avatar icon](../icons/i-avatar-icon.svg), then select **Account**. On the page that is displayed, click **Usage Dashboard**. In the view, you can see any credits, if they exist, and when they expire.
+To open the **Usage Dashboard** page, click **Account** &gt; **Usage Dashboard**. The dashboard displays any credits, if they exist, and when they expire.
 
 ##Notifications
 {: #notifications}
 
 As an account manager of a Pay-As-You-Go account, you can set spending notifications against the total cost of your account, for your runtime, services, and for individual services, excluding third-party services. You receive notifications when you reach 80%, 90%, and 100% of the spending thresholds that you specify.
 
-To open the **Notifications** view, click the **{{site.data.keyword.avatar}}** icon ![Avatar icon](../icons/i-avatar-icon.svg) &gt; **Account** &gt; *your_account_name* &gt; **Spending Notifications**. Enter a numeric value to set the spending threshold for triggering a notification for each type of spending notification as needed. You can also add and delete notifications for individual services.
+To open the **Notifications** view, click **Account** &gt; *your_account_name* &gt; **Spending Notifications**. Enter a numeric value to set the spending threshold for triggering a notification for each type of spending notification as needed. You can also add and delete notifications for individual services.
 
 ##How to change your plan
 {: #changing}
@@ -448,7 +434,7 @@ Only certain services provide the ability for you to change the service plan. If
 |Service |	Information|
 |--------|-------------|
 |Presence Insights 	|If you have a Lite plan and exceed the free allowances, a 403 message displays or is logged to indicate that you are no longer authorized, and your service instance is disabled. In addition, POST REST API calls are rejected with a 403 response.<br/><br/>If your service is disabled because you exceed the free allowance, you can upgrade from a Lite plan to a Paid plan. Your service is re-enabled within 2 hours.<br/><br/>If you have a Paid plan, you can reduce your plan to the Lite plan, as long as your usage stays within the Lite plan allowance for events and total storage.<br/><br/>When you upgrade or reduce your plan, you do not need to restage or restart your apps.|
-*Table 9. Next steps for changing your plan*
+{:caption="Table 9. Next steps for changing your plan" caption-side="top"}
 
 ###How to change your plan through the command line interface
 
@@ -458,8 +444,10 @@ To update the service plan, enter the following command:
 cf update-service <service_name> [-p <new_plan>]
 ```
 # rellinks
-## general 
+{: rellinks}
+## general
+{: general} 
 * [{{site.data.keyword.Bluemix_notm}} Pricing Sheet](https://console.{DomainName}/pricing/)
-* [{{site.data.keyword.Bluemix_notm}} Developers Community Forum](https://developer.ibm.com/bluemix/)
+* [{{site.data.keyword.Bluemix_notm}} Developers Community Forum ![External link icon](../icons/launch-glyph.svg)](https://developer.ibm.com/bluemix/){: new_window}
 * [Getting online help](https://www.{DomainName}/docs/troubleshoot/getting_customer_support.html#online_help)
 * [Contact us](https://console.{DomainName}/#/contactUs/cloudOEPaneId=contactUs)

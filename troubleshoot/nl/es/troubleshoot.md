@@ -1,8 +1,9 @@
 ---
 
 copyright:
-  years: 2015, 2016
-
+  years: 2015, 2017
+  
+lastupdated: "2016-03-08"
 
 ---
 
@@ -14,10 +15,14 @@ copyright:
 # Resolución de problemas
 {: #troubleshooting}
 
-*Última actualización: 6 de enero de 2015*
-{: .last-updated}
+Si tiene problemas con {{site.data.keyword.Bluemix}}, puede utilizar esta información de resolución de problemas para identificar y solucionar el problema.
 
-Si tiene problemas con {{site.data.keyword.Bluemix}}, puede llevar a cabo las tareas de resolución de problemas para determinar la acción de corrección que debe emprender.
+Inicie la sesión en la consola de {{site.data.keyword.Bluemix_notm}}:
+* Para ver el estado de los servicios en ejecución y tiempos de ejecución, pulse **Soporte > Estado** en la barra de menús.
+* Para ver notificaciones, pulse **Cuenta > Notificaciones** en la barra de menús. 
+* Para buscar documentación y foros Stack Overflow o developerWorks (dW) Answers en busca de respuestas, opara ponerse en contacto con el equipo de soporte, **Soporte > Buscar respuestas** en la barra de menús.
 
-Inicie sesión en la interfaz de usuario de {{site.data.keyword.Bluemix_notm}} y pulse el icono **Cuenta y soporte** ![Cuenta y soporte](images/account_support.svg) en la barra de menús superior para abrir Cuenta y soporte. Puede ver el estado de los servicios y tiempos de ejecución y ver también las notificaciones. Además, puede seleccionar
-**Obtener ayuda**, donde realizar búsquedas en documentación y foros de respuestas de Stack Overflow o developerWorks (dW) para obtener respuestas, o póngase en contacto con el soporte.
+Si la cuenta está enlazado entre {{site.data.keyword.Bluemix_notm}} y {{site.data.keyword.BluSoftlayer}}, inicie una sesión en la consola de Bluemix:
+* Para ver el estado de los servicios en ejecución y tiempos de ejecución, pulse el enlace **Estado**.
+* Para buscar respuestas, pulse el enlace **Soporte** en la barra de menús y luego pulse **Añadir incidencia > Buscar respuestas**.
+  También puede ir directamente a los foros de *Stack Overflow* o *developerWorks (dW) Answers* para buscar respuestas o enviar preguntas.

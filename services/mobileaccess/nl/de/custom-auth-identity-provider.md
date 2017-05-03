@@ -1,22 +1,20 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
+
+{:codeblock:.codeblock}
 
 # Angepassten Identitätsprovider erstellen
 {: #custom-create}
 
-Letzte Aktualisierung: 16. Juni 2016
-{: .last-updated}
-
 
 Zur Erstellung eines angepassten Identitätsproviders entwickeln Sie eine Webanwendung, die eine REST-konforme API bereitstellt:
 
-```
-POST <base_url>/apps/<tenant_id>/<realm_name>/<request_type>
-```
+`POST <base_url>/apps/<tenant_id>/<realm_name>/<request_type>`
 
 * `base_url`: Gibt die Basis-URL der Webanwendung des angepassten Identitätsproviders an. Die Basis-URL ist die URL, die im {{site.data.keyword.amashort}}-Dashboard registriert werden muss.
 * `tenant_id`: Gibt die eindeutige Kennung des Tenants an. Wenn {{site.data.keyword.amashort}} diese API aufruft, wird immer die GUID der App für {{site.data.keyword.Bluemix}} (`applicationGUID`) übergeben.
@@ -29,6 +27,7 @@ POST <base_url>/apps/<tenant_id>/<realm_name>/<request_type>
 {: #custom-startauthorization}
 
 `POST <base_url>/apps/<tenant_id>/<realm_name>/startAuthorization`
+{: codeblock}
 
 Die API `startAuthorization` wird als erster Schritt des Authentifizierungsprozesses verwendet. Ein angepasster Identitätsprovider muss mit dem Status "challenge", "success" oder "failure" antworten.
 
@@ -42,6 +41,7 @@ Eine hohe Flexibilität erhält der Authentifizierungsprozess dadurch, dass ein 
     }
 }
 ```
+{: codeblock}
 
 Ein angepasster Identitätsprovider kann mit Authentifizierungsanforderung ('challenge'), mit sofortigem Erfolg ('success') oder Fehler ('failure') antworten. Der Antwort-HTTP-Status muss `HTTP 200` sein und die das Antwort-JSON-Objekt muss die folgenden Eigenschaften enthalten:
 
@@ -62,11 +62,13 @@ Beispiel:
 	}
 }
 ```
+{: codeblock}
 
 ## API `handleChallengeAnswer`
 {: #custom-handleChallengeAnswer}
 
 `POST <base_url>/apps/<tenant_id>/<realm_name>/handleChallengeAnswer`
+{: codeblock}
 
 Die API `handleChallengeAnswer` verarbeitet eine Antwort auf eine Authentifizierungsanforderung aus dem mobilen Client. Ebenso wie die API `startAuthorization` antwortet die API `handleChallengeAnswer` mit dem Status `challenge` (Anforderung), `success` (Erfolg) oder `failure` (Fehler).
 
@@ -87,6 +89,7 @@ Die API `handleChallengeAnswer` verarbeitet eine Antwort auf eine Authentifizier
  	}
 }
 ```
+{: codeblock}
 
 Die Antwort aus einer API `handleChallengeAnswer` muss dieselbe Struktur wie die Antwort der API `startAuthorization` aufweisen.
 
@@ -110,13 +113,14 @@ Eine Antwort auf eine erfolgreiche Authentifizierungsanforderung muss ein Benutz
     }
 }
 ```
+{: codeblock}
 
 Das Benutzeridentitätsobjekt wird vom {{site.data.keyword.amashort}}-Service zum Generieren eines ID-Tokens verwendet, das an den mobilen Client als Teil des Berechtigungsheaders gesendet wird. Nach einer erfolgreichen Authentifizierung hat der mobile Client uneingeschränkten Zugriff auf das Benutzeridentitätsobjekt.
 
 ## Sicherheitsaspekte
 {: #custom-security}
 
-Jede Anforderung aus dem {{site.data.keyword.amashort}}-Service an einen angepassten Identitätsprovider enthält einen Berechtigungsheader, sodass der der angepasste Identitätsprovider überprüfen kann, ob die Anforderung von einer autorisierten Quelle kommt. Obwohl dies nicht strikt obligatorisch ist, sollten Sie in Betracht ziehen, den Berechtigungsheader zu validieren, indem Sie Ihren angepassten Identitätsprovider mit einem {{site.data.keyword.amashort}}-Server-SDK instrumentieren. Zur Verwendung dieses SDK muss Ihre angepasste Identitätsprovideranwendung mit Node.js oder Liberty for Java&trade;&trade; implementiert sein und in {{site.data.keyword.Bluemix_notm}} ausgeführt werden.
+Jede Anforderung aus dem {{site.data.keyword.amashort}}-Service an einen angepassten Identitätsprovider enthält einen Berechtigungsheader, sodass der der angepasste Identitätsprovider überprüfen kann, ob die Anforderung von einer autorisierten Quelle kommt. Obwohl dies nicht strikt obligatorisch ist, sollten Sie in Betracht ziehen, den Berechtigungsheader zu validieren, indem Sie Ihren angepassten Identitätsprovider mit einem {{site.data.keyword.amashort}}-Server-SDK instrumentieren. Zur Verwendung dieses SDK muss Ihre angepasste Identitätsprovideranwendung mit Node.js oder Liberty for Java&trade; implementiert sein und in {{site.data.keyword.Bluemix_notm}} ausgeführt werden.
 
 Der Berechtigungsheader enthält Informationen zum mobilen Client und zur mobilen App, die den Authentifizierungsprozess ausgelöst haben. Sie können den Sicherheitskontext zum Abrufen dieser Daten verwenden. Weitere Informationen finden Sie in [Ressourcen schützen](protecting-resources.html).
 

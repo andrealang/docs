@@ -1,20 +1,24 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Autenticazione utenti con un provider di identità personalizzato
 {: #custom-id}
 
-Ultimo aggiornamento: 22 luglio 2016
-{: .last-updated}
 
+Crea un provider di identità personalizzato che utilizza il servizio  {{site.data.keyword.amafull}} e che implementa la tua logica per la raccolta e la convalida di credenziali. Un provider di identità personalizzato è un'applicazione web che espone un'interfaccia RESTful. Puoi ospitare il provider di identità personalizzato in loco oppure su {{site.data.keyword.Bluemix}}. Il solo requisito è che il provider di identità personalizzato deve essere accessibile da internet pubblica in modo che possa comunicare con il servizio {{site.data.keyword.amashort}}.
 
-Crea un provider di identità personalizzato e implementare la tua logica per la raccolta e la convalida di credenziali. Un provider di identità personalizzato è un'applicazione web che espone un'interfaccia RESTful. Puoi ospitare il provider di identità personalizzato in loco oppure su {{site.data.keyword.Bluemix}}. Il solo requisito è che il provider di identità personalizzato deve essere accessibile da internet pubblica in modo che possa comunicare con il servizio {{site.data.keyword.amashort}}.
-
-## Flusso della richiesta di identità personalizzato {{site.data.keyword.amashort}} 
+## Flusso della richiesta di identità personalizzato {{site.data.keyword.amashort}}
 {: #custom-id-ovr}
 
 
@@ -38,16 +42,13 @@ Crea un provider di identità personalizzato e implementare la tua logica per la
 * L'SDK client {{site.data.keyword.amashort}} reinvia automaticamente la richiesta originale che ha attivato il flusso di autorizzazione.
 * L'SDK server {{site.data.keyword.amashort}} estrae l'intestazione di autorizzazione dalla richiesta, la convalida presso il servizio {{site.data.keyword.amashort}} e concede l'accesso a una risorsa di back-end.
 
-### Flusso della richiesta dell'applicazione web {{site.data.keyword.amashort}}
+### Flusso della richiesta dell'applicazione Web {{site.data.keyword.amashort}}
 {: #mca-custom-web-sequence}
 
-Il flusso della richiesta dell'applicazione web {{site.data.keyword.amashort}} è simile al flusso del client mobile. Tuttavia, {{site.data.keyword.amashort}} protegge l'applicazione web, invece della risorsa di back-end {{site.data.keyword.Bluemix_notm}}.
+Il flusso della richiesta dell'applicazione Web {{site.data.keyword.amashort}} è simile al flusso del client mobile. Tuttavia, {{site.data.keyword.amashort}} protegge l'applicazione web, invece della risorsa di back-end {{site.data.keyword.Bluemix_notm}}.
 
-  * La richiesta iniziale viene inviata dall'applicazione web (da un modulo di accesso, ad esempio). 
-  * Il reindirizzamento finale è all'area protetta dell'applicazione stessa, invece che alla risorsa protetta di backend.  
-
-
-
+  * La richiesta iniziale viene inviata dall'applicazione Web (da un modulo di accesso, ad esempio).
+  * Il reindirizzamento finale è all'area protetta dell'applicazione stessa, invece che alla risorsa protetta di backend.
 
 ## Descrizione dei provider di identità personalizzati
 {: #custom-id-about}
@@ -56,7 +57,7 @@ Con un provider di identità personalizzato, puoi fornire delle richieste di ver
 
 Quando crei un provider di identità personalizzato, puoi:
 
-1. Personalizzare una richiesta di verifica dell'autenticazione da inviare dal servizio {{site.data.keyword.amashort}} all'applicazione client mobile o web. Una richiesta di verifica dell'autenticazione è un oggetto JSON che contiene dati personalizzati. Il client può utilizzare questi dati personalizzati per personalizzare i flussi di autenticazione.
+1. Personalizzare una richiesta di verifica dell'autenticazione da inviare dal servizio {{site.data.keyword.amashort}} all'applicazione client mobile o Web. Una richiesta di verifica dell'autenticazione è un oggetto JSON che contiene dati personalizzati. Il client può utilizzare questi dati personalizzati per personalizzare i flussi di autenticazione.
 
   Esempio di una richiesta di verifica dell'autenticazione personalizzata:
 
@@ -70,6 +71,7 @@ Quando crei un provider di identità personalizzato, puoi:
 		}
 	}
 	```
+	{: codeblock}
 
 1. Implementa l'eventuale flusso di raccolta delle credenziali personalizzato sul client, compresa l'autenticazione in più passi e in più moduli. Analogamente alla richiesta di verifica dell'autenticazione personalizzata, devi progettare la struttura di una risposta alla richiesta di verifica dell'autenticazione personalizzata.
 
@@ -82,6 +84,8 @@ Quando crei un provider di identità personalizzato, puoi:
 		pincode:"1234"
 	}
 	```
+	{: codeblock}
+
 1. Implementa la logica personalizzata di convalida della risposta alla richiesta di verifica dell'autenticazione fornita.
 
 1. Definisci un oggetto di identità utente personalizzato che contiene le eventuali proprietà personalizzate richieste. Questo è un esempio di un oggetto di identità utente personalizzato ottenuto dal client dopo l'autenticazione eseguita con esito positivo:
@@ -97,14 +101,15 @@ Quando crei un provider di identità personalizzato, puoi:
 		}
 	}
 	```
+	{: codeblock}
 
 ### Implementazione di esempio del provider di identità personalizzato
 {: #custom-sample}
 
 Utilizza una qualsiasi delle seguenti implementazioni di esempio Node.js di un provider di identità personalizzato come un riferimento quando sviluppi il tuo provider di identità personalizzato. Scarica il codice dell'applicazione integrale dai repository GitHub.
 
- * [Esempio semplice](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample)
- * [Esempio avanzato](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management)
+ * [Esempio semplice ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample "Icona link esterno"){: new_window}
+ * [Esempio avanzato ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management "Icona link esterno"){: new_window}
 
 ## Tipiche comunicazioni tra il server {{site.data.keyword.amashort}} e un provider di identità personalizzato
 {: #custom-id-comm}
@@ -129,10 +134,9 @@ Un provider di identità personalizzato fornisce un'area di autenticazione perso
 
 ## Fasi successive
 {: #next-steps}
+
 * [Creazione di un provider di identità personalizzato](custom-auth-identity-provider.html)
 * [Configurazione di {{site.data.keyword.amashort}} per l'autenticazione personalizzata](custom-auth-config-mca.html)
 * [Configurazione dell'autenticazione personalizzata per Android](custom-auth-android.html)
 * [Configurazione dell'autenticazione personalizzata per iOS (SDK Swift)](custom-auth-ios-swift-sdk.html)
-* [Configurazione dell'autenticazione personalizzata per iOS (SDK Objective-C)](custom-auth-ios.html)
 * [Configurazione dell'autenticazione personalizzata per Cordova](custom-auth-cordova.html)
-

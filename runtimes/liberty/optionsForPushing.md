@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-03-22"
 
 ---
 
@@ -11,9 +12,6 @@ copyright:
 
 # Options for pushing Liberty apps
 {: #options_for_pushing}
-
-Last Updated: 10 June 2016
-{: .last-updated}
 
 The behavior of the Liberty server in Bluemix is controlled by the Liberty buildpack. Buildpacks can provide a complete runtime environment for a specific class of applications. They are key to providing portability across clouds and contributing to an open cloud architecture. The Liberty buildpack provides WebSphere Liberty container capable of running Java EE 7 and OSGi applications. It supports popular frameworks such as Spring and includes the IBM JRE. WebSphere Liberty enables rapid application development that is suited to the cloud. The Liberty buildpack supports multiple applications that are deployed into a single Liberty server. As part of the Liberty buildpack integration into Bluemix, the buildpack ensures that environment variables for binding services are shown as configuration variables in the Liberty server.
 
@@ -55,7 +53,7 @@ When a stand-alone application is deployed, a default Liberty configuration is p
 * servlet-3.1
 * websocket-1.1
 * icap:managementConnector-1.0
-* appstate-1.0
+* appstate-2.0
 
 These features correspond to the Java EE 7 Web Profile features. You can specify a different set of Liberty features by setting the JBP_CONFIG_LIBERTY environment variable. For example, to enable jsp-2.3 and websocket-1.1 features only, run the command and restage the application:
 
@@ -99,7 +97,7 @@ The entire default Liberty server.xml configuration file is as follows:
           <feature>servlet-3.1</feature>
           <feature>websocket-1.1</feature>
           <feature>icap:managementConnector-1.0</feature>
-          <feature>appstate-1.0</feature>
+          <feature>appstate-2.0</feature>
        </featureManager>
 
        <application name='myapp' location='myapp.war' type='war' context-root='/'/>
@@ -111,7 +109,7 @@ The entire default Liberty server.xml configuration file is as follows:
        <applicationMonitor dropinsEnabled='false' updateTrigger='mbean'/>
        <config updateTrigger='mbean'/>
        <cdi12 enableImplicitBeanArchives='false'/>
-       <appstate appName='myapp' markerPath='${home}/../.liberty.state'/>
+       <appstate2 appName='myapp'/>
     </server>
 ```
 {: codeblock}
@@ -188,7 +186,7 @@ Note: The web applications that are deployed as part of the server directory are
 
 You can also push a packaged server file to Bluemix. The packaged server file is created by using Liberty's server package command. In addition to the application and configuration files, the packaged server file can contain shared resources and Liberty user features needed by the application.
 
-To package a Liberty server, use the `./bin/server package` command from your Liberty installation directory. Specify your server name and include the `--include=usr` option. 
+To package a Liberty server, use the `./bin/server package` command from your Liberty installation directory. Specify your server name and include the `--include=usr` option.
 For example, if your Liberty server is defaultServer, run the command:
 
 ```
@@ -221,43 +219,41 @@ When a packaged server or a Liberty server directory is pushed, the Liberty buil
 ### Referenceable variables
 {: #referenceable_variables}
 
-The following variables are defined in the runtime-vars.xml file, and referenced from a pushed server.xml file. All the variables are case-sensitive.
+The following variables are defined in the `runtime-vars.xml` file, and referenced from a pushed `server.xml` file. All the variables are case-sensitive.
 
 * ${port}: The HTTP port that the Liberty server is listening on.
-* ${vcap_console_port}: The port where the vcap console is running (usually the same as ${port}).
-* ${vcap_app_port}: The port where the app server is listening (usually the same as ${port}).
-* ${vcap_console_ip}: The IP address of the vcap console (usually the IP address that the Liberty server is listening on).
+* ${vcap_app_port}: Same as ${port}. Not set when running on Diego.
 * ${application_name}: The name of the application, as defined by using the options in the cf push command.
-* ${application_version}: The version of this instance of the application, which takes the form of a UUID, such as b687ea75-49f0-456e-b69d-e36e8a854caa. This variable changes with each successive push of the application that contains new code or changes to the application artifacts.
-* ${host}: The IP address of the DEA that is running the application (usually the same as ${vcap_console_ip}).
+* ${application_version}: The version of this instance of the application, which takes the form of a UUID, such as `b687ea75-49f0-456e-b69d-e36e8a854caa`. This variable changes with each successive push of the application that contains new code or changes to the application artifacts.
+* ${host}: The IP address of the application instance.
 * ${application_uris}: A JSON-style array of the endpoints that can be used to access this application, for example: myapp.mydomain.com.
-* ${start}: The time and date that the application was started, taking a form similar to 2013-08-22 10:10:18 -0400.
+* ${start}: The time and date that the application was started, taking a form similar to `2013-08-22 10:10:18 -0400`. Not set when running on Diego.
 
 ### Accessing information of bound services
 {: #accessing_info_of_bound_services}
 
-When you want to bind a service to your application, information about the service, such as connection credentials, is included in the [VCAP_SERVICES environment variable](http://docs.run.pivotal.io/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES) that Cloud Foundry sets for the application. For [automatically configured services](autoConfig.html), the Liberty buildpack generates or updates service binding entries in the server.xml file. The contents of the service binding entries can be in one of the following forms:
+When you want to bind a service to your application, information about the service, such as connection credentials, is included in the [VCAP_SERVICES environment variable ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES) that Cloud Foundry sets for the application. For [automatically configured services](autoConfig.html), the Liberty buildpack generates or updates service binding entries in the server.xml file. The contents of the service binding entries can be in one of the following forms:
 
 * cloud.services.&lt;service-name&gt;.&lt;property&gt;, which describes the information such as the name, type, and plan of the service.
 * cloud.services.&lt;service-name&gt;.connection.&lt;property&gt;, which describes the connection information for the service.
 
 The typical set of information is as follows:
-* name: The name of the service. For example, mysql-e3abd.
-label: The type of the created service. For example, mysql-5.5.
-* plan: The service plan, as indicated by the unique identifier for that plan. For example, 100.
-connection.name: A unique identifier for the connection, which takes the form of a UUID. For example, d01af3a5fabeb4d45bb321fe114d652ee.
-* connection.hostname: The host name of the server that is running the service. For example, mysql-server.mydomain.com.
-* connection.host: The IP address of the server that is running the service. For example, 9.37.193.2.
-* connection.port: The port on which the service is listening for incoming connections. For example, 3306,3307.
-* connection.user: The user name that is used to authenticate this application to the service. The user name is auto-generated by Cloud Foundry. For example: unHwANpjAG5wT.
+* name: The name of the service, for example, mysql-e3abd.
+* label: The type of the created service, for example, mysql-5.5.
+* plan: The service plan, as indicated by the unique identifier for that plan, for example, 100.
+* connection.name: A unique identifier for the connection, which takes the form of a UUID, for example, d01af3a5fabeb4d45bb321fe114d652ee.
+* connection.hostname: The host name of the server that is running the service, for example, mysql-server.mydomain.com.
+* connection.host: The IP address of the server that is running the service, for example, 9.37.193.2.
+* connection.port: The port on which the service is listening for incoming connections, for example, 3306,3307.
+* connection.user: The user name that is used to authenticate this application to the service. The user name is auto-generated by Cloud Foundry, for example, unHwANpjAG5wT.
 * connection.username: An alias for connection.user.
-* connection.password: The password that is used to authenticate this application to the service. The password is auto-generated by Cloud Foundry. For example: pvyCY0YzX9pu5.
+* connection.password: The password that is used to authenticate this application to the service. The password is auto-generated by Cloud Foundry, for example, pvyCY0YzX9pu5.
 
 For bound services that are not automatically configured by the Liberty buildpack, the application needs to manage the access of the backend resource on its own.
 
 # rellinks
-{: #rellinks}
+{: #rellinks notoc}
 ## general
-{: #general}
+{: #general notoc}
 * [Liberty runtime](index.html)
 * [Liberty Profile Overview](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_about.html)

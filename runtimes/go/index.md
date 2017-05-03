@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-01-25"
 
 ---
 
@@ -12,7 +13,6 @@ copyright:
 
 # Go
 {: #go_runtime}
-*Last updated: 06 July 2016*
 
 The Go runtime on {{site.data.keyword.Bluemix}} is powered by the go_buildpack.
 The go_buildpack provides a complete runtime environment for Go
@@ -24,7 +24,7 @@ The go_buildpack is used if your application contains a file named *.go.
 ## Starter application
 {: #starter_application}
 
-{{site.data.keyword.Bluemix}} provides a Go starter application.  The Go starter application is a simple Go app that provides a template that you can use for your app. You can experiment with the starter app, and make and push changes to the Bluemix environment  See [Using the starter applications](../../cfapps/starter_app_usage.html) for help with using the starter application.
+{{site.data.keyword.Bluemix}} provides a Go starter application.  The Go starter application is a simple Go app that provides a template that you can use for your app. You can experiment with the starter app, and make and push changes to the Bluemix environment  See [Using the starter applications](/docs/cfapps/starter_app_usage.html) for help with using the starter application.
 
 ## Runtime versions
 {: #runtime_versions}
@@ -61,9 +61,9 @@ you can use the external
 deploy the application.
 
 # rellinks
-{: #rellinks}
+{: #rellinks notoc}
 ## general
-{: #general}
+{: #general notoc}
 
 * [GoLang](http://golang.org/){: new_window}
 * [Cloud Foundry buildpack for Go](https://github.com/cloudfoundry/go-buildpack){: new_window}

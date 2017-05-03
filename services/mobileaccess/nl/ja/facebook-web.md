@@ -1,14 +1,13 @@
 ---
 
 copyright:
-  year: 2016
+  year: 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
 
 # Web アプリ用の Facebook 認証の使用可能化
-
-最終更新日: 2016 年 6 月 15 日
-{: .last-updated}
+{: #facebook_web}
 
 Facebook を使用して、Web アプリのユーザーを認証します。
 
@@ -16,7 +15,7 @@ Facebook を使用して、Web アプリのユーザーを認証します。
 {: #facebook-auth-android-before}
 以下が必要です。
 * Web アプリ。  
-* {{site.data.keyword.amashort}} サービスによって保護された {{site.data.keyword.Bluemix_notm}} アプリケーションのインスタンス。{{site.data.keyword.Bluemix_notm}} バックエンドの作成方法について詳しくは、[入門](index.html)を参照してください。
+* {{site.data.keyword.amashort}} サービスによって保護された {{site.data.keyword.Bluemix_notm}} アプリケーションのインスタンス。{{site.data.keyword.Bluemix_notm}} バックエンドの作成方法について詳しくは、[概説](index.html)を参照してください。
 * Facebook Application ID および App Secret。詳しくは、[Facebook Developer Portal から Facebook アプリケーション ID を取得する](https://console.{DomainName}/docs/services/mobileaccess/facebook-auth-overview.html#facebook-appID)を参照してください。
 
 
@@ -61,10 +60,9 @@ response_type='authorization_code'
     ```
 
 
-  `state` パラメーターは、現在は使用されていないため、空のままにしておくことができます。
-  `redirect_uri` パラメーターは、Facebook での認証が成功または失敗した後のリダイレクト用の URI です。
+  `state` パラメーターは、現在は使用されていないため、空のままにしておくことができます。`redirect_uri` パラメーターは、Facebook での認証が成功または失敗した後のリダイレクト用の URI です。
 
-1. 許可エンドポイントへのリダイレクトの後、Facebook からログイン・フォームが示されます。`redirect_uri` にリダイレクトするためのユーザー名とパスワードを入力します。
+1. 許可エンドポイントへのリダイレクトの後、Facebook からログイン・フォームが示されます。  `redirect_uri` にリダイレクトするためのユーザー名とパスワードを入力します。
    リダイレクトの後に得られる応答には、要求照会パラメーター中の許可コードが含まれます。
 
 1. 許可サーバーのトークン・エンドポイントへの `POST` 要求を実行します。
@@ -84,5 +82,3 @@ grant_type='authorization_code'
 ## 認証のテスト
 これで、保護リソースに要求を出すことができるようになりました。
 保護リソースへのすべての要求には、許可要求ヘッダー・フィールド内に `access_token` が含まれている必要があります。
-
-

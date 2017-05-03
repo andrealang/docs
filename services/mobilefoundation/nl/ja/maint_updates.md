@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated:  "2016-08-03"
 
 ---
 
@@ -13,10 +14,7 @@ copyright:
 # 保守および更新
 {: #maintupdates_mf}
 
-最終更新日: 2016 年 8 月 3 日
-{: .last-updated}
-
-{{site.data.keyword.mobilefoundation_short}} は {{site.data.keyword.mfserver_short_notm}} をプロビジョンします。<!--on {{site.data.keyword.containerlong}} as a container group-->{{site.data.keyword.mobilefoundation_short}} サーバーに対する更新は、ユーザーに通知されます。都合のよいときに {{site.data.keyword.mobilefoundation_short}} サーバーを更新することができます。
+{{site.data.keyword.mobilefoundation_short}} は {{site.data.keyword.mfserver_short_notm}}<!-- on {{site.data.keyword.containerlong}} as a container group--> をプロビジョンします。{{site.data.keyword.mobilefoundation_short}} サーバーに対する更新は、ユーザーに通知されます。都合のよいときに {{site.data.keyword.mobilefoundation_short}} サーバーを更新することができます。
 {:shortdesc}
 
 ## 保守方針
@@ -38,6 +36,8 @@ copyright:
 
 更新を適用すると、{{site.data.keyword.mfp_oc_short_notm}} に表示されるサーバーのバージョンが変更され、サーバーの更新バージョンを示します。
 
-**注:**
+### 注:
+{: #note notoc}
+
 * ユーザーが自分の {{site.data.keyword.mobilefoundation_short}} サービス・インスタンスに独自のフィックスや更新を適用することはできません。
 * **「再作成」**をクリックした際のプランによる動作の違いについては、[「開発者」プランでのサーバーの再作成](c_using_mfs_p1.html#recreate_mobilefoundation_p1)と[「プロフェッショナル 1 アプリケーション」プランでのサーバーの再作成](c_using_mfs_p2.html#recreate_mobilefoundation_p2)を参照してください。

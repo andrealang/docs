@@ -1,15 +1,13 @@
 ---
 
 copyright:
-  year: 2016
+  year: 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
 
 # Habilitación de la autenticación de Google para apps de web
 {: #google-auth-web}
-
-Última actualización: 1 de junio de 2016
-{: .last-updated}
 
 Utilice el inicio de sesión de Google para autenticar usuarios para la app web.
 
@@ -37,9 +35,9 @@ Para empezar a utilizar Google como proveedor de identidad, cree un proyecto en 
 Una vez que ya tenga el ID de aplicación y el secreto de Google puede habilitar la autenticación de Google en el panel de control de {{site.data.keyword.amashort}}.
 
 1. Abra la app en el panel de control de {{site.data.keyword.Bluemix_notm}}.
-1. Pulse el mosaico de {{site.data.keyword.amashort}}. Se cargará el panel de control de {{site.data.keyword.amashort}}.
-1. Pulse el título de Google.
-1. Especifique el ID de cliente y el secreto de Google y guarde los cambios .
+1. Pulse el icono de {{site.data.keyword.amashort}}. Se cargará el panel de control de {{site.data.keyword.amashort}}.
+1. Pulse el icono de Google.
+1. Especifique el ID de cliente y el secreto de Google y guarde los cambios.
 
 
 ## Utilización de {{site.data.keyword.amashort}} para la autenticación web de Google
@@ -83,5 +81,3 @@ El cuerpo de la respuesta `POST` debería contener el `access_token` y el `id_to
 
 Ahora puede empezar a realizar solicitudes a los recursos protegidos.
 Todas las solicitudes a recursos protegidos deben contener el elemento de acceso en el campo de cabecera de solicitud de autorización.
-
-

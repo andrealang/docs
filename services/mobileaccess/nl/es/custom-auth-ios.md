@@ -2,29 +2,34 @@
 
 copyright:
   years: 2015, 2016
+lastupdated: "2016-11-07"
 
 ---
 
 # Configuración del SDK del cliente de {{site.data.keyword.amashort}} para iOS (Objective-C)
 {: #custom-ios}
 
-Última actualización: 21 de julio de 2016
-{: .last-updated}
 
-
-Configure su aplicación de iOS con autenticación personalizada para que utilice el SDK del cliente de {{site.data.keyword.amashort}} y conecte la aplicación a {{site.data.keyword.Bluemix}}.
+Configure su aplicación de iOS con autenticación personalizada para que utilice el SDK del cliente de {{site.data.keyword.amafull}} y conecte la aplicación a {{site.data.keyword.Bluemix}}.
 
 **Nota:** si está desarrollando su app iOS en Swift, tenga en cuenta la posibilidad de utilizar el SDK de Swift de cliente de {{site.data.keyword.amashort}}. Las instrucciones de esta página se aplican al SDK de Objective-C de cliente de {{site.data.keyword.amashort}}. Para ver instrucciones sobre cómo utiliza el nuevo SDK de Swift, consulte el apartado sobre [Configuración del SDK de cliente de {{site.data.keyword.amashort}} para iOS (SDK de Swift)](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-ios-swift-sdk.html).
 
 ## Antes de empezar
 {: #before-you-begin}
-Debe tener un recurso que esté protegido por una instancia del servicio de {{site.data.keyword.amashort}} que esté configurado para utilizar un proveedor de identidad personalizado.  Su app para móvil debe instrumentarse con el SDK del cliente de {{site.data.keyword.amashort}}.  Para obtener más información, consulte la siguiente información:
+Debe tener lo siguiente:
+
+* Un recurso protegido mediante una instancia del servicio {{site.data.keyword.amashort}} configurado para que utilice un proveedor de identidad personalizado (consulte [Configuración de la autenticación personalizada](https://console.stage1.ng.bluemix.net/docs/services/mobileaccess/custom-auth-config-mca.html)).  
+* El valor de **TenantID**. Abra el servicio en el panel de control de {{site.data.keyword.amashort}}. Pulse el botón **Opciones móviles**. El valor `tenantId` (también conocido como `appGUID`) se muestra en el campo **GUID de app / TenantId**. Necesitará este valor para inicializar el gestor de autorización.
+* Su nombre de **Dominio**. Es el valor que ha especificado en el campo **Nombre de dominio** de la sección **Personalizado** del separador **Gestión** del panel de control de {{site.data.keyword.amashort}} (consulte [Configuración de la autenticación personalizada](https://console.stage1.ng.bluemix.net/docs/services/mobileaccess/custom-auth-config-mca.html)).
+* El URL de la aplicación de programa de fondo (**Ruta de app**). Necesitará estos valores para enviar solicitudes a los puntos finales protegidos de la aplicación de programa de fondo.
+* Su {{site.data.keyword.Bluemix_notm}} **Región**. Encontrará su región de {{site.data.keyword.Bluemix_notm}} actual en la cabecera, junto al icono **Avatar** ![icono Avatar](images/face.jpg "icono Avatar"). El valor de región que aparece debe ser uno de los siguientes: `EE.UU. Sur`, `Reino Unido` o `Sidney` y debe corresponder con los valores de SDK necesarios en el código Javascript de WebView: `BMSClient.REGION_US_SOUTH`, `BMSClient.REGION_UK` o `BMSClient.REGION_SYDNEY`. Necesitará este valor para inicializar el cliente {{site.data.keyword.amashort}}.
+
+Para obtener más información, consulte la siguiente información:
  * [Iniciación a {{site.data.keyword.amashort}}](https://console.{DomainName}/docs/services/mobileaccess/getting-started.html)
  * [Configuración del SDK de Objective-C de iOS](https://console.{DomainName}/docs/services/mobileaccess/getting-started-ios.html)
  * [Utilización de un proveedor de identidad personalizado](https://console.{DomainName}/docs/services/mobileaccess/custom-auth.html)
  * [Creación de un proveedor de identidad personalizado](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-identity-provider.html)
  * [Configuración de {{site.data.keyword.amashort}} para la autenticación personalizada](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-config-mca.html)
-
 
 
 ## Instalación del SDK del cliente con CocoaPods
@@ -46,14 +51,12 @@ CocoaPods instala las dependencias añadidas. Se mostrarán el progreso y los co
 
 1. Ejecute `open {nombre-proyecto}.xcworkspace` desde una línea de mandatos para abrir su espacio de trabajo de iOS.
 
-
-
-## Inicialización del SDK del cliente
+### Inicialización del SDK del cliente
 {: #custom-ios-sdk-initialize}
 
-Para inicializar el SDK, especifique los parámetros de ruta de la aplicación (`applicationRoute`) y GUID (`applicationGUID`). Un lugar habitual, pero no obligatorio, donde poner el código de inicialización es en el método `application:didFinishLaunchingWithOptions` del delegado de la aplicación.
+Inicialice el SDK pasando los parámetros **Ruta de app** (`applicationRoute`) y **TenantID** (`tenantID`) parameters. 
 
-1. Obtenga los valores de los parámetros de la aplicación. Abra la app en el panel de control de {{site.data.keyword.Bluemix_notm}}. Pulse **Opciones móviles** para ver los valores correspondientes a **Ruta** (`applicationRoute`) y a **Identificador exclusivo global de la app** (`applicationGUID`).
+Un lugar habitual, pero no obligatorio, donde poner el código de inicialización es en el método `application:didFinishLaunchingWithOptions` del delegado de la aplicación.
 
 1. Importe la infraestructura `IMFCore` a la clase en la que desea utilizar el SDK del cliente.
 
@@ -75,36 +78,38 @@ Para inicializar el SDK, especifique los parámetros de ruta de la aplicación (
 	* Defina el valor en la ubicación del archivo `BridgingHeader.h`, por ejemplo: `$(SRCROOT)/MyApp/BridgingHeader.h`
 	* Verifique que la cabecera puente se selecciona en Xcode al crear el proyecto.
 
-1. Inicialice el SDK del cliente. Sustituya applicationRoute y applicationGUID por los valores correspondientes a **Ruta** (`applicationRoute`) e **Identificador exclusivo global de la app** (`applicationGUID`) que ha obtenido de **Opciones móviles**.
+1. Inicialice el SDK del cliente. Sustituya los valores **Ruta de app** (`applicationRoute`) y **TenantID** (`tenantID`) por otros valores. Para obtener más información sobre cómo obtener estos valores, consulte [Antes de empezar](##before-you-begin).
 
-	###Objective-C:
+	Objective-C:
 
 	```Objective-C
 	[[IMFClient sharedInstance]
 			initializeWithBackendRoute:@"applicationRoute"
-			backendGUID:@"applicationGUID"];
+			backendGUID:@"tenantID"];
 	```
 
-	###Swift:
+	Swift:
 
 	```Swift
 	IMFClient.sharedInstance().initializeWithBackendRoute("applicationRoute",
-	 							backendGUID: "applicationGUID")
+	 							backendGUID: "tenantID")
 	```
 
 ## Inicialización de AuthorizationManager
-Inicialice AuthorizationManager especificando en el servicio de {{site.data.keyword.amashort}} el parámetro `tenantId` que obtiene al pulsar en el botón **Mostrar credenciales** en el mosaico del servicio de {{site.data.keyword.amashort}}.
+Inicialice AuthorizationManager pasando el parámetro `tenantId` del servicio {{site.data.keyword.amashort}}. 
 
-### Objective-C
-  ```Objective-C
-     [[IMFAuthorizationManager sharedInstance]  initializeWithTenantId: @"tenantId"];
-  ```
+
+### Objective-C:
+
+```Objective-
+ [[IMFAuthorizationManager sharedInstance]  initializeWithTenantId: @"tenantId"];
+```
 
 ### Swift:
- ```Swift
-  IMFAuthorizationManager.sharedInstance().initializeWithTenantId("tenantId")
- ```
 
+```Swift
+  IMFAuthorizationManager.sharedInstance().initializeWithTenantId("tenantId")
+```
 
 
 ## Delegado IMFAuthenticationHandler
@@ -123,27 +128,27 @@ Se llama a este método cuando se recibe un cambio de autenticación personaliza
 * El protocolo `IMFAuthenticationContext` se proporciona desde el SDK del cliente de {{site.data.keyword.amashort}} para que el desarrollador pueda volver a notificar las respuestas del cambio de autenticación o el error durante la recopilación de credenciales (por ejemplo, cancelación del usuario).
 * `NSDictionary` que contiene un cambio de autenticación personalizada tal como lo devuelve un proveedor de identidad personalizado
 
-Al llamar al método `authenticationContext:didReceiveAuthenticationChallenge`, el SDK del cliente de {{site.data.keyword.amashort}} está delegando el control al desarrollador y pasa a modo de espera de las credenciales. Es responsabilidad del desarrollador recopilar las credenciales y volverlas a notificar al SDK de cliente de {{site.data.keyword.amashort}} utilizando uno de los siguientes métodos de protocolo `IMFAuthenticationContext`: 
+Al llamar al método `authenticationContext:didReceiveAuthenticationChallenge`, el SDK del cliente de {{site.data.keyword.amashort}} está delegando el control al desarrollador y pasa a modo de espera de las credenciales. Es responsabilidad del desarrollador recopilar las credenciales y volverlas a notificar al SDK de cliente de {{site.data.keyword.amashort}} utilizando uno de los siguientes métodos de protocolo `IMFAuthenticationContext`:
 
 ```
 - (void)authenticationContext:(id<IMFAuthenticationContext>)context
 						didReceiveAuthenticationSuccess:(NSDictionary *)userInfo;
 ```
 
-Se llama a este método después de realizarse una autenticación correcta. Los argumentos incluyen `IMFAuthenticationContext` y un `NSDictionary` opcional que contiene información ampliada sobre el éxito de la autenticación. 
+Se llama a este método después de realizarse una autenticación correcta. Los argumentos incluyen `IMFAuthenticationContext` y un `NSDictionary` opcional que contiene información ampliada sobre el éxito de la autenticación.
 
 ```
 - (void)authenticationContext:(id<IMFAuthenticationContext>)context
 						didReceiveAuthenticationFailure:(NSDictionary*)userInfo;
 ```
 
-Se llama a este método después de un error de autenticación. Los argumentos incluyen `IMFAuthenticationContext` y un `NSDictionary` opcional que contiene información ampliada sobre el éxito de la autenticación. 
+Se llama a este método después de un error de autenticación. Los argumentos incluyen `IMFAuthenticationContext` y un `NSDictionary` opcional que contiene información ampliada sobre el éxito de la autenticación.
 
 ## Protocolo IMFAuthenticationContext
 {: #custom-ios-sdk-authcontext}
 
 
-El protocolo `IMFAuthenticationContext` se proporciona como un argumento para el método `authenticationContext:didReceiveAuthenticationChallenge` de un `IMFAuthenticationHandler` personalizado. El desarrollador se encargará de recopilar las credenciales y utilizar los métodos `IMFAuthenticationContext` para devolver las credenciales al SDK de cliente de {{site.data.keyword.amashort}} o informar de un error.  
+El protocolo `IMFAuthenticationContext` se proporciona como un argumento para el método `authenticationContext:didReceiveAuthenticationChallenge` de un `IMFAuthenticationHandler` personalizado. El desarrollador se encargará de recopilar las credenciales y utilizar los métodos `IMFAuthenticationContext` para devolver las credenciales al SDK de cliente de {{site.data.keyword.amashort}} o informar de un error. 
 ```
 -(void) submitAuthenticationChallengeAnswer:(NSDictionary*) answer;
 
@@ -270,8 +275,6 @@ Aplicaciones Swift:
 IMFClient.sharedInstance().registerAuthenticationDelegate(CustomAuthenticationDelegate(),
 									forRealm: realmName)
 ```
-
-
 
 
 ## Prueba de autenticación

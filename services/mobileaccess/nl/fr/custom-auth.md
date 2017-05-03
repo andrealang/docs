@@ -1,18 +1,22 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Authentification d'utilisateurs à l'aide d'un fournisseur d'identité personnalisé
 {: #custom-id}
 
-Dernière mise à jour : 22 juillet 2016
-{: .last-updated}
 
-
-Vous pouvez créer un fournisseur d'identité personnalisé et implémenter votre propre logique pour la collecte et la validation des données d'identification. Un fournisseur d'identité est une application Web qui expose une interface RESTful. Vous
+Vous pouvez créer un fournisseur d'identité personnalisé qui utilise le service {{site.data.keyword.amafull}} et implémente votre propre logique pour la collecte et la validation des données d'identification. Un fournisseur d'identité est une application Web qui expose une interface RESTful. Vous
 pouvez héberger le fournisseur d'identité personnalisé sur site ou dans {{site.data.keyword.Bluemix}}. La seule exigence est qu'il soit
 accessible depuis l'Internet public afin de pouvoir communiquer avec le service {{site.data.keyword.amashort}}.
 
@@ -35,7 +39,7 @@ accessible depuis l'Internet public afin de pouvoir communiquer avec le service 
 * Le SDK client de {{site.data.keyword.amashort}} délègue l'authentification à une classe personnalisée que vous avez créée. Vous devez collecter les données d'identification et les fournir au SDK client de {{site.data.keyword.amashort}}.
 * Les données d'identification fournies au SDK {{site.data.keyword.amashort}} par le développeur sont envoyées au service {{site.data.keyword.amashort}} en tant que réponse à la demande d'authentification.
 * Le service {{site.data.keyword.amashort}} valide la réponse à la demande d'authentification auprès du fournisseur d'identité.
-* Si la validation aboutit, le service {{site.data.keyword.amashort}} génère un en-tête d'autorisation et le renvoie au SDK client de {{site.data.keyword.amashort}}. L'en-tête d'autorisation contient deux jetons : un jeton qui contient des informations sur les droits d'accès, et un autre jeton qui contient des informations sur l'utilisateur, le périphérique et l'application actuels.
+* Si la validation aboutit, le service {{site.data.keyword.amashort}} génère un en-tête d'autorisation et le renvoie au SDK client de {{site.data.keyword.amashort}}. L'en-tête d'autorisation contient deux jetons : un jeton qui contient des informations sur les droits d'accès, et un autre jeton qui contient des informations sur l'utilisateur, l'appareil et l'application actuels.
 * A partir de ce moment, toutes les demandes faites avec le SDK client de {{site.data.keyword.amashort}} contiennent un nouvel en-tête d'autorisation.
 * Le SDK client de {{site.data.keyword.amashort}} renvoie automatiquement la demande d'origine qui avait déclenché le flux d'autorisation.
 * Le SDK serveur de {{site.data.keyword.amashort}} extrait l'en-tête d'autorisation de la demande, la valide auprès du service {{site.data.keyword.amashort}}, et donne l'accès à la ressource de back end.
@@ -47,10 +51,7 @@ Le flux de demande d'une application Web {{site.data.keyword.amashort}} est simi
 {{site.data.keyword.amashort}} protège l'application et non pas une ressource de back end {{site.data.keyword.Bluemix_notm}}.
 
   * La requête initiale est envoyée par l'application Web (depuis un formulaire de connexion, par exemple).
-  * La redirection finale vise la zone protégée de l'application Web elle-même et non pas une ressource de back end protégée. 
-
-
-
+  * La redirection finale vise la zone protégée de l'application Web elle-même et non pas une ressource de back end protégée.
 
 ## Présentation des fournisseurs d'identité personnalisés
 {: #custom-id-about}
@@ -75,6 +76,7 @@ personnaliser les flux d'authentification.
 		}
 	}
 	```
+	{: codeblock}
 
 1. Implémentez éventuellement des flux de collecte de données d'identification personnalisés sur le client, notamment l'authentification
 multi-étapes et multi-forme. De la même manière que pour la demande d'authentification personnalisée, vous devez créer la structure de la réponse personnalisée.
@@ -88,6 +90,8 @@ multi-étapes et multi-forme. De la même manière que pour la demande d'authent
 		pincode:"1234"
 	}
 	```
+	{: codeblock}
+
 1. Implémenter la logique personnalisée de la validation fournie par la réponse à la demande d'authentification.
 
 1. Définir un objet identité de l'utilisateur personnalisé contenant les propriétés personnalisées requises. Ci-après figure un exemple d'objet d'identité
@@ -104,6 +108,7 @@ utilisateur personnalisé obtenu par le client après aboutissement de l'authent
 		}
 	}
 	```
+	{: codeblock}
 
 ### Exemple d'implémentation d'un fournisseur d'identité personnalisé
 {: #custom-sample}
@@ -112,8 +117,8 @@ Vous pouvez utiliser comme référence l'un des exemples d'implémentation Node.
 fournisseur d'identité personnalisé. Téléchargez le code d'application complet depuis les référentiels
 GitHub.
 
- * [Exemple simple](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample)
- * [Exemple avancé](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management)
+ * [Exemple simple ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample "Icône de lien externe "){: new_window}
+ * [Exemple avancé ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management "Icône de lien externe"){: new_window}
 
 ## Communications standard entre le serveur {{site.data.keyword.amashort}} et un fournisseur d'identité personnalisé
 {: #custom-id-comm}
@@ -146,10 +151,9 @@ domaine identifie l'instance de service {{site.data.keyword.amashort}} spécifiq
 
 ## Etapes suivantes
 {: #next-steps}
+
 * [Création d'un fournisseur d'identité personnalisé](custom-auth-identity-provider.html)
 * [Configuration de {{site.data.keyword.amashort}} pour l'authentification personnalisée](custom-auth-config-mca.html)
 * [Configuration de l'authentification personnalisée pour Android](custom-auth-android.html)
 * [Configuration de l'authentification personnalisée pour iOS (SDK Swift)](custom-auth-ios-swift-sdk.html)
-* [Configuration de l'authentification personnalisée pour iOS (SDK Objective-C)](custom-auth-ios.html)
 * [Configuration de l'authentification personnalisée pour Cordova](custom-auth-cordova.html)
-

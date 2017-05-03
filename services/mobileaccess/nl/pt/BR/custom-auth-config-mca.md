@@ -1,43 +1,38 @@
 ---
 
 copyright:
-  years: 2015, 2016
-  
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-08"
+
 ---
 
 # Configurando o {{site.data.keyword.amashort}} para autenticação customizada
 {: #custom-dash}
-
-Última atualização: 17 de julho de 2016
-{: .last-updated}
 
 
 Para usar autenticação customizada com seu app móvel, deve-se registrar uma região de autenticação customizada e a URL base de seu provedor de identidade customizado no painel do serviço {{site.data.keyword.amashort}}.
 
 ## Antes de Começar
 {: #custom-dash-begin}
-* Leia a [Introdução](index.html).
-* Proteja seu aplicativo backend com o {{site.data.keyword.amashort}} server SDK.  Para obter mais informações, consulte [Protegendo recursos](protecting-resources.html).
-* Tenha um aplicativo de provedor de identidade customizado em execução.
+Você deve ter:
+* Uma instância de um serviço
+{{site.data.keyword.amafull}}.
+* Um aplicativo do provedor de identidade customizado.
 
-## Configure a autenticação customizada no painel do {{site.data.keyword.Bluemix}}
+## Configure a autenticação customizada no painel do {{site.data.keyword.amafull}}
 {: #custom-dash-config}
-Use o painel {{site.data.keyword.Bluemix}} para configurar a autenticação customizada.
+Use o painel do {{site.data.keyword.amafull}} para configurar a autenticação customizada.
 
-1. Abra seu app no painel do {{site.data.keyword.Bluemix}}.
+1. Abra o seu serviço no painel do {{site.data.keyword.amafull}}.
+1. Na guia **Gerenciar**, acione
+**Autorização**.
+1. Expanda a seção **Customizado**.
+1. Insira o **Nome do domínio**,
+**URL do provedor de identidade customizado**. O valor **URIs de redirecionamento de aplicativo da
+web** é necessário somente para aplicativos da web.
 
-1. Clique em **Opções móveis** e anote a
-**Rota** (`applicationRoute`) e o **GUID
-do app** (`applicationGUID`). Esses valores serão necessários para inicializar o SDK.
-
-1. Clique no ladrilho {{site.data.keyword.amashort}}. O painel do {{site.data.keyword.amashort}} é carregado.
-
-1. Clique no ladrilho **Customizado**.
-
-1. Insira o **Nome da região** e a **URL base** de seu provedor de identidade customizado e salve as mudanças.
-
-## Próximas Etapas
+## Próximas etapas
 {: #next-steps}
 * [Configurando a autenticação customizada para Android](custom-auth-android.html)
-* [Configurando a autenticação customizada para iOS](custom-auth-ios.html)
+* [Configurando a autenticação customizada para iOS](custom-auth-ios-swift-sdk.html)
 * [Configurando a autenticação customizada para Cordova](custom-auth-cordova.html)

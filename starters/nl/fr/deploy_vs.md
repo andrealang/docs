@@ -1,12 +1,14 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2016
+  years: 2015，2017
 
- 
+lastupdated: "2016-06-25"
+
+
 
 ---
 
@@ -15,9 +17,7 @@ copyright:
 
 # Développement avec Visual Studio
 
-*Dernière mise à jour : 23 juin 2016 *
-
-  1. Si vous ne disposez pas encore de Visual Studio, installez Visual Studio 2015 ou Visual Studio Code en suivant les instructions décrites [ici](https://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx){: new_window}.
+  1. If you don't already have Visual Studio, install Visual Studio 2015 or Visual Studio Code by following the instructions [here ![External link icon](../icons/launch-glyph.svg)](https://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx){: new_window}.
 
   1. {: download} Téléchargez votre code de démarrage et procédez à son extraction dans un dossier sur votre disque dur.
 
@@ -28,4 +28,4 @@ copyright:
 
   1. Une fois que vous avez modifié votre code, vous pouvez le redéployer à l'aide des outils d'interface de ligne de commande CF ou Bluemix.
 
-Pour obtenir des instructions détaillées concernant le déploiement d'applications, voir [Déploiement d'applications à l'aide de l'interface de ligne de commande CF](./install_cli.html){: new_window}.
+Pour obtenir des instructions détaillées concernant le déploiement d'applications, voir [Déploiement d'applications à l'aide de l'interface de ligne de commande CF ![icône de lien externe](../icons/launch-glyph.svg)](./install_cli.html){: new_window}.

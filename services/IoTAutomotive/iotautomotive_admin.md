@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016
-
+  years: 2016, 2017
+lastupdated: "2017-03-08"
 ---
 
 {:new_window: target="_blank"}
@@ -11,13 +11,10 @@ copyright:
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Administering {{site.data.keyword.iot4auto_short}}
-{: #1stanchor}
-Last updated: 29 July 2016
-{: .last-updated}
+# Administering IoT for Automotive
+{: #iotautomotive_admin}
 
 Administer your {{site.data.keyword.iot4auto_full}} service instance by using the administration console on the {{site.data.keyword.Bluemix_notm}} dashboard. From the administration console, you can configure parameters for {{site.data.keyword.iot4auto_short}} and manage the data that is stored in the service. You can also view the tenant information and reset the tenant password.
-
 {:shortdesc}
 
 ## Starting the administration console

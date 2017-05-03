@@ -1,24 +1,21 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2015，2016
+  years: 2015，2017
 
- 
+lastupdated: "2016-05-09"
 
 ---
 
-{:shortdesc: .shortdesc} 
+{:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:screen: .screen}
 
 #在 {{site.data.keyword.Bluemix_notm}} 中托管应用程序
-
-*上次更新时间：2016 年 5 月 9 日*
-{: .last-updated}
 
 <!--The whole topic is staging only -->
 
@@ -79,27 +76,26 @@ copyright:
 
   至少应将应用程序安装脚本化为一组独立于操作系统的统一脚本。尽量确保应用程序安装足够小且可移植，以适应不同的自动化方法。此外，尽可能减少应用程序安装需要的依赖关系。
 
-有关云就绪型应用程序的更多信息，请参阅 [The 12-factor application](http://12factor.net/){:new_window}。
+有关云就绪型应用程序的更多信息，请参阅 [The 12-factor application ![外部链接图标](../icons/launch-glyph.svg)](http://12factor.net/){: new_window}。
 
 ##迁移应用程序
 {: #ht_hostapp}
 
 您可以将应用程序以递增方式迁移到 {{site.data.keyword.Bluemix_notm}} 中，而不是一下子将应用程序完全转移到云环境中。您可以先迁移应用程序的一部分，然后使用 Cloud Integration 服务来连接到现有数据或记录系统。
 
-在云应用程序中，可能需要访问后端数据或服务，例如记录系统。在 {{site.data.keyword.Bluemix_notm}} 中，可以使用 Secure Gateway 服务在 {{site.data.keyword.Bluemix_notm}} 组织和企业后端网络之间建立一条安全的隧道。该服务支持 {{site.data.keyword.Bluemix_notm}} 上的应用程序访问后端网络的数据和服务。有关详细信息，请参阅 [Reaching enterprise backend with Bluemix Secure Gateway via console](https://developer.ibm.com/bluemix/2015/04/01/reaching-enterprise-backend-bluemix-secure-gateway/){:new_window}。
+在云应用程序中，可能需要访问后端数据或服务，例如记录系统。在 {{site.data.keyword.Bluemix_notm}} 中，可以使用 Secure Gateway 服务在 {{site.data.keyword.Bluemix_notm}} 组织和企业后端网络之间建立一条安全的隧道。该服务支持 {{site.data.keyword.Bluemix_notm}} 上的应用程序访问后端网络的数据和服务。有关详细信息，请参阅 [Reaching enterprise backend with Bluemix Secure Gateway via console ![外部链接图标](../icons/launch-glyph.svg)](https://developer.ibm.com/bluemix/2015/04/01/reaching-enterprise-backend-bluemix-secure-gateway/){: new_window}。
 
-要将应用程序作为 Cloud Foundry 应用程序部署到 {{site.data.keyword.Bluemix_notm}}，请从 {{site.data.keyword.Bluemix_notm}}“目录”中选择运行时。运行时包含 Hello World 入门模板应用程序，您可以将其替换为自己的应用程序。如果找不到入门模板来提供所需的运行时，那么可以通过在 cf push 命令中使用 -b 选项，将 Cloud Foundry 兼容的定制 buildpack 添加到 {{site.data.keyword.Bluemix_notm}} 中。有关详细信息，请参阅[使用社区 buildpack](../cfapps/byob.html)。
+要将应用程序作为 Cloud Foundry 应用程序部署到 {{site.data.keyword.Bluemix_notm}}，请从 {{site.data.keyword.Bluemix_notm}}“目录”中选择运行时。运行时包含 Hello World 入门模板应用程序，您可以将其替换为自己的应用程序。如果找不到入门模板来提供所需的运行时，那么可以通过在 cf push 命令中使用 -b 选项，将 Cloud Foundry 兼容的定制 buildpack 添加到 {{site.data.keyword.Bluemix_notm}} 中。有关详细信息，请参阅[使用社区 buildpack](/docs/cfapps/byob.html)。
 
 可以使用 {{site.data.keyword.Bluemix_notm}} 提供的以下工具和服务：
 
-*表 1. {{site.data.keyword.Bluemix_notm}} 工具*
-
 | 工具	| 方法 |
 |:------|:--------|
-|Cloud Foundry 命令行界面 (cf cli)	|在本地客户机上管理代码，并使用 Cloud Foundry 命令行界面将应用程序手动推送到 {{site.data.keyword.Bluemix_notm}}。有关更多信息，请参阅[上传应用程序](../starters/upload_app.html)。|
+|Cloud Foundry 命令行界面 (cf cli)	|在本地客户机上管理代码，并使用 Cloud Foundry 命令行界面将应用程序手动推送到 {{site.data.keyword.Bluemix_notm}}。有关更多信息，请参阅[上传应用程序](/docs/starters/upload_app.html)。|
 |Eclipse	|在 Eclipse 中管理代码，并使用 IBM Eclipse Tools for {{site.data.keyword.Bluemix_notm}} 来推送应用程序。|
 |Git 集成	|在 GitHub 上管理代码，并将 Git 集成到 {{site.data.keyword.Bluemix_notm}} 中。您可以与其他开发者进行协作。落实代码中的更改时，应用程序将自动部署到 {{site.data.keyword.Bluemix_notm}}。无需手动推送应用程序。|
 |{{site.data.keyword.Bluemix_notm}} DevOps Delivery Pipeline	|在 DevOps GitHub 存储库上管理代码，并通过 DevOps Delivery Pipeline 将应用程序部署到 {{site.data.keyword.Bluemix_notm}}。|
+{: caption="表 1. {{site.data.keyword.Bluemix_notm}} 工具" caption-side="top"}
 
 
 如果 Cloud Foundry 平台不支持应用程序需求，那么可以使用可通过更多定制选项来设置、配置和维护运行时的容器或 VM。
@@ -129,13 +125,14 @@ copyright:
   domain: mybluemix.net
   instances: 1
   memory: 512M</code></pre>
-<p>有关可在此文件中使用的受支持选项的更多信息，请参阅[应用程序清单](../manageapps/depapps.html#appmanifest)。</p></li></ol>
+<p>有关可在此文件中使用的受支持选项的更多信息，请参阅[应用程序清单](/docs/manageapps/depapps.html#appmanifest)。</p></li></ol>
 </li>
 
 <li>推送应用程序。可以使用 cf push 命令上传应用程序。<ol>
 <li>通过运行以下命令来连接并登录到 {{site.data.keyword.Bluemix_notm}}。系统提示时，选择组织和空间。<pre>cf login -a https://api.ng.bluemix.net</pre></li>
 <li>从应用程序目录中，输入带有应用程序名称的 cf push 命令。应用程序名称在 {{site.data.keyword.Bluemix_notm}} 环境中必须唯一。<pre>cf push appname</pre></li>
-<li>可选：如果使用外部 buildpack，那么必须在 cf push 命令中使用 -b 选项。例如：<pre>cf push appname -b buildpack_URL</pre>
+<li>可选：如果使用外部 buildpack，那么必须在 cf push 命令中使用 -b 选项。例如：
+<pre>cf push appname -b buildpack_URL</pre>
 <p>有关详细信息，请参阅“使用社区 buildpack”。</p>
 </li></ol>
 </li>
@@ -147,7 +144,7 @@ copyright:
 
 * 使用 cf push 命令时，cf 命令行界面会将当前目录中的所有文件和目录复制到 {{site.data.keyword.Bluemix_notm}} 中。请确保应用程序目录中只包含必需的文件。
 * 确保组织的内存足够供应用程序的所有实例使用。要查看组织的内存配额，请使用 cf org org_name。
-* 有关 cf push 的更多信息，请参阅 [cf 命令](../cli/reference/cfcommands/index.html)。
+* 有关 cf push 的更多信息，请参阅 [cf 命令](/docs/cli/reference/cfcommands/index.html)。
 
 ##迁移数据和使用服务
 {: #ht_service}
@@ -169,7 +166,7 @@ services = JSON.parse(ENV['VCAP_SERVICES'], :symbolize_names => true)
             end
           end
         end.flatten!.first
-```		
+```
 {:codeblock}
 
 要确保应用程序可以在本地环境中运行，请在针对 {{site.data.keyword.Bluemix_notm}} 修改应用程序后，检查是否存在为所有 {{site.data.keyword.Bluemix_notm}} Cloud Foundry 应用程序设置的 VCAP_SERVICES 环境变量。
@@ -181,9 +178,9 @@ services = JSON.parse(ENV['VCAP_SERVICES'], :symbolize_names => true)
 ## 相关链接
 {: #general}
 
-* [IBM Containers](../containers/container_index.html)
-* [虚拟机](../virtualmachines/vm_index.html)
-* [Delivery Pipeline 入门](../services/DeliveryPipeline/index.html)
-* [使用 IBM Eclipse Tools for Bluemix 部署应用程序](../manageapps/eclipsetools/eclipsetools.html)
-* [twelve-factor app](http://12factor.net/){:new_window}
-* [Reaching enterprise backend with Bluemix Secure Gateway via console](https://developer.ibm.com/bluemix/2015/04/01/reaching-enterprise-backend-bluemix-secure-gateway/){:new_window}
+* [IBM Containers](/docs/containers/container_index.html)
+* [虚拟机](/docs/virtualmachines/vm_index.html)
+* [Delivery Pipeline 入门](/docs/services/DeliveryPipeline/index.html)
+* [使用 IBM Eclipse Tools for Bluemix 部署应用程序](/docs/manageapps/eclipsetools/eclipsetools.html)
+* [The twelve-factor app ![外部链接图标](../icons/launch-glyph.svg)](http://12factor.net/){: new_window}
+* [Reaching enterprise backend with Bluemix Secure Gateway via console ![外部链接图标](../icons/launch-glyph.svg)](https://developer.ibm.com/bluemix/2015/04/01/reaching-enterprise-backend-bluemix-secure-gateway/){: new_window}。

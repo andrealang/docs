@@ -1,17 +1,17 @@
 ---
 
 copyright:
-  years: 2015, 2016
-  
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-08"
+
 ---
+
+{:codeblock:.codeblock}
 
 # バックエンドのアプリケーションおよびサービス間の通信
 {: #backend-comm}
 
-最終更新日: 2016 年 7 月 21 日
-{: .last-updated}
-
-場合によっては、{{site.data.keyword.Bluemix}} 上で実行しているバックエンド・アプリケーションから、{{site.data.keyword.amashort}} サービスで保護されている別のバックエンド・サービス (例えば {{site.data.keyword.cloudant}} サービス) に要求を送信する必要があります。そういったケースでは、要求に OAuth トークンを追加する必要があります。
+場合によっては、{{site.data.keyword.Bluemix}} 上で実行しているバックエンド・アプリケーションから、{{site.data.keyword.amafull}} サービスで保護されている別のバックエンド・サービス (例えば {{site.data.keyword.cloudant}} サービス) に要求を送信する必要があります。そういったケースでは、要求に OAuth トークンを追加する必要があります。
 
 OAuth トークンを取得して要求に注入するには、`bms-mca-oauth-sdk npmjs` モジュールを使用します。
 
@@ -23,6 +23,7 @@ OAuth トークンを取得して要求に注入するには、`bms-mca-oauth-sd
 ```Bash
 npm install -save bms-mca-oauth-sdk
 ```
+{: codeblock}
 
 ## bms-mca-oauth-sdk モジュールの使用
 {: #using-sdk}
@@ -45,7 +46,7 @@ var options = {
 	// Alternatively, you can get these property values by clicking Show Credentials
 	// on the {{site.data.keyword.amashort}} Service tile in your {{site.data.keyword.Bluemix_notm}} application dashboard
 
-	appId: "appId",				// Bleumix applicationGUID, a.k.a tenantId
+	appId: "tenantID",				// a.k.a. Bluemix applicationGUID
 	clientId: "clientId",			
 	secret: "secret",
 	serverUrl: "serverUrl"
@@ -63,3 +64,4 @@ oauthSDK.getAuthorizationHeader(options).then(function(authHeader){
 });
 
 ```
+{: codeblock}

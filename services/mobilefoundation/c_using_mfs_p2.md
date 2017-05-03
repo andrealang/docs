@@ -1,15 +1,13 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated:  "2017-02-17"
 
 ---
 
 #	Using the Professional 1 Application plan
 {: #using_mobilefoundation_p2}
-
-Last updated: 12 September 2016
-{: .last-updated}
 
 With the Professional 1 Application plan users can create 1 mobile application with multiple mobile operating systems.
 After you create the {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application service instance, read the following procedure to get started with the service.
@@ -31,30 +29,46 @@ Consider the following before you configure  {{site.data.keyword.mobilefoundatio
 ###  First steps
 {: #firststeps_p2}
 
-After you create the {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application service instance, follow the procedure below to get started.
+After you create the {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application service instance, follow the procedure to get started.
 
-### Setting up connection to {{site.data.keyword.dashdbshort_notm}} service instance
+### Setting up connection to dashDB service instance
 {: #connect_dashdb_p2}
 
-After the {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application service instance is created you will see the *Overview* page where you will need to specify the connection information for the {{site.data.keyword.dashdbshort_notm}}: Enterprise Transactional service instance.
+After the {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application service instance is created you will see the *Overview* page where you will need to specify the connection information for the {{site.data.keyword.dashdbshort_notm}} for Transactions service instance, that the {{site.data.keyword.mobilefoundation_short}} service instance should connect to.
+
+**Note:** If you already have a {{site.data.keyword.dashdbshort_notm}} for Analytics: Enterprise for Transactions service instance, you can configure to use the same to connect to the {{site.data.keyword.mobilefoundation_short}} service instance.
+
+You can also create a new {{site.data.keyword.dashdbshort_notm}} for Transactions service instance, if you do not have one already existing.
+
+Follow these steps to create a new dashDB for Transactions service instance:
+
+1. In the *Overview* page select **Create New Service** section.
+
++ Select `Yes` on the **High availability configuration** option, if you want high available {{site.data.keyword.dashdbshort_notm}} for Transactions service instance.
+
++ Review the plan details and click **Create**.
+
+A new {{site.data.keyword.dashdbshort_notm}} for Transactions: EnterpriseForTransactions2.8.500 service instance is created, which provides a dedicated {{site.data.keyword.dashdbshort_notm}} instance with 8GB RAM and 2 vCPUs, and 500 GB of storage.
+
+Follow these steps to connect to an existing {{site.data.keyword.dashdbshort_notm}} service instance or to the {{site.data.keyword.dashdbshort_notm}} for Transactions service instance that you just created:
 
 1. Select the {{site.data.keyword.Bluemix_notm}} `Organization` where the {{site.data.keyword.dashdbshort_notm}} service instance exists.
 
-+ Select the {{site.data.keyword.Bluemix_notm}} `Space` where the {{site.data.keyword.dashdbshort_notm}} service instance exists, from the list of spaces available in the selected `Organization`.
-
-**Note:** If you do not see listed the `Organization` and `Space` where your {{site.data.keyword.dashdbshort_notm}} service instance exists then check if you are a member of that `Organization` and `Space`.
++ Select the {{site.data.keyword.Bluemix_notm}} `Space` where the {{site.data.keyword.dashdbshort_notm}} service instance exists, from the list of spaces available in the selected `Organization`.   
+**Note:** If you do not see listed the `Organization` and `Space` where your {{site.data.keyword.dashdbshort_notm}} service instance exists then check if you are a member of that `Organization` and `Space`. You are required to have a *Developer* role access to the organization and space, as the {{site.data.keyword.mobilefoundation_short}} service accesses the credentials from the {{site.data.keyword.dashdbshort_notm}} service.
 
 + Select the {{site.data.keyword.dashdbshort_notm}} `Service Name` and `Credentials` to connect to the existing  {{site.data.keyword.dashdbshort_notm}} service instance.
 
-+  Test the connection to the specified {{site.data.keyword.dashdbshort_notm}}: Enterprise Transactional service instance.
++  Test the connection to the specified {{site.data.keyword.dashdbshort_notm}} service instance.
 
-+  Click **Continue**. This action creates the required tables in the configured {{site.data.keyword.dashdbshort_notm}} database service instance.
++  Click **Add**. This action creates the required tables in the configured {{site.data.keyword.dashdbshort_notm}} database service instance.
+
+In a few seconds, you can access the `Overview` page that provides you with  tutorials and videos to help you get started with the  {{site.data.keyword.mobilefoundation_short}} service.
 
 **Note**: You cannot change the {{site.data.keyword.dashdbshort_notm}} service instance that is configured to be used by your {{site.data.keyword.mobilefoundation_short}} service instance. However, you can use the same {{site.data.keyword.dashdbshort_notm}} service instance across multiple {{site.data.keyword.mobilefoundation_short}} service instances, as each {{site.data.keyword.mobilefoundation_short}} service instance creates its own schema in the selected {{site.data.keyword.dashdbshort_notm}} service instance.
 
-* In a few seconds, you can access the `Overview` page that provides you with  tutorials and videos to help you get started with the  {{site.data.keyword.mobilefoundation_short}} service.
 
-## Starting the {{site.data.keyword.mobilefirst}} server
+## Starting the MobileFirst server
 {: #start_mobilefoundation_p2}
 
 * To start the {{site.data.keyword.mfserver_short_notm}}, with default settings, click **Start Basic Server**.
@@ -86,7 +100,7 @@ The process of provisioning your server starts. This process takes about 10 minu
 
  Users can also attach volumes to the containers to persist data. The volume once selected cannot be changed. 20 GB is the default file share space available to the user. If the user needs additional storage space to persist analytics data, he is required to buy additional file share and create a volume using this file share. He can then select this new volume while deploying the analytics server.
 
- For more information on adding volumes to {{site.data.keyword.containerlong}}, refer to [Storing persistent data in a volume by using the {{site.data.keyword.Bluemix_notm}} Dashboard  ](https://new-console.ng.bluemix.net/docs/containers/container_volumes_ui.html){: new_window}.
+ For more information on adding volumes to {{site.data.keyword.containerlong}}, refer to [Storing persistent data in a volume by using the {{site.data.keyword.Bluemix_notm}} Dashboard ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/containers/container_volumes_ui.html){: new_window}.
 
 * Click **Add Analytics** to add the Mobile Analytics server to the {{site.data.keyword.mobilefoundation_short}} service instance.
 
@@ -96,11 +110,21 @@ The process of provisioning starts. This process takes about 10 minutes, and a m
 
 * Single sign-on is enabled between the {{site.data.keyword.mfserver_short_notm}} and the Mobile Analytics server. Mobile Analytics server is configured with the same LTPA keys and user credentials as the {{site.data.keyword.mfserver_short_notm}} server. You can use the same `username` and `password` to log in to the Mobile Analytics console as used to log in to the {{site.data.keyword.mfp_oc_short_notm}}.
 
-For more information on MobileFirst Analytics you can refer to [MobileFirst Foundation Operational Analytics](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/analytics/).
+For more information on MobileFirst Analytics you can refer to [MobileFirst Foundation Operational Analytics ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/analytics/){: new_window}.
 
 **Note:** The Mobile Analytics server is removed when you delete the {{site.data.keyword.mobilefoundation_short}} service instance or when you attempt to re-create the {{site.data.keyword.mfserver_short_notm}}.
 
-## Re-creating the {{site.data.keyword.mobilefirst}} server
+##  Deleting Mobile Analytics server
+{: #deleting_analytics_server_prof}
+
+You can now delete the Mobile Analytics server that was added to the {{site.data.keyword.mobilefoundation_short}} service instance, from the {{site.data.keyword.mobilefoundation_short}} service dashboard.
+
+* Click **Delete Analytics** to delete the  Mobile Analytics server that has been added to the {{site.data.keyword.mobilefoundation_short}} service instance.
+
+ This will delete the analytics container group. The process of deleting analytics containers takes about 10 minutes. You can refresh the screen to view the updated status. Once the analytics containers are deleted, the **Add Analytics** button is re-enabled, you can use this to add the Mobile Analytics server again if you choose to.
+
+
+## Re-creating the MobileFirst server
 {: #recreate_mobilefoundation_p2}
 
 *	Click **Recreate** to re-create the server.
@@ -121,4 +145,4 @@ Use the **Start Server with Advanced Configuration** from the `Overview` page to
 
       - {{site.data.keyword.mobilefirst}} server farm can be created by configuring the number of nodes here.
 
-See [{{site.data.keyword.mobilefoundation_long}} documentation](https://www.ibm.com/support/knowledgecenter/SSHS8R_8.0.0/wl_welcome.html){: new_window}, for more details.
+See [{{site.data.keyword.mobilefoundation_long}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSHS8R_8.0.0/wl_welcome.html){: new_window}, for more details.

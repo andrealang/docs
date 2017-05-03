@@ -1,12 +1,8 @@
 ---
 
- 
-
 copyright:
-
   years: 2015, 2016
-
- 
+lastupdated: "2016-12-21"
 
 ---
 
@@ -16,8 +12,6 @@ copyright:
 {:codeblock: .codeblock}
 
 #Partage de pipelines reposant sur du texte dans les exemples de projet {{site.data.keyword.jazzhub_short}} {: #share-pipeline}
-
-*Dernière mise à jour : 7 décembre 2015* 
 
 Dans le cas d'exemples de projet déployés dans {{site.data.keyword.Bluemix_notm}} via le bouton Déployer dans {{site.data.keyword.Bluemix_notm}}, vous pouvez définir des configurations de pipeline {{site.data.keyword.jazzhub_short}} sous forme de fichiers YAML. Les pipelines définis sous forme de texte peuvent être partagés pour que les personnes qui dévient votre projet n'aient pas à configurer leurs propres pipelines. Cette fonction est en cours de développement : le format YAML et son implémentation peuvent changer à tout moment. Actuellement, cette fonction n'est disponible que pour les projets avec Git et les référentiels GitHub qui ciblent {{site.data.keyword.Bluemix_notm}}. 
 {: shortdesc} 
@@ -210,8 +204,7 @@ CF_ORGANIZATION_ID	| Identificateur global unique de l'organisation
 CF_SPACE |	Nom de l'espace
 CF_SPACE_ID |	Identificateur global unique de l'espace
 CF_APP	| Nom de l'application
-
-*Tableau - Variables d'environnement*
+{: caption="Table 1. Environment variables" caption-side="top"}
 
 **GENERATION D'UN FICHIER YAML DEPUIS UN PIPELINE** 
 
@@ -230,4 +223,3 @@ un navigateur.
 
 **Remarque :** pour des raisons de sécurité, les valeurs de propriété d'environnement de transfert sécurisé sont omises dans les
 fichiers YAML de pipeline générés. 
-

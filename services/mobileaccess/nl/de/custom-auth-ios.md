@@ -2,29 +2,34 @@
 
 copyright:
   years: 2015, 2016
+lastupdated: "2016-11-07"
 
 ---
 
 # {{site.data.keyword.amashort}}-Client-SDK für iOS konfigurieren (Objective-C)
 {: #custom-ios}
 
-Letzte Aktualisierung: 21. Juli 2016
-{: .last-updated}
 
-
-Konfigurieren Sie Ihre iOS-Anwendung, die mit der angepassten Authentifizierung arbeitet, zur Verwendung des {{site.data.keyword.amashort}}-Client-SDK und verbinden Sie Ihre Anwendung mit {{site.data.keyword.Bluemix}}.
+Konfigurieren Sie Ihre iOS-Anwendung, die mit der angepassten Authentifizierung arbeitet, zur Verwendung des {{site.data.keyword.amafull}}-Client-SDK und verbinden Sie Ihre Anwendung mit {{site.data.keyword.Bluemix}}.
 
 **Hinweis:** Wenn Sie Ihre iOS-App mit Swift entwickeln, sollten Sie die Verwendung von {{site.data.keyword.amashort}}-Client-Swift-SDK in Erwägung ziehen. Die Anweisungen auf dieser Seite gelten für das {{site.data.keyword.amashort}}-Client-Objective-C-SDK. Anweisungen für die Verwendung des neuen Swift-SDK finden Sie in [{{site.data.keyword.amashort}}-Client-SDK für iOS konfigurieren (Swift-SDK)](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-ios-swift-sdk.html).
 
 ## Vorbereitungen
 {: #before-you-begin}
-Sie müssen über eine Ressource verfügen, die durch eine Instanz des {{site.data.keyword.amashort}}-Service geschützt wird, die zur Verwendung eines angepassten Identitätsproviders konfiguriert ist.  Ihre mobile App muss außerdem mit dem {{site.data.keyword.amashort}}-Client-SDK instrumentiert sein.  Weitere Informationen finden Sie über die folgenden Links:
+Voraussetzungen:
+
+* Eine Ressource, die durch eine Instanz des {{site.data.keyword.amashort}}-Service geschützt wird, die zur Verwendung eines angepassten Identitätsproviders konfiguriert ist (siehe die Veröffentlichung zur [Konfiguration der angepassten Authentifizierung](https://console.stage1.ng.bluemix.net/docs/services/mobileaccess/custom-auth-config-mca.html)).  
+* Der Wert für die **Tenant-ID**. Öffnen Sie den Service im {{site.data.keyword.amashort}}-Dashboard. Klicken Sie auf die Schaltfläche **Mobile Systemerweiterungen**. Im Feld **App-GUID/TenantId** wird der Wert `tenantId` (auch als `appGUID` bezeichnet) angezeigt. Sie benötigen diesen Wert für die Initialisierung von Authorization Manager.
+* Der Realname. Dies ist der Wert, den Sie im Feld **Realmname** des Abschnitts **Angepasst** auf der Registerkarte **Management** des {{site.data.keyword.amashort}}-Dashboards angegeben haben (siehe die Veröffentlichung zur [Konfiguration der angepassten Authentifizierung](https://console.stage1.ng.bluemix.net/docs/services/mobileaccess/custom-auth-config-mca.html)).
+* Die URL der Back-End-Anwendung (**App-Route**). Sie benötigen diese Werte zum Senden von Anforderungen an die geschützten Endpunkte der Back-End-Anwendung.
+* Die {{site.data.keyword.Bluemix_notm}}-**Region**. Ihre aktuelle {{site.data.keyword.Bluemix_notm}}-Region finden Sie im Header neben dem Symbol **Avatar** ![Avatarsymbol](images/face.jpg "Avatarsymbol"). Der Regionswert, der angezeigt wird, sollte einer der folgenden sein: `USA (Süden)`, `Vereinigtes Königreich` oder `Sydney`. Außerdem sollte er den im WebView-JavaScript-Code erforderlichen SDK-Werten entsprechen: `BMSClient.REGION_US_SOUTH`, `BMSClient.REGION_UK` oder `BMSClient.REGION_SYDNEY`. Sie benötigen diesen Wert für die Initialisierung des {{site.data.keyword.amashort}}-Clients.
+
+Weitere Informationen finden Sie über die folgenden Links:
  * [Einführung in {{site.data.keyword.amashort}}](https://console.{DomainName}/docs/services/mobileaccess/getting-started.html)
  * [iOS-Objective-C-SDK einrichten](https://console.{DomainName}/docs/services/mobileaccess/getting-started-ios.html)
  * [Angepassten Identitätsprovider verwenden](https://console.{DomainName}/docs/services/mobileaccess/custom-auth.html)
  * [Angepassten Identitätsprovider erstellen](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-identity-provider.html)
  * [{{site.data.keyword.amashort}} für die angepasste Authentifizierung konfigurieren](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-config-mca.html)
-
 
 
 ## Client-SDK mit CocoaPods installieren
@@ -46,14 +51,12 @@ CocoaPods installiert die hinzugefügten Abhängigkeiten. Der Fortschritt und di
 
 1. Führen Sie den Befehl `open {your-project-name}.xcworkspace` über die Befehlszeile aus, um Ihren iOS-Projektarbeitsbereich zu öffnen.
 
-
-
-## Client-SDK initialisieren
+### Client-SDK initialisieren
 {: #custom-ios-sdk-initialize}
 
-Initialisieren Sie das SDK, indem Sie die Parameter für Route (`applicationRoute`) und GUID (`applicationGUID`) der Anwendung übergeben. Eine gängige, wenngleich nicht verbindliche, Position für den Initialisierungscode ist die Methode `application:didFinishLaunchingWithOptions` Ihres Anwendungsdelegats.
+Initialisieren Sie das SDK, indem Sie die Parameter für **App-Route** (`applicationRoute`) und **Tenant-ID** (`tenantID`) übergeben. 
 
-1. Ermitteln Sie Ihre Werte für die Anwendungsparameter. Öffnen Sie Ihre App im {{site.data.keyword.Bluemix_notm}}-Dashboard. Klicken Sie auf **Mobile Systemerweiterungen**, um die Werte für **Route** (`applicationRoute`) und **App-GUID** (`applicationGUID`) anzuzeigen.
+Eine gängige, wenngleich nicht verbindliche, Position für den Initialisierungscode ist die Methode `application:didFinishLaunchingWithOptions` Ihres Anwendungsdelegats.
 
 1. Importieren Sie das Framework `IMFCore` in die Klasse, die das Client-SDK verwenden soll.
 
@@ -75,36 +78,38 @@ Initialisieren Sie das SDK, indem Sie die Parameter für Route (`applicationRout
 	* Setzen Sie den Wert auf die Position Ihrer Datei `BridgingHeader.h`. Beispiel: `$(SRCROOT)/MyApp/BridgingHeader.h`
 	* Überprüfen Sie, ob Ihr Überbrückungsheader von Xcode beim Erstellen (Build) Ihres Projekts aufgenommen wird.
 
-1. Initialisieren Sie das Client-SDK. Ersetzen Sie 'applicationRoute' und 'applicationGUID' durch die Werte für **Route** (`applicationRoute`) und **App-GUID** (`applicationGUID`), die Sie im Abschnitt **Mobile Systemerweiterungen** ermittelt haben.
+1. Initialisieren Sie das Client-SDK. Ersetzen Sie die **App-Route** (`applicationRoute`) und **Tenant-ID** (`tenantID`) mit Werten. Weitere Informationen zum Abrufen dieser Werte finden Sie unter [Vorbereitungen](##before-you-begin).
 
-	###Objective-C:
+	Objective-C:
 
 	```Objective-C
 	[[IMFClient sharedInstance]
 			initializeWithBackendRoute:@"applicationRoute"
-			backendGUID:@"applicationGUID"];
+			backendGUID:@"tenantID"];
 	```
 
-	###Swift:
+	Swift:
 
 	```Swift
 	IMFClient.sharedInstance().initializeWithBackendRoute("applicationRoute",
-	 							backendGUID: "applicationGUID")
+	 							backendGUID: "tenantID")
 	```
 
 ## AuthorizationManager initialisieren
-Initialisieren Sie den AuthorizationManager durch Übergeben des Parameters `tenantId` des {{site.data.keyword.amashort}}-Service, den Sie erhalten, wenn Sie auf die Schaltfläche **Berechtigungsnachweise anzeigen** der Kachel für den {{site.data.keyword.amashort}}-Service klicken. 
+Initialisieren Sie den AuthorizationManager durch Übergeben des Parameters `tenantId` des {{site.data.keyword.amashort}}-Service. 
 
-### Objective-C
-  ```Objective-C
-     [[IMFAuthorizationManager sharedInstance]  initializeWithTenantId: @"tenantId"];
-  ```
+
+### Objective-C:
+
+```Objective-
+ [[IMFAuthorizationManager sharedInstance]  initializeWithTenantId: @"tenantId"];
+```
 
 ### Swift:
- ```Swift
-  IMFAuthorizationManager.sharedInstance().initializeWithTenantId("tenantId")
- ```
 
+```Swift
+  IMFAuthorizationManager.sharedInstance().initializeWithTenantId("tenantId")
+```
 
 
 ## IMFAuthenticationHandler-Delegat
@@ -130,20 +135,20 @@ Durch Aufrufen der Methode `authenticationContext:didReceiveAuthenticationChalle
 						didReceiveAuthenticationSuccess:(NSDictionary *)userInfo;
 ```
 
-Diese Methode wird nach einer erfolgreichen Authentifizierung aufgerufen. Die Argumente sind `IMFAuthenticationContext` und ein optionales `NSDictionary`-Objekt, das erweiterte Informationen zum Authentifizierungserfolg enthält. 
+Diese Methode wird nach einer erfolgreichen Authentifizierung aufgerufen. Die Argumente sind `IMFAuthenticationContext` und ein optionales `NSDictionary`-Objekt, das erweiterte Informationen zum Authentifizierungserfolg enthält.
 
 ```
 - (void)authenticationContext:(id<IMFAuthenticationContext>)context
 						didReceiveAuthenticationFailure:(NSDictionary*)userInfo;
 ```
 
-Diese Methode wird nach einem Authentifizierungsfehler aufgerufen. Die Argumente sind `IMFAuthenticationContext` und ein optionales `NSDictionary`-Objekt, das erweiterte Informationen zum Authentifizierungsfehler enthält. 
+Diese Methode wird nach einem Authentifizierungsfehler aufgerufen. Die Argumente sind `IMFAuthenticationContext` und ein optionales `NSDictionary`-Objekt, das erweiterte Informationen zum Authentifizierungsfehler enthält.
 
 ## IMFAuthenticationContext-Protokoll
 {: #custom-ios-sdk-authcontext}
 
 
-Das Protokoll `IMFAuthenticationContext` wird als Argument für die Methode `authenticationContext:didReceiveAuthenticationChallenge` eines angepassten `IMFAuthenticationHandler` angegeben. Es liegt in der Verantwortung des Entwicklers, Berechtigungsnachweise zu erfassen und diese durch die Methoden von `IMFAuthenticationContext` an das {{site.data.keyword.amashort}}-Client-SDK zurückzugeben oder einen Fehler zu melden.  
+Das Protokoll `IMFAuthenticationContext` wird als Argument für die Methode `authenticationContext:didReceiveAuthenticationChallenge` eines angepassten `IMFAuthenticationHandler` angegeben. Es liegt in der Verantwortung des Entwicklers, Berechtigungsnachweise zu erfassen und diese durch die Methoden von `IMFAuthenticationContext` an das {{site.data.keyword.amashort}}-Client-SDK zurückzugeben oder einen Fehler zu melden. 
 ```
 -(void) submitAuthenticationChallengeAnswer:(NSDictionary*) answer;
 
@@ -274,8 +279,6 @@ IMFClient.sharedInstance().registerAuthenticationDelegate(CustomAuthenticationDe
 ```
 
 
-
-
 ## Authentifizierung testen
 {: #custom-ios-testing}
 Nach der Initialisierung des Client-SDK und der Registrierung des angepassten Delegats `IMFAuthenticationDelegate` können Sie mit dem Senden von Anforderungen an Ihre mobile Back-End-Anwendung beginnen.
@@ -284,7 +287,8 @@ Nach der Initialisierung des Client-SDK und der Registrierung des angepassten De
 {: #custom-ios-testing-before}
  Sie müssen eine Anwendung, die mit der {{site.data.keyword.mobilefirstbp}}-Boilerplate erstellt wurde, sowie eine Ressource, die durch {{site.data.keyword.amashort}} geschützt wird, am Endpunkt `/protected` haben.
 
-1. Senden Sie eine Anforderung an den geschützten Endpunkt Ihrer mobilen Back-End-Anwendung in Ihrem Browser, indem Sie die Adresse `{applicationRoute}/protected` öffnen (z. B. `http://my-mobile-backend.mybluemix.net/protected`). Der Endpunkt `/protected` einer mobilen Back-End-Anwendung, die mit der {{site.data.keyword.mobilefirstbp}}-Boilerplate erstellt wurde, wird mit {{site.data.keyword.amashort}} geschützt. Auf den Endpunkt können nur mobile Anwendungen zugreifen, die mit dem {{site.data.keyword.amashort}}-Client-SDK instrumentiert sind. Daher wird eine Nachricht `Unauthorized` (Nicht autorisiert) in Ihrem Browser angezeigt.
+1. Senden Sie eine Anforderung an den geschützten Endpunkt Ihrer mobilen Back-End-Anwendung in Ihrem Browser, indem Sie die Adresse `{applicationRoute}/protected` öffnen (z. B. `http://my-mobile-backend.mybluemix.net/protected`).
+  Der Endpunkt `/protected` einer mobilen Back-End-Anwendung, die mit der {{site.data.keyword.mobilefirstbp}}-Boilerplate erstellt wurde, wird mit {{site.data.keyword.amashort}} geschützt. Auf den Endpunkt können nur mobile Anwendungen zugreifen, die mit dem {{site.data.keyword.amashort}}-Client-SDK instrumentiert sind. Daher wird eine Nachricht `Unauthorized` (Nicht autorisiert) in Ihrem Browser angezeigt.
 1. Verwenden Sie Ihre iOS-Anwendung, um eine Anforderung an denselben Endpunkt zu senden. Fügen Sie den folgenden Code hinzu, nachdem Sie `BMSClient` initialisiert und Ihr angepasstes `IMFAuthenticationDelegate` registriert haben:
 
 	Objective-C:

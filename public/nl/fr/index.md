@@ -1,11 +1,9 @@
 ---
-
  
 
 copyright:
-
   years: 2016
-
+lastupdated: "2016-08-08"
  
 
 ---
@@ -15,8 +13,6 @@ copyright:
 
 # {{site.data.keyword.Bluemix_notm}} public
 {: #public}
-Dernière mise à jour : 8 août 2016
-{: .last-updated}
 
 
 {{site.data.keyword.Bluemix_notm}} fait abstraction de la plupart des aspects complexes associés à l'hébergement et à la gestion des
@@ -133,9 +129,7 @@ facteurs, dont :
 * La charge actuelle de la machine
 * Les environnements d'exécution ou les infrastructures pris en charge par le serveur virtuel
 
-Une fois le serveur virtuel choisi, un gestionnaire d'application sur chaque serveur virtuel installe l'infrastructure et l'environnement
-d'exécution requis pour
-l'application. Celle-ci peut alors être déployée
+Une fois le serveur virtuel choisi, un gestionnaire d'application sur chaque serveur virtuel installe l'infrastructure et l'environnement d'exécution requis pour l'application. Celle-ci peut alors être déployée
 dans cette infrastructure. Ensuite, les artefacts d'application sont démarrés.
 
 La figure suivante présente la structure d'un serveur virtuel, aussi appelé agent DEA (Droplet Execution Agent), sur lequel

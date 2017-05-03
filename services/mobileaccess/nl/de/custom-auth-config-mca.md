@@ -1,41 +1,34 @@
 ---
 
 copyright:
-  years: 2015, 2016
-  
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-08"
+
 ---
 
 # {{site.data.keyword.amashort}} für eine angepasste Authentifizierung konfigurieren
 {: #custom-dash}
-
-Letzte Aktualisierung: 17. Juli 2016
-{: .last-updated}
 
 
 Zur Verwendung einer angepassten Authentifizierung mit Ihrer mobilen App müssen Sie den Realm einer angepassten Authentifizierung und die Basis-URL Ihres angepassten Identitätsproviders im {{site.data.keyword.amashort}}-Service-Dashboard registrieren.
 
 ## Vorbereitungen
 {: #custom-dash-begin}
-* Lesen Sie die Informationen in [Einführung](index.html).
-* Schützen Sie Ihre Back-End-Anwendung mit dem {{site.data.keyword.amashort}}-Server-SDK. Weitere Informationen finden Sie in [Ressourcen schützen](protecting-resources.html).
-* Führen Sie eine aktive Anwendung eines Identitätsproviders aus.
+Voraussetzungen:
+* Eine Instanz eines {{site.data.keyword.amafull}}-Service.
+* Eine Anwendung eines Identitätsproviders.
 
-## Angepasste Authentifizierung im {{site.data.keyword.Bluemix}}-Dashboard konfigurieren
+## Angepasste Authentifizierung im {{site.data.keyword.amafull}}-Dashboard konfigurieren
 {: #custom-dash-config}
-Verwenden Sie das {{site.data.keyword.Bluemix}}-Dashboard, um die angepasste Authentifizierung zu konfigurieren.
+Verwenden Sie das {{site.data.keyword.amafull}}-Dashboard, um die angepasste Authentifizierung zu konfigurieren.
 
-1. Öffnen Sie Ihre App im {{site.data.keyword.Bluemix}}-Dashboard.
-
-1. Klicken Sie auf **Mobile Systemerweiterungen** und notieren Sie die Werte für **Route** (`applicationRoute`) und **App-GUID** (`applicationGUID`). Sie benötigen diese Werte, um das SDK zu initialisieren.
-
-1. Klicken Sie auf die Kachel für {{site.data.keyword.amashort}}. Das {{site.data.keyword.amashort}}-Dashboard wird geladen.
-
-1. Klicken Sie auf die Kachel **Angepasst**.
-
-1. Geben Sie den **Realmnamen** und die **Basis-URL** für Ihren angepassten Identitätsprovider ein und speichern Sie die Änderungen.
+1. Öffnen Sie den Service im {{site.data.keyword.amafull}}-Dashboard.
+1. Aktivieren Sie auf der Registerkarte **Verwalten** die Option **Berechtigung**.
+1. Erweitern Sie den Abschnitt **Angepasst**.
+1. Geben Sie den **Realname** und die **angepasste Identitätsprovider-URL** ein. Der Wert für **Weiterleitungs-URIs Ihrer Webanwendung** ist nur für Webanwendungen erforderlich.
 
 ## Nächste Schritte
 {: #next-steps}
 * [Angepasste Authentifizierung für Android konfigurieren](custom-auth-android.html)
-* [Angepasste Authentifizierung für iOS konfigurieren](custom-auth-ios.html)
+* [Angepasste Authentifizierung für iOS konfigurieren](custom-auth-ios-swift-sdk.html)
 * [Angepasste Authentifizierung für Cordova konfigurieren](custom-auth-cordova.html)

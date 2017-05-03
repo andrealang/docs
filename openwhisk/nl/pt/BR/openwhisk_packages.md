@@ -1,27 +1,21 @@
 ---
 
- 
-
 copyright:
-
-  years: 2016
-
- 
+  years: 2016, 2017
+lastupdated: "2017-02-27"
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
+{:new_window: target="_blank"}
 {:codeblock: .codeblock}
+{:screen: .screen}
 {:pre: .pre}
 
 # Usando e criando pacotes do {{site.data.keyword.openwhisk_short}}
 {: #openwhisk_packages}
-Última atualização: 2 de agosto de 2016
-{: .last-updated}
 
-No {{site.data.keyword.openwhisk}}, é possível usar pacotes para empacotar um conjunto de ações relacionadas juntas e compartilhá-las com outras pessoas.
+No {{site.data.keyword.openwhisk_short}}, é possível usar pacotes para empacotar um conjunto de ações relacionadas juntas e compartilhá-las com outras pessoas.
 
 Um pacote pode incluir *ações* e *feeds*.
 - Uma ação é uma parte do código executada no {{site.data.keyword.openwhisk_short}}. Por exemplo, o pacote Cloudant inclui ações para ler e gravar registros em um banco de dados do Cloudant.
@@ -45,17 +39,19 @@ Vários pacotes são registrados com o {{site.data.keyword.openwhisk_short}}. É
   ```
   {: pre}
   ```
-  pacotes
-  /whisk.system/alarms                                              compartilhado
-  /whisk.system/cloudant                                            compartilhado
-  /whisk.system/github                                              compartilhado
-  /whisk.system/samples                                             compartilhado
-  /whisk.system/slack                                               compartilhado
-  /whisk.system/util                                                compartilhado
-  /whisk.system/watson                                              compartilhado
-  /whisk.system/weather                                             compartilhado
+  packages
+  /whisk.system/cloudant                                                 compartilhado
+  /whisk.system/alarms                                                   compartilhado
+  /whisk.system/watson                                                   compartilhado
+  /whisk.system/websocket                                                compartilhado
+  /whisk.system/weather                                                  compartilhado
+  /whisk.system/system                                                   compartilhado
+  /whisk.system/utils                                                    compartilhado
+  /whisk.system/slack                                                    compartilhado
+  /whisk.system/samples                                                  compartilhado
+  /whisk.system/github                                                   compartilhado
+  /whisk.system/pushnotifications                                        compartilhado
   ```
-  {: screen}
 
 2. Obtenha uma lista de entidades no namespace `/whisk.system/cloudant`.
 
@@ -70,7 +66,6 @@ Vários pacotes são registrados com o {{site.data.keyword.openwhisk_short}}. É
    action /whisk.system/cloudant/write: gravar documento no banco de dados
    feed   /whisk.system/cloudant/changes: feed de mudança do banco de dados
   ```
-  {: screen}
 
   Essa saída mostra que o pacote Cloudant fornece duas ações, `read` e `write` e um feed acionador denominado `changes`. O feed `changes` dispara acionadores quando documentos são incluídos no banco de dados especificado do Cloudant.
 
@@ -86,7 +81,6 @@ Vários pacotes são registrados com o {{site.data.keyword.openwhisk_short}}. É
   action /whisk.system/cloudant/read: ler documento do banco de dados
      (parâmetros: dbname includeDoc id)
   ```
-  {: screen}
 
   Essa saída mostra que a ação `read` do Cloudant requer três parâmetros, incluindo o banco de dados e o ID do documento a ser recuperado.
 
@@ -106,7 +100,6 @@ Vários pacotes são registrados com o {{site.data.keyword.openwhisk_short}}. É
   action /whisk.system/samples/greeting: imprimir uma saudação amistosa
      (parâmetros: nome local)
   ```
-  {: screen}
 
   Observe que a ação `greeting` usa dois parâmetros: `name` e `place`.
 
@@ -116,12 +109,11 @@ Vários pacotes são registrados com o {{site.data.keyword.openwhisk_short}}. É
   wsk action invoke --blocking --result /whisk.system/samples/greeting
   ```
   {: pre}
-  ```
-  {
+  ```json
+     {
       "payload": "Hello, stranger from somewhere!"
   }
   ```
-  {: screen}
 
   A saída é uma mensagem genérica porque nenhum parâmetro foi especificado.
 
@@ -131,12 +123,11 @@ Vários pacotes são registrados com o {{site.data.keyword.openwhisk_short}}. É
   wsk action invoke --blocking --result /whisk.system/samples/greeting --param name Mork --param place Ork
   ```
   {: pre}
-  ```
-  {
+  ```json
+     {
       "payload": "Hello, Mork from Ork!"
   }
   ```
-  {: screen}
 
   Observe que a saída usa os parâmetros `name` e `place` que foram passados para a ação.
 
@@ -159,7 +150,6 @@ No exemplo simples a seguir, você faz a ligação com o pacote `/whisk.system/s
   ```
   ok: ligação valhallaSamples criada
   ```
-  {: screen}
 
 2. Obtenha uma descrição da ligação do pacote.
 
@@ -168,13 +158,12 @@ No exemplo simples a seguir, você faz a ligação com o pacote `/whisk.system/s
   ```
   {: pre}
   ```
-  pacote /myNamespace/valhallaSamples
-   action /myNamespace/valhallaSamples/greeting: imprimir uma saudação amistosa
-   action /myNamespace/valhallaSamples/wordCount: contar palavras em uma sequência
-   action /myNamespace/valhallaSamples/helloWorld: imprimir no console
-   action /myNamespace/valhallaSamples/echo: retorna os argumentos de entrada, não mudados
+  package /myNamespace/valhallaSamples
+   action /myNamespace/valhallaSamples/greeting: Retorna uma saudação amistosa
+   action /myNamespace/valhallaSamples/wordCount: Contar palavras em uma sequência
+   action /myNamespace/valhallaSamples/helloWorld: Demonstra recursos de criação de log
+   action /myNamespace/valhallaSamples/curl: Enrolar uma url de host
   ```
-  {: screen}
 
   Observe que todas as ações no pacote `/whisk.system/samples` estão disponíveis na ligação do pacote `valhallaSamples`.
 
@@ -189,7 +178,6 @@ No exemplo simples a seguir, você faz a ligação com o pacote `/whisk.system/s
       "payload": "Hello, Odin from Valhalla!"
   }
   ```
-  {: screen}
 
   Observe no resultado que a ação herda o parâmetro `place` configurado ao criar a ligação do pacote `valhallaSamples`.
 
@@ -204,7 +192,6 @@ No exemplo simples a seguir, você faz a ligação com o pacote `/whisk.system/s
       "payload": "Hello, Odin from Asgard!"
   }
   ```
-  {: screen}
 
   Observe que o valor do parâmetro `place` especificado com a chamada da ação sobrescreve o valor padrão configurado na ligação do pacote `valhallaSamples`.
 
@@ -212,8 +199,7 @@ No exemplo simples a seguir, você faz a ligação com o pacote `/whisk.system/s
 ## Criando e usando feeds acionadores
 {: #openwhisk_package_trigger}
 
-Feeds oferecem uma maneira conveniente para configurar uma origem de eventos externos para disparar esses eventos para um acionador do {{site.data.keyword.openwhisk_short}}. 
-Este exemplo mostra como usar um feed no pacote Alarmes para disparar um acionador a cada segundo e como usar uma regra para chamar uma ação a cada segundo.
+Feeds oferecem uma maneira conveniente para configurar uma origem de eventos externos para disparar esses eventos para um acionador do {{site.data.keyword.openwhisk_short}}. Este exemplo mostra como usar um feed no pacote Alarmes para disparar um acionador a cada segundo e como usar uma regra para chamar uma ação a cada segundo.
 
 1. Obtenha uma descrição do feed no pacote `/whisk.system/alarms`.
 
@@ -225,7 +211,6 @@ Este exemplo mostra como usar um feed no pacote Alarmes para disparar um acionad
   pacote /whisk.system/alarms
    feed   /whisk.system/alarms/alarm
   ```
-  {: screen}
 
   ```
   wsk action get --summary /whisk.system/alarms/alarm
@@ -235,7 +220,6 @@ Este exemplo mostra como usar um feed no pacote Alarmes para disparar um acionad
   action /whisk.system/alarms/alarm: disparar acionador quando o alarme ocorrer
      (parâmetros: cron trigger_payload)
   ```
-  {: screen}
 
   O feed `/whisk.system/alarms/alarm` aceita dois parâmetros:
   - `cron`: uma especificação de crontab de quando disparar o acionador.
@@ -244,17 +228,16 @@ Este exemplo mostra como usar um feed no pacote Alarmes para disparar um acionad
 2. Crie um acionador que dispare a cada oito segundos.
 
   ```
-  wsk trigger create everyEightSeconds --feed /whisk.system/alarms/alarm -p cron '*/8 * * * * *' -p trigger_payload '{"name":"Mork", "place":"Ork"}'
+  wsk trigger create everyEightSeconds --feed /whisk.system/alarms/alarm -p cron "*/8 * * * * *" -p trigger_payload "{\"name\":\"Mork\", \"place\":\"Ork\"}"
   ```
   {: pre}
   ```
   ok: feed acionador everyEightSeconds criado
   ```
-  {: screen}
 
 3. Crie um arquivo 'hello.js' com o código de ação a seguir.
 
-  ```
+  ```javascript
   function main(params) {
       return {payload:  'Hello, ' + params.name + ' from ' + params.place};
   }
@@ -271,14 +254,12 @@ Este exemplo mostra como usar um feed no pacote Alarmes para disparar um acionad
 5. Crie uma regra que chama a ação `hello` toda vez que o acionador `everyEightSeconds` é disparado.
 
   ```
-  wsk rule create --enable myRule everyEightSeconds hello
+  wsk rule create myRule everyEightSeconds hello
   ```
   {: pre}
   ```
   ok: regra myRule criada
-  ok: regra myRule está sendo ativada
   ```
-  {: screen}
 
 6. Verifique se a ação está sendo chamada pesquisando os logs de ativação.
 
@@ -307,7 +288,6 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
   ```
   ok: pacote custom criado
   ```
-  {: screen}
 
 2. Obtenha um resumo do pacote.
 
@@ -318,13 +298,12 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
   ```
   pacote /myNamespace/custom
   ```
-  {: screen}
 
   Observe que o pacote está vazio.
 
 3. Crie um arquivo chamado `identity.js` que contenha o código de ação a seguir. Essa ação retorna todos os parâmetros de entrada.
 
-  ```
+  ```javascript
   function main(args) { return args; }
   ```
   {: codeblock}
@@ -338,7 +317,6 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
   ```
   ok: ação custom/identity criada
   ```
-  {: screen}
 
   A criação de uma ação em um pacote requer que o nome da ação tenha como prefixo um nome de pacote. Aninhamento de pacote não é permitido. Um pacote pode conter apenas ações e não pode conter outro pacote.
 
@@ -352,7 +330,6 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
   pacote /myNamespace/custom
    ação /myNamespace/custom/identity
   ```
-  {: screen}
 
   É possível ver a ação `custom/identity` em seu namespace agora.
 
@@ -362,10 +339,9 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
   wsk action invoke --blocking --result custom/identity
   ```
   {: pre}
-  ```
+  ```json
   {}
   ```
-  {: screen}
 
 
 É possível configurar parâmetros padrão para todas as entidades em um pacote. Faça isso configurando os parâmetros no nível do pacote herdados por todas as ações no pacote. Para saber como isso funciona, tente o exemplo a seguir:
@@ -379,7 +355,6 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
   ```
   ok: pacote custom atualizado
   ```
-  {: screen}
 
 2. Exiba os parâmetros no pacote e na ação e veja como a ação `identity` no pacote herda os parâmetros do pacote.
 
@@ -388,7 +363,9 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
   ```
   {: pre}
   ```
-  ok: pacote custom obtido, projetando parâmetros
+  ok: got package custom, displaying field parameters
+  ```
+  ```json
   [
       {
           "key": "city",
@@ -400,14 +377,15 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
       }
   ]
   ```
-  {: screen}
 
   ```
   wsk action get custom/identity parameters
   ```
   {: pre}
   ```
-  ok: ação custom/identity obtida, projetando parâmetros
+  ok: got action custom/identity, , displaying field parameters
+  ```
+  ```json
   [
       {
           "key": "city",
@@ -419,7 +397,6 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
       }
   ]
   ```
-  {: screen}
 
 3. Chame a ação identity sem quaisquer parâmetros para verificar se a ação realmente herda os parâmetros.
 
@@ -427,13 +404,12 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
   wsk action invoke --blocking --result custom/identity
   ```
   {: pre}
-  ```
-  {
+  ```json
+     {
       "city": "Austin",
       "country": "USA"
   }
   ```
-  {: screen}
 
 4. Chame a ação identity com alguns parâmetros. Parâmetros de chamada são mesclados com os parâmetros do pacote; os parâmetros de chamada substituem os parâmetros do pacote.
 
@@ -441,14 +417,13 @@ Para criar um pacote customizado com uma ação simples nele, tente o exemplo a 
   wsk action invoke --blocking --result custom/identity --param city Dallas --param state Texas
   ```
   {: pre}
-  ```
-  {
+  ```json
+     {
       "city": "Dallas",
       "country": "USA",
       "state": "Texas"
   }
   ```
-  {: screen}
 
 
 ## Compartilhando um pacote
@@ -459,13 +434,12 @@ Após as ações e os feeds que formam um pacote serem depuradas e testadas, o p
 1. Compartilhe o pacote com todos os usuários:
 
   ```
-  wsk package update custom --shared
+  wsk package update custom --shared yes
   ```
   {: pre}
   ```
   ok: pacote custom atualizado
   ```
-  {: screen}
 
 2. Exiba a propriedade `publish` do pacote para verificar se agora é true.
 
@@ -474,9 +448,11 @@ Após as ações e os feeds que formam um pacote serem depuradas e testadas, o p
   ```
   {: pre}
   ```
-  ok: pacote custom obtido, projetando publish como verdadeiro
+  ok: got package custom, displaying field publish
   ```
-  {: screen}
+  ```json
+  true
+  ```
 
 
 Outros usuários agora podem usar seu pacote `custom`, incluindo ligação com o pacote ou chamando diretamente uma ação no mesmo. Outros usuários devem saber os nomes completos do pacote para ligá-lo ou chamar ações nele. Ações e feeds dentro de um pacote compartilhado são *public*. Se
@@ -492,6 +468,5 @@ o pacote for privado, então, todo o seu conteúdo também será privado.
   pacote /myNamespace/custom
    ação /myNamespace/custom/identity
   ```
-  {: screen}
 
   No exemplo anterior, você está trabalhando com o namespace `myNamespace` e esse namespace aparece no nome completo.

@@ -1,11 +1,9 @@
 ---
-
  
 
 copyright:
-
   years: 2016
-
+lastupdated: "2016-08-08"
  
 
 ---
@@ -15,8 +13,6 @@ copyright:
 
 # {{site.data.keyword.Bluemix_notm}} público
 {: #public}
-*Última actualización: 19 de mayo de 2016*
-{: .last-updated}
 
 
 {{site.data.keyword.Bluemix_notm}} abstrae y oculta la mayoría de las complejidades asociadas con el alojamiento y la gestión de apps basadas en la nube. Como desarrollador de apps, puede centrarse en desarrollar la app sin tener que gestionar la infraestructura necesaria para alojarla.
@@ -87,7 +83,7 @@ Cuando crea una app y la despliega en {{site.data.keyword.Bluemix_notm}}, el ent
 * La carga que ya soporta la máquina
 * Los tiempos de ejecución o infraestructuras que soporta dicho servidor virtual.
 
-Después de seleccionar un servidor virtual, un gestor de apps de cada servidor virtual instala la infraestructura y el tiempo de ejecución adecuados para la app. A partir de entonces la app se puede desplegar en la infraestructura. Cuando se completa el despliegue, se inician los artefactos de la app.
+Después de seleccionar un servidor virtual, un gestor de apps de cada servidor virtual instala la infraestructura y el tiempo de ejecución adecuados para la app. Luego la app se puede desplegar en esta infraestructura. Cuando se completa el despliegue, se inician los artefactos de la app.
 
 La siguiente figura
 muestra la estructura de un servidor virtual, también conocido como agente de ejecución de gotas (DEA), en el que se han desplegado varias apps:
@@ -112,7 +108,8 @@ Cada app puede tener uno o varios URL asociados, pero todos deben apuntar al pun
 
 Una región de {{site.data.keyword.Bluemix_notm}} es un territorio geográfico definido en el que puede desplegar sus apps. Puede crear apps e instancias de servicios en distintas regiones con la misma infraestructura de {{site.data.keyword.Bluemix_notm}} para la gestión de apps y la misma vista de detalles de uso para la facturación. Puede seleccionar la región se esté más cerca de sus clientes y desplegar sus apps a esta región para obtener una latencia baja de la app. También puede seleccionar la región en la que desea conservar los datos de app para solucionar los problemas de seguridad. Cuando crea apps en varias regiones, si una región queda fuera de servicio, las apps que están en las otras regiones seguirán funcionando. Su concesión de recursos es la misma para cada región que utilice.
 
-Si está utilizando la interfaz de usuario de {{site.data.keyword.Bluemix_notm}}, puede cambiar a una región distinta para trabajar con los espacios de esa región. Vaya al icono **Cuenta y soporte** ![Icono Cuenta y soporte](../admin/images/account_support.svg) y expanda el selector **Región**. A continuación puede seleccionar una región distinta de la lista. 
+Si está utilizando la interfaz de usuario de {{site.data.keyword.Bluemix_notm}}, puede cambiar a una región distinta para trabajar con los espacios de esa región. Pulse el icono **{{site.data.keyword.avatar}}** ![Icono
+Avatar](../icons/i-avatar-icon.svg) y expanda el selector Región. A continuación, puede seleccionar una región distinta de la lista.
 
 Si utiliza la interfaz de línea de mandatos cf, debe conectarse a la región {{site.data.keyword.Bluemix_notm}} con la que desea trabajar utilizando el mandato cf api y especificando el punto final API de la región. Por ejemplo, escriba el siguiente mandato para conectarse a la región de
 {{site.data.keyword.Bluemix_notm}} de Europa - Reino Unido:

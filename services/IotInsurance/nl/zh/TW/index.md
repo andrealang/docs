@@ -1,12 +1,12 @@
 ---
 
 copyright:
-  years: 2016
-
+  years: 2016, 2017
+lastupdated: "2017-03-08"
 ---
 
 <!-- Common attributes used in the template are defined as follows: -->
-{:new_window: target="\_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -16,88 +16,100 @@ copyright:
 <!-- {{site.data.keyword.iotinsurance_full}}  {{site.data.keyword.iotinsurance_short}}  -->
 
 
-# 開始使用 {{site.data.keyword.iotinsurance_short}}（測試版）
-{: #iotins_gettingstarted}
-前次更新：2016 年 9 月 12 日
-{: .last-updated}
+# 開始使用 {{site.data.keyword.iotinsurance_short}}
+{: #gettingstarted}
 
 {{site.data.keyword.iotinsurance_full}} 是一個 {{site.data.keyword.Bluemix_notm}} 服務，可用來收集、管理及分析來自所連接投保人的資料。{{site.data.keyword.iotinsurance_short}} 可讓您提供個人化風險評量、即時保護及保單成本降低。
 {:shortdesc}
 
-若要啟動並執行此服務，您必須部署必要服務及應用程式，然後配置服務。
+若要啟動並執行此服務，您必須部署必要服務及應用程式，然後配置服務。尋找服務及應用程式的概觀，以及[關於 {{site.data.keyword.iotinsurance_short}}](iotinsurance_overview.html) 中的架構圖
 
 **必要條件：**開始之前，請確定已具有下列必要條件：
-- [{{site.data.keyword.iotinsurance_short}} 服務](https://new-console.ng.bluemix.net/catalog/services/iot-for-insurance/) 實例必須存在於 {{site.data.keyword.Bluemix_notm}} 空間中。
-- 電腦上必須要有至少 10 GB 儲存空間。
+- [{{site.data.keyword.iotinsurance_short}} 服務](https://console.ng.bluemix.net/catalog/services/iot-for-insurance/)實例必須存在於 {{site.data.keyword.Bluemix_notm}} 空間中。
+- 您的 {{site.data.keyword.Bluemix_notm}} 組織必須有至少 2 GB 的可用記憶體，才能啟用「部署」功能。
 
 ## 部署必要服務及應用程式
 {: #deploying_services}
 
-1. 若要部署所有必要服務及應用程式，請在 {{site.data.keyword.Bluemix_notm}} 儀表板上按一下 {{site.data.keyword.iotinsurance_short}} 服務磚，然後按一下**部署**。
+1. 若要部署所有必要服務及應用程式，請在 [{{site.data.keyword.Bluemix_notm}} 主控台](https://console.ng.bluemix.net/#all-items)上按一下 {{site.data.keyword.iotinsurance_short}} 服務，然後按一下**部署**。
 
   {{site.data.keyword.iotinsurance_short}} 部署它所需的所有服務及 Node.js 應用程式。它會將應用程式自動連結至服務。
 
   每一個服務實例都會使用預設服務方案。您稍後可以移至服務主控台，以升級任何服務方案。您也可以刪除新實例，並將現有實例手動連結至 {{site.data.keyword.iotinsurance_short}} 服務，以使用現有服務實例。如需應用程式的相關資訊，請參閱[關於 {{site.data.keyword.iotinsurance_short}}](iotinsurance_overview.html)。
 
-2. 驗證所有服務及應用程式已建立並正確運作。在 {{site.data.keyword.Bluemix_notm}} 儀表板中，檢查所有應用程式的狀態為`執行中`。
+  **附註**：{{site.data.keyword.iotinsurance_short}} 不再部署 {{site.data.keyword.amafull}} 或 {{site.data.keyword.mobilepushfull}}。較舊版的 {{site.data.keyword.iotinsurance_short}} 使用 {{site.data.keyword.amashort}} 服務來處理來自行動應用程式的回應。這個處理程序仍然適用於所有現有的 {{site.data.keyword.iotinsurance_short}} 實例。不過，您必須建立自訂鑑別處理程序，才能使用行動應用程式搭配新的
+{{site.data.keyword.iotinsurance_short}} 實例。您也可以選擇性地[建立 {{site.data.keyword.mobilepushshort}} 實例](https://console.ng.bluemix.net/docs/services/mobilepush/index.html)、配置它，然後將它連結至 {{site.data.keyword.iotinsurance_short}} API。
 
-3. 驗證 {{site.data.keyword.iotinsurance_short}} 儀表板運作中，並且您可以存取 API。
-  1. 按一下 {{site.data.keyword.iotinsurance_short}} 服務磚，然後選取**服務認證**標籤。
-  2. 按一下**檢視服務認證**，並記下「使用者 ID」及「密碼」。您將透過下列步驟來使用這些認證。
-  3. 選取**管理**標籤，然後按一下**開啟**，以開啟 {{site.data.keyword.iotinsurance_short}} 儀表板。
-  4. 按一下 **API**，以檢視 API。
+2. 驗證 {{site.data.keyword.iotinsurance_short}} 儀表板運作中，並且您可以存取 API。
+  1. 按一下**開啟**，以開啟 {{site.data.keyword.iotinsurance_short}} 儀表板。按一下**登入**，以接受預先填入的認證。
+  2. 回到 {{site.data.keyword.iotinsurance_short}} 服務主控台，然後按一下 **API** 來檢視 API。
 
-## 配置服務
+  **附註：**部署之後，即可在瀏覽器中輸入個別 URL 以直接存取儀表板或 API。當您使用此方法時，必須輸入 {{site.data.keyword.iotinsurance_short}} 服務認證。若要找到您的認證，請回到 {{site.data.keyword.iotinsurance_short}} 服務主控台。按一下**服務認證**標籤，然後按一下**檢視認證**。記下「使用者 ID」及「密碼」。
+
+
+<!--
+## Configuring
 {: #iot4i_configservices}
-請執行下列作業來配置服務：
 
-### 配置 {{site.data.keyword.amashort}}
+
+
+### Configuring {{site.data.keyword.amashort}}
 {: #config_ama}
-1. 識別 {{site.data.keyword.iotinsurance_short}} API 應用程式的基本 URL。此 URL 會顯示在應用程式磚上，而且格式為 *appName*-api.mybluemix.net。
+1. Return to your Bluemix console. All apps and services that were deployed by {{site.data.keyword.iotinsurance_short}} are displayed.
 
-2. 開啟 {{site.data.keyword.amashort}} 服務。
+2. Copy the URL of the {{site.data.keyword.iotinsurance_short}} API application. Right-click the API application and select **Copy Link Location**.
 
-3. 在**自訂**區段中，按一下**配置**，然後輸入下列鑑別認證：
+3. Open the {{site.data.keyword.amashort}} service. The service is available in the Services section of your {{site.data.keyword.Bluemix_notm}} console.
 
-  - **網域名稱**：`IoT4I`
+4. Enable authentication by clicking **On**.
 
-  - **自訂身分提供者 URL**：下列格式的 API 應用程式 URL：
-  ```
-  https://appName-api.mybluemix.net
-  ```
+5. In the **Custom** section, enter the following authentication credentials:
 
-  - **您的 Web 應用程式重新導向 URI**：將此欄位空白。
+  - **Realm name**: `IoT4I`
 
-### 配置 {{site.data.keyword.mobilepushshort}}
+  - **Custom Identity Provider Url**: Paste the URL of the API application that you copied in a previous step.
+
+  - **Your Web Application Redirect URIs**: Leave this field blank.
+
+6. Save your settings. You can now return to the {{site.data.keyword.iotinsurance_short}} service console or your {{site.data.keyword.Bluemix_notm}} console.
+-->
+
+
+## 建立及配置 {{site.data.keyword.mobilepushshort}}
 {: #config_push}
-若要啟用現有行動應用程式的推送通知，您必須配置 {{site.data.keyword.mobilepushshort}} 服務，以及新增「公開金鑰密碼化標準 (PKCS) 12」檔案。如需行動應用程式的相關資訊，請參閱[安裝及連接範例行動應用程式](iotinsurance_mobile_app.html)。如需 {{site.data.keyword.mobilepushshort}} 的相關資訊，請參閱[開始使用推送通知](https://new-console.stage1.ng.bluemix.net/docs/services/mobilepush/index.html)。
+若要啟用現有行動應用程式的推送通知，您可以選擇性地建立 {{site.data.keyword.mobilepushshort}} 服務的實例、將它連結至 {{site.data.keyword.iotinsurance_short}} API，並新增「公開金鑰密碼化標準 (PKCS) 12」檔案。如需行動應用程式的相關資訊，請參閱[安裝及連接範例行動應用程式](iotinsurance_mobile_app.html)。如需 {{site.data.keyword.mobilepushshort}} 的相關資訊，請參閱[開始使用推送通知](https://console.ng.bluemix.net/docs/services/mobilepush/index.html)。
+
+若要在建立之後配置服務，請執行下列步驟：
 
   1. 開啟 {{site.data.keyword.mobilepushshort}} 服務。
-  2. 按一下**設定 Push**。
+  2. 按一下**配置**。
   3. 在「Apple Push Notifications 憑證」區段中，上傳行動應用程式的 PKCS 12 檔案，然後輸入密碼。
+
 
 下一步
 {: #whats_next}
 瞭解您可以使用 {{site.data.keyword.iotinsurance_short}} 執行的作業。
 
-- 建立[使用者及防護裝置關聯](iotinsurance_create_users.html)。
-- 安裝及連接[範例行動應用程式](iotinsurance_mobile_app.html)。
-- 使用[進階服務](iotinsurance_advancedservices.html)來改善效能。
-- 檢視 [API](https://iot4i-docs-api.mybluemix.net/dist/)。
+- 使用「防護工具箱」中的指示及 API 來建立[使用者及防護關聯](iotinsurance_shield_toolkit.html)。
+<!-- - Install and connect the [sample mobile app](iotinsurance_mobile_app.html). -->
+- 下載或檢視 [GitHub 網站上的所有 API ![外部鏈結圖示](../../icons/launch-glyph.svg)](https://github.com/IBM-Bluemix/iot4i-api-examples-nodejs/#iot-for-insurance-api-examples){:new_window}。
 
 # 相關鏈結
 {: #rellinks}
 
 ## 指導教學及範例
 {: #samples}
-* [Github 上的範例行動應用程式碼](https://github.com/ibm-watson-iot/ioti-mobile){:new_window}
+* [{{site.data.keyword.iotinsurance_short}} 防護程式庫 ![外部鏈結圖示](../../icons/launch-glyph.svg)](https://github.com/ibm-watson-iot/ioti-shields){: new_window}
+* [GitHub 上的範例行動應用程式碼 ![外部鏈結圖示](../../icons/launch-glyph.svg)](https://github.com/ibm-watson-iot/ioti-mobile){:new_window}
 
 ## API 參考資料
 {: #api}
-* [{{site.data.keyword.iotinsurance_short}} API 範例](https://iot4i-docs-api.mybluemix.net/dist/){:new_window}
+* [{{site.data.keyword.iotinsurance_short}} API ![外部鏈結圖示](../../icons/launch-glyph.svg)](https://iot4i-api-docs.mybluemix.net/){:new_window}
+* [{{site.data.keyword.iotinsurance_short}} API 範例 ![外部鏈結圖示](../../icons/launch-glyph.svg)](https://github.com/IBM-Bluemix/iot4i-api-examples-nodejs/#iot-for-insurance-api-examples){:new_window}
+
 
 ## 相關鏈結
 {: #general}
-* [{{site.data.keyword.iot_full}} 文件](https://new-console.ng.bluemix.net/docs/services/IoT/index.html)
-* [開發人員支援討論區](https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=%2B[iot]%20%2B[bluemix])
-* [Stack Overflow 支援討論區](http://stackoverflow.com/questions/tagged/ibm-bluemix)
+* [{{site.data.keyword.iot_full}} 文件](https://console.ng.bluemix.net/docs/services/IoT/index.html)
+* [開發人員支援討論區 ![外部鏈結圖示](../../icons/launch-glyph.svg)](https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=%2B[iot]%20%2B[bluemix]){:new_window}
+* [Stack Overflow 支援討論區 ![外部鏈結圖示](../../icons/launch-glyph.svg)](http://stackoverflow.com/questions/tagged/ibm-bluemix){:new_window}

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-03-15"
 
 ---
 
@@ -13,8 +14,6 @@ copyright:
 
 # External service integrations
 {: #ref-index}
-Last updated: 26 September 2016
-{: .last-updated}
 
 External service integration allows you to access data and operations from third-party or external services within your {{site.data.keyword.iot_full}} organization.
 
@@ -39,6 +38,8 @@ The built-in Jasper integration that is provided by our platform provides suppor
 
 You can access the supported operations in the device drilldown of a Jasper connected device after the following configuration steps are completed.
 
+### REST APIs for Jasper
+To access the REST API for Jasper, see the Jasper Extension section in the [{{site.data.keyword.iot_short_notm}} HTTP REST API ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html#!/Jasper_Extension){: new_window} documentation.
 
 ### Configuration for Jasper
 
@@ -89,6 +90,9 @@ The AT&T extension enables the following AT&T operations:
 - Send SMS to SIM
 - Change rate plan
 
+### REST APIs for AT&T
+To access the REST API for AT&T, see the AT&T Extension section in the [{{site.data.keyword.iot_short_notm}} HTTP REST API ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html#!/AT&T_Extension){: new_window} documentation.
+
 ### Configuration for AT&T
 
 In order to connect your {{site.data.keyword.iot_short_notm}} organization to AT&T you must complete organization configuration and device configuration.
@@ -125,7 +129,6 @@ To configure your AT&T-connected devices, complete the following steps:
 
 When the organization is successfully configured, the *Extensions* section displays under the *Extensions Configuration* section in the *Device Drilldown* view.
 
-<!--
 ## ARM mbed connector
 {: #arm}
 
@@ -200,7 +203,7 @@ The payload should be published to the following topic:
 ```
 iot-2/type/<device_type>/id/<deviceId>/cmd/<command_type>/fmt/<command_format>
 ```
--->
+
 
 ## Orange
 {: #orange}
@@ -219,9 +222,10 @@ If you have a device which is connected to your {{site.data.keyword.iot_short_no
 - Last status refresh
 - Location status
 
+### REST APIs for Orange
+To access the REST API for Orange, see the Orange Extension section in the [{{site.data.keyword.iot_short_notm}} HTTP REST API ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html#!/Orange_Extension){: new_window} documentation.
+
 ### Configuration for Orange
-
-
 
 To enable the Orange extension:
 
@@ -252,12 +256,25 @@ When the organization is successfully configured, the *Extensions* section displ
 
 The historical data storage extension lets you locate and configure compatible message storage services such as [{{site.data.keyword.cloudantfull}}](../../cloudant_connector.html) or [{{site.data.keyword.messagehub_full}}](../../message_hub.html) for your IoT data.
 
-## Custom Device Management Packages
+## Custom device management packages
 {: #device_mgmt}
 
-Device management is a core feature of the {{site.data.keyword.iot_short_notm}}, however, it can be extended to develop additional functionality.
+Device management is a core feature of the {{site.data.keyword.iot_short_notm}}, however, it can be extended to develop additional functionality. Custom device management packages must consist of valid JSON and define at least one custom device management action.
 
-The device management extension allows you to install custom functions for device management. For more information on custom device management functions, see [device management custom extensions](../../devices/device_mgmt/custom_actions.html){: new_window}.
+For more information on custom device management functions, including an example of the required JSON format, see [device management custom extensions](../../devices/device_mgmt/custom_actions.html){: new_window}.
+
+### Adding a custom device management package
+
+Custom device management packages can be added either by using the {{site.data.keyword.iot_short_notm}} dashboard, or by using the API.
+
+To add a custom device management package by using the {{site.data.keyword.iot_short_notm}} dashboard:
+
+1. From your {{site.data.keyword.iot_short_notm}} dashboard, click **Settings** from the navigation bar.
+2. Click **Custom Device Management Packages**.
+3. Click the **Add Package** button.
+4. Select your package file and click **Open**.
+
+To add a custom device management package by using the API, see the [{{site.data.keyword.iot_short_notm}} API documentation ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html){: new_window}.
 
 ## Blockchain
 {: #blockchain}
@@ -271,23 +288,30 @@ The device management extension allows you to install custom functions for devic
 
 ### Configuration for Blockchain
 
-{{site.data.keyword.iot_short_notm}} blockchain integration is a services offering  that is not activated by default in {{site.data.keyword.iot_short_notm}}. To activate the feature in your environment, complete the following steps:
- 1. From the {{site.data.keyword.iot_short_notm}} dashboard, **Extensions**.
- 2. Click the **Tell me more** link next to the Blockchain extension to go to the IoT Blockchain Services Offering page.
- 3. Fill out and submit the service request form.   
-The service approval typically takes approximately one day. After your request is approved, you receive an email with instructions on how to activate blockchain integration in your {{site.data.keyword.iot_short_notm}} organization.
- 5. Return to the {{site.data.keyword.iot_short_notm}} dashboard for your organization to complete the setup. For more information, see [{{site.data.keyword.iot_short_notm}} blockchain integration](../../bl_blockchain_integration.html).
+{{site.data.keyword.iot_short_notm}} blockchain integration is a services offering  that is not activated by default in {{site.data.keyword.iot_short_notm}}. To activate the feature in your organization, complete the following steps:
+ 1. From the {{site.data.keyword.iot_short_notm}} dashboard, select **Extensions**.
+ 2. In the **Extensions** page, click **Add Extension**.
+ 3. Click **Add** next to the Blockchain extension.
+ 4. In the Blockchain tile, click **Setup**.
+ 3. In the **Activate Blockchain** section, click the **Learn more** link to go to the [IoT Blockchain Services Offering page ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/internet-of-things/iot-news/announcements/private-blockchain/){: new_window}.
+ 4. Click **Kick-start your blockchain project** to fill out and submit the *Explore the potential of IoT and Blockchain* form.  
+ 5. After your request is approved, IBM will contact you to enable blockchain integration for your organization.
+ 6. Return to the {{site.data.keyword.iot_short_notm}} dashboard for your organization to complete the setup by following the steps in [{{site.data.keyword.iot_short_notm}} blockchain integration](../../bl_blockchain_integration.html).
 
-## The Weather Company
+<!-- ## The Weather Company
 {: #weathercompany}
 
 The Weather Company extension combines weather data with your existing {{site.data.keyword.iot_short_notm}} devices. Weather data from The Weather Company appears in the device details view if an update location request has been made by using the API, or if the device has already set its location by using a device management message.
 
 **Note:** Only managed devices can set their own locations. All unmanaged devices must have their locations set manually by using the API. For more information on setting a device location, see [Update Location requests](../../devices/device_mgmt/index.html#update-location).
 
+### REST APIs for The Weather Company
+To access the REST API for The Weather Company, see the
+Device Location Weather section in the [{{site.data.keyword.iot_short_notm}} HTTP REST API ![External link icon](../../../../icons/launch-glyph.svg)](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html#!/Device_Location_Weather){: new_window} documentation.
+
 ### Weather Data
 
-To view the weather data retrieved for a device location, find the device in the **Devices** pane and click on it. In the detailed device view scroll down to the **Extensions** section. The following weather data is listed:
+To view the weather data retrieved for a device location, find the device in the **Devices** pane and click it. In the detailed device view scroll down to the **Extensions** section. The following weather data is listed:
 
 - Current weather.
 - Current temperature.
@@ -299,5 +323,70 @@ To view the weather data retrieved for a device location, find the device in the
 - Wind direction.
 - Latitude.
 - Longitude.
+-->
 
-<!-- Weather data from The Weather Company extension can be retrieved by using the API. For information on the Weather Company API, see [The Weather Company API documentation](https://docs.internetofthings.ibmcloud.com/swagger/ext-twc.html). -->
+<!-- Weather data from The Weather Company extension can be retrieved by using the API. For information on the Weather Company API, see [The Weather Company API documentation ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/swagger/ext-twc.html){: new_window}. -->
+
+## Email
+{: #email}
+
+Users can be added to the {{site.data.keyword.iot_short_notm}} by using email invitations. For information, see  [Managing user access](../../add_users.html).
+
+To use the email invitation feature, an email extension must be configured to use the SendGrid online service or a Simple Mail Transfer Protocol (SMTP) service. The extension can also use the SendGrid {{site.data.keyword.Bluemix_notm}} application.
+
+### SendGrid online service
+
+To configure the email extension for use with the SendGrid online service, follow these steps:
+
+1. Retrieve the authorized API key from your SendGrid online account.
+2. In your {{site.data.keyword.iot_short_notm}} dashboard, click **Extensions** from the navigation bar.
+3. In the **Email** section, click **Setup**.
+4. Select **SendGrid with API key**
+5. Enter the name and email address of your site administrator, and the authorized API key.
+
+### SMTP service
+
+To configure the email extension for use with an SMTP service, follow these steps:
+
+1. In your {{site.data.keyword.iot_short_notm}} dashboard, click **Extensions** from the navigation bar.
+2. In the **Email** section, click **Setup**.
+3. Select **SMTP**.
+4. Enter the configuration details of your SMTP service.
+
+### SendGrid {{site.data.keyword.Bluemix_notm}} application
+
+To configure the email extension for use with the SendGrid {{site.data.keyword.Bluemix_notm}} application, follow these steps:
+
+1. Create a dummy application and bind the SendGrid service.  
+In order to retrieve the configuration credentials, add and bind the SendGrid service to a dummy app.
+
+ 1. From your {{site.data.keyword.Bluemix_notm}} dashboard, click **Create Service**.
+ 2. Select the SendGrid service from the catalog and click **Create**.
+ 3. From the {{site.data.keyword.Bluemix_notm}} dashboard add the {{site.data.keyword.sdk4nodefull}} application.
+ 4. Click the {{site.data.keyword.sdk4nodefull}} application from the {{site.data.keyword.Bluemix_notm}} dashboard and click **Bind a service or API**.
+ 5. Select the SendGrid service and click **Add**.
+ 6. The {{site.data.keyword.sdk4nodefull}} application must now be restaged.
+2. Prepare to configure the {{site.data.keyword.iot_short_notm}} service.  
+The {{site.data.keyword.iot_short_notm}} can be configured by using the {{site.data.keyword.iot_short_notm}} dashboard or by using the {{site.data.keyword.iot_short_notm}} API.  
+ 1. Click the {{site.data.keyword.sdk4nodefull}} application from the {{site.data.keyword.Bluemix_notm}} dashboard.
+ 2. Click **Environment Variables** from the navigation bar.
+ 3. Copy the displayed JSON to a temporary text file.  
+ The JSON should have the following format:
+```
+{
+  "name": "SendGridServiceName",
+  "label": "user-provided",
+  "credentials": {
+    "password": "xxx",
+    "hostname": "smtp.sendgrid.net",
+    "username": "username"
+  }
+}
+```
+3. Add the configuration data to the {{site.data.keyword.iot_short_notm}} organization.
+ 1. Open the {{site.data.keyword.iot_short_notm}} dashboard.
+ 2. Click **Extensions** from the navigation bar.
+ 3. Click **Setup** under the **Email** icon.
+ 4. Select **SendGrid with username**.
+ 5. Enter the configuration data from the temporary text file.
+ 6. Click **Done**.

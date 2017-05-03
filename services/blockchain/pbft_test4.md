@@ -1,7 +1,8 @@
 ---
 
 copyright:
-years: 2016
+  years: 2016
+lastupdated: "2016-08-04"
 
 ---
 
@@ -14,8 +15,7 @@ years: 2016
 
 # Consensus Test 4: Restart a Byzantine node
 {: #pbft_test1}
-Last updated: 4 August 2016
-{: .last-updated}
+
 
 Consensus Test 4 tests the PBFT protocol in a network scenario where one of the four nodes has come back online after being Byzantine: one node is restarted after going offline in an arbitrary and concurrent manner.
 
@@ -142,6 +142,6 @@ Complete the following steps to test PBFT after restarting one Byzantine node:
    c. As expected, the value of "a" is 1 or less.
 7. Simulate peer **VP2** coming back online by manually restarting it, using the start button in the interface.
 8. Send invoke operations to VP0.
-9. Query the chaincode values of “a” on all four peers. All peers return the same value for “a".  (**Note**: The amount of time it takes for the restarted peer (**VP2**) to successfully execute the `stateTransfer` function is contingent upon a variety of parameters.  Recall that PBFT only requires 2f + 1 peers in order to reach consensus.  Therefore, it may take a large number of invokes for **VP2** to "catch up" due to the fact that it is not required for consensus in the current circumstances.  Visit the hyperledger/fabric [Protocol Specification](https://github.com/hyperledger/fabric/blob/master/docs/protocol-spec.md#5-byzantine-consensus-1) from the Linux Foundation's Hyperledger Project for more information on this consensus implementation.)
+9. Query the chaincode values of “a” on all four peers. All peers return the same value for “a".  (**Note**: The amount of time it takes for the restarted peer (**VP2**) to successfully execute the `stateTransfer` function is contingent upon a variety of parameters.  Recall that PBFT only requires 2f + 1 peers in order to reach consensus.  Therefore, it may take a large number of invokes for **VP2** to "catch up" due to the fact that it is not required for consensus in the current circumstances.  Visit the hyperledger/fabric [Protocol Specification](https://github.com/hyperledger/fabric/blob/v0.6/docs/protocol-spec.md#5-byzantine-consensus-1) from the Linux Foundation's Hyperledger Project for more information on this consensus implementation.)
 
 (END of Consensus Test 4)

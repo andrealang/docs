@@ -27,16 +27,16 @@
 			"img": "homepage/images/network.svg",
 			"href": "services/network.html",
 			"links": [{
-				"name": "블록체인",
+				"name": "Blockchain",
 				"href": "services/blockchain/index.html"
 			}, {
-				"name": "CDN(Content Delivery Network)",
+				"name": "Content Delivery Network(CDN)",
 				"href": "services/cdn/index.html"
 			}, {
 				"name": "Network Security Groups",
 				"href": "services/networksecuritygroups/index.html"
 			}, {
-				"name": "VPN(Virtual Private Network)",
+				"name": "Virtual Private Network(VPN)",
 				"href": "services/vpn/index.html"
 			}]
 		}, {
@@ -123,7 +123,7 @@
 				"name": "Dialog",
 				"href": "services/Dialog/index.html"
 			}, {
-				"name": "문서 변환",
+				"name": "Document Conversion",
 				"href": "services/DocumentConversion/index.html"
 			}, {
 				"name": "Language Translation",
@@ -161,7 +161,7 @@
 			"img": "homepage/images/integration.svg",
 			"href": "services/integrate.html",
 			"links": [{
-				"name": "클라우드 통합",
+				"name": "Cloud Integration",
 				"href": "services/CloudIntegration/index.html"
 			}, {
 				"name": "Secure Gateway",
@@ -244,7 +244,7 @@
 			"img": "homepage/images/mobile.svg",
 			"href": "services/mobile.html",
 			"links": [{
-				"name": "Bluemix 모바일 서비스 시도",
+				"name": "Bluemix 모바일 서비스 사용해 보기",
 				"href": "mobile/index.html"
 			},{
 				"name": "Mobile Application Content Manager",
@@ -270,7 +270,7 @@
 			"img": "homepage/images/iot.svg",
 			"href": "services/internetofthings.html",
 			"links": [{
-				"name": "Internet of Things 플랫폼",
+				"name": "Internet of Things Platform",
 				"href": "services/IoT/index.html"
 			}, {
 				"name": "IoT Real-Time Insights",

@@ -1,9 +1,18 @@
 ---
 
 copyright:
-  years: 2015, 2016
-lastupdated: "2016-10-02"
+  years: 2015, 2016, 2017
+lastupdated: "2017-03-15"
+
 ---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
+
+The {{site.data.keyword.amafull}} service is replaced with the {{site.data.keyword.appid_full}} service.
 
 # Authenticating users with a custom identity provider
 {: #custom-id}
@@ -35,16 +44,13 @@ Create a custom identity provider that uses the {{site.data.keyword.amafull}} se
 * The {{site.data.keyword.amashort}} client SDK automatically resends the original request that triggered the authorization flow.
 * The {{site.data.keyword.amashort}} server SDK extracts authorization header from the request, validates it with the {{site.data.keyword.amashort}} service, and grants access to a back-end resource.
 
-### {{site.data.keyword.amashort}} web application request flow
+### {{site.data.keyword.amashort}} Web application request flow
 {: #mca-custom-web-sequence}
 
-The {{site.data.keyword.amashort}} web application request flow is similar to the mobile client flow. However, {{site.data.keyword.amashort}} protects the web application, rather than a {{site.data.keyword.Bluemix_notm}} back-end resource.
+The {{site.data.keyword.amashort}} Web application request flow is similar to the mobile client flow. However, {{site.data.keyword.amashort}} protects the web application, rather than a {{site.data.keyword.Bluemix_notm}} back-end resource.
 
-  * The initial request is sent by the web application (from a log-in form, for example).
-  * The final redirect is to the protected area of the web application itself, rather than back-end protected resource. 
-
-
-
+  * The initial request is sent by the Web application (from a log-in form, for example).
+  * The final redirect is to the protected area of the Web application itself, rather than back-end protected resource.
 
 ## Understanding custom identity providers
 {: #custom-id-about}
@@ -53,7 +59,7 @@ With a custom identity provider, you can supply custom authentication challenges
 
 When you create a custom identity provider, you might:
 
-1. Customize an authentication challenge to be sent by the {{site.data.keyword.amashort}} service to the mobile or web client application. An authentication challenge is a JSON object that contains any custom data. The client can use this custom data to customize authentication flows.
+1. Customize an authentication challenge to be sent by the {{site.data.keyword.amashort}} service to the mobile or Web client application. An authentication challenge is a JSON object that contains any custom data. The client can use this custom data to customize authentication flows.
 
   Example of a custom authentication challenge:
 
@@ -67,6 +73,7 @@ When you create a custom identity provider, you might:
 		}
 	}
 	```
+	{: codeblock}
 
 1. Implement any custom credentials collection flow on the client, including multi-step and multi-form authentication. Similarly to the custom authentication challenge, you must design the structure of a custom authentication challenge answer.
 
@@ -79,6 +86,8 @@ When you create a custom identity provider, you might:
 		pincode:"1234"
 	}
 	```
+	{: codeblock}
+
 1. Implement custom logic of validating supplied authentication challenge answer.
 
 1. Define a custom user identity object that contains any required custom properties. here is an example of a custom user identity object that is obtained by client after successful authentication:
@@ -94,14 +103,15 @@ When you create a custom identity provider, you might:
 		}
 	}
 	```
+	{: codeblock}
 
 ### Sample implementation of custom identity provider
 {: #custom-sample}
 
 Use any of the following Node.js sample implementations of a custom identity provider as a reference when you develop your custom identity provider. Download full application code from the GitHub repositories.
 
- * [Simple sample](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample)
- * [Advanced sample](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management)
+ * [Simple sample ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample){: new_window}
+ * [Advanced sample ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management){: new_window}
 
 ## Typical communication between {{site.data.keyword.amashort}} server and a custom identity provider
 {: #custom-id-comm}
@@ -125,10 +135,9 @@ A custom identity provider supports one custom authentication realm. To handle i
 
 ## Next steps
 {: #next-steps}
+
 * [Creating a Custom Identity Provider](custom-auth-identity-provider.html)
 * [Configuring {{site.data.keyword.amashort}} for custom authentication](custom-auth-config-mca.html)
 * [Configuring custom authentication for Android](custom-auth-android.html)
 * [Configuring custom authentication for iOS (Swift SDK)](custom-auth-ios-swift-sdk.html)
-* [Configuring custom authentication for iOS (Objective-C SDK)](custom-auth-ios.html)
 * [Configuring custom authentication for Cordova](custom-auth-cordova.html)
-

@@ -1,49 +1,42 @@
 {
   "id": "docs_homepage_services",
-  "title": "如何使用 Bluemix 服务",
-  "subtitle": "了解服务类型和可用性",
-  "subtitleHref": "services/index.html",
+  "title": "计算和服务",
   "items": [{
     "id": "cfApp",
     "title": "Cloud Foundry 应用程序",
+    "img": "homepage/images/cloud-foundry.svg",
     "href": "cfapps/index.html",
-    "category_id": "计算"
-  }, {
-    "title": "运行时",
-    "href": "cfapps/runtimes.html",
-    "category_id": "计算"
+    "category_id": "compute"
   }, {
     "title": "样板",
+    "img": "homepage/images/Bluemix-logo.svg",
     "href": "cfapps/boilerplates.html",
-    "category_id": "计算"
+    "category_id": "compute"
   }, {
-    "id": "whisk",
+    "id": "whisk-rt",
     "title": "IBM OpenWhisk",
+    "img": "homepage/images/whisk_icon.svg",
     "href": "openwhisk/index.html",
-    "category_id": "计算"
+    "category_id": "compute"
   }, {
-    "id": "容器",
-    "title": "IBM Containers",
+    "id": "container",
+    "title": "IBM Bluemix Container Service",
+    "img": "homepage/images/containerServiceIcon.svg",
     "href": "containers/container_index.html",
-    "category_id": "计算"
+    "category_id": "compute"
   }, {
-    "id": "vm",
-    "title": "IBM Virtual Servers",
-    "href": "virtualmachines/vm_index.html",
-    "category_id": "计算"
-  }, {
-    "type": "额外",
-    "title": "尝试使用数据",
+    "type": "extra",
+    "title": "使用数据",
     "href": "services/WorkWithData/index.html",
     "category_id": "data"
   }, {
-    "type": "额外",
-    "title": "尝试工具链",
-    "href": "toolchains/toolchains_overview.html",
+    "type": "extra",
+    "title": "Dedicated GitHub Enterprise",
+    "href": "services/ghededicated/index.html",
     "category_id": "devops"
   }, {
-    "type": "额外",
-    "title": "尝试 Bluemix Mobile 仪表板",
+    "type": "extra",
+    "title": "构建移动项目",
     "href": "mobile/index.html",
     "category_id": "mobile"
   }]

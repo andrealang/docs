@@ -1,12 +1,13 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2015，2016
+  years: 2015，2017
 
- 
+lastupdated: "2011-01-12"
+
 
 ---
 
@@ -17,14 +18,11 @@ copyright:
 # Auto-Scaling CLI
 {: #autoscalingcli}
 
-Last updated: 25 February 2016
-{: .last-updated}
-
 
 You can configure the {{site.data.keyword.autoscaling}} service by using the {{site.data.keyword.autoscaling}} CLI for {{site.data.keyword.Bluemix_notm}}. The {{site.data.keyword.autoscaling}} CLI supports Linux64, Win64, and OSX, and provides functionality that is similar to the auto-scaling RESTful API provides.
 {: shortdesc}
 
-Before you begin, install the {{site.data.keyword.Bluemix_notm}} CLI. See [Download {{site.data.keyword.Bluemix_notm}} CLI](http://plugins.ng.bluemix.net/ui/home.html){: new_window} for instructions.
+Before you begin, install the {{site.data.keyword.Bluemix_notm}} CLI. See [Download {{site.data.keyword.Bluemix_notm}} CLI ![External link icon](../../../icons/launch-glyph.svg)](http://plugins.ng.bluemix.net/ui/home.html){: new_window} for instructions.
 
 ## Adding the {{site.data.keyword.Bluemix_notm}} CLI plug-in
 
@@ -127,9 +125,9 @@ bx as history-show <APP_NAME>  [--start-date=<start_timestamp>]  [--end-date=<en
 <dt class="pt dlterm">&lt;APP_NAME&gt;</dt>
 <dd class="pd">The name of the app for which you want to show the history of the auto-scaling policy.
 <dt class="pt dlterm">&lt;start_timestamp&gt;</dt>
-<dd class="pd">The time stamp of the beginning of the history range. The supported formats are `yyyy-MM-ddTHH:mm:ss+/-hhmm, yyyy-MM-ddTHH:mm:ssZ`. By default, the time stamp is set to 50 hours ahead of the current time. See the <a href="https://www.w3.org/TR/NOTE-datetime" target="_blank">W3C Date and Time Formats standard</a> for details about the time stamp format. 
+<dd class="pd">The time stamp of the beginning of the history range. The supported formats are `yyyy-MM-ddTHH:mm:ss+/-hhmm, yyyy-MM-ddTHH:mm:ssZ`. By default, the time stamp is set to 50 hours ahead of the current time. See the <a href="https://www.w3.org/TR/NOTE-datetime" target="_blank">W3C Date and Time Formats standard</a> for details about the time stamp format.
 <dt class="pt dlterm">&lt;end_timestamp&gt;</dt>
-<dd class="pd">The time stamp of the ending of the history range. The supported formats are `yyyy-MM-ddTHH:mm:ss+/-hhmm, yyyy-MM-ddTHH:mm:ssZ`. By default, the time stamp is set to the current time. See the <a href="https://www.w3.org/TR/NOTE-datetime" target="_blank">W3C Date and Time Formats standard</a> for details about the time stamp format. 
+<dd class="pd">The time stamp of the ending of the history range. The supported formats are `yyyy-MM-ddTHH:mm:ss+/-hhmm, yyyy-MM-ddTHH:mm:ssZ`. By default, the time stamp is set to the current time. See the <a href="https://www.w3.org/TR/NOTE-datetime" target="_blank">W3C Date and Time Formats standard</a> for details about the time stamp format.
 </dl>
 
 
@@ -140,8 +138,6 @@ bx as history-show <APP_NAME>  [--start-date=<start_timestamp>]  [--end-date=<en
 {: rellinks}
 ## general
 {: general}
-* [{{site.data.keyword.autoscaling}} service](../../../services/Auto-Scaling/index.html)
-* [{{site.data.keyword.Bluemix_notm}} CLI](http://plugins.ng.bluemix.net/ui/home.html){: new_window}
-* [W3C Date and Time Formats standard](https://www.w3.org/TR/NOTE-datetime){: new_window}
-
-
+* [{{site.data.keyword.autoscaling}} service](/docs/services/Auto-Scaling/index.html)
+* [{{site.data.keyword.Bluemix_notm}} CLI ![External link icon](../../../icons/launch-glyph.svg)](http://plugins.ng.bluemix.net/ui/home.html){: new_window}
+* [W3C Date and Time Formats standard ![External link icon](../../../icons/launch-glyph.svg)](https://www.w3.org/TR/NOTE-datetime){: new_window}

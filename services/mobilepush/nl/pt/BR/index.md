@@ -1,7 +1,7 @@
-	---
+---
 
 copyright:
- years: 2015, 2016
+years: 2015, 2017
 
 ---
 
@@ -12,49 +12,43 @@ copyright:
 
 # Introdução ao {{site.data.keyword.mobilepushshort}}
 {: #gettingstartedtemplate}
-Última atualização: 16 de agosto de 2016
+Última atualização: 19 de janeiro de 2017
 {: .last-updated}
 
 {:shortdesc}
 
-O serviço {{site.data.keyword.mobilepushshort}} fornece uma plataforma unificada para enviar e gerenciar {{site.data.keyword.mobilepushshort}} móveis destinados a plataformas iOS e Android. O serviço {{site.data.keyword.mobilepushshort}} gerencia o mapeamento dos usuários de seu aplicativo para seus dispositivos, plataforma do dispositivo e manipula o despacho de notificações push para eles. Com esse serviço, é possível enviar transmissões, unicasts (com base no deviceID) e também tags (ou tópicos) como notificações push para usuários de seu aplicativo móvel. É possível também usar um
-SDK e [APIs REST](https://mobile.{DomainName}/imfpushrestapidocs/) para
-desenvolver melhor seus aplicativos cliente.
+O {{site.data.keyword.mobilepushshort}} está disponível como um serviço de catálogo do Bluemix na categoria Móvel e permite enviar e gerenciar notificações push móveis e da web. O serviço gerencia o mapeamento dos usuários do aplicativo para seus dispositivos, plataforma de dispositivo e navegadores da web durante a manipulação do despacho de notificações.
 
-Esta
-seção descreve como configurar notificações push básicas. Ao usar uma
-notificação básica, as notificações são transmitidas em vez de
-atingirem um conjunto específico de usuários usando tags.
+ O {{site.data.keyword.mobilepushshort}} está disponível como uma parte do Modelo do MobileFirst Services Starter e como Bluemix [Dedicated Services](/docs/dedicated/index.html). É possível usar o serviço para enviar transmissões, unicasts (com base em deviceID e userID), notificação baseada em tag, notificação baseada em evento de webhooks, bem como notificações Rich Media e notificações interativas para os usuários de aplicativos móveis e de navegador da web. Também é possível usar um SDK (kit de desenvolvimento de software) e [APIs de REST ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://mobile.{DomainName}/imfpush/){: new_window} para desenvolver adicionalmente seus aplicativos clientes.
 
-1. [Configure
-credenciais para um provedor de notificação](t__main_push_config_provider.html)
-2. [Ative o app móvel para receber
-notificações](c_enable_push.html)
-3. [Enviar notificações básicas](t_send_push_notifications.html)
+O serviço também fornece recursos de monitoramento que ajudam a monitorar o desempenho de Notificação push, gerando gráficos e relatórios dos dados do usuário. Veja [Monitoramento para notificações push](/docs/services/mobilepush/t_push_monitoring.html).
+
+O serviço {{site.data.keyword.mobilepushshort}} é suportado nas plataformas a seguir:
+
+- [Dispositivos móveis iOS e Android](/docs/services/mobilepush/c_enable_push.html)
+- [Navegadores da web Google Chrome, Mozilla Firefox e Safari](/docs/services/mobilepush/c_chrome_firefox_enable.html)
+- [Apps Google Chrome e Extensões](/docs/services/mobilepush/c_web_extensions.html)
+
 
 # Links relacionados
 {: #rellinks}
 
-* [Visão geral](c_overview_push.md){: new_window}
+* [Visão geral ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](c_overview_push.html){: new_window}
 
 ## Tutoriais e Amostras {:id="samples"}
 {: #samples}
-* [Aplicativo de amostra Android helloPush](https://github.com/ibm-bluemix-mobile-services/bms-samples-android-hellopush/){: new_window}
-- [Aplicativo de amostra Cordova](https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-hellopush){: new_window}
-* [Aplicativo de amostra iOS helloPush (Obj-C)](https://github.com/ibm-bluemix-mobile-services/bms-samples-ios-hellopush/){: new_window}
-* [Aplicativo de amostra iOS helloPush (Swift)](https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush){: new_window}
+* [Aplicativo de amostra helloPush Android ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-samples-android-hellopush/){: new_window}
+- [Aplicativo de amostra Cordova ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-hellopush){: new_window}
+* [Aplicativo de amostra helloPush iOS (Swift) ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush){: new_window}
 
 ## SDK
 {: #sdk}
-* [Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-push){: new_window}
-* [Cordova SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-push){: new_window}
-* [iOS SDK (Obj-C)](https://hub.jazz.net/git/bluemixmobilesdk/imf-ios-sdk/archive?revstr=master){: new_window}
-* [iOS SDK (Swift)](https://codeload.github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push/zip/master){: new_window}
+* [SDK Android ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-push){: new_window}
+* [SDK Cordova ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-push){: new_window}
+* [SDK iOS (Swift) ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://codeload.github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push/zip/master){: new_window}
 
 ## Referência de API
 {: #api}
-* [Referência de API Push (Android)](https://classicdocs.ng.bluemix.net/docs/api/content/api/mobilefirst/android/push-api-doc/overview-summary.html){: new_window}
-* [Referência de API IMFPush (iOS)](https://classicdocs.ng.bluemix.net/docs/api/content/api/mobilefirst/ios/IMFPush_api-doc/html/index.html){: new_window}
-* [Referência de API BMSPush iOS (Swift)](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push/blob/development/Apple Docs/index.html){: new_window}
-* [Referência da API REST
-](https://mobile.{DomainName}/imfpushrestapidocs/){: new_window}
+* [Referência da API Push (Android) ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://classicdocs.ng.bluemix.net/docs/api/content/api/mobilefirst/android/push-api-doc/overview-summary.html){: new_window}
+* [Referência da API BMSPush iOS (Swift) ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push/blob/development/Apple Docs/index.html){: new_window}
+* [Referência da API de REST ![Ícone de link externo](../../icons/launch-glyph.svg "External link icon")](https://mobile.{DomainName}/imfpush/){: new_window}

@@ -1,27 +1,21 @@
 ---
 
- 
-
 copyright:
-
-  years: 2016
-
- 
+  years: 2016, 2017
+lastupdated: "2017-02-27"
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
+{:new_window: target="_blank"}
 {:codeblock: .codeblock}
+{:screen: .screen}
 {:pre: .pre}
 
 # 使用和创建 {{site.data.keyword.openwhisk_short}} 包
 {: #openwhisk_packages}
-上次更新时间：2016 年 8 月 2 日
-{: .last-updated}
 
-在 {{site.data.keyword.openwhisk}} 中，可以使用包将一组相关操作捆绑在一起，然后与其他人共享。
+在 {{site.data.keyword.openwhisk_short}} 中，可以使用包将一组相关操作捆绑在一起，然后与其他人共享。
 
 包可以包含*操作*和*订阅源*。
 - 操作是在 {{site.data.keyword.openwhisk_short}} 上运行的一段代码。例如，Cloudant 包中包含用于在 Cloudant 数据库中读写记录的操作。
@@ -43,17 +37,19 @@ wsk package list /whisk.system
   ```
   {: pre}
   ```
-packages
-  /whisk.system/alarms                                              shared
-  /whisk.system/cloudant                                            shared
-  /whisk.system/github                                              shared
-  /whisk.system/samples                                             shared
-  /whisk.system/slack                                               shared
-  /whisk.system/util                                                shared
-  /whisk.system/watson                                              shared
-  /whisk.system/weather                                             shared
+  packages
+  /whisk.system/cloudant                                                 shared
+  /whisk.system/alarms                                                   shared
+  /whisk.system/watson                                                   shared
+  /whisk.system/websocket                                                shared
+  /whisk.system/weather                                                  shared
+  /whisk.system/system                                                   shared
+  /whisk.system/utils                                                    shared
+  /whisk.system/slack                                                    shared
+  /whisk.system/samples                                                  shared
+  /whisk.system/github                                                   shared
+  /whisk.system/pushnotifications                                        shared
   ```
-  {: screen}
 
 2. 获取 `/whisk.system/cloudant` 包中实体的列表。
 
@@ -68,7 +64,6 @@ wsk package get --summary /whisk.system/cloudant
    action /whisk.system/cloudant/write: Write document to database
    feed   /whisk.system/cloudant/changes: Database change feed
   ```
-  {: screen}
 
   此输出显示了 Cloudant 包提供有两个操作（`read` 和 `write`）和一个名为 `changes` 的触发器订阅源。将文档添加到指定的 Cloudant 数据库时，`changes` 订阅源会使触发器触发。
 
@@ -84,7 +79,6 @@ wsk action get --summary /whisk.system/cloudant/read
   action /whisk.system/cloudant/read: Read document from database
      (params: dbname includeDoc id)
   ```
-  {: screen}
 
   此输出显示了 Cloudant `read` 操作需要三个参数，包括要检索的数据库和文档标识。
 
@@ -104,7 +98,6 @@ wsk action get --summary /whisk.system/samples/greeting
   action /whisk.system/samples/greeting: Print a friendly greeting
      (params: name place)
   ```
-  {: screen}
 
   请注意，`greeting` 操作接受两个参数：`name` 和 `place`。
 
@@ -114,12 +107,11 @@ wsk action get --summary /whisk.system/samples/greeting
 wsk action invoke --blocking --result /whisk.system/samples/greeting
   ```
   {: pre}
-  ```
+  ```json
   {
       "payload": "Hello, stranger from somewhere!"
   }
   ```
-  {: screen}
 
   因为未指定任何参数，所以输出是通用消息。
 
@@ -129,12 +121,11 @@ wsk action invoke --blocking --result /whisk.system/samples/greeting
 wsk action invoke --blocking --result /whisk.system/samples/greeting --param name Mork --param place Ork
   ```
   {: pre}
-  ```
+  ```json
   {
       "payload": "Hello, Mork from Ork!"
   }
   ```
-  {: screen}
 
   请注意，输出使用的是传递给操作的 `name` 和 `place` 参数。
 
@@ -157,7 +148,6 @@ wsk package bind /whisk.system/samples valhallaSamples --param place Valhalla
   ```
 ok: created binding valhallaSamples
   ```
-  {: screen}
 
 2. 获取包绑定的描述。
 
@@ -166,13 +156,12 @@ wsk package get --summary valhallaSamples
   ```
   {: pre}
   ```
-package /myNamespace/valhallaSamples
-   action /myNamespace/valhallaSamples/greeting: Print a friendly greeting
-   action /myNamespace/valhallaSamples/wordCount: Count words in a string
-   action /myNamespace/valhallaSamples/helloWorld: Print to the console
-   action /myNamespace/valhallaSamples/echo: Returns the input arguments, unchanged
+  package /myNamespace/valhallaSamples
+   action /myNamespace/valhallaSamples/greeting：返回友好的问候
+   action /myNamespace/valhallaSamples/wordCount：统计字符串中的字数
+   action /myNamespace/valhallaSamples/helloWorld：演示日志记录工具
+   action /myNamespace/valhallaSamples/curl：对主机 URL 执行 Curl
   ```
-  {: screen}
 
   请注意，`/whisk.system/samples` 包中的所有操作在 `valhallaSamples` 包绑定中都可用。
 
@@ -187,7 +176,6 @@ wsk action invoke --blocking --result valhallaSamples/greeting --param name Odin
       "payload": "Hello, Odin from Valhalla!"
   }
   ```
-  {: screen}
 
   请注意，从结果中可以看出，操作继承了创建 `valhallaSamples` 包绑定时所设置的 `place` 参数。
 
@@ -202,7 +190,6 @@ wsk action invoke --blocking --result valhallaSamples/greeting --param name Odin
       "payload": "Hello, Odin from Asgard!"
   }
   ```
-  {: screen}
 
   请注意，使用操作调用指定的 `place` 参数值会覆盖在 `valhallaSamples` 包绑定中设置的缺省值。
 
@@ -222,7 +209,6 @@ wsk package get --summary /whisk.system/alarms
 package /whisk.system/alarms
    feed   /whisk.system/alarms/alarm
   ```
-  {: screen}
 
   ```
 wsk action get --summary /whisk.system/alarms/alarm
@@ -232,7 +218,6 @@ wsk action get --summary /whisk.system/alarms/alarm
   action /whisk.system/alarms/alarm: Fire trigger when alarm occurs
      (params: cron trigger_payload)
   ```
-  {: screen}
 
   `/whisk.system/alarms/alarm` 订阅源接受两个参数：
   - `cron`：关于何时触发触发器的 crontab 规范。
@@ -241,19 +226,18 @@ wsk action get --summary /whisk.system/alarms/alarm
 2. 创建每 8 秒触发一次的触发器。
 
   ```
-  wsk trigger create everyEightSeconds --feed /whisk.system/alarms/alarm -p cron '*/8 * * * * *' -p trigger_payload '{"name":"Mork", "place":"Ork"}'
+  wsk trigger create everyEightSeconds --feed /whisk.system/alarms/alarm -p cron "*/8 * * * * *" -p trigger_payload "{\"name\":\"Mork\", \"place\":\"Ork\"}"
   ```
   {: pre}
   ```
 ok: created trigger feed everyEightSeconds
   ```
-  {: screen}
 
 3. 使用以下操作码创建“hello.js”文件。
 
-  ```
-function main(params) {
-     return {payload:  'Hello, ' + params.name + ' from ' + params.place};
+  ```javascript
+  function main(params) {
+      return {payload:  'Hello, ' + params.name + ' from ' + params.place};
   }
   ```
   {: codeblock}
@@ -268,14 +252,12 @@ wsk action update hello hello.js
 5. 创建规则以在每次 `everyEightSeconds` 触发器触发时调用 `hello` 操作。
 
   ```
-wsk rule create --enable myRule everyEightSeconds hello
+  wsk rule create myRule everyEightSeconds hello
   ```
   {: pre}
   ```
-ok: created rule myRule
-  ok: rule myRule is activating
+  ok: created rule myRule
   ```
-  {: screen}
 
 6. 通过轮询激活日志来检查是否正在调用该操作。
 
@@ -304,7 +286,6 @@ wsk package create custom
   ```
 ok: created package custom
   ```
-  {: screen}
 
 2. 获取包的摘要。
 
@@ -315,14 +296,13 @@ wsk package get --summary custom
   ```
 package /myNamespace/custom
   ```
-  {: screen}
 
   请注意，该包为空。
 
 3. 创建名为 `identity.js` 的文件，此文件包含以下操作码。此操作会返回所有输入参数。
 
-  ```
-function main(args) { return args; }
+  ```javascript
+  function main(args) { return args; }
   ```
   {: codeblock}
 
@@ -335,7 +315,6 @@ wsk action create custom/identity identity.js
   ```
 ok: created action custom/identity
   ```
-  {: screen}
 
   在包中创建操作需要将包名添加为操作名称的前缀。不允许包嵌套。包只能包含操作，而不能包含其他包。
 
@@ -349,7 +328,6 @@ wsk package get --summary custom
 package /myNamespace/custom
    action /myNamespace/custom/identity
   ```
-  {: screen}
 
   现在，可以在名称空间中看到 `custom/identity` 操作。
 
@@ -359,10 +337,9 @@ package /myNamespace/custom
 wsk action invoke --blocking --result custom/identity
   ```
   {: pre}
-  ```
+  ```json
   {}
   ```
-  {: screen}
 
 
 可以为包中的所有实体设置缺省参数。您可通过设置包级别参数来实现此操作；包级别参数将由包中的所有操作继承。要查明其工作原理，请尝试以下示例：
@@ -376,17 +353,19 @@ wsk package update custom --param city Austin --param country USA
   ```
 ok: updated package custom
   ```
-  {: screen}
 
 2. 显示包和操作中的参数，并查看包中的 `identity` 操作是如何从包继承参数的。
 
   ```
-wsk package get custom parameters
+  wsk package get custom parameters
   ```
   {: pre}
   ```
-ok: got package custom, projecting parameters
-  [{
+  ok: got package custom, displaying field parameters
+  ```
+  ```json
+  [
+      {
           "key": "city",
           "value": "Austin"
       },
@@ -396,15 +375,17 @@ ok: got package custom, projecting parameters
       }
   ]
   ```
-  {: screen}
 
   ```
-wsk action get custom/identity parameters
+  wsk action get custom/identity parameters
   ```
   {: pre}
   ```
-ok: got action custom/identity, projecting parameters
-  [{
+  ok: got action custom/identity, , displaying field parameters
+  ```
+  ```json
+  [
+      {
           "key": "city",
           "value": "Austin"
       },
@@ -414,7 +395,6 @@ ok: got action custom/identity, projecting parameters
       }
   ]
   ```
-  {: screen}
 
 3. 在不使用任何参数的情况下调用 identity 操作，以验证该操作是否确实继承了这些参数。
 
@@ -422,13 +402,12 @@ ok: got action custom/identity, projecting parameters
 wsk action invoke --blocking --result custom/identity
   ```
   {: pre}
-  ```
+  ```json
   {
       "city": "Austin",
       "country": "USA"
   }
   ```
-  {: screen}
 
 4. 使用某些参数调用 identity 操作。调用参数会与包参数合并；调用参数会覆盖包参数。
 
@@ -436,14 +415,13 @@ wsk action invoke --blocking --result custom/identity
 wsk action invoke --blocking --result custom/identity --param city Dallas --param state Texas
   ```
   {: pre}
-  ```
+  ```json
   {
       "city": "Dallas",
       "country": "USA",
       "state": "Texas"
   }
   ```
-  {: screen}
 
 
 ## 共享包
@@ -454,25 +432,25 @@ wsk action invoke --blocking --result custom/identity --param city Dallas --para
 1. 与所有用户共享包：
 
   ```
-wsk package update custom --shared
+  wsk package update custom --shared yes
   ```
   {: pre}
   ```
 ok: updated package custom
   ```
-  {: screen}
 
 2. 显示包的 `publish` 属性以验证其现在是否为 true。
 
   ```
-wsk package get custom publish
+  wsk package get custom publish
   ```
   {: pre}
   ```
-ok: got package custom, projecting publish
+  ok: got package custom, displaying field publish
+  ```
+  ```json
   true
   ```
-  {: screen}
 
 
 现在，其他人可以使用您的 `custom` 包，包括绑定到包或直接调用包中的操作。其他用户必须知道包的标准名称，才能绑定包或调用包中的操作。共享包中的操作和订阅源是*公共*的。如果包是私有的，那么其所有内容也是私有的。
@@ -487,6 +465,5 @@ wsk package get --summary custom
 package /myNamespace/custom
    action /myNamespace/custom/identity
   ```
-  {: screen}
 
   在上面的示例中，您使用的是 `myNamespace` 名称空间，并且此名称空间显示为标准名称。

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated: "2017-04-11"
 
 ---
 
@@ -12,17 +13,16 @@ copyright:
 
 # Offline mode for node.js
 {: #offline_mode}
-Last Updated: 20 July 2016
-{: .last-updated}
 
 When a node.js application is pushed to {{site.data.keyword.Bluemix}} the SDK for Node.js buildpack
 typically downloads artifacts from external resources such as node modules from NPM.  In some
-situations such as with [Bluemix Dedicated](../../dedicated/index.html#dedicated) and
-[Bluemix Local](../../local/index.html#local),  you may want to not rely on,
+situations such as with [Bluemix Dedicated](/docs/dedicated/index.html#dedicated) and
+[Bluemix Local](/docs/local/index.html#local),  you may want to not rely on,
 or have more explicit control over, accessing sites external to Bluemix.  
+{: shortdesc}
 
-The following are the external sites that the node.js buldpack can access.  In [Bluemix Dedicated](../../dedicated/index.html#dedicated) and
-[Bluemix Local](../../local/index.html#local) Bluemix environments these sites may need to be *whitelisted*.
+The following are the external sites that the node.js buildpack can access.  In [Bluemix Dedicated](/docs/dedicated/index.html#dedicated) and
+[Bluemix Local](/docs/local/index.html#local) Bluemix environments these sites may need to be *whitelisted*.
 
 * http://nodejs.org/ may be used to ascertain available node engine versions.
 * https://s3pository.heroku.com is used to retrieve node engine versions not included in the buildpack.
@@ -36,12 +36,12 @@ Be aware that when new versions of the SDK for Node.js buildpack are installed t
 moves forward to newer versions.  This may require you to reconfigure your node app to specify a newer node engine version.
 
 
-### Offline applications
+## Offline applications
 {: #offline_applications}
 
 To eliminate the need to to access https://registry.npmjs.org you can include all the node modules your application requires within your application.  To do this run **npm install** for all of the modules your application requires and include the resulting *node_modules* directory with your pushed application.
 
-Note that, your dependencies can have dependencies and they can have dependencies and so on, but the package.json 
+Note that, your dependencies can have dependencies and they can have dependencies and so on, but the package.json
 only contains the top-level dependencies. If one of the dependencies uses a range in the package.json and a new version of that is released, then modules in your node_modules directory can become obsolete. *Shrinkwrap* helps you lock down all the dependency versions so this can't happen.  To use shrinkwrap start with an empty or clean node_modules directory, then in your project's root directory run:
 0. npm install
 1. npm dedupe
@@ -53,13 +53,6 @@ Whenever you make a change to dependencies in the *package.json* file , repeat t
 ## Working with a proxy
 {: #working_with_proxy}
 
-In some environments such as [Bluemix Dedicated](../../dedicated/index.html#dedicated) and
-[Bluemix Local](../../local/index.html#local) a proxy can be configured. See
-[Working with a proxy](../../manageapps/workingWithProxy.html) for more details.
-
-# rellinks
-{: #rellinks}
-## general
-{: #general}
-* [Latest Updates to the Node.js Buildpack](../../runtimes/nodejs/updates.html)
-* [Node.js](https://nodejs.org)
+In some environments such as [Bluemix Dedicated](/docs/dedicated/index.html#dedicated) and
+[Bluemix Local](/docs/local/index.html#local) a proxy can be configured. See
+[Working with a proxy](/docs/manageapps/workingWithProxy.html) for more details.

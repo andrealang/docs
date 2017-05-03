@@ -3,8 +3,8 @@
  
 
 copyright:
-
-  years: 2014，2016
+  years: 2016, 2017
+lastupdated: "2017-03-15"
 
  
 
@@ -15,9 +15,6 @@ copyright:
 
 # Glossary terms for {{site.data.keyword.Bluemix_notm}} 
 {: #glossary}
-
-Last updated: 02 September 2016
-{: .last-updated}
 
 This glossary provides terms and definitions for {{site.data.keyword.Bluemix}}.
 {:shortdesc}
@@ -134,7 +131,7 @@ A web or mobile device application. See also [mobile application](#x4258535), [w
 ### app ID
 {: #x7909906}
 
-A GUID that is assigned to a Bluemix mobile application. See also [globally unique identifier](#x2390455).
+A GUID that is assigned to a Bluemix mobile application. See also [globally unique identifier](#x2390455). See also [{{site.data.keyword.appid_full}}](/docs/services/appid/index.html)
 
 ### application key
 {: #x7290111}

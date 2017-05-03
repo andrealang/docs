@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2016-03-17"
 
 ---
 
@@ -11,12 +12,10 @@ copyright:
 {:codeblock: .codeblock}
 {:screen: .screen}
 
-#Desarrollo de apps
+# Desarrollo de apps
 {: #developingapps}
 
-*Última actualización: 17 de marzo de 2016*
-{: .last-updated}
 
 Puede desarrollar apps mediante un entorno de desarrollo integrado
 (IDE) o un editor de texto, o bien utilizando {{site.data.keyword.Bluemix}} DevOps Services.
-{:shortdesc} 
+{:shortdesc}

@@ -1,40 +1,37 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
+
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
+
 
 # 設定 iOS Swift SDK
 {: #getting-started-ios}
 
-前次更新：2016 年 8 月 1 日
-{: .last-updated}
+使用 {{site.data.keyword.amashort}} SDK 檢測 iOS Swift 應用程式、起始設定 SDK，以及對受保護資源及未受保護資源提出要求。
 
-{{site.data.keyword.amashort}} 已發行新的 Swift SDK，可新增至現有 {{site.data.keyword.amashort}} Objective-C SDK 所提供的功能並加以改善，更輕鬆地鑑別應用程式並為後端資源提供更好的保護。使用 {{site.data.keyword.amashort}} SDK 檢測 iOS Swift 應用程式、起始設定 SDK，以及對受保護資源及未受保護資源提出要求。
+
 {:shortdesc}
-
-**附註：**Objective-C SDK 會向 {{site.data.keyword.amashort}} 服務的「監視主控台」報告監視資料。如果您是依賴 {{site.data.keyword.amashort}} 服務的監視功能，則需要繼續使用 Objective-C SDK。
-
-雖然仍然完全支援 Objective-C SDK 且將它視為 {{site.data.keyword.Bluemix_notm}} Mobile Services 的主要 SDK，不過預計在今年稍晚將停止使用 Objective-C SDK，改用這個新的 Swift SDK。 
-
-
-
-
 
 
 ## 開始之前
 {: #before-you-begin}
 您必須具有：
-* {{site.data.keyword.amashort}} 服務所保護的 {{site.data.keyword.Bluemix_notm}} 應用程式實例。如需如何建立 {{site.data.keyword.Bluemix_notm}} 後端應用程式的相關資訊，請參閱[開始使用](index.html)。
 
-
-
-
-* Xcode 專案。如需如何設定 iOS 開發環境的相關資訊，請參閱 [Apple Developer 網站](https://developer.apple.com/support/xcode/)。
+* {{site.data.keyword.Bluemix_notm}} 應用程式的實例。
+* {{site.data.keyword.amafull}} 服務的實例。
+* **承租戶 ID**。在 {{site.data.keyword.amashort}} 儀表板中，開啟服務。按一下**行動選項**。`tenantId`（也稱為 `appGUID`）值會顯示在**應用程式 GUID/承租戶 ID** 欄位中。您需要此值來起始設定「{{site.data.keyword.amashort}} 授權管理程式」。
+* **應用程式路徑**。這是後端應用程式的 URL。在傳送要求至其受保護端點時，將需要此值。
+* {{site.data.keyword.Bluemix_notm}} **地區**。您可以在標頭中找到您目前的 {{site.data.keyword.Bluemix_notm}} 地區，就在**虛擬人像**圖示 ![「虛擬人像」圖示](images/face.jpg "「虛擬人像」圖示") 的旁邊。出現的地區值應該是下列其中一項：`美國南部`、`雪梨`或`英國`，並對應至程式碼中所需的 SDK 值：`BMSClient.Region.usSouth`、`BMSClient.Region.unitedKingdom` 或 `BMSClient.Region.sydney`。您需要此值來起始設定 {{site.data.keyword.amashort}} SDK。
+* Xcode 專案。如需如何設定 iOS 開發環境的相關資訊，請參閱 [Apple Developer 網站 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://developer.apple.com/support/xcode/ "External link icon"){: new_window}。
 
 
 ## 安裝 {{site.data.keyword.amashort}} 用戶端 SDK
@@ -49,10 +46,13 @@ copyright:
 
 1. 如果您未安裝 CocoaPods，請執行：
 
+
 ```
 sudo gem install cocoapods
 ```
-如需相關資訊，請參閱 [CocoaPods 網站](https://cocoapods.org/)。
+{: codeblock}
+
+如需相關資訊，請參閱 [CocoaPods 網站 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://cocoapods.org/ "外部鏈結圖示"){: new_window}。
 
 ### 使用 CocoaPods 安裝 {{site.data.keyword.amashort}} 用戶端 SDK
 {: #install-sdk-cocoapods}
@@ -67,68 +67,89 @@ sudo gem install cocoapods
 use_frameworks!
   pod 'BMSSecurity'
 	```
+	{: codeblock}
+
   **提示：**您可以將 `use_frameworks!` 新增至 Xcode 目標，而不是將它置於 Podfile。
 
 1. 儲存 `Podfile` 檔案，然後從指令行執行 `pod install`。CocoaPods 會安裝相關的相依關係，並顯示新增的相依關係及 Pod。<br/>
 
    **重要事項**：CocoaPods 會產生 `xcworkspace` 檔案。您必須開啟此檔案，才能繼續處理專案。
 
-1. 開啟 iOS 專案工作區。開啟 CocoaPods 所產生的 `xcworkspace` 檔案。例如：`{your-project-name}.xcworkspace`。執行 `open {your-project-name}.xcworkspace`。
+1. 開啟 iOS 專案工作區。開啟 CocoaPods 所產生的 `xcworkspace` 檔案。例如，若為 `{your-project-name}.xcworkspace`，請執行：
+
+	`open {your-project-name}.xcworkspace`
+
+### 針對 iOS 啟用金鑰鏈共用
+{: #enable_keychain}
+
+啟用 `Keychain Sharing`。移至 `Capabilities` 標籤，並將 Xcode 專案中的 `Keychain Sharing` 切換為 `On`。
 
 ## 起始設定 {{site.data.keyword.amashort}} 用戶端 SDK
 {: #init-mca-sdk-ios}
 
- 透過傳遞 `applicationRoute` 及 `applicationGUID` 參數來起始設定 SDK。放置起始設定碼的一般（但非強制）位置是在應用程式委派的 `application:didFinishLaunchingWithOptions` 方法。
-
-1. 取得應用程式參數值。在 {{site.data.keyword.Bluemix_notm}} 儀表板中開啟應用程式。按一下**行動選項**。`applicationRoute` 及 `applicationGUID` 值即會顯示在**路徑**及**應用程式 GUID** 欄位中。
+ 傳遞 `tenantId` 參數，以起始設定 SDK。放置起始設定碼的一般（但非強制）位置是在應用程式委派的 `application:didFinishLaunchingWithOptions` 方法。
 
 1. 在您要使用 {{site.data.keyword.amashort}} 用戶端 SDK 的類別中，匯入必要架構。
 
  ```Swift
  import BMSCore
  import BMSSecurity
- ```  
+ ```
 
-1. 起始設定 {{site.data.keyword.amashort}} 用戶端 SDK。將 `<applicationRoute>` 及 `<applicationGUID>` 取代為您取自 {{site.data.keyword.Bluemix_notm}} 儀表板中**行動選項**的**路徑**及**應用程式 GUID** 值。將 `<applicationBluemixRegion>` 取代為管理您 {{site.data.keyword.Bluemix_notm}} 應用程式的地區。若要檢視您的 {{site.data.keyword.Bluemix_notm}} 地區，請按一下功能表列中的**虛擬人像**圖示 ![「虛擬人像」圖示](images/face.jpg "「虛擬人像」圖示")，以開啟**帳戶及支援**小組件。
-
+1. 起始設定 {{site.data.keyword.amashort}} 用戶端 SDK。
 
  ```Swift
- let backendURL = "<applicationRoute>"
- let backendGUID = "<applicationGUID>"
+	let tenantId = "<serviceTenantID>"
+	let regionName = <applicationBluemixRegion>
 
- func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
- // Initialize the client SDK.BMSClient.sharedInstance.initializeWithBluemixAppRoute(backendURL, bluemixAppGUID: backendGUID, bluemixRegion: BMSClient.<applicationBluemixRegion>)
-
- BMSClient.sharedInstance.authorizationManager = MCAAuthorizationManager.sharedInstance
-
- return true
- }
+	func application(_ application: UIApplication, 
+	    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	
+	 let mcaAuthManager = MCAAuthorizationManager.sharedInstance
+    mcaAuthManager.initialize(tenantId: tenantId, bluemixRegion: regionName)
+      // possible values for regionName: BMSClient.Region.usSouth, BMSClient.Region.unitedKingdom, BMSClient.Region.sydney
+	BMSClient.sharedInstance.authorizationManager = mcaAuthManager	
+	return true
+	}
  ```
+  {: codeblock}
+
+* 將 `tenantId` 取代為從**行動選項**中取得的值。
+* 將 `<applicationBluemixRegion>` 取代為管理您 {{site.data.keyword.Bluemix_notm}} 應用程式的地區。
+
+如需這些值的相關資訊，請參閱[開始之前](#before-you-begin)。
+
 
 ## 對行動後端應用程式提出要求
 {: #request}
 
 起始設定 {{site.data.keyword.amashort}} 用戶端 SDK 之後，即可開始對行動後端應用程式提出要求。
 
-1. 嘗試在瀏覽器中將要求傳送給行動後端應用程式上的受保護端點。開啟下列 URL：`{applicationRoute}/protected`。例如：`http://my-mobile-backend.mybluemix.net/protected`。
-<br/>使用 MobileFirst Services Starter 樣板所建立之行動後端應用程式的 `/protected` 端點是透過 {{site.data.keyword.amashort}} 進行保護。在瀏覽器中會傳回 `Unauthorized` 訊息，因為只有使用 {{site.data.keyword.amashort}} 用戶端 SDK 所檢測的行動應用程式才能存取這個端點。
+1. 嘗試在瀏覽器中將要求傳送給行動後端應用程式上的受保護端點。開啟下列 URL：`{applicationRoute}/protected`，並將 `{applicationRoute}` 取代為從**行動選項**中擷取的 **applicationRoute** 值（請參閱[起始設定 Mobile Client Access 用戶端 SDK](#init-mca-sdk-ios)）。例如：
+
+	`http://my-mobile-backend.mybluemix.net/protected
+	`
+
+	在瀏覽器中會傳回 `Unauthorized` 訊息，因為只有使用 {{site.data.keyword.amashort}} 用戶端 SDK 所檢測的行動應用程式才能存取這個端點。
+
+
 
 1. 使用 iOS 應用程式以對相同的端點提出要求。起始設定 `BMSClient` 之後，請新增下列程式碼：
 
  ```Swift
- let customResourceURL = "<your protected resource's path>"
- let request = Request(url: customResourceURL, method: HttpMethod.GET)
- let callBack:BmsCompletionHandler = {(response: Response?, error: NSError?) in
+	let customResourceURL = "<your protected resource absolute path>"
+	let request = Request(url: customResourceURL, method: HttpMethod.GET)
+
+	let callBack:BMSCompletionHandler = {(response: Response?, error: Error?) in
   if error == nil {
-      print ("response:\(response?.responseText), no error")
-     } else {
-         print ("error: \(error)")
+          print ("response:\(response?.responseText), no error")
+ } else {
+    print ("error: \(error)")
      }
  }
-
- request.sendWithCompletionHandler(callBack)
+	request.send(completionHandler: callBack)
  ```
+ {: codeblock}
 
 1.  當要求成功時，下列輸出會出現在 Xcode 主控台中：
 
@@ -136,10 +157,11 @@ use_frameworks!
  response:Optional("Hello, this is a protected resource of the mobile backend application!"), no error
  ```
 {: screen}
- 
+
 ## 後續步驟
 {: #next-steps}
 當您連接至受保護端點時，不需要任何認證。若需要使用者登入應用程式，您必須配置 Facebook、Google 或自訂鑑別。
+
   * [Facebook](facebook-auth-ios-swift-sdk.html)
   * [Google](google-auth-ios-swift-sdk.html)
   * [自訂](custom-auth-ios-swift-sdk.html)

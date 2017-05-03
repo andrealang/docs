@@ -1,22 +1,20 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
+
+{:codeblock:.codeblock}
 
 # Creación de un proveedor de identidad personalizado
 {: #custom-create}
 
-Última actualización: 16 de junio de 2016
-{: .last-updated}
-
 
 Para crear un proveedor de identidad personalizado, desarrolle una aplicación web que exponga una API RESTful:
 
-```
-POST <url_base>/apps/<id_arrendatario>/<nombre_reino>/<tipo_solicitud>
-```
+`POST <url_base>/apps/<id_arrendatario>/<nombre_reino>/<tipo_solicitud>`
 
 * `url_base`: especifica el URL base de la aplicación web del proveedor de identidad personalizado. El URL base es el URL que se va a registrar en el panel de control de {{site.data.keyword.amashort}}.
 * `id_arrendatario`: indica el identificador exclusivo del arrendatario. Cuando {{site.data.keyword.amashort}} invoca esta API, siempre proporciona el GUID de la app de {{site.data.keyword.Bluemix}} (`applicationGUID`).
@@ -29,6 +27,7 @@ POST <url_base>/apps/<id_arrendatario>/<nombre_reino>/<tipo_solicitud>
 {: #custom-startauthorization}
 
 `POST <url_base>/apps/<id_arrendatario>/<nombre_reino>/startAuthorization`
+{: codeblock}
 
 La API `startAuthorization` se utiliza como primer paso del proceso de autenticación. Un proveedor de identidad personalizado debe responder con el estado "challenge", "success" o "failure".
 
@@ -42,6 +41,7 @@ Para permitir la máxima flexibilidad del proceso de autenticación, el proveedo
     }
 }
 ```
+{: codeblock}
 
 El proveedor de identidad personalizada puede responder con un cambio de autenticación o un error o éxito inmediatos. El estado HTTP de respuesta debe ser `HTTP 200` y JSON de respuesta debe incluir las propiedades siguientes:
 
@@ -62,11 +62,13 @@ Por ejemplo:
 	}
 }
 ```
+{: codeblock}
 
 ## API `handleChallengeAnswer`
 {: #custom-handleChallengeAnswer}
 
 `POST <url_base>/apps/<id_arrendatario>/<nombre_reino>/handleChallengeAnswer`
+{: codeblock}
 
 La API `handleChallengeAnswer` gestiona una respuesta a un cambio de autenticación desde el cliente móvil. Igual que la API `startAuthorization`, la API `handleChallengeAnswer` responde con el estado `challenge`, `success` o `failure`.
 
@@ -87,6 +89,7 @@ De forma similar a la solicitud `startAuthorization`, el proveedor de identidad 
  	}
 }
 ```
+{: codeblock}
 
 La respuesta de la API `handleChallengeAnswer` debe tener la misma estructura que la respuesta de la API `startAuthorization`.
 
@@ -110,13 +113,14 @@ Una respuesta a una solicitud de autenticación con éxito debe incluir un objet
     }
 }
 ```
+{: codeblock}
 
 El objeto de identidad de usuario se utiliza en el servicio de {{site.data.keyword.amashort}} para generar una señal de ID que se envía al cliente móvil como parte de la cabecera de autorización. Después de una autenticación satisfactoria, el cliente móvil tendrá acceso al objeto de identidad de usuario.
 
 ## Consideraciones sobre seguridad
 {: #custom-security}
 
-Cada solicitud del servicio de {{site.data.keyword.amashort}} a un proveedor de identidad personalizado contiene una cabecera de autorización, de forma que el proveedor pueda verificar que la solicitud proviene de un origen autorizado. Aunque no es estrictamente obligatorio, piense en la posibilidad de validar la cabecera de autorización instrumentando el proveedor de identidad personalizado con un SDK del servidor de {{site.data.keyword.amashort}}. Para utilizar este SDK, la aplicación del proveedor de identidad personalizado debe implementarse en con Node.js o Liberty for Java&trade;&trade; y ejecutarse en {{site.data.keyword.Bluemix_notm}}.
+Cada solicitud del servicio de {{site.data.keyword.amashort}} a un proveedor de identidad personalizado contiene una cabecera de autorización, de forma que el proveedor pueda verificar que la solicitud proviene de un origen autorizado. Aunque no es estrictamente obligatorio, piense en la posibilidad de validar la cabecera de autorización instrumentando el proveedor de identidad personalizado con un SDK del servidor de {{site.data.keyword.amashort}}. Para utilizar este SDK, la aplicación del proveedor de identidad personalizado debe implementarse en con Node.js o Liberty for Java&trade; y ejecutarse en {{site.data.keyword.Bluemix_notm}}.
 
 La cabecera de autorización contiene información sobre el cliente móvil y la app móvil que han activado el proceso de autenticación. Puede utilizar el contexto de seguridad para recuperar estos datos. Para obtener más información, consulte [Protección de recursos](protecting-resources.html).
 
@@ -220,7 +224,7 @@ var server = app.listen(cfenv.getAppEnv().port, function () {
 ```
 --->
 
-## Próximos pasos
+## Pasos siguientes
 {: #next-steps}
 * [Configuración de {{site.data.keyword.amashort}} para la autenticación personalizada](custom-auth-config-mca.html)
 * [Configuración de la autenticación personalizada para Android](custom-auth-android.html)

@@ -2,6 +2,7 @@
 
 copyright:
   years: 2016
+lastupdated: "2016-06-10"
 
 ---
 
@@ -10,9 +11,6 @@ copyright:
 
 # 使用 Dynatrace
 {: #using_dynatrace}
-
-前次更新：2016 年 6 月 10 日
-{: .last-updated}
 
 Dynatrace 是協力廠商服務，可為您的應用程式提供監視功能。
 
@@ -83,12 +81,12 @@ Dynatrace 代理程式必須在 Web 伺服器上進行管理，而 Liberty 建�
 ### 配置 Liberty 應用程式
 {: #configuring_liberty_app}
 
-必須配置您要監視的 Liberty 應用程式，才能找出管理您先前設定之代理程式 Jar 的伺服器。您可以使用 **JBP_CONFIG_DYNATRACEAGENT** 環境變數配置應用程式。**JBP_CONFIG_DYNATRACEAGENT** 環境變數告知建置套件從何處下載 Dynatrace 代理程式。若要設定此環境變數，請完成下列步驟：
+必須配置您要監視的 Liberty 應用程式，才能找出管理您先前設定之代理程式 Jar 的伺服器。您可以使用 **JBP_CONFIG_DYNATRACEAPPMONAGENT** 環境變數配置應用程式。**JBP_CONFIG_DYNATRACEAPPMONAGENT** 環境變數告知建置套件從何處下載 Dynatrace 代理程式。若要設定此環境變數，請完成下列步驟：
 <ol>
-   <li> 將 **JBP_CONFIG_DYNATRACEAGENT** 變數的值設為 *"repository_root：URL_of_server_hosting_index.yml"*。例如，在推送您的應用程式之後發出下列指令：
+   <li> 將 **JBP_CONFIG_DYNATRACEAPPMONAGENT** 變數的值設為 *"repository_root：URL_of_server_hosting_index.yml"*。例如，在推送您的應用程式之後發出下列指令：
   
   <pre>   
-    $ cf se myApp JBP_CONFIG_DYNATRACEAGENT 'repository_root: https://my-dynatrace-agent-host.mybluemix.net'
+    $ cf se myApp JBP_CONFIG_DYNATRACEAPPMONAGENT 'repository_root: https://my-dynatrace-agent-host.mybluemix.net'
   </pre>
   {: codeblock}
 
@@ -104,7 +102,7 @@ Dynatrace 代理程式必須在 Web 伺服器上進行管理，而 Liberty 建�
 <li>若要查看 staging_task.log，請發出下列指令：
 
   <pre>
-    $ cf files myAppName logs/staging_task.log
+$ cf files myAppName logs/staging_task.log
   </pre>  
   {: codeblock}
 

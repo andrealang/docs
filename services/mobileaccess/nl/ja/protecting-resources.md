@@ -1,20 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
 
-{:shortdesc: .shortdesc}
+{:shortdesc: .shortdesc} 
+{:codeblock:.codeblock}
 
 # {{site.data.keyword.amashort}} サービスを使用したバックエンド・リソースの保護
 {: #protecting-resources}
 
-最終更新日: 2016 年 7 月 17 日
-{: .last-updated}
 
-
-{{site.data.keyword.amashort}} サービスでは、モバイル対応の OAuth セキュリティーおよびモニタリングにより、{{site.data.keyword.Bluemix_notm}} 上で稼働している、Node.js および Java ベースのバックエンド・アプリケーションを保護することができます。
+{{site.data.keyword.amafull}} サービスでは、モバイル対応の OAuth セキュリティーおよびモニタリングにより、{{site.data.keyword.Bluemix_notm}} 上で稼働している、Node.js および Java ベースのバックエンド・アプリケーションを保護することができます。
 {:shortdesc}
 
 ## 開始する前に
@@ -52,6 +51,8 @@ copyright:
     }
 }
 ```
+{: codeblock}
+
 * `imf.sub`: ID トークンのサブジェクト、または ID トークンがない場合は、クライアントの固有 ID のサブジェクトを指定します。
 * `imf.user`: ID トークンから抽出されたユーザー ID を指定します。ID トークンがない場合、このフィールドには空のオブジェクトが入ります。
 * `imf.device`: ID トークンから抽出されたデバイス ID を指定します。ID トークンがない場合、このフィールドには空のオブジェクトが入ります。

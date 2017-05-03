@@ -1,19 +1,21 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
-{:screen:  .screen}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
+
 
 # 使用 Google 凭证认证用户
 {: #google-auth}
 
-上次更新时间：2016 年 7 月 22 日
-
-您可以将 {{site.data.keyword.amashort}} 服务配置为将 Google 用作身份提供者来保护资源。然后，您的移动或 Web 应用程序用户可以使用自己的 Google 凭证进行认证。
+您可以将 {{site.data.keyword.amafull}} 服务配置为将 Google 用作身份提供者来保护资源。然后，您的移动或 Web 应用程序用户可以使用自己的 Google 凭证进行认证。
 {:shortdesc}
 
 **重要信息**：您无需单独安装 Google 提供的客户端 SDK。配置
@@ -22,7 +24,7 @@ copyright:
 ## {{site.data.keyword.amashort}} 请求流程
 {: #google-auth-overview}
 
-### 客户端请求流
+### 客户端请求流程
 
 请参阅下图，以了解 {{site.data.keyword.amashort}} 如何与 Google 集成进行
 认证。
@@ -43,12 +45,12 @@ copyright:
 * {{site.data.keyword.amashort}} 服务器 SDK 从请求中抽取 Authorization 头，通过 {{site.data.keyword.amashort}} 服务对其进行验证，然后授予对后端资源的访问权。
 
 
-### {{site.data.keyword.amashort}} Web 应用程序请求流
+### {{site.data.keyword.amashort}} Web 应用程序请求流程
 {: #mca-google-web-sequence}
-{{site.data.keyword.amashort}} Web 应用程序请求流类似于移动客户端流。但是，{{site.data.keyword.amashort}} 保护 Web 应用程序而非 {{site.data.keyword.Bluemix_notm}} 后端资源。
+{{site.data.keyword.amashort}} Web 应用程序请求流程类似于移动客户端的流程。但是，{{site.data.keyword.amashort}} 保护 Web 应用程序而非 {{site.data.keyword.Bluemix_notm}} 后端资源。
 
   * Web 应用程序会发送初始请求（例如，通过登录表单）。
-  * 最终重定向会指向 Web 应用程序本身的受保护区域，而非后端受保护资源。 
+  * 最终重定向会指向 Web 应用程序本身的受保护区域，而非后端受保护资源。
 
 
 
@@ -57,6 +59,4 @@ copyright:
 
 * [启用 Android 应用程序的 Google 认证](google-auth-android.html)
 * [启用 iOS 应用程序 (Swift SDK) 的 Google 认证](google-auth-ios-swift-sdk.html)
-* [启用 iOS 应用程序 (Objective-C SDK) 的 Google 认证](google-auth-ios.html)
 * [启用 Cordova 应用程序的 Google 认证](google-auth-cordova.html)
-

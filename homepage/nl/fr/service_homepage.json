@@ -1,51 +1,44 @@
 {
   "id": "docs_homepage_services",
-  "title": "Comment utiliser les services Bluemix",
-  "subtitle": "En savoir plus sur les types et la disponibilité des services",
-  "subtitleHref": "services/index.html",
+  "title": "Compute & Services",
   "items": [{
     "id": "cfApp",
     "title": "Applications Cloud Foundry",
+    "img": "homepage/images/cloud-foundry.svg",
     "href": "cfapps/index.html",
-    "category_id": "traitement"
-  }, {
-    "title": "Contextes d'exécution",
-    "href": "cfapps/runtimes.html",
-    "category_id": "traitement"
+    "category_id": "compute"
   }, {
     "title": "Conteneurs boilerplate",
+    "img": "homepage/images/Bluemix-logo.svg",
     "href": "cfapps/boilerplates.html",
-    "category_id": "traitement"
+    "category_id": "compute"
   }, {
-    "id": "whisk",
+    "id": "whisk-rt",
     "title": "IBM OpenWhisk",
+    "img": "homepage/images/whisk_icon.svg",
     "href": "openwhisk/index.html",
-    "category_id": "traitement"
+    "category_id": "compute"
   }, {
-    "id": "conteneur",
-    "title": "IBM Containers",
+    "id": "container",
+    "title": "Service IBM Bluemix Container",
+    "img": "homepage/images/containerServiceIcon.svg",
     "href": "containers/container_index.html",
-    "category_id": "traitement"
+    "category_id": "compute"
   }, {
-    "id": "vm",
-    "title": "Serveurs virtuels IBM",
-    "href": "virtualmachines/vm_index.html",
-    "category_id": "traitement"
-  }, {
-    "type": "supplémentaire",
-    "title": "Essayer d'utiliser des données",
+    "type": "extra",
+    "title": "Gestion de données",
     "href": "services/WorkWithData/index.html",
-    "category_id": "données"
+    "category_id": "data"
   }, {
-    "type": "supplémentaire",
-    "title": "Essayer les chaînes d'outils",
-    "href": "toolchains/toolchains_overview.html",
+    "type": "extra",
+    "title": "Dedicated GitHub Enterprise",
+    "href": "services/ghededicated/index.html",
     "category_id": "devops"
   }, {
-    "type": "supplémentaire",
-    "title": "Essayer le tableau de bord mobile de Bluemix",
+    "type": "extra",
+    "title": "Génération de projets mobiles",
     "href": "mobile/index.html",
-    "category_id": "Mobile"
+    "category_id": "mobile"
   }]
 }
 

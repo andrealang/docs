@@ -4,6 +4,8 @@ copyright:
 
   years: 2015, 2016
 
+lastupdated: "2016-12-27"
+
 ---
 
 {:new_window: target="_blank"}
@@ -11,8 +13,7 @@ copyright:
 
 # {{site.data.keyword.vpn_short}} FAQs
 {: #vpn_faq}
-*Last updated: 08 June 2016*
-{: .last-updated}
+
 
 Following are some frequently asked questions.
 {:shortdesc}
@@ -52,9 +53,9 @@ Following are some frequently asked questions.
 
 	Currently, the IBM VPN service is available only at the Bluemix Space level. If your Bluemix Organization has multiple Spaces, then a separate VPN service can be defined for each space.
 
-7. How do I connect the IBM VPN service with the SoftLayer Gateway Appliance service (GaaS)?
+7. How do I connect the IBM VPN service with the IBM Bluemix Gateway Appliance service?
 
-	You can build an IPsec tunnel to establish secure communication between the IBM VPN service and the SoftLayer GaaS. [See configuration example.](vpn_onpremises.html#gaas){: new_window}
+	You can build an IPsec tunnel to establish secure communication between the IBM VPN service and the IBM Bluemix Gateway Appliance service. [See configuration example.](vpn_onpremises.html#gaas){: new_window}
 
 8. Can I access the container and container group using their private IP addresses?
 
@@ -70,3 +71,8 @@ Following are some frequently asked questions.
 		4. Create a connection with the IKE and IPsec policies that you created with SHA256 as the authorization algorithm.
 		5. Complete the remaining configurations to enable the VPN connection. See the [Getting Started](https://console.stage1.ng.bluemix.net/docs/services/vpn/index.html) page.
 	2. Configure or update the remote end (your on-premises VPN gateway) IKE and IPsec policies with SHA256. Restart the IPsec connection.
+
+10. If I enable high availability (HA) for containers, what is the impact on the IBM VPN service?  
+	
+	If you enable [HA for containers](https://console.ng.bluemix.net/docs/containers/container_ha.html) in different Bluemix spaces, then you need to create a separate IBM VPN service for each of these spaces.
+

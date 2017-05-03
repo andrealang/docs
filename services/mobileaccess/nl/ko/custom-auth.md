@@ -1,18 +1,22 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # 사용자 정의 ID 제공자로 사용자 인증
 {: #custom-id}
 
-마지막 업데이트 날짜: 2016년 7월 22일
-{: .last-updated}
 
-
-사용자 정의 ID 제공자를 작성하고 신임 정보 수집 및 유효성 검증을 위한 자체 로직을 구현하십시오. 사용자 정의 ID 제공자는 RESTful 인터페이스를 표시하는 웹 애플리케이션입니다. 사내 구축형 또는 {{site.data.keyword.Bluemix}}에서 사용자 정의 ID 제공자를 호스팅할 수 있습니다. 유일한 요구사항은 {{site.data.keyword.amashort}} 서비스와 통신할 수 있도록 사용자 정의 ID 제공자를 공용 인터넷에서 액세스할 수 있어야 합니다. 
+{{site.data.keyword.amafull}} 서비스를 사용하고 신임 정보 수집 및 유효성 검증을 위한 자체 로직을 구현하는 사용자 정의 ID 제공자를 작성하십시오. 사용자 정의 ID 제공자는 RESTful 인터페이스를 표시하는 웹 애플리케이션입니다. 온프레미스 또는 {{site.data.keyword.Bluemix}}에서 사용자 정의 ID 제공자를 호스팅할 수 있습니다. 유일한 요구사항은 {{site.data.keyword.amashort}} 서비스와 통신할 수 있도록 사용자 정의 ID 제공자를 공용 인터넷에서 액세스할 수 있어야 합니다. 
 
 ## {{site.data.keyword.amashort}} 사용자 정의 ID 요청 플로우
 {: #custom-id-ovr}
@@ -44,10 +48,7 @@ copyright:
 {{site.data.keyword.amashort}} 웹 애플리케이션 요청 플로우는 모바일 클라이언트 플로우와 유사합니다. 그러나 {{site.data.keyword.amashort}}는 {{site.data.keyword.Bluemix_notm}} 백엔드 리소스 대신 웹 애플리케이션을 보호합니다. 
 
   * 초기 요청은 웹 애플리케이션에서 전송합니다(예: 로그인 양식에서).
-  * 최종 경로는 백엔드 보호 리소스보다 웹 애플리케이션 자체의 보호 영역으로 재지정됩니다. 
-
-
-
+  * 최종 경로는 백엔드 보호 리소스가 아니라 웹 애플리케이션 자체의 보호 영역으로 재지정됩니다.
 
 ## 사용자 정의 ID 제공자 이해
 {: #custom-id-about}
@@ -70,6 +71,7 @@ copyright:
 		}
 	}
 	```
+	{: codeblock}
 
 1. 여러 단계 및 여러 양식 인증을 포함하여 클라이언트에서 사용자 정의 신임 정보 콜렉션 플로우를 구현하십시오. 사용자 정의 인증 확인과 마찬가지로, 사용자 정의 인증 확인 응답의 구조를 디자인해야 합니다. 
 
@@ -82,6 +84,8 @@ copyright:
 		pincode:"1234"
 	}
 	```
+	{: codeblock}
+
 1. 제공된 인증 확인 응답의 유효성을 검증하는 사용자 정의 로직을 구현하십시오. 
 
 1. 필요한 사용자 정의 특성이 포함된 사용자 정의 사용자 ID 오브젝트를 정의하십시오. 다음은 인증 성공 후에 클라이언트에서 확보한 사용자 정의 사용자 ID 오브젝트의 예입니다. 
@@ -97,14 +101,15 @@ copyright:
 		}
 	}
 	```
+	{: codeblock}
 
 ### 사용자 정의 ID 제공자의 샘플 구현
 {: #custom-sample}
 
 사용자 정의 ID 제공자를 개발하는 경우 사용자 정의 ID 제공자의 다음 Node.js 샘플 구현을 참조로 사용하십시오. GitHub 저장소에서 전체 애플리케이션 코드를 다운로드하십시오. 
 
- * [단순 샘플](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample)
- * [고급 샘플](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management)
+ * [단순 샘플 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample){: new_window}
+ * [고급 샘플 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management){: new_window}
 
 ## {{site.data.keyword.amashort}} 서버와 사용자 정의 ID 제공자 간의 일반 통신
 {: #custom-id-comm}
@@ -128,10 +133,9 @@ copyright:
 
 ## 다음 단계
 {: #next-steps}
+
 * [사용자 정의 ID 제공자 작성](custom-auth-identity-provider.html)
 * [사용자 정의 인증용 {{site.data.keyword.amashort}} 구성](custom-auth-config-mca.html)
 * [Android용 사용자 정의 인증 구성](custom-auth-android.html)
 * [iOS(Swift SDK)용 사용자 정의 인증 구성](custom-auth-ios-swift-sdk.html)
-* [iOS(Objective-C SDK)용 사용자 정의 인증 구성](custom-auth-ios.html)
 * [Cordova용 사용자 정의 인증 구성](custom-auth-cordova.html)
-

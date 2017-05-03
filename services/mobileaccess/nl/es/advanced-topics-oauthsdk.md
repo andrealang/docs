@@ -1,17 +1,17 @@
 ---
 
 copyright:
-  years: 2015, 2016
-  
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-08"
+
 ---
+
+{:codeblock:.codeblock}
 
 # Comunicación entre servicios y aplicaciones de fondo
 {: #backend-comm}
 
-Última actualización: 21 de julio de 2016
-{: .last-updated}
-
-En algunas situaciones, es posible que tenga que enviar solicitudes desde la aplicación de fondo que se esté ejecutando en {{site.data.keyword.Bluemix}} a otro servicio de fondo que esté protegido por el servicio de {{site.data.keyword.amashort}} (por ejemplo, el servicio de {{site.data.keyword.cloudant}}). En estos casos, debe añadir una señal OAuth a la solicitud.
+En algunas situaciones, es posible que tenga que enviar solicitudes desde la aplicación de fondo que se esté ejecutando en {{site.data.keyword.Bluemix}} a otro servicio de fondo que esté protegido por el servicio de {{site.data.keyword.amafull}} (por ejemplo, el servicio de {{site.data.keyword.cloudant}}). En estos casos, debe añadir una señal OAuth a la solicitud.
 
 Utilice el módulo `bms-mca-oauth-sdk npmjs` para obtener e inyectar elementos OAuth en las solicitudes.
 
@@ -23,6 +23,7 @@ En una línea de mandatos, abra el directorio de la aplicación Node.js y ejecut
 ```Bash
 npm install -save bms-mca-oauth-sdk
 ```
+{: codeblock}
 
 ## Utilización del módulo bms-mca-oauth-sdk
 {: #using-sdk}
@@ -42,9 +43,9 @@ var options = {
 	// Las propiedades siguientes se recuperan automáticamente cuando el archivo Node.js
 	// se ejecuta en {{site.data.keyword.Bluemix_notm}} y se enlaza a una instancia del servicio de {{site.data.keyword.amashort}}.
 	// Como alternativa, puede obtener los valores de estas propiedades pulsando Mostrar credenciales
-	// en el título del servicio {{site.data.keyword.amashort}} del panel de control de la aplicación de {{site.data.keyword.Bluemix_notm}}
+	// en el icono del servicio {{site.data.keyword.amashort}} del panel de control de la aplicación de {{site.data.keyword.Bluemix_notm}}
 
-	appId: "appId",				// Bleumix applicationGUID, a.k.a tenantId
+	appId: "tenantID",				// a.k.a. Bluemix applicationGUID
 	clientId: "clientId",			
 	secret: "secret",
 	serverUrl: "serverUrl"
@@ -62,3 +63,4 @@ oauthSDK.getAuthorizationHeader(options).then(function(authHeader){
 });
 
 ```
+{: codeblock}

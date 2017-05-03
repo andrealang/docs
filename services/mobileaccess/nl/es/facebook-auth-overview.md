@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
 {:new_window: target="_blank"}
@@ -12,10 +13,8 @@ copyright:
 # Autenticación de usuarios con las credenciales de Facebook
 {: #facebook-auth-overview}
 
-Última actualización: 22 de julio de 2016
-{: .last-updated}
+Puede configurar el servicio de {{site.data.keyword.amafull}} para proteger los recursos utilizando Facebook como proveedor de identidad. Los usuarios de la aplicación móvil o web podrán autenticarse con las credenciales de Facebook.
 
-Puede configurar el servicio de {{site.data.keyword.amashort}} para proteger los recursos utilizando Facebook como proveedor de identidad. Los usuarios de la aplicación móvil o web podrán autenticarse con las credenciales de Facebook.
 {:shortdesc}
 
 **Importante**: no es necesario instalar por separado el SDK del cliente proporcionado por Facebook. El SDK de Facebook se instala automáticamente por los gestores de dependencias cuando configura el SDK del cliente de Facebook de {{site.data.keyword.amashort}}.
@@ -25,7 +24,7 @@ Puede configurar el servicio de {{site.data.keyword.amashort}} para proteger los
 
 ### Flujo de solicitudes de cliente móvil
 
-Consulte el siguiente diagrama en el que se explica cómo {{site.data.keyword.amashort}} se integra con Facebook para la autenticación, desde una aplicación de cliente móvil. 
+Consulte el siguiente diagrama en el que se explica cómo {{site.data.keyword.amashort}} se integra con Facebook para la autenticación, desde una aplicación de cliente móvil.
 
 ![Diagrama del flujo de solicitudes de cliente móvil](images/mca-sequence-facebook.jpg)
 
@@ -48,27 +47,31 @@ Consulte el siguiente diagrama en el que se explica cómo {{site.data.keyword.am
 El flujo de solicitud de aplicación web de {{site.data.keyword.amashort}} es similar al flujo del cliente móvil. Sin embargo, {{site.data.keyword.amashort}} protege la aplicación web, en lugar de un recurso de fondo de {{site.data.keyword.Bluemix_notm}}.
 
   * La solicitud inicial la envía la aplicación web (desde un formulario de inicio de sesión, por ejemplo).
-  * El redireccionamiento final es en el área protegida de la propia aplicación web, en lugar de en el recurso protegido de fondo.  
+  * El redireccionamiento final es en el área protegida de la propia aplicación web, en lugar de en el recurso protegido de fondo.
 
 
-## Cómo obtener un ID de aplicación de Facebook desde el portal de desarrolladores de Facebook
+## Creación de una aplicación en el sitio web de Facebook for Developers
 {: #facebook-appID}
 
-Para empezar a utilizar Facebook como proveedor de identidad, debe crear una aplicación en el portal de desarrolladores de Facebook. Durante este proceso, obtendrá un ID de aplicación de Facebook, que es un identificador exclusivo con el que Facebook sabrá que aplicación está intentando conectar.
+Para empezar a utilizar Facebook como proveedor de identidad, cree una aplicación en el sitio web Facebook for Developers. Durante este proceso, se creará un ID de app de Facebook. Este es un identificador exclusivo utilizado por Facebook para saber qué aplicación está intentando conectarse.
 
-1. Abra el [portal de desarrolladores de Facebook](https://developers.facebook.com).
+Necesita este valor para configurar la autenticación de Facebook para la aplicación móvil o web.
 
-1. Pulse **My Apps** en el menú y seleccione **Create a new app**.
-Seleccione una aplicación de iOS o Android, y pulse **Skip and Create App ID** en la siguiente pantalla.
+1. Acceda al sitio [Facebook for Developers ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developers.facebook.com "Icono de enlace externo"){: new_window}.
 
-1. Defina el nombre de visualización y escoja una categoría. Pulse **Create App ID** para continuar.
+1. Abra la lista desplegable **Mis apps** y seleccione **Añadir una nueva app**.
 
-1. Copie el **ID de app** que se muestra. Este valor es su ID de aplicación de Facebook.  Necesita este valor para configurar la autenticación de Facebook con la app móvil o web.
+1. Especifique los valores **Nombre de visualización** y **Valores de correo electrónico de contacto** y elija una **Categoría** de la lista desplegable.
 
-## Próximos pasos
+1. Pulse **Crear un nuevo ID de app**.
+
+1. Puede aparecer una comprobación de seguridad. Realice la acción solicitada.
+
+1. Aparecerá la página **Configuración del producto**. Copie el **ID de app** que se muestra.
+
+## Pasos siguientes
 {: #next-steps}
 
 * [Habilitación de la autenticación de Facebook para apps de Android](facebook-auth-android.html)
 * [Habilitación de la autenticación de Facebook para apps de iOS (SDK de Swift)](facebook-auth-ios-swift-sdk.html)
-* [Habilitación de la autenticación de Facebook para apps de iOS (SDK de Objective-C en desuso)](facebook-auth-ios.html)
 * [Habilitación de la autenticación de Facebook para apps de Cordova](facebook-auth-cordova.html)

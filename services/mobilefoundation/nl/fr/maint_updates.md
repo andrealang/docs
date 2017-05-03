@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated:  "2016-08-03"
 
 ---
 
@@ -13,10 +14,7 @@ copyright:
 # Maintenance et mises à jour
 {: #maintupdates_mf}
 
-Dernière mise à jour : 3 août 2016
-{: .last-updated}
-
-Le service {{site.data.keyword.mobilefoundation_short}} met à disposition un {{site.data.keyword.mfserver_short_notm}} <!--on {{site.data.keyword.containerlong}} as a container group-->. Les mises à jour du serveur {{site.data.keyword.mobilefoundation_short}} sont notifiées aux utilisateurs. Vous pouvez choisir de mettre à jour le serveur {{site.data.keyword.mobilefoundation_short}} quand cela vous arrange.
+{{site.data.keyword.mobilefoundation_short}} fournit un serveur {{site.data.keyword.mfserver_short_notm}}<!-- on {{site.data.keyword.containerlong}} as a container group-->. Les mises à jour du serveur {{site.data.keyword.mobilefoundation_short}} sont notifiées aux utilisateurs. Vous pouvez choisir de mettre à jour le serveur {{site.data.keyword.mobilefoundation_short}} quand cela vous arrange.
 {:shortdesc}
 
 ## Stratégie de maintenance
@@ -38,6 +36,8 @@ La mise à jour dans {{site.data.keyword.mobilefoundation_short}} peut être app
 
 Lors de l'application de la mise à jour, la version du serveur, comme affichée dans {{site.data.keyword.mfp_oc_short_notm}}, sera modifiée pour indiquer la version de mise à jour du serveur.
 
-**Remarque: **
+### Remarque :
+{: #note notoc}
+
 * Les utilisateurs ne seront pas en mesure d'appliquer leurs propres correctifs et mises à jour à leur instance de service {{site.data.keyword.mobilefoundation_short}}.
 * Voir les rubriques relatives à la [recréation du serveur dans le plan Developer](c_using_mfs_p1.html#recreate_mobilefoundation_p1) et la [recréation du serveur dans le plan Professional 1 Application](c_using_mfs_p2.html#recreate_mobilefoundation_p2) pour comprendre la différence de comportement entre les plans lorsque vous cliquez sur la commande de recréation.

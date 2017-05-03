@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016
-
+  years: 2016, 2017
+lastupdated: "2017-03-03"
 ---
 
 {:new_window: target="_blank"}
@@ -13,8 +13,6 @@ copyright:
 
 # Administering Driving Behavior Analysis
 {: #1stanchor}
-Last updated: 19 June 2016
-{: .last-updated}
 
 Administer your {{site.data.keyword.iotdriverinsights_full}} service instance by using the administration console on the {{site.data.keyword.Bluemix_notm}} dashboard. From the administration console, you can configure parameters for {{site.data.keyword.iotdriverinsights_short}}, and manage the data that is stored in the service. You can also view the tenant information and reset the tenant password.
 
@@ -135,7 +133,7 @@ The speed threshold parameters define the medium speed range for each road type 
 |Others|Medium speed range for the Others road type.|10 \- 20|
 |Unknown|Medium speed range for the Unknown road type.|20 \- 60|
 
-### Sample JSON Response of "getLinkInformation" REST API
+#### Sample JSON Response of "getLinkInformation" REST API
 {: #sampleJson}
 
 ```

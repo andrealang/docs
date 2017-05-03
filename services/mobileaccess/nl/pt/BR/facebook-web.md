@@ -1,18 +1,17 @@
 ---
 
 copyright:
-  year: 2016
+  year: 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
 
 # Ativando a autenticação do Facebook para apps da web
-
-Última atualização: 15 de junho de 2016
-{: .last-updated}
+{: #facebook_web}
 
 Use o Facebook para autenticar usuários em seu app da web.
 
-## Antes de começar
+## Antes de iniciar
 {: #facebook-auth-android-before}
 Você deve ter:
 * Um app da web.  
@@ -60,11 +59,12 @@ Para iniciar o processo de autorização:
     ```
 
 
-  O parâmetro `state` não está em uso no momento e pode ficar vazio.
+  O parâmetro `state` não está em uso por enquanto e pode permanecer vazio.
   O parâmetro `redirect_uri` é o URI para redirecionamento após a autenticação bem-sucedida ou com falha com o Facebook.
 
-1. Depois de redirecionar para o terminal de autorização, você obtém um formulário de login do
-Facebook. Insira o nome do usuário e a senha para redirecionar para o `redirect_uri`.
+1. Após o redirecionamento para o terminal de autorização, você obterá um formulário de login
+do      
+   Facebook. Insira o nome do usuário e a senha para redirecionar para o `redirect_uri`.
    A resposta obtida após o redirecionamento contém o código de autorização nos parâmetros de consulta da solicitação.
 
 1. Faça uma solicitação `POST` para o terminal de token do servidor de autorizações:
@@ -86,5 +86,3 @@ Certifique-se de enviar esta solicitação `POST` no período de 10 min, uma vez
 ## Testando a Autenticação
 Agora é possível começar a fazer solicitações para seus recursos protegidos.
 Toda solicitação para recursos protegidos deve conter o `access_token` no campo de cabeçalho da solicitação de autorização.
-
-

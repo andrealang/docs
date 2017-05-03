@@ -1,15 +1,13 @@
 ---
 
 copyright:
-  year: 2016
+  year: 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
 
 # Activation de l'authentification Google pour les applications Web
 {: #google-auth-web}
-
-Dernière mise à jour : 1er juin 2016
-{: .last-updated}
 
 Utilisez Google Sign-In pour authentifier les utilisateurs sur votre application Web.
 
@@ -83,5 +81,3 @@ Le corps de la réponse `POST` doit contenir les paramètres `access_token` et `
 
 Vous pouvez maintenant commencer à effectuer des demandes dans vos ressources protégées.
 Toute demande de ce type doit contenir le jeton d'accès dans la zone d'en-tête de demande d'autorisation.
-
-

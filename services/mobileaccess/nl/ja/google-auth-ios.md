@@ -2,57 +2,38 @@
 
 copyright:
   years: 2015, 2016
+lastupdated: "2016-11-01"
 
 ---
+
+{:screen: .screen}
+{:shortdesc: .shortdesc}
+
 
 # iOS Objective C アプリ用の Google 認証の使用可能化
 {: #google-auth-ios}
 
 
-最終更新日: 2016 年 6 月 27 日
-{: .last-updated}
-
-Google Sign-In を使用して、Mobile Client Access iOS アプリのユーザーを認証します。
+Google Sign-In を使用して、{{site.data.keyword.amafull}} iOS アプリのユーザーを認証します。
 
 **注:** Objective-C SDK は現在も完全にサポートされており、{{site.data.keyword.Bluemix_notm}} モバイル・サービス用の主要 SDK とされていますが、この SDK は今年後半には廃止され、新しい Swift SDK が後継になる予定です。新規アプリケーションには Swift SDK を使用することを強くお勧めします。このページの手順は、{{site.data.keyword.amashort}} Client Objective-C SDK に適用されます。Swift SDK を使用する手順については、[iOS アプリ用の Google 認証の使用可能化 (Swift SDK)](https://console.{DomainName}/docs/services/mobileaccess/google-auth-ios-swift-sdk.html) を参照してください。
 
 ## 開始する前に
-{: #google-auth-ios-before}
+{: #before-you-begin}
 以下が必要です。
-* Xcode の iOS プロジェクト。{{site.data.keyword.amashort}} Client SDK が装備されている必要はありません。
-* {{site.data.keyword.amashort}} サービスによって保護された {{site.data.keyword.Bluemix_notm}} アプリケーションのインスタンス。{{site.data.keyword.Bluemix_notm}} バックエンドの作成方法について詳しくは、[入門](index.html)を参照してください。
+* {{site.data.keyword.amafull}} サービスのインスタンスおよび {{site.data.keyword.Bluemix_notm}} アプリケーション。{{site.data.keyword.Bluemix_notm}} バックエンド・アプリケーションの作成方法について詳しくは、[概説](index.html)を参照してください。
+* バックエンド・アプリケーションの URL (**「アプリの経路 (App Route)」**)。バックエンド・アプリケーションの保護されたエンドポイントに要求を送信するためにこの値が必要になります。
+* **TenantID** 値。{{site.data.keyword.amashort}} ダッシュボードでサービスを開きます。**「モバイル・オプション」**ボタンをクリックします。`tenantId` (`appGUID` とも呼ばれる) の値が、**「アプリ GUID」/「TenantId」**フィールドに表示されます。許可マネージャーを初期化するためにこの値が必要になります。
 
 ## iOS プラットフォーム用の Google プロジェクトの構成
 {: #google-auth-ios-project}
-Google を ID プロバイダーとして使用することを開始するには、Google Developer Console にプロジェクトを作成して、Google クライアント ID を取得します。このクライアント ID は、どのアプリケーションが接続を試行しているかを Google に知らせるための固有 ID です。既に Google プロジェクトがある場合は、プロジェクトの作成について説明している手順をスキップし、資格情報の追加を開始できます。
+Google を ID プロバイダーとして使用することを開始するには、Google Developer Console にプロジェクトを作成して、Google Client ID を取得します。このクライアント ID は、どのアプリケーションが接続を試行しているかを Google に知らせるための固有 ID です。   
 
+1. Google iOS プロジェクトがまだ作成されていない場合は、[Google Developer Console](https://console.developers.google.com) サイト上の手順に従います。
 
+1. **「Social APIs」**リストから**「Google+ API」**を選択し、**「Enable」**をクリックします。
 
-1. [Google Developer Console](https://console.developers.google.com)にプロジェクトを作成します。既にプロジェクトがある場合は、プロジェクト作成について説明している手順をスキップし、資格情報の追加を開始してください。
-   1.    新規プロジェクトのメニューを開きます。
-
-         ![image](images/FindProject.jpg)
-
-   2.    **「プロジェクトの作成 (Create a project)」**をクリックします。
-
-         ![image](images/CreateAProject.jpg)
-
-
-1. **「Social API」**リストから、**「Google+ API」**を選択します。
-
-     ![image](images/chooseGooglePlus.jpg)
-
-1. 次の画面から、**「使用可能 (Enable)」**をクリックします。
-
-1. **「同意取得」**タブを選択し、ユーザーに表示する製品名を指定します。その他の値はオプションです。**「保存」**をクリックします。
-
-    ![image](images/consentScreen.png)
-
-1. **「資格情報」**リストから、「OAuth クライアント ID」を選択します。
-
-     ![image](images/chooseCredentials.png)
-
-
+1. **「Credentials」**リストで**「Create credentials」**ボタンをクリックし、**「OAuth client ID」**を選択します。
 
 1. この時点で、アプリケーション・タイプの選択が表示されます。**「iOS」**を選択します。
 
@@ -61,22 +42,19 @@ Google を ID プロバイダーとして使用することを開始するには
 1. 新しい Google iOS クライアント ID をメモします。この値は、{{site.data.keyword.Bluemix}} にアプリケーションをセットアップする時に必要です。
 
 
+
+
 ## Google 認証用の {{site.data.keyword.amashort}} の構成
 {: #google-auth-ios-config}
 
 これで Google iOS クライアント ID を取得したので、{{site.data.keyword.Bluemix_notm}} ダッシュボードで Google 認証を使用可能にすることができます。
 
-1. {{site.data.keyword.Bluemix_notm}}ダッシュボードでアプリを開きます。
+1. {{site.data.keyword.amashort}} ダッシュボードでサービスを開きます。
+1. **「管理」**タブで、**「許可」**をオンに切り替えます。
+1. **「Google」**セクションを展開します。
+1. **「iOS のアプリケーション ID (Application ID for iOS)」**で、iOS の Google Client ID を指定します。
+1. **「保存」**をクリックします。
 
-1. **「モバイル・オプション」**をクリックし、**「経路」** (`applicationRoute`) と **「アプリ GUID」** (`applicationGUID`) のメモを取ります。SDK を初期化する際に、これらの値が必要になります。
-
-1. {{site.data.keyword.amashort}} タイルをクリックします。{{site.data.keyword.amashort}} ダッシュボードがロードされます。
-
-1. **「Google」**タイルをクリックします。
-
-1. **「iOS のアプリケーション ID (Application ID for iOS)」**で、iOS の Google クライアント ID を指定し、**「保存」**をクリックします。
-
-	注: Google クライアント ID に加えて、クライアント構成にはリバース値も必要です。両方の値にアクセスするには、鉛筆のアイコンを使用してサンプルの plist をダウンロードします。![info.plist file download](images/download_plist.png)
 
 ## iOS 用の {{site.data.keyword.amashort}} Google Client SDK の構成
 {: #google-auth-ios-sdk}
@@ -91,6 +69,7 @@ Google を ID プロバイダーとして使用することを開始するには
 	```
 	pod 'IMFGoogleAuthentication'
 	```
+{: codeblock}
 
 1. `Podfile` を保存し、コマンド・ラインから `pod install` を実行します。CocoaPods は依存関係をインストールします。進行状況と、どのコンポーネントが追加されたかが表示されます。
 
@@ -133,105 +112,141 @@ Google を ID プロバイダーとして使用することを開始するには
 	</array>
 
 	```
-	両方の URL スキーマを更新します。	**重要**: `info.plist` ファイル内の既存のプロパティーをオーバーライドしないでください。オーバーラップするプロパティーがある場合は、それらのプロパティーを手動でマージする必要があります。詳細については、[Try Sign-In for iOS](https://developers.google.com/identity/sign-in/ios/start) を参照してください。
+{: codeblock}
+
+	両方の URL スキーマを更新します。
+
+	**重要**: `info.plist` ファイル内の既存のプロパティーをオーバーライドしないでください。オーバーラップするプロパティーがある場合は、それらのプロパティーを手動でマージする必要があります。詳細については、[Try Sign-In for iOS](https://developers.google.com/identity/sign-in/ios/start) を参照してください。
 
 ## {{site.data.keyword.amashort}} Client SDK の初期化
 {: #google-auth-ios-initialize}
 
-{{site.data.keyword.amashort}} Client SDK を使用するには、applicationGUID パラメーターと applicationRoute パラメーターを渡して初期化します。
+{{site.data.keyword.amashort}} Client SDK を使用するには、TenantID と「アプリの経路 (App Route)」パラメーターを渡して初期化します。
 
 初期化コードを入れる場所は一般的に (必須ではありませんが)、アプリケーション代行の `application:didFinishLaunchingWithOptions` メソッドの中です。
 
-1. applicationGUID と applicationRoute の値を取得します。{{site.data.keyword.Bluemix_notm}} ダッシュボードからアプリをクリックします。「**Mobile オプション**」をクリックします。アプリケーション経路とアプリケーション GUID の値が表示されます。
-
 1. {{site.data.keyword.amashort}} Client SDK を使用したいクラス内で必要なフレームワークをインポートします。以下のヘッダーを追加します。
 
-	Objective-C:
+	#### Objective-C:
 
 	```Objective-C
 	#import <IMFCore/IMFCore.h>
 	#import <IMFGoogleAuthentication/IMFGoogleAuthenticationHandler.h>
 	```
+{: codeblock}
 
-	Swift:
+	#### Swift:
 
 	{{site.data.keyword.amashort}} Client SDK は Objective-C によって実装されます。この SDK を使用するために、Swift プロジェクトへのブリッジング・ヘッダーを追加する必要がある場合があります。
 
 	1. Xcode でプロジェクトを右クリックし、**「新規ファイル... (New File...)」**を選択します。
-	2. **「iOS ソース」**カテゴリーから**「ヘッダー・ファイル」**を選出します。
-	3. それに「`BridgingHeader.h`」という名前を付けます。
-	4. ブリッジング・ヘッダーに以下のインポートを追加します。
 
-	```Objective-C
-	#import <IMFCore/IMFCore.h>
-	#import <IMFGoogleAuthentication/IMFGoogleAuthenticationHandler.h>
-	```
+	2. **「iOS ソース」**カテゴリーから**「ヘッダー・ファイル」**を選出します。
+
+	3. これに `BridgingHeader.h` という名前を付けます。
+
+	4. ブリッジング・ヘッダーに以下のインポートを追加します。
+		
+	   `#import <IMFCore/IMFCore.h>`
+		
+	   `#import <IMFGoogleAuthentication/IMFGoogleAuthenticationHandler.h>`
+	
 	5. Xcode でプロジェクトをクリックし、**「ビルド設定 (Build Settings)」**タブを選択します。
+
 	6. `Objective-C Bridging Header` を探します。
+
 	7. 値を、`BridgingHeader.h` ファイルのロケーション (例えば、`$(SRCROOT)/MyApp/BridgingHeader.h`) に設定します。
+
 	8. プロジェクトをビルドすることで、Xcode によってご使用のブリッジング・ヘッダーが選択されることを確認してください。
 
+3. 以下のコードを使用して、Client SDK を初期化します。`<applicationRoute>` と `<TenantID>` を、ご使用の**「経路」**と**「TenantID」**に置き換えます。
 
-3. 以下のコードを使用して、Client SDK を初期化します。*applicationRoute* および *applicationGUID* を、**「モバイル・オプション」**から取得した**「経路」**および**「アプリ GUID」**の値に置き換えます。
-
-	Objective-C:
+	#### Objective-C:
 
 	```Objective-C
 	[[IMFClient sharedInstance]
-			initializeWithBackendRoute:@"applicationRoute"
-			backendGUID:@"applicationGUID"];
+			initializeWithBackendRoute:@"<applicationRoute>"
+			backendGUID:@"<TenantID>"];
 	```
+{: codeblock}
 
-	Swift:
+	#### Swift:
 
 	```Swift
-	IMFClient.sharedInstance().initializeWithBackendRoute("applicationRoute",
-	 							backendGUID: "applicationGUID")
+	IMFClient.sharedInstance().initializeWithBackendRoute("<applicationRoute>",
+	 							backendGUID: "<TenantID>")
 	```
+{: codeblock}
+
+1. {{site.data.keyword.amashort}} サービスの `tenantId` パラメーターを渡すことによって、`AuthorizationManager` を初期化します。 
+  ####Objective-C
+	
+  ```Objective-C
+
+  	   [[IMFAuthorizationManager sharedInstance]  initializeWithTenantId: @"tenantId"];
+  ```
+ {: codeblock}
+
+  ####Swift
+
+  ```Swift
+	   IMFAuthorizationManager.sharedInstance().initializeWithTenantId("tenantId")
+  ```
+ {: codeblock}
 
 1. アプリ代行内の `application:didFinishLaunchingWithOptions` メソッドに以下のコードを追加して、Google 認証ハンドラーを登録します。このコードは、IMFClient の初期化の直後に追加してください。
 
-	Objective-C:
+	#### Objective-C:
 
 	```Objective-C
 	[[IMFGoogleAuthenticationHandler sharedInstance] registerWithDefaultDelegate];
 	```
+{: codeblock}
 
-	Swift:
+	#### Swift:
 
 	```Swift
 	IMFGoogleAuthenticationHandler.sharedInstance().registerWithDefaultDelegate()
 	```
+{: codeblock}
 
 1. アプリ代行に以下のコードを追加します。
 
-	Objective-C:
+	#### Objective-C:
 
 	```Objective-C
 	- (void)applicationDidBecomeActive:(UIApplication *)application {
 		[[IMFGoogleAuthenticationHandler sharedInstance] handleDidBecomeActive];
-	}- (BOOL)application: (UIApplication *)application openURL: (NSURL *)url
+	}
+
+	- (BOOL)application: (UIApplication *)application openURL: (NSURL *)url
 					sourceApplication: (NSString *)sourceApplication annotation: (id)annotation {
 
 		BOOL shouldHandleGoogleURL = [GPPURLHandler handleURL:url
-					sourceApplication:sourceApplication annotation:annotation];[[IMFGoogleAuthenticationHandler sharedInstance] handleOpenURL:shouldHandleGoogleURL];
+					sourceApplication:sourceApplication annotation:annotation];
+
+		[[IMFGoogleAuthenticationHandler sharedInstance] handleOpenURL:shouldHandleGoogleURL];
 		return  shouldHandleGoogleURL;
 	}
 	```
+{: codeblock}
 
-	Swift:
+	#### Swift:
 
 	```Swift
 	func application(application: UIApplication, openURL url: NSURL,
 					sourceApplication: String?, annotation: AnyObject) -> Bool {
 
 		let shouldHandleGoogleURL = GPPURLHandler.handleURL(url,
-				sourceApplication: sourceApplication, annotation: annotation)IMFGoogleAuthenticationHandler.sharedInstance()
+				sourceApplication: sourceApplication, annotation: annotation)
+
+		IMFGoogleAuthenticationHandler.sharedInstance()
 							.handleOpenURL(shouldHandleGoogleURL)
 
 		return shouldHandleGoogleURL;
 	}
 ```
+{: codeblock}
 
 ## 認証のテスト
 {: #google-auth-ios-testing}
@@ -250,7 +265,7 @@ Client SDK が初期化されたら、モバイル・バックエンドへの要
 
 1. iOS アプリケーションを使用して、同じエンドポイントへ要求を出します。
 
-	Objective-C:
+	#### Objective-C:
 
 	```Objective-C
 	NSString *requestPath = [NSString stringWithFormat:@"%@/protected",
@@ -268,8 +283,9 @@ Client SDK が初期化されたら、モバイル・バックエンドへの要
 		}
 	}];
 	```
+{: codeblock}
 
-	Swift:
+	#### Swift:
 
 	```Swift
 	let requestPath = IMFClient.sharedInstance().backendRoute + "/protected"
@@ -285,6 +301,7 @@ Client SDK が初期化されたら、モバイル・バックエンドへの要
 	};
 
 	```
+{: codeblock}
 
 1. アプリケーションを実行します。Google のログイン画面のポップアップが表示されます。
 
@@ -300,17 +317,19 @@ Client SDK が初期化されたら、モバイル・バックエンドへの要
 		
 	次のコードを追加してログアウト機能を追加することもできます。
 
-	Objective C:
+	#### Objective C:
 
 	```Objective-C
 	[[IMFGoogleAuthenticationHandler sharedInstance] logout : callBack]
 	```
+{: codeblock}
 
-	Swift:
+	#### Swift:
 
 	```Swift
 	IMFGoogleAuthenticationHandler.sharedInstance().logout(callBack)
 	```
+{: codeblock}
 
 	ユーザーが Google にログインした後でこのコードを呼び出し、そのユーザーが再度ログインしようとする場合、{{site.data.keyword.amashort}} が認証を目的として Google を使用することについての許可を求めるプロンプトが出されます。その時点で、ユーザー名をクリックすると、別のユーザーを選択してログインすることができます。<!--in the upper-right corner of the screen-->
 

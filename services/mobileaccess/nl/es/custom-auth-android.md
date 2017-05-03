@@ -1,31 +1,47 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
 
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
+
+
 # Configuración de la autenticación personalizada para la app {{site.data.keyword.amashort}} Android
 {: #custom-android}
-
-Última actualización: 1 de agosto de 2016
-{: .last-updated}
 
 
 Configure su aplicación de Android con autenticación personalizada para que utilice el SDK del cliente de {{site.data.keyword.amashort}} y conecte la aplicación a {{site.data.keyword.Bluemix}}.
 
 ## Antes de empezar
 {: #before-you-begin}
-Debe tener un recurso que esté protegido por una instancia del servicio de {{site.data.keyword.amashort}} que esté configurado para utilizar un proveedor de identidad personalizado.  Su app para móvil debe instrumentarse con el SDK del cliente de {{site.data.keyword.amashort}}.  Para obtener más información, consulte la siguiente información:
- * [Iniciación a {{site.data.keyword.amashort}}](https://console.{DomainName}/docs/services/mobileaccess/getting-started.html)
- * [Configuración del SDK de Android](https://console.{DomainName}/docs/services/mobileaccess/getting-started-android.html)
- * [Utilización de un proveedor de identidad personalizado](https://console.{DomainName}/docs/services/mobileaccess/custom-auth.html)
- * [Creación de un proveedor de identidad personalizado](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-identity-provider.html)
- * [Configuración de {{site.data.keyword.amashort}} para la autenticación personalizada](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-config-mca.html)
+Antes de empezar, debe tener:
+
+* Un recurso protegido mediante una instancia del servicio {{site.data.keyword.amashort}} configurado para que utilice un proveedor de identidad personalizado (consulte [Configuración de la autenticación personalizada](custom-auth-config-mca.html)).  
+* El valor de **TenantID**. Abra el servicio en el panel de control de {{site.data.keyword.amashort}}. Pulse el botón **Opciones móviles**. El valor `tenantId` (también conocido como `appGUID`) se muestra en el campo **GUID de app / TenantId**. Necesitará este valor para inicializar el gestor de autorización.
+* Su nombre de **Dominio**. Es el valor que ha especificado en el campo **Nombre de dominio** de la sección **Personalizado** del separador **Gestión** del panel de control de {{site.data.keyword.amashort}}.
+* El URL de la aplicación de programa de fondo (**Ruta de app**). Necesitará estos valores para enviar solicitudes a los puntos finales protegidos de la aplicación de programa de fondo.
+* Su {{site.data.keyword.Bluemix_notm}} **Región**. Encontrará su región de {{site.data.keyword.Bluemix_notm}} actual en la cabecera, junto al icono **Avatar** ![icono Avatar](images/face.jpg "icono Avatar"). El valor de región que aparece debe ser uno de los siguientes: `EE.UU. Sur`, `Reino Unido` o `Sidney` y debe corresponder con los valores de SDK necesarios en el código Javascript de WebView: `BMSClient.REGION_US_SOUTH`, `BMSClient.REGION_SYDNEY` o `BMSClient.REGION_UK`. Necesitará este valor para inicializar el cliente {{site.data.keyword.amashort}}.
+
+Para obtener más información, consulte la siguiente información:
+ * [Iniciación a {{site.data.keyword.amashort}}](getting-started.html)
+ * [Configuración del SDK de Android](getting-started-android.html)
+ * [Utilización de un proveedor de identidad personalizado](custom-auth.html)
+ * [Creación de un proveedor de identidad personalizado](custom-auth-identity-provider.html)
+ * [Configuración de {{site.data.keyword.amashort}} para la autenticación personalizada](custom-auth-config-mca.html)
+
 
 
 ## Inicialización del SDK del cliente de {{site.data.keyword.amashort}}
 {: #custom-android-initialize}
+Si tiene una Android preparada con el SDK de Android de {{site.data.keyword.amashort}}, puede saltarse esta sección.
 1. En el proyecto de Android en Android Studio, abra el archivo `build.gradle` del módulo de la app (no el proyecto `build.gradle`).
 
 1. En el archivo `build.gradle`, busque la sección `dependencies` y compruebe que exista la siguiente dependencia:
@@ -40,6 +56,7 @@ Debe tener un recurso que esté protegido por una instancia del servicio de {{si
     	// other dependencies  
 	}
 	```
+	{: codeblock}
 
 1. Sincronice el proyecto con Gradle. Pulse **Tools > Android > Sync Project with Gradle Files**.
 
@@ -49,18 +66,20 @@ Añada el permiso de acceso a Internet al elemento `<manifest>`:
 	```XML
 	<uses-permission android:name="android.permission.INTERNET" />
 	```
+	{: codeblock}
 
 1. Inicialice el SDK.  
-Un lugar habitual, pero no obligatorio, donde poner el código de inicialización es en el método `onCreate` de la actividad principal de la aplicación de Android.
-Sustituya *applicationRoute* y *applicationGUID* por los valores de **Ruta** e **Identificador exclusivo global de la app** que se obtienen al pulsar **Opciones móviles** en la app en el panel de control de {{site.data.keyword.Bluemix_notm}}.
+	  
+	Un lugar habitual, pero no obligatorio, donde poner el código de inicialización es en el método `onCreate` de la actividad principal de la aplicación de Android.
 
 	```Java
-	BMSClient.getInstance().initialize(getApplicationContext(),
-					"applicationRoute",
-					"applicationGUID",
-					BMSClient.REGION_UK);
-```
-Sustituya el `BMSClient.REGION_UK` con la región adecuada.	 Para ver la región de {{site.data.keyword.Bluemix_notm}}, pulse el icono **Avatar**  ![Icono de Avatar](images/face.jpg "Icono de Avatar") en la barra de menú para abrir el widget **Cuenta y soporte**.
+	BMSClient.getInstance().initialize(getApplicationContext(), BMSClient.REGION_UK);
+	```
+	{: codeblock}
+
+Sustituya `BMSClient.REGION_UK` por la región de {{site.data.keyword.amashort}}. Para obtener más información sobre cómo obtener estos valores, consulte [Antes de empezar](#before-you-begin).
+
+
 ## Interfaz AuthenticationListener
 {: #custom-android-authlistener}
 
@@ -73,6 +92,9 @@ Llame a este método cuando se reciba un cambio de autenticación personalizada 
 ```Java
 void onAuthenticationChallengeReceived(AuthenticationContext authContext, JSONObject challenge, Context context);
 ```
+{: codeblock}
+
+
 #### Argumentos
 {: #custom-android-onAuth-arg}
 
@@ -88,13 +110,15 @@ Llame a este método después de una autenticación satisfactoria. Los argumento
 ```Java
 void onAuthenticationSuccess(Context context, JSONObject info);
 ```
+{: codeblock}
 
 ### Método onAuthenticationFailure
 {: #custom-android-authlistener-onfail}
-Llame a este método después de un error en la autenticación. Los argumentos incluyen el contexto de Android y un JSONObject opcional que contiene información ampliada sobre el error en la autenticación.
+Llame a este método después de un error en la autenticación. Los argumentos incluyen el contexto de Android y un `JSONObject` opcional que contiene información ampliada sobre el error de autenticación.
 ```Java
 void onAuthenticationFailure(Context context, JSONObject info);
 ```
+{: codeblock}
 
 ## Interfaz AuthenticationContext
 {: #custom-android-authcontext}
@@ -104,21 +128,24 @@ void onAuthenticationFailure(Context context, JSONObject info);
 ```Java
 void submitAuthenticationChallengeAnswer(JSONObject answer);
 ```
+{: codeblock}
+
 ```Java
 void submitAuthenticationFailure (JSONObject info);
 ```
+{: codeblock}
 
 ## Implementación de ejemplo de una AuthenticationListener personalizada
 {: #custom-android-samplecustom}
 
-Este ejemplo de AuthenticationListener está diseñado para que funcione con un proveedor de identidad personalizado. Puede descargar este ejemplo del [repositorio Github](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample).
+Este ejemplo de AuthenticationListener está diseñado para que funcione con un proveedor de identidad personalizado. Puede descargar este ejemplo del [Repositorio de Github ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample "Icono de enlace externo"){: new_window}.
 
 ```Java
 package com.ibm.helloworld;
 import android.content.Context;
 import android.util.Log;
-import com.ibm.mobilefirstplatform.clientsdk.android.security.api.AuthenticationContext;
-import com.ibm.mobilefirstplatform.clientsdk.android.security.api.AuthenticationListener;
+import com.ibm.mobilefirstplatform.clientsdk.android.security.mca.api.AuthenticationContext;
+import com.ibm.mobilefirstplatform.clientsdk.android.security.mca.api.AuthenticationListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -165,6 +192,7 @@ public class CustomAuthenticationListener implements AuthenticationListener {
 	}
 }
 ```
+{: codeblock}
 
 ## Registro de una clase AuthenticationListener personalizada
 {: #custom-android-register}
@@ -172,37 +200,42 @@ public class CustomAuthenticationListener implements AuthenticationListener {
 Después de crear una clase AuthenticationListener personalizada, regístrela con `BMSClient` antes de empezar a utilizar la escucha. Añada el código siguiente a la aplicación. Debe llamarse a este código antes de enviar solicitudes a los recursos protegidos.
 
 ```Java
-MCAAuthorizationManager mcaAuthorizationManager = MCAAuthorizationManager.createInstance(this.getApplicationContext());
+MCAAuthorizationManager mcaAuthorizationManager = 
+      MCAAuthorizationManager.createInstance(this.getApplicationContext(),"<MCAServiceTenantId>");
 mcaAuthorizationManager.registerAuthenticationListener(realmName, new CustomAuthenticationListener());
 BMSClient.getInstance().setAuthorizationManager(mcaAuthorizationManager);
 
 ```
+{: codeblock}
 
-Utilice el valor de *realmName* que indicó en el panel de control de {{site.data.keyword.amashort}}.
+
+En el código:
+* Sustituya `MCAServiceTenantId` por el valor **TenantId** (consulte [Antes de comenzar](##before-you-begin)).
+* Utilice el valor de `realmName` que indicó en el panel de control de {{site.data.keyword.amashort}} (consulte [Configuración de la autenticación personalizada](custom-auth-config-mca.html)).
 
 
 ## Prueba de autenticación
 {: #custom-android-testing}
 Después de inicializar el SDK del cliente y registrar una AuthenticationListener personalizada, puede empezar a realizar solicitudes a la aplicación de fondo móvil.
 
-### Antes de empezar
+### Antes de probar
 {: #custom-android-testing-before}
-Debe tener una aplicación que se haya creado con el contenedor modelo de {{site.data.keyword.mobilefirstbp}} y que disponga de un recurso que esté protegido por {{site.data.keyword.amashort}} en el punto final `/protected`.
+Debe tener una aplicación que disponga de un recurso que esté protegido por {{site.data.keyword.amashort}} en el punto final `/protected`.
 
 
-1. Envíe una solicitud al punto final protegido (`{applicationRoute}/protected`) de la aplicación de fondo móvil del navegador, por ejemplo `http://my-mobile-backend.mybluemix.net/protected`.
+1. Envíe una solicitud al punto final protegido (`{applicationRoute}/protected`) de la aplicación de fondo móvil del navegador, por ejemplo `http://my-mobile-backend.mybluemix.net/protected`. Para obtener información sobre cómo obtener el valor `{applicationRoute}`, consulte [Antes de comenzar](#before-you-begin).
 
 1. El punto final `/protected` de un programa de fondo móvil que se ha creado con el contenedor modelo de {{site.data.keyword.mobilefirstbp}} está protegido con {{site.data.keyword.amashort}}. Solo pueden acceder al punto final las aplicaciones móviles instrumentadas con el SDK del cliente de {{site.data.keyword.amashort}}. Si no, se muestra un mensaje `Unauthorized` en el navegador.
 
-1. Utilice la aplicación de Android para realizar solicitudes al mismo punto final. Añada el código siguiente después de inicializar `BMSClient` y registrar la clase AuthenticationListener personalizada.
+1. Utilice la aplicación de Android para realizar solicitudes al mismo punto final protegido que incluya la `{applicationRoute}`. Añada el código siguiente después de inicializar `BMSClient` y registrar la clase AuthenticationListener personalizada.
 
 	```Java
-	Request request = new Request("/protected", Request.GET);
+	Request request = new Request("{applicationRoute}/protected", Request.GET);
 	request.send(this, new ResponseListener() {
 		@Override
 		public void onSuccess (Response response) {
 			Log.d("Myapp", "onSuccess :: " + response.getResponseText());
-			Log.d("MyApp", AuthorizationManager.getInstance().getUserIdentity().toString());
+			Log.d("MyApp",  MCAAuthorizationManager.getInstance().getUserIdentity().toString());
 		}
 		@Override
 		public void onFailure (Response response, Throwable t, JSONObject extendedInfo) {
@@ -215,7 +248,8 @@ Debe tener una aplicación que se haya creado con el contenedor modelo de {{site
 			}
 		}
 	});
-```
+	```
+	{: codeblock}
 
 1. 	Cuando la solicitud se realiza correctamente, se muestra la siguiente salida en la herramienta LogCat:
 
@@ -226,6 +260,8 @@ Debe tener una aplicación que se haya creado con el contenedor modelo de {{site
  ```Java
  MCAAuthorizationManager.getInstance().logout(getApplicationContext(), listener);
  ```
+ {: codeblock}
+
 
  Si invoca este código después de que el usuario haya iniciado sesión, la sesión del usuario se cerrará. Cuando el usuario intente iniciar sesión de nuevo, deberá volver a responder a la pregunta que reciba del servidor.
 

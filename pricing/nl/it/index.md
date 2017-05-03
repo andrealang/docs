@@ -4,8 +4,8 @@
 
 copyright:
 
-  years: 2015, 2016
-
+  years: 2015, 2017
+lastupdated: "2017-01-11"
  
 
 ---
@@ -51,9 +51,6 @@ copyright:
 # Prezzi
 {: #pricing}
 
-*Ultimo aggiornamento: 1 giugno 2016*
-{: .last-updated}
-
 Puoi eseguire le applicazioni in {{site.data.keyword.Bluemix}}
 e provare i servizi {{site.data.keyword.Bluemix_notm}} gratuitamente. Puoi registrarti per una versione di prova di 30 giorni gratuita che ti offre delle franchigie aggiuntive, compreso un supporto gratuito. Dopo 30 giorni, puoi scegliere un tipo di account e pagare solo per quello che usi oltre i limiti concessi dalle franchigie. Bluemix fornisce un calcolatore del costo che ti consente di stimare in anticipo il costo e la vista Dashboard di utilizzo che ti consente di controllare il costo effettivo dopo che hai creato le tue applicazioni.
 {:shortdesc}
@@ -83,7 +80,8 @@ vengono rimosse. La seguente figura mostra il processo generale di gestione degl
 
 ![Diagramma di flusso dei processi della gestione degli account {{site.data.keyword.Bluemix_notm}}](acctmgmt600.png)
 
-*Figura 1. Diagramma di flusso dei processi della gestione degli account {{site.data.keyword.Bluemix_notm}}*
+Figura 1. Diagramma di flusso dei processi della gestione degli account {{site.data.keyword.Bluemix_notm}}
+{: #pricing_figure1}
 
 
 Se converti il tuo account durante la versione di prova gratuita, le tue franchigie sono limitate a quelle
@@ -93,7 +91,7 @@ normalmente fornite da ciascun servizio. Le franchigie non sono più quelle di u
 ##Costi
 {: #what_it_costs}
 
-Gli addebiti variano a seconda delle risorse utilizzate da una specifica opzione di servizio, runtime, contenitore, server virtuale o supporto. Le risorse possono essere il numero di chiamate API, il numero di istanze, la
+Gli addebiti variano a seconda delle risorse utilizzate da una specifica opzione di servizio, runtime, contenitore o supporto. Le risorse possono essere il numero di chiamate API, il numero di istanze, la
 memoria, l'archiviazione e così via. {{site.data.keyword.Bluemix_notm}} fornisce anche degli stimatori del costo dettagliati e un calcolatore dei costi accurato per aiutarti a pianificare i tuoi addebiti. Puoi controllare il costo effettivo dopo che hai creato le tue applicazioni utilizzando la vista *Dashboard di utilizzo*. Per informazioni più dettagliate sugli addebiti, vedi [Modalità di addebito](index.html#charges).
  
 
@@ -131,13 +129,11 @@ un account Sottoscrizione, puoi ottenere uno sconto mensile basato su un impegno
 
 Puoi convertire il tuo account di prova gratuito in un account fatturabile in qualsiasi momento. Tutte le soluzioni {{site.data.keyword.Bluemix_notm}} e le informazioni sul tuo account di prova gratuito non fatturabile saranno inglobate senza soluzione di continuità nel nuovo account fatturabile.
 
-Dopo che hai creato un account fatturabile, puoi modificare le informazioni da te fornite. Fai clic sull'**icona Impostazioni profilo**
-nell'angolo superiore destro dell'interfaccia utente {{site.data.keyword.Bluemix_notm}} e fai quindi clic su **Account &gt; Tipo di account** per
-modificare le tue informazioni.
+Dopo che hai creato un account fatturabile, puoi modificare le informazioni da te fornite. Fai clic sull'**icona Impostazioni profilo**, quindi fai clic su **Account &gt; Tipo di account ** per modificare le tue informazioni.
 
-Se riscontri qualche problema con {{site.data.keyword.Bluemix_notm}} quando utilizzi un account Pagamento a consumo o Sottoscrizione, vedi [Come ottenere aiuto online](https://www.ng.bluemix.net/docs/troubleshoot/getting_customer_support.html#online_help) per ulteriori informazioni.
+Se riscontri qualche problema con {{site.data.keyword.Bluemix_notm}} quando utilizzi un account Pagamento a consumo o Sottoscrizione, vedi [Come ottenere aiuto online](/docs/troubleshoot/getting_customer_support.html#online_help) per ulteriori informazioni.
 
-**Nota:** se colleghi il tuo account di fatturazione {{site.data.keyword.Bluemix_notm}} a un account SoftLayer, dal primo giorno del mese successivo gli addebiti per {{site.data.keyword.Bluemix_notm}} saranno effettuati sulla fattura SoftLayer. Per ulteriori dettagli, vedi [Visualizzazione dei crediti](../admin//softlayerlink.html#bill_usage).
+**Nota:** se colleghi il tuo account di fatturazione {{site.data.keyword.Bluemix_notm}} a un account SoftLayer, dal primo giorno del mese successivo, gli addebiti per {{site.data.keyword.Bluemix_notm}} e SoftLayer saranno effettuati sulla fattura {{site.data.keyword.Bluemix_notm}}. Per ulteriori dettagli, vedi [Visualizzazione dei crediti](/docs/admin//softlayerlink.html#bill_usage).
 
 ###Account Pagamento a consumo
 {: #pay-as-you-go}
@@ -251,7 +247,7 @@ servizio Push, la quota di utilizzo che supera la franchigia mensile viene
 addebitata.</dd>
 <dt>Addebiti riservati</dt>
     <dd><p>In quanto proprietario di un account Pagamento a consumo o di un account Sottoscrizione, puoi riservare un'istanza del servizio, con un impegno a lungo termine, per un prezzo scontato. Ad esempio, puoi riservare l'offerta standard DB2 on Cloud di grandi dimensioni per 12 mesi.</p> 
-    <p>Alcuni servizi {{site.data.keyword.Bluemix_notm}} offrono dei piani riservati. Puoi richiedere un piano riservato dal <strong>Catalogo</strong> {{site.data.keyword.Bluemix_notm}} facendo clic sul tile del servizio. Seleziona quindi il piano di servizio che meglio soddisfa le tue esigenze. Se è disponibile un piano riservato, fai clic su <strong>Richiesta</strong> e attieniti alle richieste che ti vengono presentate per inviare la tua richiesta. Riceverai un'email che contiene le informazioni sul prezzo del piano riservato. Verrai anche contattato al più presto da un rappresentante del settore Vendite di {{site.data.keyword.Bluemix_notm}} per completare l'acquisto.</p></dd>
+    <p>Alcuni servizi {{site.data.keyword.Bluemix_notm}} offrono dei piani riservati. Puoi richiedere un piano riservato dal <strong>Catalogo</strong> {{site.data.keyword.Bluemix_notm}} facendo clic sul tile del servizio. Seleziona quindi il piano di servizio che meglio soddisfa le tue esigenze. Se è disponibile un piano riservato, fai clic su <strong>Richiesta</strong> e attieniti alle richieste che ti vengono presentate per inviare la tua richiesta. Riceverai un'e-mail che contiene le informazioni sul prezzo del piano riservato. Verrai anche contattato al più presto da un rappresentante del settore Vendite di {{site.data.keyword.Bluemix_notm}} per completare l'acquisto.</p></dd>
 <dt>Addebiti a livelli</dt>
     <dd>Analogamente agli addebiti misurati, paghi in base al tuo consumo di runtime e servizi. Tuttavia, gli addebiti a livelli aggiungono degli ulteriori livelli di prezzo, spesso offrendo degli addebiti scontati nei livelli con un più ampio consumo. Il prezzo a livelli è offerto in modalità semplice, graduale o a blocchi.</dd>
 </dl>
@@ -273,8 +269,7 @@ esempio:
 | Livello 3: 2001 - 3000                  |   $0,75 USD                       |
 | Livello 4: 3001 - 4000           |      $0,60 USD                    |
 |Livello 5: &gt; 4000 | $0,40 USD | 
-
-*Tabella 1. Tabella di prezzi di livello semplice*
+{:caption="Table 1. Simple tier pricing table" caption-side="top"}
 
 La seguente tabella
 illustra quanto paghi con un piano basato su un modello di prezzi di livello semplice:
@@ -286,7 +281,7 @@ illustra quanto paghi con un piano basato su un modello di prezzi di livello sem
 |2500 |	2500 × 0,75 = 1875 |	$1875 USD|
 |... |	... |	...|
 |5200 |	5200 × 0,40 = 2080 |$2080 USD|
-*Tabella 2. Calcolo dell'addebito utilizzando il modello di prezzo di livello semplice*
+{:caption="Table 2. Charge calculation by using the simple tier pricing model" caption-side="top"}
 
 ####Livello graduale
 {: #graduated_tier}
@@ -304,7 +299,7 @@ esempio:
 |    Livello 3: 2001 - 3000 |	$0,75 USD |
 |    Livello 4: 3001 - 4000 |	$0,60 USD |
 |    Livello 5: &gt; 4000 |	$0,40 USD |
-*Tabella 3. Tabella di prezzi di livello graduale*
+{:caption="Table 3. Graduated tier pricing table" caption-side="top"}
 
 La seguente tabella
 illustra quanto paghi con un piano basato su un modello di prezzi di livello graduale:
@@ -316,7 +311,7 @@ illustra quanto paghi con un piano basato su un modello di prezzi di livello gra
 |2500 |	(1000 × 1 (prezzo unitario per il livello 1)) + (1000 × 0,90 (prezzo unitario per il livello 2)) + (500 × 0,75 (prezzo unitario per il livello 3)) = 2275 |	$2275 USD |
 |... |	... |	...|
 |5200 |	(1000 × 1 (prezzo unitario per il livello 1)) + (1000 × 0,90 (prezzo unitario per il livello 2)) + (1000 × 0,75 (prezzo unitario per il livello 3)) + (1000 × 0,60 (prezzo unitario per il livello 4)) + (1200 × 0,40 (prezzo unitario per il livello 5)) = 3730 |	$3730 USD|
-*Tabella 4. Calcolo dell'addebito utilizzando il modello di prezzi di livello graduale*
+{:caption="Table 4. Charge calculation by using the graduated tier pricing model" caption-side="top"}
 
 ####Livello a blocchi
 {: #block_tier}
@@ -334,7 +329,7 @@ esempio:
 | Livello 3: &lt;= 3000 |	$2800 USD|
 | Livello 4: &lt;= 4000 |	$3500 USD|
 | Livello 5: &lt;= 10000 |	$5000 USD|
-*Tabella 5. Tabella di prezzi di livello a blocchi*
+{:caption="Table 5. Block tier pricing table" caption-side="top"}
 
 La seguente tabella
 illustra quanto paghi con un piano basato su un modello di prezzi di livello a blocchi:
@@ -348,21 +343,7 @@ il prezzo totale è $1900 USD. |	$1900 USD|
 |... |	... |	...|
 |5200 |	Il numero di elementi rientra nel livello 5, quindi
 il prezzo totale è $5000 USD. |	$5000 USD|
-*Tabella 6. Calcolo dell'addebito utilizzando il modello di prezzi di livello a blocchi*
-
-### Franchigie per i server virtuali
-{: #vms}
-
-Puoi utilizzare gratuitamente {{site.data.keyword.virtualmachineslong}} nel cloud pubblico IBM come funzione beta. Delle franchigie sono fornite per le immagini di server virtuale da te create, il numero di indirizzi IP assegnati e la quantità di memoria che può essere utilizzata.
-
-Per il beta {{site.data.keyword.virtualmachineslong}}, le franchigie consistono nei seguenti elementi:
-
-* 2 istanze
-* 2 CPU virtuali
-* 8 GB di memoria
-* 200 GB di archiviazione blocchi
-* 5 indirizzi IP pubblici
-
+{:caption="Table 6. Charge calculation by using the block tier pricing model" caption-side="top"}
 
 ##Come stimare i tuoi costi
 {: #cost}
@@ -370,7 +351,8 @@ Per il beta {{site.data.keyword.virtualmachineslong}}, le franchigie consistono 
 Puoi utilizzare diversi metodi per sapere quanto devi pagare per utilizzare {{site.data.keyword.Bluemix_notm}}
 per creare e ospitare la tua applicazione.
 
-* Lo stimatore del costo nella pagina Prezzi di {{site.data.keyword.Bluemix_notm}} fornisce una stima approssimativa del costo basata sulla dimensione della tua applicazione.
+* Lo stimatore del costo nel {{site.data.keyword.pricing_sheet}} {{site.data.keyword.Bluemix_notm}}
+fornisce una stima approssimativa del costo basata sulla dimensione della tua applicazione.
 * Il calcolatore del costo nella pagina Prezzi di {{site.data.keyword.Bluemix_notm}} fornisce dei prezzi delle applicazioni accurati basati sul tuo input relativo agli utilizzi di runtime e servizi.
 * Puoi anche calcolare il costo in modo manuale.
 
@@ -379,7 +361,7 @@ per creare e ospitare la tua applicazione.
 
 Puoi stabilire rapidamente il prezzo della tua applicazione utilizzando i calcolatori forniti da {{site.data.keyword.Bluemix_notm}}.
 
-1. Vai alla pagina dei costi {{site.data.keyword.Bluemix_notm}} [](https://console.{DomainName}/pricing/). 
+1. Vai al {{site.data.keyword.pricing_sheet}} {{site.data.keyword.Bluemix_notm}}. 
 2. Utilizza uno dei widget **Stima i costi** o fai clic su **Apri calcolatore** per utilizzare il **Calcolatore dei costi ridotti al penny**.
 
 Per utilizzare il calcolatore, digita il tuo utilizzo mensile previsto delle
@@ -407,7 +389,6 @@ tua applicazione nel seguente esempio. L'applicazione web utilizza i servizi e g
 * Due politiche di {{site.data.keyword.autoscaling}}, processore e memoria
 * 2 GB al mese di {{site.data.keyword.datacshort}}
 * 150 GB al mese di database NoSQL, 100.000 chiamate API heavy e 500.000 chiamate API light.
-* 8 GB al mese di database {{site.data.keyword.sqldb}}
 * 20 GB di traffico di rete in entrata o in uscita
 
 ###Prezzi per le risorse {{site.data.keyword.Bluemix_notm}}
@@ -427,9 +408,8 @@ sono in dollari statunitensi.
                                 replica |	$155,00 USD/istanza |
 |Data Cache - Premium |	25 GB di spazio di cache e una
                                 replica |	$505,00 USD/istanza|
-|IBM Cloudant® NoSQL DB for {{site.data.keyword.Bluemix_notm}} |	2 GB di archiviazione dati gratuita<br/>50.000 chiamate API light API gratuite al mese<br/>10.000 chiamate API heavy gratuite al mese | $1,00 USD/GB<br/>$0,03 USD/1000 chiamate API light<br/>$0,15 USD/1000 chiamate API heavy |
-|SQL Database 	| 2 GB gratuiti per istanza<br/>Massimo di 10 GB per istanza |	$30,00 USD/istanza |
-*Tabella 7. Listino prezzi*
+|IBM Cloudant® NoSQL DB for {{site.data.keyword.Bluemix_notm}} |	2 GB di archiviazione dati gratuita<br/>50.000 chiamate API light gratuite al mese<br/>10.000 chiamate API heavy gratuite al mese | $1,00 USD/GB<br/>$0,03 USD/1000 chiamate API light<br/>$0,15 USD/1000 chiamate API heavy |
+{:caption="Table 7. Pricing sheet" caption-side="top"}
 
 ###Calcolo del prezzo
 dell'applicazione
@@ -471,41 +451,61 @@ include le seguenti parti:</p>
 <p>
 Il prezzo totale è 148 + 13,5 + 13,5 = $175.</p></dd>
 
-<dt>8 GB al mese di SQL Database</dt>
-<dd>Il prezzo totale è di $30 per istanza.</dd>
-
 <dt>20 GB di traffico di rete in entrata o in uscita</dt>
 <dd>Il traffico di rete in entrata
 e in uscita è gratuito.</dd>
 
 </dl>
 
-Una volta aggiunti tutti gli elementi, il prezzo totale dell'applicazione è di
-           $384,15.
+Una volta aggiunti tutti gli elementi, il prezzo totale dell'applicazione è di $354,15.
+
+###Valute supportate
+
+Sebbene negli esempi dei prezzi vanga utilizzato il dollaro americano (USD), in {{site.data.keyword.Bluemix_notm}} sono supportate anche altre valute. La seguente tabella elenca le diverse valute supportate.
+
+|Codice ISO 4217| Valuta|
+|-------------|---------|
+|AUD |	  Dollaro australiano|
+|BRL |	  Real brasiliano|
+|CAD |	  Dollaro canadese|
+|CHF |	  Franco svizzero|
+|DKK |	  Corona danese|
+|EUR |	  Euro|
+|GBP |	  Sterlina britannica|
+|INR |	  Rupia indiana|
+|JPY |	  Yen giapponese|
+|KRW |	  Won sudcoreano|
+|NOK |	  Corona norvegese|
+|NZD |	  Dollaro neozelandese|
+|SEK |	  Corona svedese|
+|USD |    Dollaro americano|
+|ZAR |	  Rand sudafricano|
+{:caption="Table 8. Supported currencies" caption-side="top"}
+
+**Nota:** se hai collegato i tuoi account {{site.data.keyword.Bluemix_notm}} e SoftLayer, ricevi un'unica fattura in dollari americani (USD).  
 
 ##Dashboard di utilizzo
 {: #usage}
 
-In qualità di proprietario dell'account o gestore della fatturazione, puoi utilizzare la vista Dashboard di utilizzo per visualizzare gli addebiti in
-tempo reale per i runtime e i servizi utilizzati al mese nelle tue organizzazioni. Puoi
+In qualità di proprietario dell'account o gestore della fatturazione, puoi utilizzare la pagina Dashboard di utilizzo per visualizzare gli addebiti in tempo reale per i runtime e i servizi utilizzati ogni mese nelle tue organizzazioni. Puoi
 vedere i GB-ora di runtime e il consumo dei servizi in tutte le regioni oppure puoi
 selezionare la visualizzazione di una regione e di uno spazio specifici per gli ultimi
 12 mesi.
 
-Per aprire la vista Dashboard di utilizzo, fai clic sull'icona **Account e supporto** &gt; **Account** &gt; *nome_del_tuo_account* &gt; **Dashboard di utilizzo**. Nella vista, puoi vedere un riepilogo dell'utilizzo di runtime e servizi per l'account. I gestori della fatturazione possono visualizzare i dettagli solo per le organizzazioni in cui ricoprono tale ruolo.
+Per aprire la pagina **Dashboard di utilizzo**, fai clic su **Account** &gt; *nome_del_tuo_account* &gt; **Dashboard di utilizzo**. Nella pagina, puoi vedere un riepilogo dell'utilizzo di runtime e servizi per l'account. I gestori della fatturazione possono visualizzare i dettagli solo per le organizzazioni in cui ricoprono tale ruolo.
 
 Al proprietario dell'account viene addebitato l'utilizzo totale sostenuto su tutte le organizzazioni alla fine di ciascun ciclo di fatturazione. Ogni ciclo di fatturazione dura un mese.
 
-I proprietari dell'account possono filtrare il riepilogo dell'utilizzo in base a regione e organizzazione. Se sei un proprietario di account, imposta **Organizzazione** come **Tutte le organizzazioni** per visualizzare l'utilizzo per l'intero account per un periodo di 12 mesi. Fai clic su uno specifico mese per visualizzare il relativo utilizzo. Gli addebiti visualizzati rappresentano l'importo che ti viene addebitato per quel mese in quanto proprietario dell'account.
+I proprietari dell'account possono filtrare il riepilogo dell'utilizzo in base a regione e organizzazione. Se sei un proprietario di account, imposta **Organizzazione** su **Tutte le organizzazioni** per visualizzare l'utilizzo per l'intero account per un periodo di 12 mesi. Fai clic su uno specifico mese per visualizzare il relativo utilizzo.  Gli addebiti visualizzati rappresentano l'importo che ti viene addebitato per quel mese in qualità di proprietario dell'account.
 
 Se selezioni una specifica organizzazione per l'**Organizzazione**, puoi vedere l'utilizzo totale per tale organizzazione, compresi gli eventuali utilizzi come parte di un periodo di prova gratuito. Gli addebiti visualizzati per l'organizzazione non sono gli addebiti che ti verranno fatturati. L'utilizzo del periodo di prova gratuito viene visualizzato come gratuito, a livello dell'account, ma non a livello dell'organizzazione. Pertanto, quando visualizzi l'utilizzo dell'organizzazione, vedi l'utilizzo reale per tale organizzazione, compresi sia l'utilizzo a titolo gratuito che quello che viene invece addebitato. Tutto l'utilizzo dell'organizzazione viene sommato all'utilizzo dell'account dopo la rimozione del periodo di prova gratuito.
 
 ##Visualizzazione dei crediti
 {: #credits}
 
-In qualità di proprietario dell'account o gestore della fatturazione, puoi utilizzare la vista Dashboard di utilizzo per visualizzare tutti i crediti del tuo account. Potresti avere crediti se, ad esempio, hai associato un account SoftLayer a un account {{site.data.keyword.Bluemix_notm}}.
+In qualità di proprietario dell'account o gestore della fatturazione, puoi utilizzare la pagina **Dashboard di utilizzo** per visualizzare tutti i crediti del tuo account. 
 
-Per aprire la vista Dashboard di utilizzo, fai clic sull'icona **Account e supporto** ![Icona Account e supporto](../admin/images/account_support.svg), quindi seleziona **Account**. Nella pagina così visualizzata, fai clic su **Dashboard di utilizzo**. Nella vista vengono mostrati gli eventuali crediti e la rispettiva data di scadenza.
+Per aprire la pagina **Dashboard di utilizzo**, fai clic su **Account** &gt; **Dashboard di utilizzo**. Il dashboard visualizza eventuali crediti e la rispettiva data di scadenza.
 
 ##Notifiche
 {: #notifications}
@@ -513,28 +513,25 @@ Per aprire la vista Dashboard di utilizzo, fai clic sull'icona **Account e suppo
 In quanto gestore dell'account di un account Pagamento a consumo, puoi impostare le notifiche di spesa rispetto al costo totale del tuo account per il tuo
 runtime, i tuoi servizi e per i singoli servizi, esclusi quelli di terze parti. Ricevi le notifiche quando raggiungi l'80%, il 90% e il 100% delle soglie di spesa da te specificate.
 
-Per aprire la vista **Notifiche**, fai clic sull'icona **Account e supporto** &gt; **Account** &gt; *nome_del_tuo_account* &gt; **Notifiche di spesa**. Immetti un valore numerico per impostare la soglia di spesa per l'attivazione di una notifica per ciascun tipo di notifica di spesa, come necessario. Puoi anche aggiungere ed eliminare notifiche per singoli servizi.
+Per aprire la vista **Notifiche**, fai clic su **Account** &gt; *nome_del_tuo_account* &gt; **Notifiche di spesa**. Immetti un valore numerico per impostare la soglia di spesa per l'attivazione di una notifica per ciascun tipo di notifica di spesa, come necessario. Puoi anche aggiungere ed eliminare notifiche per singoli servizi.
 
 ##Come modificare il tuo piano
 {: #changing}
 
 Puoi modificare il tuo piano di servizio in {{site.data.keyword.Bluemix_notm}} nel Dashboard del servizio, se le modifiche del piano sono abilitate per tale servizio.
 
-Solo degli specifici servizi ti consentono di modificare il piano di servizio. Se le modifiche del piano sono abilitate per il servizio, il Dashboard del servizio
-visualizza un'opzione **Piano** nel riquadro di navigazione di sinistra. Se modifichi
+Solo degli specifici servizi ti consentono di modificare il piano di servizio. Se le modifiche del piano sono abilitate per il servizio, il Dashboard del servizio visualizza un'opzione **Piano** nel riquadro di navigazione. Se modifichi
 il tuo piano, ogni servizio prevede una procedura diversa a cui devi attenerti.
 
 1. Per modificare il tuo piano, nel Dashboard del servizio, fai clic su **Piano**. Di norma, puoi eseguire un upgrade del tuo piano oppure ridurlo.
 2. Dopo che hai modificato il tuo piano, devi completare una specifica procedura. Tale procedura varia a
-seconda del tipo di modifica del piano e del servizio. Ad esempio, se hai ridotto il tuo piano, è possibile
-che tu debba preparare nuovamente la tua applicazione. Nel caso invece in cui tu abbia eseguito l'upgrade del tuo piano, potresti dover preparare di nuovo la tua applicazione ed eseguire delle altre azioni.<br/><br/>Per preparare di nuovo la tua applicazione, vai al dashboard {{site.data.keyword.Bluemix_notm}} e trova l'applicazione a cui è associato il servizio. Nel menu delle applicazioni, seleziona **Riavvia applicazione**.<br/><br/>Altre azioni dei passi successivi dipendono dal servizio. Consulta la seguente tabella per le specifiche azioni.
+seconda del tipo di modifica del piano e del servizio. Ad esempio, se hai ridotto il tuo piano, è possibile che tu debba preparare nuovamente la tua applicazione. Nel caso invece in cui tu abbia eseguito l'upgrade del tuo piano, potresti dover preparare di nuovo la tua applicazione ed eseguire delle altre azioni.<br/><br/>Per preparare di nuovo la tua applicazione, vai al dashboard {{site.data.keyword.Bluemix_notm}} e trova l'applicazione a cui è associato il servizio. Nel menu delle applicazioni, seleziona **Riavvia applicazione**.<br/><br/>Le altre azioni dei passi successivi dipendono dal servizio. Consulta la seguente tabella per le specifiche azioni.
 
 |Servizio |	Informazioni|
 |--------|-------------|
 |Presence Insights 	|Se hai un piano Lite e superi le franchigie, viene visualizzato oppure registrato nei log un messaggio 403 che indica che non sei più autorizzato e la tua
-istanza del servizio viene disabilitata. Inoltre, le chiamate API POST REST vengono rifiutate con una risposta 403.<br/><br/>Se il tuo servizio è
-disabilitato perché hai superato la franchigia, puoi eseguire l'upgrade da un piano Lite a un piano a pagamento. Il tuo servizio viene riabilitato entro 2 ore.<br/><br/>Se hai un piano a pagamento, puoi ridurlo a un piano Lite a condizione che il tuo utilizzo rimanga entro la franchigia prevista dal piano Lite per gli eventi e l'archiviazione totale.<br/><br/>Quando esegui l'upgrade o la riduzione del tuo piano, non hai bisogno di preparare nuovamente o riavviare le tue applicazioni.|
-*Tabella 8. Passi successivi per modificare il tuo piano*
+istanza del servizio viene disabilitata. Inoltre, le chiamate API REST POST vengono rifiutate con una risposta 403.<br/><br/>Se il tuo servizio è disabilitato perché hai superato la franchigia, puoi eseguire l'upgrade da un piano Lite a un piano a pagamento. Il tuo servizio viene riabilitato entro 2 ore.<br/><br/>Se hai un piano a pagamento, puoi ridurlo a un piano Lite a condizione che il tuo utilizzo rimanga entro la franchigia prevista dal piano Lite per gli eventi e l'archiviazione totale.<br/><br/>Quando esegui l'upgrade o la riduzione del tuo piano, non hai bisogno di preparare nuovamente o riavviare le tue applicazioni.|
+{:caption="Table 9. Next steps for changing your plan" caption-side="top"}
 
 ###Come modificare il tuo piano tramite l'interfaccia riga di comando
 
@@ -545,8 +542,10 @@ il piano di servizio, immetti il seguente comando:
 cf update-service <nome_servizio> [-p <nuovo_piano>]
 ```
 # rellinks
-## general 
+{: rellinks}
+## general
+{: general} 
 * [Listino prezzi di {{site.data.keyword.Bluemix_notm}}](https://console.{DomainName}/pricing/)
-* [Forum della community degli sviluppatori {{site.data.keyword.Bluemix_notm}}](https://developer.ibm.com/bluemix/)
+* [{{site.data.keyword.Bluemix_notm}} Developers Community Forum ![icona link esterno](../icons/launch-glyph.svg)](https://developer.ibm.com/bluemix/){: new_window}
 * [Come ottenere aiuto online](https://www.{DomainName}/docs/troubleshoot/getting_customer_support.html#online_help)
 * [Contatti](https://console.{DomainName}/#/contactUs/cloudOEPaneId=contactUs)

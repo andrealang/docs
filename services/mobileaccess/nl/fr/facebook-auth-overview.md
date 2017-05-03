@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
 {:new_window: target="_blank"}
@@ -12,12 +13,10 @@ copyright:
 # Authentification des utilisateurs à l'aide des données d'identification Facebook
 {: #facebook-auth-overview}
 
-Dernière mise à jour : 22 juillet 2016
-{: .last-updated}
-
-Vous pouvez configurer le service {{site.data.keyword.amashort}} pour protéger des ressources en utilisant
+Vous pouvez configurer le service {{site.data.keyword.amafull}} pour protéger des ressources en utilisant
 Facebook comme fournisseur d'identité. Les utilisateurs de votre application mobile ou Web peuvent utiliser leurs données d'identification Facebook
 pour l'authentification.
+
 {:shortdesc}
 
 **Important** : il n'est pas nécessaire d'installer séparément le SDK client fourni par Facebook. Le SDK Facebook est installé automatiquement par les gestionnaires de dépendances lors de la configuration du SDK client de {{site.data.keyword.amashort}} Facebook.
@@ -40,42 +39,46 @@ Le diagramme suivant représente l'intégration entre {{site.data.keyword.amasho
 * Le SDK client de {{site.data.keyword.amashort}} utilise le SDK Facebook pour lancer le processus d'authentification. Lorsque l'authentification aboutit, le SDK Facebook renvoie un jeton d'accès Facebook.
 * Le jeton d'accès Facebook est considéré comme une réponse à la demande d'authentification. Il est envoyé au service {{site.data.keyword.amashort}}.
 * Le service valide la réponse à la demande d'authentification auprès des serveurs Facebook.
-* Si la validation aboutit, le service {{site.data.keyword.amashort}} génère un en-tête d'autorisation et le renvoie au SDK client de {{site.data.keyword.amashort}}. L'en-tête d'autorisation contient deux jetons : un jeton qui contient des informations sur les droits d'accès, et un autre jeton qui contient des informations sur l'utilisateur, le périphérique et l'application.
+* Si la validation aboutit, le service {{site.data.keyword.amashort}} génère un en-tête d'autorisation et le renvoie au SDK client de {{site.data.keyword.amashort}}. L'en-tête d'autorisation contient deux jetons : un jeton qui contient des informations sur les droits d'accès, et un autre jeton qui contient des informations sur l'utilisateur, l'appareil et l'application.
 * A partir de ce moment, toutes les demandes faites avec le SDK client de {{site.data.keyword.amashort}} contiennent un nouvel en-tête d'autorisation.
 * Le SDK client de {{site.data.keyword.amashort}} renvoie automatiquement la demande d'origine qui avait déclenché le flux d'autorisation.
 * Le SDK serveur {{site.data.keyword.amashort}} extrait l'en-tête d'autorisation de la requête, la valide auprès du service
 {{site.data.keyword.amashort}} et octroie l'accès à une ressource de back end.
 
-### Flux de requête d'une application Web {{site.data.keyword.amashort}}
+### Flux de demande d'une application Web {{site.data.keyword.amashort}}
 {: #mca-facebook-web-sequence}
 
-Le flux de requête d'une application Web {{site.data.keyword.amashort}} est similaire à celui d'un client d'une application mobile. Toutefois,
+Le flux de demande d'une application Web {{site.data.keyword.amashort}} est similaire à celui d'un client d'une application mobile. Toutefois,
 {{site.data.keyword.amashort}} protège l'application et non pas une ressource de back end {{site.data.keyword.Bluemix_notm}}.
 
   * La requête initiale est envoyée par l'application Web (depuis un formulaire de connexion, par exemple).
-  * La redirection finale vise la zone protégée de l'application Web elle-même et non pas une ressource de back end protégée. 
+  * La redirection finale vise la zone protégée de l'application Web elle-même et non pas une ressource de back end protégée.
 
 
-## Obtenez un ID d'application Facebook dans le portail des développeurs Facebook.
+## Création d'une application sur le site Web Facebook for Developers
 {: #facebook-appID}
 
-Pour commencer à utiliser Facebook en tant que fournisseur d'identité, vous devez créer une application dans le portail Facebook Developer. Au cours de ce processus, vous obtenez un ID d'application Facebook, qui est un identificateur unique qui permet à Facebook de savoir quelle application tente de se connecter.
+Pour commencer à utiliser Facebook en tant que fournisseur d'identité, créez une application sur le site Web Facebook for Developers. Durant ce processus, un ID d'application Facebook est créé. Il s'agit d'un identificateur unique utilisé par Facebook pour savoir quelle application tente de se connecter.
 
-1. Ouvrez le [portail Facebook Developer](https://developers.facebook.com).
-
-1. Cliquez sur **My Apps** dans le menu et sélectionnez **Create a new app**.
-Sélectionnez une application iOS ou Android et cliquez sur **Skip and Create App ID** dans l'écran suivant.
-
-1. Définissez le nom d'affichage de votre application et sélectionnez une catégorie. Cliquez sur **Create App ID** pour continuer.
-
-1. Copiez l'**ID d'appli** qui s'affiche. Il s'agit de votre ID d'application Facebook.  Vous aurez besoin de cette valeur pour
+Vous aurez besoin de cette valeur pour
 configurer l'authentification Facebook
-avec votre application mobile ou Web.
+pour votre application mobile ou Web.
+
+1. Accédez au site [Facebook for Developers ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://developers.facebook.com "Icône de lien externe"){: new_window}.
+
+1. Ouvrez la liste déroulante **Mes applications** et sélectionnez **Ajouter une application**.
+
+1. Entrez des valeurs dans les zones relatives au nom d'affichage et aux valeurs e-mail de contact puis choisissez une catégorie dans la liste déroulante.
+
+1. Cliquez sur la commande de création d'un nouvel ID d'application.
+
+1. Un contrôle de sécurité peut apparaître. Effectuez l'action requise.
+
+1. La page relative à la configuration du produit s'affiche. Copiez l'**ID d'appli** qui s'affiche.
 
 ## Etapes suivantes
 {: #next-steps}
 
 * [Activation de l'authentification Facebook pour les applications Android](facebook-auth-android.html)
 * [Activation de l'authentification Facebook pour les applications iOS (SDK Swift)](facebook-auth-ios-swift-sdk.html)
-* [Activation de l'authentification Facebook pour les applications iOS (SDK Objective-C - Déprécié)](facebook-auth-ios.html)
 * [Activation de l'authentification Facebook pour les applications Cordova](facebook-auth-cordova.html)

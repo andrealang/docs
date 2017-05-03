@@ -2,6 +2,7 @@
 
 copyright:
   years: 2015, 2016
+lastupdated: "2016-10-02"
 
 ---
 {:shortdesc: .shortdesc}
@@ -9,10 +10,8 @@ copyright:
 # Configuración del SDK de Objective-C de iOS
 {: #getting-started-ios}
 
-Última actualización: 17 de julio de 2016
-{: .last-updated}
+Instrumente su aplicación de iOS con el SDK de {{site.data.keyword.amafull}}, inicialice el SDK, y realice solicitudes a los recursos protegidos y no protegidos.
 
-Instrumente su aplicación de iOS con el SDK de {{site.data.keyword.amashort}}, inicialice el SDK, y realice solicitudes a los recursos protegidos y no protegidos.
 {:shortdesc}
 
 **Importante:** Si bien el SDK de Objective-C recibe total soporte y sigue considerándose como SDK principal para {{site.data.keyword.Bluemix_notm}} Mobile Services, está previsto dejar de mantener este SDK a finales del año en favor del nuevo SDK de Swift. Para aplicaciones nuevas, se recomienda utilizar el SDK de Swift (consulte [Configuración del SDK de Swift para iOS](getting-started-ios-swift-sdk.html)).
@@ -21,6 +20,8 @@ Instrumente su aplicación de iOS con el SDK de {{site.data.keyword.amashort}}, 
 {: #before-you-begin}
 Debe tener lo siguiente:
 * Una instancia de una aplicación {{site.data.keyword.Bluemix_notm}} que esté protegida por el servicio {{site.data.keyword.amashort}}. Para obtener más información sobre la creación de una aplicación de fondo {{site.data.keyword.Bluemix_notm}}, consulte [Cómo empezar](index.html).
+* Su **TenantID**. Abra el servicio en el panel de control de {{site.data.keyword.amashort}}. Pulse **Opciones móviles**. Los valores `tenantId` (también conocidos como `appGUID`) se muestran en el campo **GUID de app / TenantId**. Necesitará este valor para inicializar el gestor de autorización de {{site.data.keyword.amashort}}.
+* Su **Ruta de aplicación**. Es el URL de la aplicación de programa de fondo. Necesita este valor para enviar solicitudes a sus puntos finales protegidos.
 * Un proyecto Xcode.  
 
 
@@ -32,12 +33,14 @@ El SDK de {{site.data.keyword.amashort}} se distribuye con CocoaPods, un gestor 
 ### Instalación de CocoaPods
 {: #install-cocoapods}
 
-1. Abra Terminal y ejecute el mandato **pod --version**. Si ya tiene CocoaPods instalado, se muestra el número de versión. Puede omitir la sección siguiente para instalar el SDK.
+1. Abra Terminal y ejecute el mandato **pod --version**. Si ya tiene CocoaPods instalado, se muestra el número de versión. Vaya a la siguiente sección para instalar el SDK.
 
 1. Si CocoaPods no está instalado, ejecute:
+
 ```
 sudo gem install cocoapods
 ```
+
 Para obtener más información, consulte el [sitio web de CocoaPods](https://cocoapods.org/).
 
 ### Instalación del SDK del cliente de {{site.data.keyword.amashort}} con CocoaPods
@@ -50,47 +53,41 @@ Para obtener más información, consulte el [sitio web de CocoaPods](https://coc
 
 1. Edite el archivo `Podfile` y añada la línea siguiente a los destinos necesarios:
 
-	```
-	pod 'IMFCore'
-	```
 
-1. Guarde el archivo `Podfile` y ejecute `pod install` desde la línea de mandatos. <br/>Cocoapods instala las dependencias añadidas. Puede ver el progreso y qué componentes se van añadiendo.<br/>
-**Importante**: CocoaPods genera un archivo `xcworkspace`.  A partir de ahora, debe abrirlo para trabajar en el proyecto.
+	`pod 'IMFCore'`
+
+1. Guarde el archivo `Podfile` y ejecute `pod install` desde la línea de mandatos. <br/>Cocoapods instala dependencias añadidas y visualiza los componentes añadidos.<br/>
+
+	**Importante**: CocoaPods genera un archivo `xcworkspace`.  A partir de ahora, debe abrirlo para trabajar en el proyecto.
 
 1. Abra el espacio de trabajo del proyecto de iOS. Abra el archivo `xcworkspace` que ha generado CocoaPods. Por ejemplo: `{nombre-proyecto}.xcworkspace`. Ejecute `open {nombre-proyecto}.xcworkspace`.
 
 ## Inicialización del SDK del cliente de {{site.data.keyword.amashort}}
 {: #init-mca-sdk-ios}
 
-Para poder utilizar el SDK de cliente de {{site.data.keyword.amashort}}, debe inicializar el SDK; para ello, especifique los parámetros **Ruta** (`applicationRoute`) e **Identificador exclusivo global de la app** (`applicationGUID`).
-
-
-1. Desde la página principal del panel de control de {{site.data.keyword.Bluemix_notm}}, haga clic en la aplicación. Pulse **Opciones móviles**. Necesita los valores **Ruta** e **Identificador exclusivo global de la app** para inicializar el SDK.
-
 1. Importe la infraestructura `IMFCore` en la clase en la que desea utilizar el SDK de cliente de {{site.data.keyword.amashort}} añadiendo la siguiente cabecera:
 
 	####Objective-C
 	{: #imfcore-objc}
-	
+
 	```Objective-C
 	  #import <IMFCore/IMFCore.h>
-	
 	```
-	
+
 	####Swift
 	{: #sdk-swift}
-	
+
 	El SDK del cliente de {{site.data.keyword.amashort}} se ha implementado con Objective-C. Es posible que necesite añadir una cabecera puente al proyecto de Swift:
-	1. Pulse el botón derecho del ratón en el proyecto en Xcode, y seleccione **Nuevo archivo...**.
+	1. Pulse el botón derecho del ratón en el proyecto en Xcode, y seleccione **Nuevo archivo**.
 	1. En la categoría **Origen de iOS**, pulse **Archivo de cabecera**. Asígnele el nombre `BridgingHeader.h`.
-	1. Añada la siguiente línea a la cabecera puente: `#import <IMFCore/IMFCore.h>`
+	1. Añada la siguiente línea a la cabecera puente: `#import <IMFCore/IMFCore.h>`.
 	1. Pulse el proyecto en Xcode, y seleccione el separador **Crear configuración**.
 	1. Busque `Objective-C Bridging Header`.
 	1. Defina el valor en la ubicación del archivo `BridgingHeader.h`, por ejemplo:`$(SRCROOT)/MyApp/BridgingHeader.h`.
 	1. Asegúrese de que la cabecera puente se selecciona en Xcode al crear el proyecto. No debería ver mensajes de error.
-	
+
 1. Utilice el código siguiente para inicializar el SDK del cliente de {{site.data.keyword.amashort}}.  Un lugar habitual, pero no obligatorio, donde poner el código de inicialización es en el método `application:didFinishLaunchingWithOptions` del delegado de la aplicación. <br/>
-Sustituya *applicationRoute* y *applicationGUID* por los valores de **Opciones móviles** en el panel de control de {{site.data.keyword.Bluemix_notm}}.
+Para obtener información sobre cómo obtener los valores `applicationRoute` y `applicationGUID`, consulte [Antes de empezar](#before-you-begin). 
 
 	####Objective-C
 	{: #sharedinstance-objc}
@@ -100,19 +97,36 @@ Sustituya *applicationRoute* y *applicationGUID* por los valores de **Opciones m
 			initializeWithBackendRoute:@"applicationRoute"
 			backendGUID:@"applicationGUID"];
 	```
+
 	####Swift
 	{: #sharedinstance-swift}
 	```Swift
  		MFClient.sharedInstance().initializeWithBackendRoute("applicationRoute",backendGUID: "applicationGUID")
 	```
 
-## Cómo realizar una solicitud al programa de fondo móvil
+## Inicialización de AuthorizationManager
+Inicialice `AuthorizationManager` pasando el parámetro `tenantId` del servicio {{site.data.keyword.amashort}}. Para obtener información sobre cómo obtener estos valores, consulte [Antes de empezar](#before-you-begin). 
+
+####Objective-C
+
+```Objective-C
+[[IMFAuthorizationManager sharedInstance]  initializeWithTenantId: @"<tenantId>"];
+```
+
+####Swift
+
+```Swift
+IMFAuthorizationManager.sharedInstance().initializeWithTenantId("<tenantId>")
+```
+
+	
+## Cómo realizar una solicitud a la aplicación de programa de fondo móvil
 {: #request}
 
-Después de inicializar el SDK del cliente de {{site.data.keyword.amashort}}, puede empezar a realizar solicitudes al programa de fondo móvil.
+Después de inicializar el SDK del cliente de {{site.data.keyword.amashort}}, puede empezar a realizar solicitudes a la aplicación de programa de fondo móvil.
 
-1. Intente enviar una solicitud a un punto final protegido del programa de fondo móvil en el navegador. Abra el siguiente URL: `{rutaAplicación}/protected`. Por ejemplo: `http://my-mobile-backend.mybluemix.net/protected`
-<br/>El punto final `/protected` de un programa de fondo móvil que se ha creado con el contenedor modelo de MobileFirst Services Starter está protegido con {{site.data.keyword.amashort}}. Se devuelve un mensaje `Unauthorized` al navegador porque solo se puede acceder a este punto final mediante aplicaciones móviles instrumentadas con el SDK del cliente de {{site.data.keyword.amashort}}.
+1. Intente enviar una solicitud a un punto final protegido de la aplicación de fondo móvil en el navegador. Abra el siguiente URL: `{rutaAplicación}/protected`. Por ejemplo: `http://my-mobile-backend.mybluemix.net/protected`
+<br/>El punto final `/protected` de una aplicación de programa de fondo móvil que se ha creado con el contenedor modelo de MobileFirst Services Starter está protegido con {{site.data.keyword.amashort}}. Se devuelve un mensaje `Unauthorized` al navegador porque solo se puede acceder a este punto final mediante aplicaciones móviles instrumentadas con el SDK del cliente de {{site.data.keyword.amashort}}.
 
 1. Utilice la aplicación de iOS para realizar una solicitud al mismo punto final. Añada el código siguiente después de inicializar `IMFClient`
 
@@ -156,7 +170,7 @@ Después de inicializar el SDK del cliente de {{site.data.keyword.amashort}}, pu
 
 	![imagen](images/getting-started-ios-success.png)
 
-## Próximos pasos
+## Pasos siguientes
 {: #next-steps}
 Cuando se ha conectado al punto final protegido, no se han necesitado credenciales. Para que los usuarios inicien sesión en la aplicación, debe configurar la autenticación de Facebook, Google o Personalizada.
   * [Facebook](facebook-auth-ios.html)

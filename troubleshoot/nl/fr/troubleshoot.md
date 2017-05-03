@@ -1,8 +1,9 @@
 ---
 
 copyright:
-  years: 2015, 2016
-
+  years: 2015, 2017
+  
+lastupdated: "2016-03-08"
 
 ---
 
@@ -14,11 +15,14 @@ copyright:
 # Traitement des incidents
 {: #troubleshooting}
 
-Dernière mise à jour : 4 août 2016
-{: .last-updated}
+Si vous rencontrez un problème avec {{site.data.keyword.Bluemix}}, vous pouvez utiliser les informations décrites ici pour identifier et résoudre le problème. 
 
-Si vous rencontrez des problèmes avec {{site.data.keyword.Bluemix}}, vous pouvez procéder à une opération de traitement des incidents afin de déterminer les actions correctives à mener.
+Connectez-vous à la console {{site.data.keyword.Bluemix_notm}} :
+* Pour afficher le statut des services en cours et des contextes d'exécution, cliquez sur **Support > Statut** dans la barre de menu. 
+* Pour afficher des notifications, cliquez sur **Compte > Notifications** dans la barre de menu.  
+* Pour rechercher des réponses dans la documentation et sur les forums Stack Overflow ou developerWorks (dW) Answers, ou pour contacter le support, cliquez sur **Support > Trouver des réponses** dans la barre de menu. 
 
-Connectez-vous à l'interface utilisateur {{site.data.keyword.Bluemix_notm}} et cliquez sur l'icône {{site.data.keyword.avatar}} ![icône Avatar](images/account_support.svg) dans la barre de menu. Vous pouvez afficher le statut des services en cours et des contextes d'exécution ainsi que des
-notifications. Vous pouvez également sélectionner **Obtenir de l'aide** pour rechercher des réponses dans la documentation
-et dans les forums Stack Overflow ou developerWorks (dW) Answers, ou encore contacter le support.
+Si votre compte est lié entre {{site.data.keyword.Bluemix_notm}} et {{site.data.keyword.BluSoftlayer}}, connectez-vous à la console Bluemix :
+* Pour afficher le statut des services en cours et des contextes d'exécution, cliquez sur le lien **Status**. 
+* Pour rechercher des réponses, cliquez sur le lien **Support** dans la barre de menu, puis sur **Ajouter un ticket > Trouver des réponses**.
+  Vous pouvez aussi accéder directement aux forums *Stack Overflow* ou *developerWorks (dW) Answers* pour rechercher des réponses ou poser des questions. 

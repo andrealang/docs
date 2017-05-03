@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015,2016
+  years: 2016, 2017
+lastupdated: "2017-03-14"
 
 ---
 
@@ -13,15 +14,13 @@ copyright:
 
 # Create device type schemas
 {: #iotrtinsights_task}
-Last updated: 1 August 2016
-{: .last-updated}
 
 To use {{site.data.keyword.iot_short}} features such as rules and actions, you must create a schema to map device properties to user-friendly properties names, set the data units for the properties, and specify a message type to use with the schema.
 {: shortdesc}
 
 **Important:** Schemas are required to use rules and actions. For information, see [Cloud Analytics](cloud_analytics.html#rules).
 
-**Important:** The analytics features are merged in from the {{site.data.keyword.iotrtinsights_full}} service. If your {{site.data.keyword.iot_short_notm}} organization is used as a data source for an existing {{site.data.keyword.iotrtinsights_short}} instance, Cloud and Edge Analytics is not enabled until after the existing {{site.data.keyword.iotrtinsights_short}} instances have been migrated. Continue to use the {{site.data.keyword.iotrtinsights_short}} dashboard for your analytics needs until the migration is complete. For more information, see the [IBM Watson IoT Platform blog](https://developer.ibm.com/iotplatform/2016/04/28/iot-real-time-insights-and-watson-iot-platform-a-match-made-in-heaven/){: new_window} on IBM developerWorks and your existing {{site.data.keyword.iotrtinsights_short}} instance dashboards.  
+**Important:** The analytics features are merged in from the {{site.data.keyword.iotrtinsights_full}} service. If your {{site.data.keyword.iot_short_notm}} organization is used as a data source for an existing {{site.data.keyword.iotrtinsights_short}} instance, Cloud and Edge Analytics is not enabled until after the existing {{site.data.keyword.iotrtinsights_short}} instances have been migrated. Continue to use the {{site.data.keyword.iotrtinsights_short}} dashboard for your analytics needs until the migration is complete. For more information, see the [IBM Watson IoT Platform blog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/iotplatform/2016/04/28/iot-real-time-insights-and-watson-iot-platform-a-match-made-in-heaven/){: new_window} on IBM developerWorks and your existing {{site.data.keyword.iotrtinsights_short}} instance dashboards.  
 
 ## Adding a device schema
 {: #add_schema}
@@ -68,7 +67,9 @@ To add a schema:
  `Float` or `Integer`.</li>
  <li>Property - A property identifier for the virtual property. For example:  
 `temp_virt`</li>
-    <li>Calculation - Add one or more components to define a valid function. You can use properties, numerical values, and mathematical operators such as +, -, \*, /, (, ), and AVG to build your calculation. The AVG component is used to calculate the average property value over a specified period of time.</br> **Important:**  The AVG component only returns property datapoints if the data for the selected property comes from a device that is connected to a gateway with an Edge Analytics Agent installed. For more information, see [Installing the edge analytics agent](gateways/dashboard.html#edge).</li>
+    <li>Calculation - Add one or more components to define a valid function. You can use properties, numerical values, and mathematical operators such as +, -, \*, /, (, and ).  
+    Click **Advanced** for a set of formulas for use with series of datapoints on edge devices. For more information about the advanced formulas, see [Advanced calculations for edge virtual properties](im_vir_calculations.html).  
+    **Important:** Rule conditions that compare virtual properties based on advanced formulas are not supported.</li>
     <li>Data unit - Optional: The unit of data of the property. For example: `C` or `Mph`</li>
     <li> Decimal places - Optional, float only: The number of decimals to include in the device data.</li>
    </ul>

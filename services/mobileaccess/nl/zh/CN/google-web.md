@@ -1,15 +1,13 @@
 ---
 
 copyright:
-  year: 2016
+  year: 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
 
 # 启用 Web 应用程序的 Google 认证
 {: #google-auth-web}
-
-上次更新时间：2016 年 6 月 1 日
-{: .last-updated}
 
 使用 Google 登录在 Web 应用程序上认证用户。
 
@@ -49,7 +47,6 @@ copyright:
   https://imf-newauthserver.bluemix.net/oauth/v2/authorization
 
   使用以下查询参数：
-  
 	```
 response_type='authorization_code'
    client_id= <bluemix_app_guid>
@@ -67,7 +64,6 @@ response_type='authorization_code'
 
 
   使用以下查询参数：
-  
 
 	```
   	grant_type=’authorization_code’
@@ -82,5 +78,3 @@ response_type='authorization_code'
 
 现在，您可以开始向受保护资源发出请求。
 对受保护资源的所有请求都应该在授权请求头字段中包含访问令牌。
-
-

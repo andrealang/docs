@@ -1,18 +1,22 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # カスタム ID プロバイダーを使用したユーザーの認証
 {: #custom-id}
 
-最終更新日: 2016 年 7 月 22 日
-{: .last-updated}
 
-
-カスタム ID プロバイダーを作成し、資格情報の収集と検証のためのユーザー独自のロジックを実装します。カスタム ID プロバイダーは、RESTful インターフェースを公開する Web アプリケーションです。オンプレミスまたは {{site.data.keyword.Bluemix}} 上でカスタム ID プロバイダーをホストできます。唯一の要件は、カスタム ID プロバイダーは {{site.data.keyword.amashort}} サービスと対話できるように公開インターネットからアクセス可能でなければならないということです。
+{{site.data.keyword.amafull}} サービスを使用して、資格情報の収集と検証のためのユーザー独自のロジックを実装する、カスタム ID プロバイダーを作成します。カスタム ID プロバイダーは、RESTful インターフェースを公開する Web アプリケーションです。オンプレミスまたは {{site.data.keyword.Bluemix}} 上でカスタム ID プロバイダーをホストできます。唯一の要件は、カスタム ID プロバイダーは {{site.data.keyword.amashort}} サービスと対話できるように公開インターネットからアクセス可能でなければならないということです。
 
 ## {{site.data.keyword.amashort}} カスタム ID 要求フロー
 {: #custom-id-ovr}
@@ -44,10 +48,7 @@ copyright:
 {{site.data.keyword.amashort}} Web アプリケーション要求フローは、モバイル・クライアントのフローに似ています。ただし、{{site.data.keyword.amashort}} は、{{site.data.keyword.Bluemix_notm}} バックエンド・リソースではなくて Web アプリケーションを保護します。
 
   * 最初の要求は Web アプリケーションによって (例えばログイン・フォームから) 送信されます。
-  * 最終のリダイレクトは、バックエンド保護リソースではなく Web アプリケーション自体の保護領域へのリダイレクトです。 
-
-
-
+  * 最終のリダイレクトは、バックエンド保護リソースではなく Web アプリケーション自体の保護領域へのリダイレクトです。
 
 ## カスタム ID プロバイダーについての理解
 {: #custom-id-about}
@@ -70,6 +71,7 @@ copyright:
 		}
 	}
 	```
+	{: codeblock}
 
 1. マルチステップ認証およびマルチフォーム認証も含めて任意のカスタム資格情報収集フローをクライアントに実装します。カスタム認証チャレンジと同様に、カスタム認証チャレンジ応答の構造も設計する必要があります。
 
@@ -82,6 +84,8 @@ copyright:
 		pincode:"1234"
 	}
 	```
+	{: codeblock}
+
 1. 提供された認証チャレンジ応答を検証するカスタム・ロジックを実装します。
 
 1. 必要なカスタム・プロパティーを含むカスタム・ユーザー ID オブジェクトを定義します。認証が成功した後にクライアントが取得するカスタム・ユーザー ID オブジェクトの例を以下に示します。
@@ -97,14 +101,15 @@ copyright:
 		}
 	}
 	```
+	{: codeblock}
 
 ### カスタム ID プロバイダーのサンプル実装
 {: #custom-sample}
 
 カスタム ID プロバイダーを開発する際に参考として使用できる、カスタム ID プロバイダーの Node.js 実装のサンプルを以下に示します。GitHub リポジトリーから、完全なアプリケーション・コードをダウンロードしてください。
 
- * [簡単なサンプル](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample)
- * [高度なサンプル](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management)
+ * [簡単なサンプル![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample "外部リンク・アイコン"){: new_window}
+ * [高度なサンプル![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management "外部リンク・アイコン"){: new_window}
 
 ## {{site.data.keyword.amashort}} Server とカスタム ID プロバイダーとの間の標準的な通信
 {: #custom-id-comm}
@@ -128,10 +133,9 @@ copyright:
 
 ## 次のステップ
 {: #next-steps}
+
 * [カスタム ID プロバイダーの作成](custom-auth-identity-provider.html)
 * [カスタム認証用の {{site.data.keyword.amashort}} の構成 ](custom-auth-config-mca.html)
 * [Android 用のカスタム認証の構成 ](custom-auth-android.html)
 * [iOS 用のカスタム認証の構成 (Swift SDK)](custom-auth-ios-swift-sdk.html)
-* [iOS 用のカスタム認証の構成 (Objective-C SDK)](custom-auth-ios.html)
 * [Cordova 用のカスタム認証の構成 ](custom-auth-cordova.html)
-

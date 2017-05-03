@@ -1,18 +1,18 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2016, 2017
+lastupdated: "2017-01-11"
 
 ---
 
 
-{:new_window: target="_blank"}  
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
 
 #Servizi
 {: #services}
-*Ultimo aggiornamento: 20 gennaio 2016*
 
 I servizi disponibili sono elencati nel **catalogo** sotto **Servizi**
 nell'interfaccia utente
@@ -52,22 +52,22 @@ dai servizi della community.</dd>
 |Tipo	|Descrizione	|Dettagli sul supporto|
 |:------|:--------------|:--------------|
 |IBM	|Un servizio fornito da IBM e che è generalmente disponibile.	|Viene fornito supporto per i problemi considerati come un difetto
-in un servizio fornito da IBM generalmente disponibile. Il supporto viene fornito in base alla severità da te impostata. Per ulteriori informazioni sulla severità del ticket, vedi [Come contattare il supporto](../support/index.html#contacting-bluemix-support){: new_window}.|
+in un servizio fornito da IBM generalmente disponibile. Il supporto viene fornito in base alla severità da te impostata. Per ulteriori informazioni sulla severità del ticket, vedi [Come contattare il supporto](/docs/support/index.html#contacting-bluemix-support).|
 |Terze parti	|Un servizio fornito da un'azienda diversa da IBM.	|Il supporto per i servizi di terze parti è fornito dal
 fornitore del servizio. Se un problema viene analizzato da IBM e tale problema viene considerato come un difetto in un servizio di terze parti, IBM non è tenuto a fornire una correzione. IBM condividerà l'analisi con il fornitore del servizio di terze parti laddove necessario.|
 |Community	|Un servizio fornito da una community
 open source.	|Il supporto per i servizi di community viene fornito dalla Community di sviluppatori {{site.data.keyword.Bluemix_notm}}. Se un problema viene analizzato da IBM e tale problema viene considerato come un difetto in un servizio di community, IBM non è tenuto a fornire una correzione.|
-|Beta	|Un servizio che non è pronto per la produzione e che è un una
+|Beta	|Un servizio che non è pronto per la produzione ed è a una
 fase di sviluppo di prova. Un servizio beta può aiutare i team di sviluppo
 e di marketing a valutare la qualità dei servizi prima di
 renderli generalmente disponibili.	|Viene fornito supporto per i problemi considerati come un difetto in un servizio beta fornito da IBM, tuttavia  IBM non è tenuto a fornire una correzione. Inoltre,
-laddove applicabile, al ticket del problema verrà assegnata una severità 3 o 4. Per informazioni sulla severità del ticket, vedi [Come contattare il supporto](../support/index.html#contacting-bluemix-support){: new_window}.|
-*Tabella 1. Informazioni sul supporto dei servizi {{site.data.keyword.Bluemix_notm}}*
+laddove applicabile, al ticket del problema verrà assegnata una severità 3 o 4. Per informazioni sulla severità del ticket, vedi [Come contattare il supporto](/docs/support/index.html#contacting-bluemix-support).|
+{: caption="Table 1. {{site.data.keyword.Bluemix_notm}} services support information" caption-side="top"}
 
 
 
 
-{{site.data.keyword.Bluemix_notm}} offre anche dei servizi sperimentali che puoi provare. Per visualizzare tutti i servizi sperimentali, i contenitori tipo e i runtime disponibili, accedi a {{site.data.keyword.Bluemix_notm}}, scorri fino alla parte inferiore del Catalogo e fai quindi clic su **Catalogo Lab {{site.data.keyword.Bluemix_notm}}**.
+{{site.data.keyword.Bluemix_notm}} offre anche dei servizi sperimentali che puoi provare. Per visualizzare tutti i servizi sperimentali, i contenitori tipo e i runtime disponibili, accedi a {{site.data.keyword.Bluemix_notm}}, scorri fino alla fine del Catalogo e fai clic su **Catalogo Lab {{site.data.keyword.Bluemix_notm}}**.
 
 I servizi sperimentali potrebbero non essere stabili e possono cambiare secondo modalità non compatibili con le versioni precedenti. L'uso di questi servizi negli ambienti di produzione è sconsigliato. Il supporto per i servizi sperimentali viene fornito tramite la Community di sviluppatori {{site.data.keyword.Bluemix_notm}}. Se un problema viene analizzato da IBM
 e tale problema viene considerato come un difetto in un servizio sperimentale,
@@ -104,6 +104,7 @@ disponibili in ogni regione {{site.data.keyword.Bluemix_notm}}. La seguente tabe
 |{{site.data.keyword.APIM}}			|Sì		|Sì		|No|
 |{{site.data.keyword.autoscaling}}		|Sì		|Sì		|Sì|
 |{{site.data.keyword.bigicloudst}}		|Sì		|No		|No|
+|{{site.data.keyword.blockstorageshort}}        |No             |Sì            |No |
 |{{site.data.keyword.rules_short}}		|Sì		|Sì		|No|
 |{{site.data.keyword.cloudint}}			|Sì		|Sì		|No|
 |{{site.data.keyword.cloudant}}			|Sì		|Sì		|No|
@@ -138,14 +139,13 @@ disponibili in ogni regione {{site.data.keyword.Bluemix_notm}}. La seguente tabe
 |{{site.data.keyword.nlclassifierlshort}} 	|Sì 		|Sì 		|Sì|
 |{{site.data.keyword.objectstorageshort}}	|Sì		|No		|No|
 |{{site.data.keyword.personalityinsightsshort}}	|Sì		|Sì		|Sì|
-|{{site.data.keyword.mobilepush}}Push		|Sì		|Sì		|No|
+|{{site.data.keyword.mobilepush}}		|Sì		|Sì		|No|
 |Push for iOS 8					|Sì		|Sì		|No|
 |{{site.data.keyword.questionandanswershort}}	|Sì		|Sì		|Sì|
 |{{site.data.keyword.rapidApps}}		|Sì		|Sì		|No|
 |{{site.data.keyword.relationshipextractionshort}}	|Sì	|Sì		|Sì|
 |{{site.data.keyword.retrieveandrankshort}}	|Sì 		|Sì 		|Sì|
 |{{site.data.keyword.SecureGateway}}		|Sì		|Sì		|No|
-|{{site.data.keyword.servicediscoveryshort}}	|Sì		|No		|No|
 |{{site.data.keyword.sescashort}}		|Sì		|Sì		|Sì|
 |{{site.data.keyword.ssofull}}			|Sì		|No		|No|
 |{{site.data.keyword.speechtotextshort}}	|Sì 		|Sì	 	|Sì|
@@ -163,11 +163,13 @@ disponibili in ogni regione {{site.data.keyword.Bluemix_notm}}. La seguente tabe
 |{{site.data.keyword.workloadscheduler}}	|Sì		|Sì		|No|
 |{{site.data.keyword.xpagesservice_short}}	|Sì		|Sì		|No|
 *Tabella 2. Disponibilità dei servizi*
+{: caption="Table 2. Service availability" caption-side="top"}
+
 
 
 # Aggiunta di un servizio alla tua applicazione
 {: #add_service}
-*Ultimo aggiornamento: 8 marzo 2016*
+
 
 {{site.data.keyword.Bluemix}} ha un elenco di servizi e
 li gestisce per conto degli sviluppatori. Per aggiungere un servizio a
@@ -179,7 +181,7 @@ nei seguenti modi:
 
 * Dall'interfaccia utente {{site.data.keyword.Bluemix_notm}}. Visualizza il catalogo {{site.data.keyword.Bluemix_notm}}.
 * Dall'interfaccia riga di comando cf. Utilizza il comando **cf marketplace**.
-* Dalla tua applicazione. Utilizza la [API di servizi GET /v2/services](http://apidocs.cloudfoundry.org/197/services/list_all_services.html){: new_window}.
+* Dalla tua applicazione. Utilizza la [API di servizi GET /v2/services ![icona link esterno](../icons/launch-glyph.svg)](http://apidocs.cloudfoundry.org/197/services/list_all_services.html){: new_window}.
 
 Puoi selezionare il servizio di cui hai bisogno quando sviluppi le applicazioni. Dopo la tua selezione, {{site.data.keyword.Bluemix_notm}} interagisce con il servizio ed
 effettua le operazioni necessarie per eseguire il provisioning delle risorse del servizio. Il processo di provisioning può essere
@@ -231,10 +233,10 @@ Se utilizzi l'interfaccia riga di comando cf per richiedere un'istanza del servi
     cf bind-service nome_applicazione istanza_servizio
     ```
 
-Puoi eseguire il bind a un'istanza del servizio per le sole istanze dell'applicazione che si trovano nello stesso spazio od organizzazione. Tuttavia, puoi utilizzare istanze di servizio provenienti da altri spazi od organizzazioni seguendo le modalità adottate dalle applicazioni esterne. Invece di creare un bind, utilizza le credenziali per configurare direttamente l'istanza della tua applicazione. Per ulteriori informazioni sull'uso dei servizi {{site.data.keyword.Bluemix_notm}} da parte delle applicazioni esterne, vedi [Abilitazione di applicazioni esterne all'utilizzo dei servizi {{site.data.keyword.Bluemix_notm}} ](#accser_external){: new_window}.
+Puoi eseguire il bind a un'istanza del servizio per le sole istanze dell'applicazione che si trovano nello stesso spazio od organizzazione. Tuttavia, puoi utilizzare istanze di servizio provenienti da altri spazi od organizzazioni seguendo le modalità adottate dalle applicazioni esterne. Invece di creare un bind, utilizza le credenziali per configurare direttamente l'istanza della tua applicazione. Per ulteriori informazioni sull'uso dei servizi {{site.data.keyword.Bluemix_notm}} da parte delle applicazioni esterne, vedi [Abilitazione di applicazioni esterne all'utilizzo dei servizi {{site.data.keyword.Bluemix_notm}} ](#accser_external).
 
 
-## Configurazione della tua applicazione per l'interazione con un servizio 
+## Configurazione della tua applicazione per l'interazione con un servizio
 {: #config}
 
 Dopo aver eseguito il bind di un'istanza del servizio all'applicazione, devi configurare
@@ -262,16 +264,56 @@ diversi servizi. Potresti dover leggere la documentazione del servizio in merito
 e come interpretare ogni elemento di informazione.
 
 Se si verifica un arresto anomalo di un servizio di cui esegui il bind a un'applicazione,
-l'esecuzione dell'applicazione potrebbe essere arrestata oppure potrebbero verificarsi per essa delle condizioni di errore. {{site.data.keyword.Bluemix_notm}} non riavvia automaticamente l'applicazione per eseguire un ripristino da tali problemi. Valuta una codifica della tua applicazione per identificare interruzioni, eccezioni ed errori di connessione e per eseguire il ripristino da tali condizioni. Per ulteriori informazioni, consulta l'argomento di risoluzione dei problemi relativo al fatto che [le applicazioni non verranno riavviate automaticamente](../troubleshoot/index.html#ts_topmenubar).
+l'esecuzione dell'applicazione potrebbe essere arrestata oppure potrebbero verificarsi per essa delle condizioni di errore. {{site.data.keyword.Bluemix_notm}} non riavvia automaticamente l'applicazione per eseguire un ripristino da tali problemi. Valuta una codifica della tua applicazione per identificare interruzioni, eccezioni ed errori di connessione e per eseguire il ripristino da tali condizioni. Per ulteriori informazioni, consulta l'argomento di risoluzione dei problemi relativo al fatto che [le applicazioni non verranno riavviate automaticamente](/docs/troubleshoot/index.html#ts_topmenubar).
 
 ## Abilitazione di applicazioni esterne all'utilizzo dei servizi {{site.data.keyword.Bluemix_notm}}
 {: #accser_external}
 
 Potresti disporre di applicazioni create ed eseguite
 all'esterno di {{site.data.keyword.Bluemix_notm}},
-o utilizzare strumenti di terze parti. Se i servizi {{site.data.keyword.Bluemix_notm}}
-forniscono degli endpoint accessibili da Internet, puoi utilizzare
-questi servizi con le tue applicazioni locali e con gli strumenti di terze parti.
+o utilizzare strumenti di terze parti. Se i servizi {{site.data.keyword.Bluemix_notm}} forniscono chiavi del servizio accessibili da Internet, puoi utilizzare questi servizi con le tue applicazioni locali e con gli strumenti di terze parti.
+
+I seguenti servizi forniscono le chiavi del servizio per l'utilizzo esterno:
+
+* {{site.data.keyword.amashort_old}} <!--Advanced Mobile Access-->
+* {{site.data.keyword.alchemyapishort}} <!--AlchemyAPI-->
+* {{site.data.keyword.alertnotificationshort}} <!--Alert Notification-->
+* {{site.data.keyword.sparks}} <!--Analytics for Apache Spark-->
+* {{site.data.keyword.appseccloudshort}} <!--Application Security on Cloud-->
+* {{site.data.keyword.blockchain}} <!--Blockchain-->
+* {{site.data.keyword.cloudant}} <!--Cloudant&reg; NoSQL DB-->
+* {{site.data.keyword.iotmapinsights_short}} <!--Context Mapping-->
+* {{site.data.keyword.conversationshort}} <!--Conversation-->
+* {{site.data.keyword.dashdbshort}} <!--dashDB-->
+* {{site.data.keyword.discoveryshort}} <!--Discovery-->
+* {{site.data.keyword.documentconversionshort}} <!--Document Conversion-->
+* {{site.data.keyword.iotdriverinsights_short}} <!--Driver Behavior-->
+* {{site.data.keyword.geospatialshort_Geospatial}} <!--Geospatial Analytics-->
+* {{site.data.keyword.GlobalizationPipeline_short}} <!--Globalization Pipeline-->
+* {{site.data.keyword.appconserviceshort}} <!--IBM&reg; App Connect-->
+* {{site.data.keyword.dataworks_short}} <!--IBM&reg; Data Connect-->
+* {{site.data.keyword.graphshort}} <!--IBM&reg; Graph-->
+* {{site.data.keyword.iotelectronics_full}} <!--IBM&reg; IoT for Electronics-->
+* {{site.data.keyword.twittershort}} <!--Insights for Twitter-->
+* {{site.data.keyword.iot4auto_short}} <!--IoT for Automotive-->
+* {{site.data.keyword.iotinsurance_short}} <!--IoT for Insurance-->
+* {{site.data.keyword.languagetranslatorshort}} <!--Language Translator-->
+* {{site.data.keyword.dwl_short}} <!--Lift-->
+* {{site.data.keyword.messagehub}} <!--Message Hub-->
+* {{site.data.keyword.mobileanalytics_short}} <!--Mobile Analytics-->
+* {{site.data.keyword.nlclassifiershort}} <!--Natural Language Classifier-->
+* {{site.data.keyword.objectstorageshort}} <!--Object Storage-->
+* {{site.data.keyword.personalityinsightsshort}} <!--Personality Insights-->
+* {{site.data.keyword.HybridConnect_short}} <!--Product Insights-->
+* {{site.data.keyword.mobilepush}} <!--Push-->
+* {{site.data.keyword.retrieveandrankshort}} <!--Retrieve and Rank-->
+* {{site.data.keyword.speechtotextshort}} <!-- Speech to Text-->
+* {{site.data.keyword.streaminganalyticsshort}} <!--Streaming Analytics-->
+* {{site.data.keyword.texttospeechshort}} <!--Text to Speech-->
+* {{site.data.keyword.toneanalyzershort}} <!--Tone Analyzer-->
+* {{site.data.keyword.tradeoffanalyticsshort}} <!--Tradeoff Analytics-->
+* {{site.data.keyword.weather_short}} <!--Weather Company Data-->
+* {{site.data.keyword.workloadscheduler}} <!--Workload Scheduler-->
 
 Per abilitare un'applicazione esterna o uno strumento di terze parti
 a utilizzare un servizio {{site.data.keyword.Bluemix_notm}},
@@ -283,7 +325,7 @@ completa la seguente procedura:
     3. Nella finestra Aggiungi servizio, mantieni la selezione dell'elenco **Applicazione**: come **Lascia senza binding**. Questa selezione significa che
 il servizio non sarà connesso a un'applicazione {{site.data.keyword.Bluemix_notm}}.
     4. Opera le altre selezioni come necessario. Fai quindi clic su **CREA**. Viene creata un'istanza del servizio e viene visualizzato il dashboard del servizio.
-2. Nel riquadro di navigazione di sinistra del dashboard del servizio, puoi selezionare **Credenziali del servizio** per visualizzare o aggiungere credenziali nel formato JSON. Utilizza la chiave API visualizzata come credenziali per stabilire una
+2. Nel riquadro di navigazione del dashboard del servizio, puoi selezionare **Credenziali del servizio** per visualizzare o aggiungere credenziali in formato JSON. Utilizza la chiave API visualizzata come credenziali per stabilire una
 connessione all'istanza del servizio.
 
 La tua applicazione che viene eseguita esternamente a {{site.data.keyword.Bluemix_notm}} può
@@ -362,35 +404,30 @@ Ora puoi configurare la tua applicazione per utilizzare le risorse esterne. Per 
 
 Se disponi di un'istanza di servizio creata e associata mediante bind ad applicazioni in un'unica regione, puoi utilizzare questa istanza in un'altra regione utilizzando uno dei seguenti metodi:
 
-  * Utilizza le credenziali del servizio per configurare direttamente l'istanza della tua applicazione. Per i dettagli, vedi [Abilitazione di applicazioni esterne all'utilizzo dei servizi {{site.data.keyword.Bluemix_notm}}](#accser_external){: new_window}.
+  * Utilizza le credenziali del servizio per configurare direttamente l'istanza della tua applicazione. Per i dettagli, vedi [Abilitazione di applicazioni esterne all'utilizzo dei servizi {{site.data.keyword.Bluemix_notm}}](#accser_external).
   * Crea come ponte un servizio fornito dall'utente.
-    
+
 	Supponiamo di iniziare nella regione in cui
 desideri utilizzare l'istanza del servizio. Per utilizzare un'istanza del servizio che si trova
 in un'altra regione, completa la seguente procedura:
 
-      1. Passa alla regione in cui si trova l'istanza del servizio. Nella barra dei menu principale di {{site.data.keyword.Bluemix_notm}},
-espandi **Regione** o fai clic sull'icona **Regione**,
-quindi seleziona la regione in cui si trova l'istanza del servizio.
+      1. Passa alla regione in cui si trova l'istanza del servizio. Nella barra dei menu di {{site.data.keyword.Bluemix_notm}}, espandi **Regione** o fai clic sull'icona **Regione**, quindi seleziona la regione in cui si trova l'istanza del servizio.
 
       2. Recupera le credenziali e i parametri di connessione dalla variabile di ambiente VCAP_SERVICES dell'istanza del servizio nella regione in cui si trova il servizio. Completa la seguente
 procedura:
 
 	       1. Nel Dashboard {{site.data.keyword.Bluemix_notm}}, fai clic sul tile dell'applicazione. Viene visualizzata la pagina Panoramica.
-	       2. Nel riquadro di navigazione a sinistra,  fai clic su **Variabili di ambiente**. I dettagli della variabile di ambiente *VCAP_SERVICES*
-vengono visualizzati nel riquadro a destra. Registra il contenuto JSON per l'istanza
+	       2. Nel riquadro di navigazione, fai clic su **Variabili di ambiente**. Vengono visualizzati i dettagli della variabile di ambiente *VCAP_SERVICES*. Registra il contenuto JSON per l'istanza
 del servizio.
 
       3. Passa alla regione in cui desideri utilizzare l'istanza del
-servizio. Nella barra dei menu principale di {{site.data.keyword.Bluemix_notm}},
-espandi **Regione** o fai clic sull'icona **Regione**,
-quindi seleziona la regione in cui desideri utilizzare l'istanza del servizio.
+servizio. Nella barra dei menu di {{site.data.keyword.Bluemix_notm}}, espandi **Regione** o fai clic sull'icona **Regione**, quindi seleziona la regione in cui desideri utilizzare l'istanza del servizio.
 
       4. Crea un'istanza del servizio fornito dall'utente utilizzando le credenziali
 e i parametri di connessione che hai registrato dalla variabile di ambiente
 *VCAP_SERVICES*. Per informazioni su come creare un'istanza
 del servizio fornito dall'utente, vedi [Creazione di un'istanza
-del servizio fornito dall'utente](#user_provide_services){: new_window}.
+del servizio fornito dall'utente](#user_provide_services).
 
       5. Esegui il bind dell'istanza del servizio fornito dall'utente alla tua applicazione
 utilizzando il seguente comando:
@@ -413,8 +450,8 @@ Per utilizzare un'istanza del servizio da un altro servizio, completa la seguent
 
 1. Nel Dashboard {{site.data.keyword.Bluemix_notm}}, fai clic sul tile per il servizio a
 cui vuoi accedere. Viene visualizzato il dashboard per il servizio.
-2. Nel riquadro di navigazione a sinistra,  fai clic su *Gestisci* per autorizzare il binding da altre istanze del servizio utilizzando la console dell'istanza del servizio.
-3. Se vuoi negare ad altri servizi l'accesso all'istanza del servizio, fai clic su *Autorizzazione accesso al servizio* nel riquadro di navigazione a sinistra e utilizza quindi *Revoca* per rimuovere il bind di servizio. 
+2. Nel riquadro di navigazione, fai clic su **Gestisci** per autorizzare il bind da altre istanze del servizio utilizzando la console dell'istanza del servizio.
+3. Se vuoi negare ad altri servizi l'accesso all'istanza, fai clic su **Autorizzazione accesso al servizio** nel riquadro di navigazione e utilizza quindi **Revoca** per rimuovere il bind del servizio.
 
 # rellinks
 {: #rellinks}
@@ -422,7 +459,5 @@ cui vuoi accedere. Viene visualizzato il dashboard per il servizio.
 ## general
 {: #general}
 
-* [Esecuzione del bind di un servizio utilizzando l'interfaccia utente {{site.data.keyword.Bluemix_notm}}](../cfapps/ee.html#ee_bindui)
-* [Richiamo di VCAP_SERVICES](../cli/vcapsvc.html#retrieving)
-
-
+* [Esecuzione del bind di un servizio utilizzando l'interfaccia utente {{site.data.keyword.Bluemix_notm}}](/docs/cfapps/ee.html#ee_bindui)
+* [Richiamo di VCAP_SERVICES](/docs/cli/vcapsvc.html#retrieving)

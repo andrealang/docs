@@ -1,12 +1,12 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2015, 2016
+  years: 2015，2017
 
- 
+lastupdated: "2015-11-11"
 
 ---
 
@@ -14,7 +14,6 @@ copyright:
 {:shortdesc: .shortdesc}
 
 # Contenitori tipo
-*Ultimo aggiornamento: 11 novembre 2015*
 
 In {{site.data.keyword.Bluemix}}, un
 contenitore tipo è un contenitore per un'applicazione e il

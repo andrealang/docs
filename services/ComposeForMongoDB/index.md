@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016
-
+lastupdated: "2017-04-08"
 ---
 
 {:new_window: target="_blank"}
@@ -14,17 +14,12 @@ copyright:
 # Getting started with Compose for MongoDB
 {: #getting-started-with-compose-for-mongodb}
 
-Last updated: 20 September 2016
-{: .last-updated}
-
 {{site.data.keyword.composeForMongoDB_full}} uses the powerful indexing and querying, aggregation, and wide driver support of MongoDB that has made it the go-to JSON data store for many startups and enterprises. {{site.data.keyword.composeForMongoDB}} offers an easy, auto-scaling deployment system. It delivers high availability and redundancy, automated and on-demand no-stop backups, monitoring tools, integration into alert systems, performance analysis views, and much more, all in a clean, simple user interface.
 {:shortdesc}
 
 **Note:** Any Compose service instances that were provisioned before 14 September 2016 that are still active can still be used and directly accessed at [https://www.compose.com/](https://www.compose.com). Any Compose service instance that is provisioned from this point forward is directly accessed and used within your Bluemix account.
 
 Complete these steps to get started with {{site.data.keyword.composeForMongoDB}}:
-
-<a href="https://console.ng.bluemix.net/catalog/services/compose-for-mongodb/">
 
 1. [Create a {{site.data.keyword.composeForMongoDB}} instance](https://console.ng.bluemix.net/catalog/services/compose-for-mongodb/).
 
@@ -47,17 +42,4 @@ Field Name|Description
 `deployment_id`|An internal identifier for the service as created within Compose.
 `db_type`|The type of database that is offered by the service: in this case, `mongodb`.
 `name`|The database deployment name.
-
-# Related Links
-{: #rellinks}
-
-* [Compose](https://www.compose.com){:new_window}
-* [Compose Articles](https://www.compose.com/articles/){:new_window}
-
-## Tutorials and Samples
-{: #samples}
-* [compose-mongodb-helloworld-nodejs](https://github.com/IBM-Bluemix/compose-mongodb-helloworld-nodejs){:new_window}
-
-## Related Links
-{: #general}
-* [Compose Help](https://help.compose.com/docs){:new_window}
+{: caption="Table 1. {{site.data.keyword.composeForMongoDB}} credentials" caption-side="top"}

@@ -4,9 +4,9 @@
 	"items": [{
 		"id": "GetStarted"
 	}, {
-		"id": "Catégories",
+		"id": "Categories",
 		"items": [{
-			"title": "Calcul",
+			"title": "Traitement",
 			"img": "homepage/images/compute.svg",
 			"href": "compute/index.html",
 			"links": [{
@@ -293,7 +293,7 @@
 		}]
 		
 	}, {
-		"id": "Ressources",
+		"id": "Resources",
 		"descriptionTitle": "Ressources",
 		"items": [{
 			"title": "Pourquoi Bluemix ?",

@@ -1,12 +1,8 @@
 ---
 
- 
-
 copyright:
-
   years: 2015, 2016
-
- 
+lastupdated: "2016-12-21"
 
 ---
 
@@ -16,8 +12,6 @@ copyright:
 {:codeblock: .codeblock}
 
 #Condivisione di pipeline basate sul testo nei progetti di esempio {{site.data.keyword.jazzhub_short}} {: #share-pipeline}
-
-*Ultimo aggiornamento: 7 dicembre 2015* 
 
 Per i progetti di esempio distribuiti a {{site.data.keyword.Bluemix_notm}} mediante
 il pulsante Distribuisci a {{site.data.keyword.Bluemix_notm}},
@@ -221,8 +215,7 @@ CF_ORGANIZATION_ID	| GUID organizzazione
 CF_SPACE |	Nome spazio
 CF_SPACE_ID |	GUID spazio
 CF_APP	| Nome applicazione
-
-*Tabella - Variabili di ambiente*
+{: caption="Table 1. Environment variables" caption-side="top"}
 
 **GENERAZIONE DI UN FILE YAML DA UNA PIPELINE** 
 
@@ -240,4 +233,3 @@ Questa chiamata
 non richiede un'intestazione Accept. Puoi utilizzare questa chiamata da un browser. 
 
 **Nota:** per motivi di sicurezza, i valori della proprietà di ambiente secure-stage sono omessi dai file YAML pipeline generati. 
-

@@ -1,20 +1,19 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
 
-{:shortdesc: .shortdesc}
+{:shortdesc: .shortdesc} 
+{:codeblock:.codeblock}
 
 # Protection des ressources de back-end avec le service {{site.data.keyword.amashort}}
 {: #protecting-resources}
 
-Dernière mise à jour : 17 juillet 2016
-{: .last-updated}
 
-
-Le service {{site.data.keyword.amashort}} permet de protéger les applications de back end Node.js et Java qui s'exécutent sur {{site.data.keyword.Bluemix_notm}} via des fonctions de surveillance et de sécurité OAuth pour périphériques mobiles. 
+Le service {{site.data.keyword.amafull}} permet de protéger les applications de back end Node.js et Java qui s'exécutent sur {{site.data.keyword.Bluemix_notm}} via des fonctions de surveillance et de sécurité OAuth pour appareils mobiles.
 {:shortdesc}
 
 ## Avant de commencer
@@ -56,9 +55,11 @@ Le contexte de sécurité contient les informations sur le sujet, l'utilisateur,
     }
 }
 ```
+{: codeblock}
+
 * `imf.sub` : Sujet du jeton d'ID ou ID unique du client s'il n'existe pas de jeton d'ID.
 * `imf.user` : Identité de l'utilisateur qui est extraite du jeton d'ID. S'il n'existe pas de jeton d'ID, cette zone contient un objet vide.
-* `imf.device` : Identité du périphérique qui est extraite du jeton d'ID. S'il n'existe pas de jeton d'ID, cette zone contient un objet vide.
+* `imf.device` : Identité de l'appareil qui est extraite du jeton d'ID. S'il n'existe pas de jeton d'ID, cette zone contient un objet vide.
 * `imf.application` : Identité de l'application qui est extraite du jeton d'ID. S'il n'existe pas de jeton d'ID, cette zone contient un objet vide.
 
 ## Etapes suivantes

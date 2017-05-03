@@ -1,9 +1,14 @@
 ---
 
 copyright:
-  years: 2015, 2016
-lastupdated: "2016-10-02"  
+  years: 2015, 2016, 2017
+lastupdated: "2017-03-15"
+
 ---
+
+{:codeblock:.codeblock}
+
+The {{site.data.keyword.amafull}} service is replaced with the {{site.data.keyword.appid_full}} service.
 
 # Communicating between back-end applications and services
 {: #backend-comm}
@@ -20,6 +25,7 @@ On a command line, open the Node.js application directory and run the following 
 ```Bash
 npm install -save bms-mca-oauth-sdk
 ```
+{: codeblock}
 
 ## Using the bms-mca-oauth-sdk module
 {: #using-sdk}
@@ -42,7 +48,7 @@ var options = {
 	// Alternatively, you can get these property values by clicking Show Credentials
 	// on the {{site.data.keyword.amashort}} Service tile in your {{site.data.keyword.Bluemix_notm}} application dashboard
 
-	appId: "appId",				// Bleumix applicationGUID, a.k.a tenantId
+	appId: "tenantID",				// a.k.a. Bluemix applicationGUID
 	clientId: "clientId",			
 	secret: "secret",
 	serverUrl: "serverUrl"
@@ -50,7 +56,7 @@ var options = {
 
 oauthSDK.getAuthorizationHeader(options).then(function(authHeader){
 
-	// In the request that you want to send to the protected resource, 
+	// In the request that you want to send to the protected resource,
 	// add the authHeader value.
 
 	request.headers.Authorization = authHeader;
@@ -60,3 +66,4 @@ oauthSDK.getAuthorizationHeader(options).then(function(authHeader){
 });
 
 ```
+{: codeblock}

@@ -1,29 +1,27 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
+
+{:codeblock:.codeblock}
 
 # Creazione di un provider di identità personalizzato
 {: #custom-create}
 
-Ultimo aggiornamento: 16 giugno 2016
-{: .last-updated}
-
 
 Per creare un provider di identità personalizzato, sviluppa un'applicazione web che espone un'API RESTful:
 
-```
-POST <url_di_base>/apps/<id_tenant>/<nome_area_di_autenticazione>/<tipo_di_richiesta>
-```
+`POST <base_url>/apps/<tenant_id>/<realm_name>/<request_type>`
 
 * `url_di_base`: specifica l'URL di base dell'applicazione web del provider di identità personalizzato. L'URL di base è l'URL da registrare nel
 dashboard {{site.data.keyword.amashort}}.
 * `id_tenant` : specifica l'identificativo univoco del tenant. Quando {{site.data.keyword.amashort}} richiama questa API, fornisce
 sempre il GUID dell'applicazione {{site.data.keyword.Bluemix}} (`applicationGUID`).
 * `nome_area_di_autenticazione` : specifica il nome dell'area di autenticazione personalizzata definita nel dashboard {{site.data.keyword.amashort}}.
-* `tipo_di_richiesta` : specifica uno dei seguenti:
+* `request_type` : specifica uno dei seguenti:
 	* `startAuthorization`: specifica un primo passo del processo di autenticazione. Il provider di identità personalizzato deve
 rispondere con uno stato di "challenge", "success" o "failure".
 	* `handleChallengeAnswer`: gestisce una risposta alla richiesta di verifica dell'autenticazione dal client mobile.
@@ -31,7 +29,8 @@ rispondere con uno stato di "challenge", "success" o "failure".
 ## API `startAuthorization`
 {: #custom-startauthorization}
 
-`POST <url_di_base>/apps/<id_tenant>/<nome_area_di_autenticazione>/startAuthorization`
+`POST <base_url>/apps/<tenant_id>/<realm_name>/startAuthorization`
+{: codeblock}
 
 l'API `startAuthorization` viene utilizzata come un primo passo del processo di autenticazione. Un provider di identità personalizzato deve
 rispondere con uno stato di "challenge", "success" o "failure".
@@ -46,6 +45,7 @@ Per consentire una massima flessibilità del processo di autenticazione, un prov
     }
 }
 ```
+{: codeblock}
 
 Un provider di identità personalizzato può rispondere con una richiesta di verifica dell'autenticazione o con un esito positivo o un esito negativo immediati. Lo stato HTTP della risposta deve essere `HTTP 200` e il JSON della risposta deve contenere le seguenti proprietà:
 
@@ -66,11 +66,13 @@ Ad esempio:
 	}
 }
 ```
+{: codeblock}
 
 ## `handleChallengeAnswer` API
 {: #custom-handleChallengeAnswer}
 
-`POST <url_di_base>/apps/<id_tenant>/<nome_area_di_autenticazione>/handleChallengeAnswer`
+`POST <base_url>/apps/<tenant_id>/<realm_name>/handleChallengeAnswer`
+{: codeblock}
 
 L'API `handleChallengeAnswer` gestisce una risposta alla richiesta di verifica dell'autenticazione dal client mobile. Analogamente all'API `startAuthorization`,
 l'API `handleChallengeAnswer` risponde con lo stato `challenge`, `success` o `failure`.
@@ -92,6 +94,7 @@ Analogamente alla richiesta `startAuthorization`, il provider di identità perso
  	}
 }
 ```
+{: codeblock}
 
 La risposta da un'API `handleChallengeAnswer` deve avere la stessa struttura della risposta dell'API `startAuthorization`.
 
@@ -115,13 +118,14 @@ Una risposta a una richiesta di autenticazione con esito positivo deve includere
     }
 }
 ```
+{: codeblock}
 
 L'oggetto di identità utente viene utilizzato dal servizio {{site.data.keyword.amashort}} per generare un token ID inviato al client mobile come parte dell'intestazione di autorizzazione. Dopo un'autenticazione con esito positivo, il cliente mobile ha accesso completo all'oggetto di identità utente.
 
 ## Considerazioni sulla sicurezza
 {: #custom-security}
 
-Ciascuna richiesta dal servizio {{site.data.keyword.amashort}} a un provider di identità personalizzato contiene un'intestazione di autorizzazione in modo che il provider di identità personalizzato possa verificare che la richiesta sta provenendo da un'origine autorizzata. Anche se non è strettamente obbligatorio, valuta una convalida dell'intestazione di autorizzazione strumentando il tuo provider di identità personalizzato con un SDK server {{site.data.keyword.amashort}}. Per utilizzare questo SDK, nella tua applicazione di provider di identità personalizzato deve avere implementato il Node.js o Liberty for Java&trade;&trade; e deve essere in esecuzione su {{site.data.keyword.Bluemix_notm}}.
+Ciascuna richiesta dal servizio {{site.data.keyword.amashort}} a un provider di identità personalizzato contiene un'intestazione di autorizzazione in modo che il provider di identità personalizzato possa verificare che la richiesta sta provenendo da un'origine autorizzata. Anche se non è strettamente obbligatorio, valuta una convalida dell'intestazione di autorizzazione strumentando il tuo provider di identità personalizzato con un SDK server {{site.data.keyword.amashort}}. Per utilizzare questo SDK, nella tua applicazione di provider di identità personalizzato deve avere implementato il Node.js o Liberty for Java&trade; e deve essere in esecuzione su {{site.data.keyword.Bluemix_notm}}.
 
 L'intestazione di autorizzazione contiene informazioni sul client mobile e sull'applicazione mobile che hanno attivato il processo di autenticazione. Puoi utilizzare il contesto di sicurezza per recuperare questi dati. Per ulteriori informazioni, vedi [Protezione delle risorse](protecting-resources.html).
 

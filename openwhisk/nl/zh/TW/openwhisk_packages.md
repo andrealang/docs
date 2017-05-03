@@ -1,31 +1,25 @@
 ---
 
- 
-
 copyright:
-
-  years: 2016
-
- 
+  years: 2016, 2017
+lastupdated: "2017-02-27"
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
+{:new_window: target="_blank"}
 {:codeblock: .codeblock}
+{:screen: .screen}
 {:pre: .pre}
 
 # 使用及建立 {{site.data.keyword.openwhisk_short}} 套件
 {: #openwhisk_packages}
-前次更新：2016 年 8 月 2 日
-{: .last-updated}
 
-在 {{site.data.keyword.openwhisk}} 中，您可以使用套件以將一組相關動作組合在一起，並與其他人共用。
+在 {{site.data.keyword.openwhisk_short}} 中，您可以使用套件以將一組相關動作組合在一起，並與其他人共用。
 
-套件可以包括*動作* 及*資訊來源*。
-- 動作是在 {{site.data.keyword.openwhisk_short}} 上執行的程式碼片段。例如，Cloudant 套件包括在 Cloudant 資料庫中讀取及寫入記錄的動作。
-- 資訊來源是用來配置外部事件來源，以發動觸發程式事件。例如，「警示」套件包括可依指定的頻率發動觸發程式的資訊來源。
+套件可以包含*動作* 及*資訊來源*。
+- 動作是在 {{site.data.keyword.openwhisk_short}} 上執行的程式碼片段。例如，Cloudant 套件包含在 Cloudant 資料庫中讀取及寫入記錄的動作。
+- 資訊來源是用來配置外部事件來源，以發動觸發程式事件。例如，「警示」套件包含可依指定的頻率發動觸發程式的資訊來源。
 
 每個 {{site.data.keyword.openwhisk_short}} 實體（包括套件）都屬於*名稱空間*，而實體的完整名稱是 `/namespaceName[/packageName]/entityName`。如需相關資訊，請參閱[命名準則](./openwhisk_reference.html#openwhisk_entities)。
 
@@ -43,17 +37,19 @@ wsk package list /whisk.system
   ```
   {: pre}
   ```
-packages
-  /whisk.system/alarms                                              shared
-  /whisk.system/cloudant                                            shared
-  /whisk.system/github                                              shared
-  /whisk.system/samples                                             shared
-  /whisk.system/slack                                               shared
-  /whisk.system/util                                                shared
-  /whisk.system/watson                                              shared
-  /whisk.system/weather                                             shared
+  packages
+  /whisk.system/cloudant                                                 shared
+  /whisk.system/alarms                                                   shared
+  /whisk.system/watson                                                   shared
+  /whisk.system/websocket                                                shared
+  /whisk.system/weather                                                  shared
+  /whisk.system/system                                                   shared
+  /whisk.system/utils                                                    shared
+  /whisk.system/slack                                                    shared
+  /whisk.system/samples                                                  shared
+  /whisk.system/github                                                   shared
+  /whisk.system/pushnotifications                                        shared
   ```
-  {: screen}
 
 2. 取得 `/whisk.system/cloudant` 套件中的實體清單。
 
@@ -68,7 +64,6 @@ wsk package get --summary /whisk.system/cloudant
    action /whisk.system/cloudant/write: Write document to database
    feed   /whisk.system/cloudant/changes: Database change feed
   ```
-  {: screen}
 
   此輸出顯示 Cloudant 套件提供兩個動作（`read` 及 `write`）以及一個稱為 `changes` 的觸發程式資訊來源。`changes` 資訊來源會導致在指定的 Cloudant 資料庫中新增文件時發動觸發程式。
 
@@ -84,7 +79,6 @@ wsk action get --summary /whisk.system/cloudant/read
   action /whisk.system/cloudant/read: Read document from database
      (params: dbname includeDoc id)
   ```
-  {: screen}
 
   此輸出顯示 Cloudant `read` 動作需要三個參數（包括要擷取的資料庫及文件 ID）。
 
@@ -104,7 +98,6 @@ wsk action get --summary /whisk.system/samples/greeting
   action /whisk.system/samples/greeting: Print a friendly greeting
      (params: name place)
   ```
-  {: screen}
 
   請注意，`greeting` 動作接受兩個參數：`name` 及 `place`。
 
@@ -114,12 +107,11 @@ wsk action get --summary /whisk.system/samples/greeting
 wsk action invoke --blocking --result /whisk.system/samples/greeting
   ```
   {: pre}
-  ```
+  ```json
   {
       "payload": "Hello, stranger from somewhere!"
   }
   ```
-  {: screen}
 
   輸出是一則一般訊息，因為未指定任何參數。
 
@@ -129,12 +121,11 @@ wsk action invoke --blocking --result /whisk.system/samples/greeting
 wsk action invoke --blocking --result /whisk.system/samples/greeting --param name Mork --param place Ork
   ```
   {: pre}
-  ```
+  ```json
   {
       "payload": "Hello, Mork from Ork!"
   }
   ```
-  {: screen}
 
   請注意，輸出使用已傳遞給動作的 `name` 及 `place` 參數。
 
@@ -157,7 +148,6 @@ wsk package bind /whisk.system/samples valhallaSamples --param place Valhalla
   ```
 ok: created binding valhallaSamples
   ```
-  {: screen}
 
 2. 取得套件連結的說明。
 
@@ -166,13 +156,12 @@ wsk package get --summary valhallaSamples
   ```
   {: pre}
   ```
-package /myNamespace/valhallaSamples
-   action /myNamespace/valhallaSamples/greeting: Print a friendly greeting
+  package /myNamespace/valhallaSamples
+   action /myNamespace/valhallaSamples/greeting: Returns a friendly greeting
    action /myNamespace/valhallaSamples/wordCount: Count words in a string
-   action /myNamespace/valhallaSamples/helloWorld: Print to the console
-   action /myNamespace/valhallaSamples/echo: Returns the input arguments, unchanged
+   action /myNamespace/valhallaSamples/helloWorld: Demonstrates logging facilities
+   action /myNamespace/valhallaSamples/curl: Curl a host url
   ```
-  {: screen}
 
   請注意，`valhallaSamples` 套件連結中提供 `/whisk.system/samples` 套件中的所有動作。
 
@@ -187,7 +176,6 @@ wsk action invoke --blocking --result valhallaSamples/greeting --param name Odin
       "payload": "Hello, Odin from Valhalla!"
   }
   ```
-  {: screen}
 
   請注意動作繼承您在建立 `valhallaSamples` 套件連結時所設定的 `place` 參數的結果。
 
@@ -202,7 +190,6 @@ wsk action invoke --blocking --result valhallaSamples/greeting --param name Odin
       "payload": "Hello, Odin from Asgard!"
   }
   ```
-  {: screen}
 
   請注意，透過動作呼叫指定的 `place` 參數值會改寫 `valhallaSamples` 套件連結中所設定的預設值。
 
@@ -222,7 +209,6 @@ wsk package get --summary /whisk.system/alarms
 package /whisk.system/alarms
    feed   /whisk.system/alarms/alarm
   ```
-  {: screen}
 
   ```
 wsk action get --summary /whisk.system/alarms/alarm
@@ -232,7 +218,6 @@ wsk action get --summary /whisk.system/alarms/alarm
   action /whisk.system/alarms/alarm: Fire trigger when alarm occurs
      (params: cron trigger_payload)
   ```
-  {: screen}
 
   `/whisk.system/alarms/alarm` 資訊來源接受兩個參數：
   - `cron`：何時發動觸發程式的 crontab 規格。
@@ -241,19 +226,18 @@ wsk action get --summary /whisk.system/alarms/alarm
 2. 建立每八秒即發動的觸發程式。
 
   ```
-  wsk trigger create everyEightSeconds --feed /whisk.system/alarms/alarm -p cron '*/8 * * * * *' -p trigger_payload '{"name":"Mork", "place":"Ork"}'
+  wsk trigger create everyEightSeconds --feed /whisk.system/alarms/alarm -p cron "*/8 * * * * *" -p trigger_payload "{\"name\":\"Mork\", \"place\":\"Ork\"}"
   ```
   {: pre}
   ```
 ok: created trigger feed everyEightSeconds
   ```
-  {: screen}
 
 3. 使用下列動作碼來建立 'hello.js' 檔案。
 
-  ```
-function main(params) {
-     return {payload:  'Hello, ' + params.name + ' from ' + params.place};
+  ```javascript
+  function main(params) {
+      return {payload:  'Hello, ' + params.name + ' from ' + params.place};
   }
   ```
   {: codeblock}
@@ -268,14 +252,12 @@ wsk action update hello hello.js
 5. 建立規則，以在每次 `everyEightSeconds` 觸發程式發動時呼叫 `hello` 動作。
 
   ```
-wsk rule create --enable myRule everyEightSeconds hello
+  wsk rule create myRule everyEightSeconds hello
   ```
   {: pre}
   ```
-ok: created rule myRule
-  ok: rule myRule is activating
+  ok: created rule myRule
   ```
-  {: screen}
 
 6. 確認是透過輪詢啟動日誌來呼叫動作。
 
@@ -304,7 +286,6 @@ wsk package create custom
   ```
 ok: created package custom
   ```
-  {: screen}
 
 2. 取得套件的摘要。
 
@@ -315,14 +296,13 @@ wsk package get --summary custom
   ```
 package /myNamespace/custom
   ```
-  {: screen}
 
   請注意，套件是空的。
 
 3. 建立稱為 `identity.js` 且包含下列動作碼的檔案。此動作會傳回所有輸入參數。
 
-  ```
-function main(args) { return args; }
+  ```javascript
+  function main(args) { return args; }
   ```
   {: codeblock}
 
@@ -335,7 +315,6 @@ wsk action create custom/identity identity.js
   ```
 ok: created action custom/identity
   ```
-  {: screen}
 
   在套件中建立動作，需要您在動作名稱前面加上套件名稱。不容許套件巢狀。套件只能包含動作，而且不能包含另一個套件。
 
@@ -349,7 +328,6 @@ wsk package get --summary custom
 package /myNamespace/custom
    action /myNamespace/custom/identity
   ```
-  {: screen}
 
   現在，您可以在名稱空間中看到 `custom/identity` 動作。
 
@@ -359,10 +337,9 @@ package /myNamespace/custom
 wsk action invoke --blocking --result custom/identity
   ```
   {: pre}
-  ```
+  ```json
   {}
   ```
-  {: screen}
 
 
 您可以設定套件中所有實體的預設參數。作法是設定套件中所有動作所繼承的套件層次參數。若要查看此作業的運作方式，請嘗試下列範例：
@@ -376,17 +353,19 @@ wsk package update custom --param city Austin --param country USA
   ```
 ok: updated package custom
   ```
-  {: screen}
 
 2. 顯示套件及動作中的參數，以及查看套件中的 `identity` 動作如何繼承套件中的參數。
 
   ```
-wsk package get custom parameters
+  wsk package get custom parameters
   ```
   {: pre}
   ```
-ok: got package custom, projecting parameters
-  [{
+  ok: got package custom, displaying field parameters
+  ```
+  ```json
+  [
+      {
           "key": "city",
           "value": "Austin"
       },
@@ -396,15 +375,17 @@ ok: got package custom, projecting parameters
       }
   ]
   ```
-  {: screen}
 
   ```
-wsk action get custom/identity parameters
+  wsk action get custom/identity parameters
   ```
   {: pre}
   ```
-ok: got action custom/identity, projecting parameters
-  [{
+  ok: got action custom/identity, , displaying field parameters
+  ```
+  ```json
+  [
+      {
           "key": "city",
           "value": "Austin"
       },
@@ -414,7 +395,6 @@ ok: got action custom/identity, projecting parameters
       }
   ]
   ```
-  {: screen}
 
 3. 不使用任何參數來呼叫 identity 動作，以驗證動作確實繼承參數。
 
@@ -422,13 +402,12 @@ ok: got action custom/identity, projecting parameters
 wsk action invoke --blocking --result custom/identity
   ```
   {: pre}
-  ```
+  ```json
   {
       "city": "Austin",
       "country": "USA"
   }
   ```
-  {: screen}
 
 4. 使用一些參數來呼叫 identity 動作。呼叫參數會與套件參數合併；呼叫參數會置換套件參數。
 
@@ -436,14 +415,13 @@ wsk action invoke --blocking --result custom/identity
 wsk action invoke --blocking --result custom/identity --param city Dallas --param state Texas
   ```
   {: pre}
-  ```
+  ```json
   {
       "city": "Dallas",
       "country": "USA",
       "state": "Texas"
   }
   ```
-  {: screen}
 
 
 ## 共用套件
@@ -454,25 +432,25 @@ wsk action invoke --blocking --result custom/identity --param city Dallas --para
 1. 與所有使用者共用套件：
 
   ```
-wsk package update custom --shared
+  wsk package update custom --shared yes
   ```
   {: pre}
   ```
 ok: updated package custom
   ```
-  {: screen}
 
 2. 顯示套件的 `publish` 內容，以驗證它現在為 true。
 
   ```
-wsk package get custom publish
+  wsk package get custom publish
   ```
   {: pre}
   ```
-ok: got package custom, projecting publish
+  ok: got package custom, displaying field publish
+  ```
+  ```json
   true
   ```
-  {: screen}
 
 
 其他人現在可以使用 `custom` 套件（包括連結至套件，或直接呼叫其中的動作）。其他使用者必須知道套件的完整名稱，才能連結套件或呼叫其中的動作。共用套件內的動作及資訊來源為*公用*。如果套件為專用，則其所有內容也會是專用。
@@ -487,6 +465,5 @@ wsk package get --summary custom
 package /myNamespace/custom
    action /myNamespace/custom/identity
   ```
-  {: screen}
 
   在前一個範例中，您是使用 `myNamespace` 名稱空間，而此名稱空間是以完整名稱顯示。

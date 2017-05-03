@@ -1,21 +1,21 @@
 ---
 
- 
+
 
 copyright:
 
-  2016
+  years: 2016, 2017
+lastupdated: "2016-03-15"
 
- 
+
 
 ---
 
 {:shortdesc: .shortdesc}
 
-#  Couches de l'infrastructure Bluemix
+# Couches de l'infrastructure Bluemix
 
-*Dernière mise à jour : 15 mars 2016*
-{: .last-updated}
+
 
 {{site.data.keyword.Bluemix_notm}} fait abstraction des couches du système d'exploitation et de
 l'infrastructure et les masque pour que vous n'ayez pas à les gérer. Toutefois, il se peut que vous souhaitiez en savoir plus sur le système d'exploitation et le

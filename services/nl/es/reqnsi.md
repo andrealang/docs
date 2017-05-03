@@ -1,18 +1,18 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2016, 2017
+lastupdated: "2017-01-11"
 
 ---
 
 
-{:new_window: target="_blank"}  
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
 
 #Servicios
 {: #services}
-*Última actualización: 20 de enero de 2016*
 
 Puede encontrar servicios disponibles en el **Catálogo** en **Servicios** en la interfaz de usuario de {{site.data.keyword.Bluemix}}.
 {:shortdesc}
@@ -39,11 +39,11 @@ Los servicios predefinidos están disponibles en {{site.data.keyword.Bluemix_not
 
 |Tipo	|Descripción	|Detalles de soporte|
 |:------|:--------------|:--------------|
-|IBM	|Un servicio proporcionado por IBM y disponible generalmente.	|Se da soporte a los problemas que se determinen que son un defecto de un servicio proporcionado por IBM disponible generalmente. Se proporciona soporte en función de la gravedad que establezca. Para obtener más información sobre la gravedad de las incidencias, consulte [Cómo obtener soporte](../support/index.html#contacting-bluemix-support){: new_window}.|
+|IBM	|Un servicio proporcionado por IBM y disponible generalmente.	|Se da soporte a los problemas que se determinen que son un defecto de un servicio proporcionado por IBM disponible generalmente. Se proporciona soporte en función de la gravedad que establezca. Para obtener más información sobre la gravedad de las incidencias, consulte [Cómo obtener soporte](/docs/support/index.html#contacting-bluemix-support).|
 |Otro proveedor	|Un servicio que está proporcionado por una empresa que no es IBM.	|El soporte para servicios de terceros está proporcionado por un proveedor de servicios. Si IBM investiga un problema y se determina que el problema es un defecto de un servicio de terceros, IBM no está obligado a proporcionar un arreglo. IBM compartirá análisis con el proveedor de servicios de terceros si es necesario.|
 |Comunidad	|Un servicio que está proporcionado por una comunidad de código abierto.	|El soporte para servicios de la comunidad se proporciona a través de la Comunidad de desarrolladores de {{site.data.keyword.Bluemix_notm}}. Si IBM investiga un problema y se determina que el problema es un defecto de un servicio de comunidad, IBM no está obligado a proporcionar un arreglo.|
-|Beta	|Servicio que no está listo para producción que está en una etapa de prueba de desarrollo. Un servicio beta puede ayudar a los equipos de desarrollo y marketing a evaluar el valor de los servicios antes de que el servició esté generalmente disponible.	|Se da soporte a los problemas que se determinen que son un defecto de un servicio beta proporcionado por IBM, aunque IBM no está obligado a proporcionar un arreglo. Además, se asignará una incidencia de problema con una gravedad de 3 o 4 cuando proceda. Para obtener información sobre la gravedad de las incidencias, consulte [Cómo obtener soporte](../support/index.html#contacting-bluemix-support){: new_window}.|
-*Tabla 1. Información de soporte de los servicios de {{site.data.keyword.Bluemix_notm}}*
+|Beta	|Servicio que no está listo para producción que está en una etapa de prueba de desarrollo. Un servicio beta puede ayudar a los equipos de desarrollo y marketing a evaluar el valor de los servicios antes de que el servició esté generalmente disponible.	|Se da soporte a los problemas que se determinen que son un defecto de un servicio beta proporcionado por IBM, aunque IBM no está obligado a proporcionar un arreglo. Además, se asignará una incidencia de problema con una gravedad de 3 o 4 cuando proceda. Para obtener información sobre la gravedad de las incidencias, consulte [Cómo obtener soporte](/docs/support/index.html#contacting-bluemix-support).|
+{: caption="Table 1. {{site.data.keyword.Bluemix_notm}} información de soporte de los servicios" caption-side="top"}
 
 
 
@@ -79,6 +79,7 @@ No todos los servicios están disponibles en cada región de {{site.data.keyword
 |{{site.data.keyword.APIM}}			|Sí		|Sí		|No|
 |{{site.data.keyword.autoscaling}}		|Sí		|Sí		|Sí|
 |{{site.data.keyword.bigicloudst}}		|Sí		|No		|No|
+|{{site.data.keyword.blockstorageshort}}        |No             |Sí            |No |
 |{{site.data.keyword.rules_short}}		|Sí		|Sí		|No|
 |{{site.data.keyword.cloudint}}			|Sí		|Sí		|No|
 |{{site.data.keyword.cloudant}}			|Sí		|Sí		|No|
@@ -113,14 +114,13 @@ No todos los servicios están disponibles en cada región de {{site.data.keyword
 |{{site.data.keyword.nlclassifierlshort}} 	|Sí 		|Sí 		|Sí|
 |{{site.data.keyword.objectstorageshort}}	|Sí		|No		|No|
 |{{site.data.keyword.personalityinsightsshort}}	|Sí		|Sí		|Sí|
-|{{site.data.keyword.mobilepush}}Push		|Sí		|Sí		|No|
+|{{site.data.keyword.mobilepush}}		|Sí		|Sí		|No|
 |Push para iOS 8					|Sí		|Sí		|No|
 |{{site.data.keyword.questionandanswershort}}	|Sí		|Sí		|Sí|
 |{{site.data.keyword.rapidApps}}		|Sí		|Sí		|No|
 |{{site.data.keyword.relationshipextractionshort}}	|Sí	|Sí		|Sí|
 |{{site.data.keyword.retrieveandrankshort}}	|Sí 		|Sí 		|Sí|
 |{{site.data.keyword.SecureGateway}}		|Sí		|Sí		|No|
-|{{site.data.keyword.servicediscoveryshort}}	|Sí		|No		|No|
 |{{site.data.keyword.sescashort}}		|Sí		|Sí		|Sí|
 |{{site.data.keyword.ssofull}}			|Sí		|No		|No|
 |{{site.data.keyword.speechtotextshort}}	|Sí 		|Sí	 	|Sí|
@@ -138,11 +138,13 @@ No todos los servicios están disponibles en cada región de {{site.data.keyword
 |{{site.data.keyword.workloadscheduler}}	|Sí		|Sí		|No|
 |{{site.data.keyword.xpagesservice_short}}	|Sí		|Sí		|No|
 *Tabla 2. Disponibilidad del servicio*
+{: caption="Table 2. Service availability" caption-side="top"}
+
 
 
 # Cómo añadir un servicio a la aplicación
 {: #add_service}
-*Última actualización: 8 de marzo de 2016*
+
 
 {{site.data.keyword.Bluemix}} tiene una lista de servicios y los gestiona en nombre de los desarrolladores. Para añadir un servicio a la aplicación para utilizar, debe solicitar una instancia de dicho servicio y configurar la aplicación para que actúe con el servicio.
 
@@ -150,7 +152,7 @@ Puede ver todos los servicios disponibles en {{site.data.keyword.Bluemix_notm}} 
 
 * Desde la interfaz de usuario de {{site.data.keyword.Bluemix_notm}}. Consulte el Catálogo de {{site.data.keyword.Bluemix_notm}}.
 * Desde la interfaz de línea de mandatos cf. Utilice el mandato **cf marketplace**.
-* Desde la propia aplicación. Utilice la [GET /v2/services Services API](http://apidocs.cloudfoundry.org/197/services/list_all_services.html){: new_window}.
+* Desde la propia aplicación. Utilice [GET /v2/services Services API ![icono de enlace externo](../icons/launch-glyph.svg)](http://apidocs.cloudfoundry.org/197/services/list_all_services.html){: new_window}.
 
 Puede seleccionar el servicio que necesita cuando desarrolla app. En la selección,
 {{site.data.keyword.Bluemix_notm}} plan del servicio interactúa con el servicio y realiza los pasos necesarios para suministrar los recursos al servicio. El proceso de suministro puede ser diferente para distintos tipos de servicios. Por ejemplo, un servicio de base de datos crea una base de datos y un servicio de notificación push para app móviles genera información de configuración.
@@ -199,36 +201,78 @@ instancia_servicio es el nombre que desea utilizar para esta instancia de servic
 Se pueden enlazar una instancia de servicio únicamente a aquellas instancias de aplicaciones que se encuentran en el mismo espacio u organización. No obstante, puede utilizar instancias de servicio de otros espacios y organizaciones de la misma forma que lo hace una app externa. En lugar de crear
 un enlace, utilice las credenciales para configurar directamente su instancia de app. Para obtener más información sobre cómo utilizan las apps externas
 los servicios de {{site.data.keyword.Bluemix_notm}}, consulte [Habilitación de apps externas para
-usar servicios de {{site.data.keyword.Bluemix_notm}} ](#accser_external){: new_window}.
+usar servicios de {{site.data.keyword.Bluemix_notm}} ](#accser_external).
 
 
-## Configuración de la aplicación para interactuar con un servicio 
+## Configuración de la aplicación para interactuar con un servicio
 {: #config}
 
 Después de enlazar una instancia de servicio a una aplicación, debe configurar la aplicación para que interactúe con el servicio.
 
-Cada servicio puede requerir un mecanismo diferente para comunicarse con las app. Estos mecanismos están documentados como parte de la definición de servicio con fines informativos cuando desarrolle app. Para una mayor coherencia, los mecanismos son necesarios para que la aplicación interactúe con el servicio.
+Cada servicio puede requerir un mecanismo diferente para comunicarse con las aplicaciones. Estos mecanismos están documentados como parte de la definición de servicio con fines informativos cuando desarrolle aplicaciones. Para una mayor coherencia, los mecanismos son necesarios para que la aplicación interactúe con el servicio.
 
 * Para interactuar con servicios de base de datos, utilice la información que {{site.data.keyword.Bluemix_notm}} proporciona como, por ejemplo, el ID de usuario, la contraseña y el URI de acceso para la aplicación.
 * Para interactuar con los servicios de dispositivos móviles de fondo, utilice la información que {{site.data.keyword.Bluemix_notm}} proporciona como la identidad de la aplicación (ID de app), la información de seguridad que es específica del cliente y el URI de acceso para la aplicación. Los servicios móviles suelen funcionar compartiendo el contexto entre sí, de forma que la información contextual como, por ejemplo, el nombre del desarrollador de la aplicación y el usuario que utilizan la aplicación, se pueden compartir entre el conjunto de servicios.
 * Para interactuar con app web o código en la nube del servidor para app móviles, utilice la información que {{site.data.keyword.Bluemix_notm}} proporciona como las credenciales de tiempo de ejecución de la variable de entorno *VCAP_SERVICES* de la aplicación. El valor de la variable de entorno *VCAP_SERVICES* es la serialización del objeto JSON. La variable contiene los datos de tiempo de que son necesarios para interactuar con los servicios a los que la aplicación se enlaza. El formato de los datos es diferente para diferentes servicios. Es posible que necesite leer la documentación del servicio para saber lo que puede esperar y cómo interpretar cada información.
 
-Si se bloquea un servicio enlazado con una aplicación, ésta podría dejar de funcionar o tener errores. {{site.data.keyword.Bluemix_notm}} no reinicia automáticamente la aplicación para solucionar los problemas. Escriba código en la aplicación para identificar y recuperarse de caídas, excepciones y fallos de conexión. Para obtener más información, consulte el tema de resolución de problemas [Las apps no se reiniciarán automáticamente](../troubleshoot/index.html#ts_topmenubar).
+Si se bloquea un servicio enlazado con una aplicación, ésta podría dejar de funcionar o tener errores. {{site.data.keyword.Bluemix_notm}} no reinicia automáticamente la aplicación para solucionar los problemas. Escriba código en la aplicación para identificar y recuperarse de caídas, excepciones y fallos de conexión. Para obtener más información, consulte el tema de resolución de problemas [Las apps no se reiniciarán automáticamente](/docs/troubleshoot/index.html#ts_topmenubar).
 
 ## Habilitación de apps externas para utilizar servicios de {{site.data.keyword.Bluemix_notm}}
 {: #accser_external}
 
 Es posible que tenga app que se crearon y ejecutaron fuera de {{site.data.keyword.Bluemix_notm}},
-o puede que utilice herramientas de terceros. Si los servicios de {{site.data.keyword.Bluemix_notm}} proporcionan puntos finales que están accesibles en Internet, puede utilizarlos con las apps locales o herramientas de terceros.
+o puede que utilice herramientas de terceros. Si los servicios de {{site.data.keyword.Bluemix_notm}} proporcionan claves que están accesibles en Internet, puede utilizarlas con las apps locales o herramientas de terceros.
+
+Los siguientes servicios proporcionan claves de servicio que puede utilizar de forma externa:
+
+* {{site.data.keyword.amashort_old}} <!--Advanced Mobile Access-->
+* {{site.data.keyword.alchemyapishort}} <!--AlchemyAPI-->
+* {{site.data.keyword.alertnotificationshort}} <!--Alert Notification-->
+* {{site.data.keyword.sparks}} <!--Analytics for Apache Spark-->
+* {{site.data.keyword.appseccloudshort}} <!--Application Security on Cloud-->
+* {{site.data.keyword.blockchain}} <!--Blockchain-->
+* {{site.data.keyword.cloudant}} <!--Cloudant&reg; NoSQL DB-->
+* {{site.data.keyword.iotmapinsights_short}} <!--Context Mapping-->
+* {{site.data.keyword.conversationshort}} <!--Conversation-->
+* {{site.data.keyword.dashdbshort}} <!--dashDB-->
+* {{site.data.keyword.discoveryshort}} <!--Discovery-->
+* {{site.data.keyword.documentconversionshort}} <!--Document Conversion-->
+* {{site.data.keyword.iotdriverinsights_short}} <!--Driver Behavior-->
+* {{site.data.keyword.geospatialshort_Geospatial}} <!--Geospatial Analytics-->
+* {{site.data.keyword.GlobalizationPipeline_short}} <!--Globalization Pipeline-->
+* {{site.data.keyword.appconserviceshort}} <!--IBM&reg; App Connect-->
+* {{site.data.keyword.dataworks_short}} <!--IBM&reg; Data Connect-->
+* {{site.data.keyword.graphshort}} <!--IBM&reg; Graph-->
+* {{site.data.keyword.iotelectronics_full}} <!--IBM&reg; IoT for Electronics-->
+* {{site.data.keyword.twittershort}} <!--Insights for Twitter-->
+* {{site.data.keyword.iot4auto_short}} <!--IoT for Automotive-->
+* {{site.data.keyword.iotinsurance_short}} <!--IoT for Insurance-->
+* {{site.data.keyword.languagetranslatorshort}} <!--Language Translator-->
+* {{site.data.keyword.dwl_short}} <!--Lift-->
+* {{site.data.keyword.messagehub}} <!--Message Hub-->
+* {{site.data.keyword.mobileanalytics_short}} <!--Mobile Analytics-->
+* {{site.data.keyword.nlclassifiershort}} <!--Natural Language Classifier-->
+* {{site.data.keyword.objectstorageshort}} <!--Object Storage-->
+* {{site.data.keyword.personalityinsightsshort}} <!--Personality Insights-->
+* {{site.data.keyword.HybridConnect_short}} <!--Product Insights-->
+* {{site.data.keyword.mobilepush}} <!--Push-->
+* {{site.data.keyword.retrieveandrankshort}} <!--Retrieve and Rank-->
+* {{site.data.keyword.speechtotextshort}} <!-- Speech to Text-->
+* {{site.data.keyword.streaminganalyticsshort}} <!--Streaming Analytics-->
+* {{site.data.keyword.texttospeechshort}} <!--Text to Speech-->
+* {{site.data.keyword.toneanalyzershort}} <!--Tone Analyzer-->
+* {{site.data.keyword.tradeoffanalyticsshort}} <!--Tradeoff Analytics-->
+* {{site.data.keyword.weather_short}} <!--Weather Company Data-->
+* {{site.data.keyword.workloadscheduler}} <!--Workload Scheduler-->
 
 Para habilitar una app externa o una herramienta de terceros para que utilice un servicio {{site.data.keyword.Bluemix_notm}}, siga estos pasos:
 
 1. Solicite una instancia del servicio.
     1. En el Panel de control de la interfaz de usuario de {{site.data.keyword.Bluemix_notm}}, pulse **Utilizar servicios o API**. Se visualiza el Catálogo.
-    2. En el Catálogo, seleccione el servicio que desee pulsando el título del servicio. Se abre la página de detalles del servicio.
+    2. En el Catálogo, seleccione el servicio que desee pulsando el mosaico del servicio. Se abre la página de detalles del servicio.
     3. En la ventana Añadir servicio, mantenga la selección de la lista **App**: como **Dejar sin enlazar**. Esta selección significa que el servicio no se conectará a una app de {{site.data.keyword.Bluemix_notm}}.
     4. Realice las selecciones que necesite. A continuación, pulse **CREAR**. Se creará una instancia de servicio y se mostrará el Panel de control del servicio.
-2. En el panel de navegación izquierdo del Panel de control del servicio, puede seleccionar **Credenciales de servicio** para visualizar o añadir credenciales en formato JSON. Utilice la clave API que se muestra como credenciales para conectarse a la instancia del servicio.
+2. En el panel de navegación del Panel de control del servicio, puede seleccionar **Credenciales de servicio** para visualizar o añadir credenciales en formato JSON. Utilice la clave API que se muestra como credenciales para conectarse a la instancia del servicio.
 
 La aplicación que se ejecuta fuera de {{site.data.keyword.Bluemix_notm}} ahora puede acceder al servicio de {{site.data.keyword.Bluemix_notm}}.
 
@@ -297,23 +341,21 @@ Ahora puede configurar la aplicación para que utilice recursos externos. Para o
 
 Si tiene una instancia de servicio creada y enlazada a apps en una región, puede utilizar eta instancia de servicio en otra región mediante uno de los métodos siguientes:
 
-  * Utilice las credenciales del servicio para configurar directamente su instancia de app. Para obtener detalles, consulte
-[Habilitación de apps externas para usar el servicio de {{site.data.keyword.Bluemix_notm}}
-](#accser_external){: new_window}.
+  * Utilice las credenciales del servicio para configurar directamente su instancia de app. Consulte [Habilitación de apps externas para que utilice el servicio {{site.data.keyword.Bluemix_notm}}](#accser_external) para obtener más información.
   * Crear un servicio proporcionado por el usuario como un puente.
-    
+
 	Supongamos que va a iniciar la región en la que desea utilizar la instancia de servicio. Para utilizar una instancia de servicio existente en otra región, siga estos pasos:
 
-      1. Vaya a la región en la que reside la instancia de servicio. En la barra de menús superior de {{site.data.keyword.Bluemix_notm}}, expanda **Región** o pulse el icono **Región** y seleccione la región en la que reside la instancia de servicio.
+      1. Vaya a la región en la que reside la instancia de servicio. En la barra de menús de {{site.data.keyword.Bluemix_notm}}, expanda **Región** o pulse el icono **Región** y seleccione la región en la que reside la instancia de servicio.
 
       2. Recupere las credenciales y los parámetros de conexión de la variable de entorno VCAP_SERVICES de la instancia de servicio de la región en la que existe el servicio. Siga estos pasos:
 
-	       1. En el Panel de control de {{site.data.keyword.Bluemix_notm}}, pulse el icono de la aplicación. Se muestra la página Visión general.
-	       2. En el panel de navegación izquierdo, pulse **Variables de entorno**. Se muestran los detalles de la variable de entorno *VCAP_SERVICES* en el panel derecho. Registre el contenido JSON correspondiente a la instancia de servicio.
+	       1. En el Panel de control de {{site.data.keyword.Bluemix_notm}}, pulse el mosaico de la aplicación. Se muestra la página Visión general.
+	       2. En el panel de navegación, pulse **Variables de entorno**. Se muestran los detalles de la variable de entorno *VCAP_SERVICES*. Registre el contenido JSON correspondiente a la instancia de servicio.
 
-      3. Vaya a la región en la que desea utilizar la instancia de servicio. En la barra de menús superior de {{site.data.keyword.Bluemix_notm}}, expanda **Región** o pulse el icono **Región** y seleccione la región en la que desea utilizar la instancia de servicio.
+      3. Vaya a la región en la que desea utilizar la instancia de servicio. En la barra de menús de {{site.data.keyword.Bluemix_notm}}, expanda **Región** o pulse el icono **Región** y seleccione la región en la que desea utilizar la instancia de servicio.
 
-      4. Cree una instancia de servicio suministrada por el usuario utilizando las credenciales y los parámetros de conexión que ha registrado de la variable de entorno *VCAP_SERVICES*. Para obtener información sobre cómo crear una instancia de servicio proporcionada por el usuario, consulte el tema sobre [creación de una instancia de servicio proporcionada por el usuario](#user_provide_services){: new_window}.
+      4. Cree una instancia de servicio suministrada por el usuario utilizando las credenciales y los parámetros de conexión que ha registrado de la variable de entorno *VCAP_SERVICES*. Para obtener información sobre cómo crear una instancia de servicio proporcionada por el usuario, consulte el tema sobre [creación de una instancia de servicio proporcionada por el usuario](#user_provide_services).
 
       5. Enlace la instancia de servicio proporcionada por el usuario a la app con el siguiente mandato:
 
@@ -337,8 +379,8 @@ Para utilizar una instancia de servicio de otro servicio, siga estos pasos:
 
 1. En el Panel de control de {{site.data.keyword.Bluemix_notm}}, pulse
 el mosaico para el servicio al que desee acceder. Se mostrará el panel de control para el servicio.
-2. En el panel de navegación de la izquierda, pulse *Gestionar* para autorizar el enlace desde otras instancias de servicio utilizando la consola de la instancia de servicio.
-3. Si desea denegar a otros servicios el acceso a la instancia de servicio, pulse *Autorización de acceso de servicio* en el panel de navegación izquierdo y, a continuación, utilice *Revocar* para eliminar el enlace de servicio. 
+2. En el panel de navegación, pulse **Gestionar** para autorizar el enlace desde otras instancias de servicio utilizando la consola de la instancia de servicio.
+3. Si desea denegar a otros servicios el acceso a la instancia de servicio, pulse **Autorización de acceso de servicio** en el panel de navegación y, a continuación, utilice **Revocar** para eliminar el enlace de servicio.
 
 # rellinks
 {: #rellinks}
@@ -346,7 +388,5 @@ el mosaico para el servicio al que desee acceder. Se mostrará el panel de contr
 ## general
 {: #general}
 
-* [Enlace de un servicio mediante la interfaz de usuario de {{site.data.keyword.Bluemix_notm}}](../cfapps/ee.html#ee_bindui)
-* [Recuperación de VCAP_SERVICES](../cli/vcapsvc.html#retrieving)
-
-
+* [Enlace de un servicio mediante la interfaz de usuario de {{site.data.keyword.Bluemix_notm}}](/docs/cfapps/ee.html#ee_bindui)
+* [Recuperación de VCAP_SERVICES](/docs/cli/vcapsvc.html#retrieving)

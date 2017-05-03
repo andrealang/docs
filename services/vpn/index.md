@@ -4,6 +4,8 @@ copyright:
 
   years: 2015, 2016
 
+lastupdated: "2016-12-26"
+
 ---
 
 {:new_window: target="_blank"}
@@ -11,10 +13,9 @@ copyright:
 
 # Getting started with {{site.data.keyword.vpn_short}}
 {: #vpn}  
-*Last updated: 08 June 2016*
-{: .last-updated}
 
-The {{site.data.keyword.vpn_full}} service for Bluemix&reg; is available to securely access IBM Containers (Docker containers) inside the IBM Bluemix cloud environment. You can use the IBM Bluemix cloud environment as an extension of your corporate data center. You can also connect with the SoftLayer servers using the IBM VPN service.
+
+The {{site.data.keyword.vpn_full}} service for Bluemix&reg; is available to securely access IBM Containers (Docker containers) inside the IBM Bluemix cloud environment. You can use the IBM Bluemix cloud environment as an extension of your corporate data center. You can also connect with the {{site.data.keyword.BluSoftlayer}} servers using the IBM VPN service.
 {:shortdesc}
 
 Before you begin, ensure that you have a Docker container ready to use by adding one with IBM Containers. See [IBM Containers](https://www.ng.bluemix.net/docs/containers/container_index.html) for details about how to create and manage IBM Containers.  
@@ -56,7 +57,7 @@ To get started, select the **Virtual Private Network** service instance tile on 
   	* **Encapsulation Mode**: Tunnel; cannot be changed
   3. Select **SAVE**.  
 
-4. Provide the details to establish a connection between your data center or SoftLayer server VPN gateway, and the IBM VPN gateway.  
+4. Provide the details to establish a connection between the VPN gateway of your data center or {{site.data.keyword.BluSoftlayer}} server, and the IBM VPN gateway.  
 {: #site}  
 
   1. Select **Create Connection** in the **Site Connections** section.
@@ -81,21 +82,23 @@ To get started, select the **Virtual Private Network** service instance tile on 
   		* restart-by-peer: the SA is put on hold and the connection information is retained; a new connection is established after the peer initiates a connection request  
   	* **IPsec Policy**: Select the IPsec policy.
   	* **Keep Alive Timeout**: Timeout value in seconds after which the session is terminated. Default value: 120. Range: 6-86400. The keep alive timeout value must be higher than the keep alive interval value.
+  	* **Initial state**: Select the mode of operation.
+    	* bidirectional: This mode is the default setting. The IBM Bluemix VPN service gateway can either initiate or respond to a new connection request (during the initial IKE setup)
+    	* response-only: The IBM Bluemix VPN service gateway can respond to a new connection request from a remote peer. It cannot initiate a new connection request.  
   4. Select **SAVE**.
 
   **Note:** The connection can take up to a minute to activate. During this time, the GUI does auto refresh to reflect the most recent status. If the connection is not active even after a minute, manually refresh the screen to see the status. If the status is still inactive, verify the connection information.
 
 **Important:** If you are using a web application, you must bind the web application to the Docker container you are using. This binding is required for the traffic to pass through the IPsec VPN tunnel.
 
-**Important:** The IBM VPN service currently operates in initiator mode. To initiate the VPN connection, a data packet must flow out from the IBM VPN gateway to your on-premises data center or SoftLayer server. Once the VPN connection is established, traffic can flow in either direction between endpoints of the VPN connection.
 
- 
+
 # rellinks
 ## samples 
 {: #samples}  
 * [On-premises strongSwan Gateway Configuration Example](vpn_onpremises.html#strongswan){: new_window}
 * [On-premises Vyatta Gateway Configuration Example](vpn_onpremises.html#vyatta){: new_window}
-* [On-premises SoftLayer Gateway Appliance Service (GaaS) Configuration Example](vpn_onpremises.html#gaas){: new_window}
+* [On-premises IBM Bluemix Gateway Appliance Service Configuration Example](vpn_onpremises.html#gaas){: new_window}
 * [On-premises Cisco ASA Configuration Example](vpn_onpremises.html#cisco){: new_window}
 
 ## api  
@@ -104,4 +107,4 @@ To get started, select the **Virtual Private Network** service instance tile on 
 
 ## general  
 {: #general}  
-* [IBM VPN Command line Interface](../../cli/plugins/vpn/index.html){: new_window}
+* [IBM VPN Command line Interface](/docs/cli/plugins/vpn/index.html){: new_window}

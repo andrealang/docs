@@ -1,174 +1,162 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated: "2017-01-16"
 
 ---
 
-# Angepasste Authentifizierung für {{site.data.keyword.amashort}}-iOS-App konfigurieren (Swift-SDK)
+{:codeblock:.codeblock}
 
+
+# Angepasste Authentifizierung für {{site.data.keyword.amashort}}-iOS-App konfigurieren (Swift-SDK)
 {: #custom-ios}
 
-Letzte Aktualisierung: 01. August 2016
-{: .last-updated}
+Konfigurieren Sie Ihre iOS-Anwendung, die mit der angepassten Authentifizierung arbeitet, zur Verwendung des {{site.data.keyword.amafull}}-Client-SDK und verbinden Sie Ihre Anwendung mit {{site.data.keyword.Bluemix}}.  
 
-
-Konfigurieren Sie Ihre iOS-Anwendung, die mit der angepassten Authentifizierung arbeitet, zur Verwendung des {{site.data.keyword.amashort}}-Client-SDK und verbinden Sie Ihre Anwendung mit {{site.data.keyword.Bluemix}}.  Das neu freigegebene {{site.data.keyword.amashort}}-Swift-SDK ergänzt und verbessert die vom vorhandenen Mobile Client Access-Objective-C-SDK bereitgestellte Funktionalität.
-
-**Hinweis:** Das Objective-C-SDK wird zwar weiterhin vollständig unterstützt und gilt noch als primäres SDK für {{site.data.keyword.Bluemix_notm}} Mobile Services, seine Verwendung und Unterstützung sollen jedoch zugunsten des neuen Swift-SDK noch dieses Jahr eingestellt werden.
 
 ## Vorbereitungen
 {: #before-you-begin}
 
-Sie müssen über eine Ressource verfügen, die durch eine Instanz des {{site.data.keyword.amashort}}-Service geschützt wird, die zur Verwendung eines angepassten Identitätsproviders konfiguriert ist.  Ihre mobile App muss außerdem mit dem {{site.data.keyword.amashort}}-Client-SDK instrumentiert sein.  Weitere Informationen finden Sie über die folgenden Links:
- * [Einführung in {{site.data.keyword.amashort}}](https://console.{DomainName}/docs/services/mobileaccess/index.html)
- * [iOS-Swift-SDK einrichten](https://console.{DomainName}/docs/services/mobileaccess/getting-started-ios-swift-sdk.html)
- * [Angepassten Identitätsprovider verwenden](https://console.{DomainName}/docs/services/mobileaccess/custom-auth.html)
- * [Angepassten Identitätsprovider erstellen](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-identity-provider.html)
- * [{{site.data.keyword.amashort}} für die angepasste Authentifizierung konfigurieren](https://console.{DomainName}/docs/services/mobileaccess/custom-auth-config-mca.html)
+Voraussetzungen:
 
+* Eine Ressource, die durch eine Instanz des {{site.data.keyword.amashort}}-Service geschützt wird, die zur Verwendung eines angepassten Identitätsproviders konfiguriert ist (siehe die Veröffentlichung zur [Konfiguration der angepassten Authentifizierung](custom-auth-config-mca.html)).  
+* Der Wert für die Tenant-ID. Öffnen Sie den Service im {{site.data.keyword.amashort}}-Dashboard. Klicken Sie auf die Schaltfläche **Mobile Systemerweiterungen**. Im Feld **App-GUID/TenantId** wird der Wert `tenantId` (auch als `appGUID` bezeichnet) angezeigt. Sie benötigen diesen Wert für die Initialisierung von Authorization Manager.
+* Der Realname. Dies ist der Wert, den Sie im Feld **Realmname** des Abschnitts **Angepasst** auf der Registerkarte **Management** des {{site.data.keyword.amashort}}-Dashboards angegeben haben.
+* Die URL der Back-End-Anwendung (**App-Route**). Sie benötigen diese Werte zum Senden von Anforderungen an die geschützten Endpunkte der Back-End-Anwendung.
+* Die {{site.data.keyword.Bluemix_notm}}-**Region**. Ihre aktuelle {{site.data.keyword.Bluemix_notm}}-Region finden Sie im Header neben dem Symbol **Avatar** ![Avatarsymbol](images/face.jpg "Avatarsymbol"). Der Regionswert, der angezeigt wird, sollte einer der folgenden sein: **USA (Süden)**, **Vereinigtes Königreich** oder **Sydney**. Zudem sollte er den Konstanten entsprechen, die im Code erforderlich sind: `BMSClient.Region.usSouth`, `BMSClient.Region.unitedKingdom` oder `BMSClient.Region.sydney`.
 
-## {{site.data.keyword.amashort}} für eine angepasste Authentifizierung konfigurieren
- {: #custom-auth-ios-configmca}
+Weitere Informationen finden Sie über die folgenden Links:
+ * [Einführung in {{site.data.keyword.amashort}}](index.html)
+ * [iOS-Swift-SDK einrichten](getting-started-ios-swift-sdk.html)
+ * [Angepassten Identitätsprovider verwenden](custom-auth.html)
+ * [Angepassten Identitätsprovider erstellen](custom-auth-identity-provider.html)
+ * [{{site.data.keyword.amashort}} für die angepasste Authentifizierung konfigurieren](custom-auth-config-mca.html)
 
- 1. Öffnen Sie Ihre App im {{site.data.keyword.Bluemix_notm}}-Dashboard.
+### Gemeinsame Nutzung der Schlüsselkette (Keychain) für iOS aktivieren
+{: #enable_keychain}
 
- 1. Klicken Sie auf **Mobile Systemerweiterungen** und notieren Sie die Werte für **Route** (*applicationRoute*) und **App-GUID** (*applicationGUID*). Sie benötigen diese Werte, wenn Sie das SDK initialisieren.
-
- 1. Klicken Sie auf die Kachel für {{site.data.keyword.amashort}}. Das {{site.data.keyword.amashort}}-Dashboard wird geladen.
-
- 1. Klicken Sie auf die Kachel **Angepasst**.
-
- 1. Geben Sie in **Realmname** Ihren angepassten Authentifizierungrealm an.
-
- 1. Geben Sie in **URL** Ihre Anwendungsroute (applicationRoute) an.
-
- 1. Klicken Sie auf **Speichern**.
-
-
+Aktivieren Sie `Keychain Sharing`. Rufen Sie dazu die Registerkarte `Capabilities` auf und setzen Sie `Keychain Sharing` in Ihrem Xcode-Projekt auf `On`.
 
 
 ### Client-SDK initialisieren
 {: #custom-ios-sdk-initialize}
 
-Initialisieren Sie das SDK, indem Sie die Parameter `applicationRoute` und `applicationGUID` übergeben. Eine gängige, wenngleich nicht verbindliche, Position für den Initialisierungscode ist die Methode `application:didFinishLaunchingWithOptions` Ihres Anwendungsdelegats.
-
-1. Ermitteln Sie Ihre Werte für die Anwendungsparameter. Öffnen Sie Ihre App im {{site.data.keyword.Bluemix_notm}}-Dashboard. Klicken Sie auf **Mobile Systemerweiterungen**. Die Werte für `applicationRoute` und `applicationGUID` werden in den Feldern **Route** und **App-GUID** angezeigt.
+Initialisieren Sie das SDK, indem Sie den Parameter `applicationGUID` (**TenantId**) übergeben. Eine gängige, wenngleich nicht verbindliche, Position für den Initialisierungscode ist die Methode `application:didFinishLaunchingWithOptions` Ihres Anwendungsdelegats.
 
 1. Importieren Sie die erforderlichen Frameworks in die Klasse, in der Sie das {{site.data.keyword.amashort}}-Client-SDK verwenden möchten.
 
- ```Swift
- import UIKit
- import BMSCore
- import BMSSecurity
-```
+	```Swift
+	import UIKit
+	import BMSCore
+	import BMSSecurity
+	```
+	{: codeblock}
 
-1. Initialisieren Sie das {{site.data.keyword.amashort}}-Client-SDK, geben Sie 'MCAAuthorizationManager' als Berechtigungsmanager an und definieren und registrieren Sie ein Authentifizierungsdelegat. Ersetzen Sie `<applicationRoute>` und `<applicationGUID>` durch die Werte für **Route** und **App-GUID**, die Sie im Abschnitt **Mobile Systemerweiterungen** des {{site.data.keyword.Bluemix_notm}}-Dashboards ermittelt haben. 
+1. Initialisieren Sie das {{site.data.keyword.amashort}}-Client-SDK, geben Sie `MCAAuthorizationManager` als Berechtigungsmanager an und definieren und registrieren Sie ein Authentifizierungsdelegat.
 
-  Ersetzen Sie `<applicationBluemixRegion>` durch die Region, in der Ihre {{site.data.keyword.Bluemix_notm}}-Anwendung per Hosting bereitgestellt wird. Klicken Sie zur Anzeige der {{site.data.keyword.Bluemix_notm}}-Region auf das Symbol 'Avatar' ![Avatarsymbol](images/face.jpg "Avatarsymbol") in der Menüleiste, um das Widget 'Konto und Unterstützung' zu öffnen.
-				 	
+```Swift
 
-  <!--upper-left corner of the -->
+	let tenantId = "<serviceTenantID>"
+	let regionName = <applicationBluemixRegion>
+	let customRealm = "<yourProtectedRealm>"
 
-  Verwenden Sie als `<yourProtectedRealm>` den **Realmnamen**, den Sie in der Kachel **Angepasst** des {{site.data.keyword.amashort}}-Dashboards definiert haben.
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: 
+		[UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
- 
+		let mcaAuthManager = MCAAuthorizationManager.sharedInstance
+	    		mcaAuthManager.initialize(tenantId: tenantId, bluemixRegion: regionName)
+	 // Der Regionsname sollte eine der folgenden Konstanten für BMSClient.Region sein: BMSClient.Region.usSouth, BMSClient.Region.unitedKingdom oder BMSClient.Region.sydney
+		BMSClient.sharedInstance.authorizationManager = mcaAuthManager
 
- ```Swift
- let backendURL = "<applicationRoute>"
- let backendGUID = "<applicationGUID>"
- let customRealm = "<yourProtectedRealm>"
-
- func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
- BMSClient.sharedInstance.initializeWithBluemixAppRoute(backendURL, bluemixAppGUID: backendGUID, bluemixRegion: BMSClient.<applicationBluemixRegion>)
-
- BMSClient.sharedInstance.authorizationManager = MCAAuthorizationManager.sharedInstance
-
-  //Authentifizierungsdelegat zum Verarbeiten der angepassten Anforderung
+	//Authentifizierungsdelegat zum Verarbeiten der angepassten Anforderung
  class MyAuthDelegate : AuthenticationDelegate {
-      func onAuthenticationChallengeReceived(authContext: AuthenticationContext, challenge: AnyObject){
-          print("onAuthenticationChallengeReceived")
-              let answer = <Eine Antwort auf die vom Backend gesendete Anforderung (sollte den Typ [String:AnyObject] aufweisen)>
-              authContext.submitAuthenticationChallengeAnswer(answer)
-      }
+		func onAuthenticationChallengeReceived(_ authContext: AuthenticationContext, challenge: AnyObject){
+		    print("onAuthenticationChallengeReceived")
+		    let answer = try? Utils.parseJsonStringtoDictionary( "{\"userName\":\"" + "test" + "\",\"password\":\"" + "test" + "\"}")
+			authContext.submitAuthenticationChallengeAnswer(answer)
+		}
 
-      func onAuthenticationSuccess(info: AnyObject?) {
-           print("onAuthenticationSuccess info = \(info)")
+		func onAuthenticationSuccess(_ info: AnyObject?) {
+		    print("onAuthenticationSuccess info = \(info)")
            print("onAuthenticationSuccess")
       }
 
-      func onAuthenticationFailure(info: AnyObject?){
-        print("onAuthenticationFailure info = \(info)")
+		func onAuthenticationFailure(_ info: AnyObject?){
+		     print("onAuthenticationFailure info = \(info)")
         print("onAuthenticationFailure")
       }
-  }
+	     }
 
-  let delegate = MyAuthDelegate()
-  let mcaAuthManager = MCAAuthorizationManager.sharedInstance
+	     let delegate = MyAuthDelegate()
+	     mcaAuthManager.registerAuthenticationDelegate(delegate, realm: customRealm)
 
- do {
-      try mcaAuthManager.registerAuthenticationDelegate(delegate, realm: customRealm)
-  } catch {
-      print("error with register: \(error)")
-  }
-       return true
+	     return true
  }
 
+
 ```
+{: codeblock}
+
+Gehen Sie im Code wie folgt vor:
+* Ersetzen Sie `MCAServiceTenantId` durch den Wert der **Tenant-ID** und `<applicationBluemixRegion>` durch Ihre {{site.data.keyword.amashort}}-**Region** (siehe [Vorbereitungen](##before-you-begin)).
+* Verwenden Sie den Wert für `realmName`, den Sie im {{site.data.keyword.amashort}}-Dashboard angegeben haben (siehe [Angepasste Authentifizierung konfigurieren](custom-auth-config-mca.html)).
+* Ersetzen Sie `<applicationBluemixRegion>` durch die Region, in der Ihre {{site.data.keyword.Bluemix_notm}}-Anwendung per Hosting bereitgestellt wird. Klicken Sie zur Anzeige der {{site.data.keyword.Bluemix_notm}}-Region auf das Symbol 'Avatar' ![Avatarsymbol](images/face.jpg "Avatarsymbol") in der Menüleiste, um das Widget **Konto und Unterstützung** zu öffnen.  Der Regionswert, der angezeigt wird, sollte einer der folgenden sein: **USA (Süden)**, **Vereinigtes Königreich** oder **Sydney**. Zudem sollte er den Konstanten entsprechen, die im Code erforderlich sind: `BMSClient.Region.usSouth`, `BMSClient.Region.unitedKingdom` oder `BMSClient.Region.sydney`.
+
 
 ## Authentifizierung testen
 {: #custom-ios-testing}
 
 Nachdem Sie das Client-SDK initialisiert und ein angepasstes Authentifizierungsdelegat registriert haben, können Sie mit dem Senden von Anforderungen an Ihre mobile Back-End-Anwendung beginnen.
 
-
 ### Vorbereitungen
 {: #custom-ios-testing-before}
 
  Sie müssen eine Anwendung, die mit der {{site.data.keyword.mobilefirstbp}}-Boilerplate erstellt wurde, sowie eine Ressource, die durch {{site.data.keyword.amashort}} am Endpunkt `/protected` geschützt wird, haben.
 
+1. Senden Sie in Ihrem Browser eine Anforderung an den geschützten Endpunkt Ihrer mobilen Back-End-Anwendung, indem Sie `{applicationRoute}/protected` öffnen. Ersetzen Sie `{applicationRoute}` durch den Wert, den Sie aus **Mobile Systemerweiterungen** abgerufen haben (siehe [Mobile Client Access für angepasste Authentifizierung konfigurieren](#custom-auth-ios-configmca)). Beispiel: `http://my-mobile-backend.mybluemix.net/protected`.
 
-1. Senden Sie eine Anforderung an den geschützten Endpunkt Ihrer mobilen Back-End-Anwendung in Ihrem Browser, indem Sie die Adresse `{applicationRoute}/protected` öffnen (z. B. `http://my-mobile-backend.mybluemix.net/protected`).
-  Der Endpunkt `/protected` einer mobilen Back-End-Anwendung, die mit der {{site.data.keyword.mobilefirstbp}}-Boilerplate erstellt wurde, wird mit {{site.data.keyword.amashort}} geschützt. Auf den Endpunkt können nur mobile Anwendungen zugreifen, die mit dem {{site.data.keyword.amashort}}-Client-SDK instrumentiert sind. Daher wird eine Nachricht `Unauthorized` (Nicht autorisiert) in Ihrem Browser angezeigt.
+ Der Endpunkt `/protected` einer mobilen Back-End-Anwendung, die mit der {{site.data.keyword.mobilefirstbp}}-Boilerplate erstellt wurde, wird mit {{site.data.keyword.amashort}} geschützt. Auf den Endpunkt können nur mobile Anwendungen zugreifen, die mit dem {{site.data.keyword.amashort}}-Client-SDK instrumentiert sind. Daher wird eine Nachricht `Unauthorized` (Nicht autorisiert) in Ihrem Browser angezeigt.
 
 1. Verwenden Sie Ihre iOS-Anwendung, um eine Anforderung an denselben Endpunkt zu senden. Fügen Sie den folgenden Code hinzu, nachdem Sie `BMSClient` initialisiert und Ihr angepasstes Authentifizierungsdelegat registriert haben:
 
- 
+    ```Swift
 
- ```Swift
- let customResourceURL = "<your protected resource's path>"
- let request = Request(url: customResourceURL, method: HttpMethod.GET)
- let callBack:BmsCompletionHandler = {(response: Response?, error: NSError?) in
+	let protectedResourceURL = "<your protected resource absolute path>"
+	let request = Request(url: protectedResourceURL, method: HttpMethod.GET)
+
+	let callBack:BMSCompletionHandler = {(response: Response?, error: Error?) in
   if error == nil {
-      print ("response:\(response?.responseText), no error")
+	       print ("response:\(response?.responseText), no error")
   } else {
-      print ("error: \(error)")
+	       print ("error: \(error)")
   }
- }
+	}
+	request.send(completionHandler: callBack)
+     ```
+     {: codeblock}
 
- request.sendWithCompletionHandler(callBack)
- ```
+1. Wenn Ihre Anforderung erfolgreich ist, wird die folgende Ausgabe in der Xcode-Konsole angezeigt:
 
-1. 	Wenn Ihre Anforderung erfolgreich ist, wird die folgende Ausgabe in der Xcode-Konsole angezeigt:
-
- ```
-onAuthenticationSuccess info = Optional({
+	 ```
+	 onAuthenticationSuccess info = Optional({
      attributes =     {
-     };
+	     };
      deviceId = don;
      displayName = "Don+Lon";
      isUserAuthenticated = 1;
      userId = don;
  })
- response:Optional("Hello Don Lon"), no error
- ```
+	 response:Optional("Hello Don Lon"), no error
+	 ```
+	 {: codeblock}
 
 1. Durch Hinzufügen des folgenden Codes können Sie auch die Abmeldefunktion (logout) hinzufügen:
 
- ```
-MCAAuthorizationManager.sharedInstance.logout(callBack)
- ```  
+	 ```
+	 MCAAuthorizationManager.sharedInstance.logout(callBack)
+	 ```
+	 {: codeblock}
 
  Wenn Sie diesen Code aufrufen, nachdem sich ein Benutzer angemeldet hat, wird der Benutzer abgemeldet. Wenn der Benutzer versucht, sich wieder anzumelden, muss er auf die vom Server empfangene Anforderung erneut reagieren.
 

@@ -1,36 +1,51 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
 
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
+
 # Sobre {{site.data.keyword.amashort}}
 {: #mca-overview}
-Última atualização: 22 de julho de 2016
-{: .last-updated}
 
-O serviço {{site.data.keyword.amafull}} fornece serviços de autenticação e monitoramento para aplicativos móveis e da web que
-acessam recursos em nuvem hospedados no {{site.data.keyword.Bluemix_notm}}.
 
-É possível usar o serviço {{site.data.keyword.amashort}} para proteger os aplicativos Node.js e Liberty for Java&trade; que são hospedados no {{site.data.keyword.Bluemix_notm}} com vários tipos de autenticação. Ao instrumentar seus aplicativos móveis com o {{site.data.keyword.amashort}} SDK, é possível usar os recursos de autenticação fornecidos pelo serviço {{site.data.keyword.amashort}}. Os logs do lado do cliente são reunidos automaticamente e enviados para o serviço {{site.data.keyword.amashort}} sob demanda. Use o painel {{site.data.keyword.amashort}} para configurar os vários tipos de autenticação e ver dados reunidos e enviados pelo SDK do lado do cliente.
+O serviço {{site.data.keyword.amafull}} fornece
+autenticação para aplicativos móveis e da Web que acessam
+recursos em nuvem hospedados no
+{{site.data.keyword.Bluemix_notm}}.
+
+É possível usar o serviço {{site.data.keyword.amashort}} para proteger os aplicativos Node.js e Liberty for Java&trade; que são hospedados no {{site.data.keyword.Bluemix_notm}} com vários tipos de autenticação. Ao instrumentar seus aplicativos móveis com o {{site.data.keyword.amashort}} SDK, é possível usar os recursos de autenticação fornecidos pelo serviço {{site.data.keyword.amashort}}. Use o painel {{site.data.keyword.amashort}} para configurar os vários tipos de autenticação e ver dados reunidos e enviados pelo SDK do lado do cliente.
 
 **Nota**: o serviço {{site.data.keyword.amashort}} era conhecido anteriormente como Advanced Mobile Access.
 
 ## Componentes
 {: #components}
 
-* **Painel do {{site.data.keyword.amashort}}**: configure vários tipos de autenticação e monitore desempenho, analítica, estatísticas de uso e logs do dispositivo do aplicativo móvel.
-* **{{site.data.keyword.amashort}} client SDK**: instrumente aplicativos móveis para usar a funcionalidade do {{site.data.keyword.amashort}}. As
-plataformas suportadas são: iOS 8+, Android 4+ e Cordova.
+* **{{site.data.keyword.amashort}}
+dashboard**: configure vários tipos de autenticação
+
+* **{{site.data.keyword.amashort}} client SDK**: instrumente aplicativos móveis para usar a funcionalidade do {{site.data.keyword.amashort}}. As plataformas suportadas são: iOS 8 +, Android 4 +, Cordova e
+aplicativos da Web.
+
 * **{{site.data.keyword.amashort}} server SDK**: proteja os recursos hospedados no {{site.data.keyword.Bluemix_notm}}. Atualmente,
 os tempos de execução suportados são Node.js e Liberty for Java&trade;.
 
 ## Tipos de autenticação
 {: #authtypes}
 É possível usar os tipos de autenticação a seguir em seu app móvel:
-* **Facebook**: use o Facebook como um provedor de identidade. Os usuários efetuarão login no app móvel com suas credenciais do Facebook.
-* **Google**: use o Google como um provedor de identidade. Os usuários efetuarão login no app móvel com suas credenciais do Google+.
+
+* **Facebook**: use o Facebook como um provedor de identidade. Os usuários efetuarão login no app móvel ou da web com suas credenciais do Facebook.
+
+* **Google**: use o Google como um provedor de identidade. Seus usuários efetuam login ao app móvel ou da web
+com as credenciais que usam para o Google+.
+
 * **Customizado**: crie seu próprio provedor de identidade. Você controlará totalmente que tipo de informações serão reunidas e validadas.
 
 ## Visão geral da arquitetura
@@ -39,15 +54,23 @@ os tempos de execução suportados são Node.js e Liberty for Java&trade;.
 ![Diagrama de visão geral da arquitetura](images/mca-overview.jpg)
 
 * Proteja seus recursos em nuvem (aplicativos Node.js) com o SDK do servidor {{site.data.keyword.amashort}}.
+
 * Use a classe de `Request` fornecida pelo
 {{site.data.keyword.amashort}} client SDK para se comunicar com seus recursos em nuvem protegidos.
+
 * O {{site.data.keyword.amashort}} server SDK detecta uma solicitação não autorizada e retorna o desafio de autorização HTTP 401.
+
 * O SDK do cliente {{site.data.keyword.amashort}} detecta o Desafio de autorização HTTP 401 e inicia automaticamente o processo de autenticação com o serviço {{site.data.keyword.amashort}}.
+
 * São feitas tentativas de autenticação de Facebook, Google ou customizada.
+
 * Após a autenticação bem-sucedida, o {{site.data.keyword.amashort}} retorna um token de autorização.
+
 * O SDK do cliente {{site.data.keyword.amashort}} inclui automaticamente o token de autorização para a solicitação original e reenvia
 a solicitação para o recurso em nuvem.
+
 * O SDK do servidor {{site.data.keyword.amashort}} extrai o token de acesso da solicitação e a valida com o serviço {{site.data.keyword.amashort}}.
+
 * O acesso é concedido.  A resposta é retornada para o aplicativo móvel.
 
 ## Fluxo de Pedido
@@ -85,11 +108,12 @@ através de um fórum. Também é possível abrir um chamado de suporte.
 Ao usar os fóruns para fazer uma pergunta, marque a sua pergunta
 para que ela possa ser vista pelas equipes de desenvolvimento do {{site.data.keyword.Bluemix_notm}}.
 
-* Se você tiver questões técnicas sobre como desenvolver ou implementar um app com o {{site.data.keyword.amashort}}, poste sua pergunta no [Stack Overflow](http://stackoverflow.com/search?q={{site.data.keyword.amashort}}+ibm-bluemix){:new_window} e identifique-a com "ibm-bluemix" e "{{site.data.keyword.amashort}}".
-* Para perguntas sobre o serviço e instruções de introdução, use o fórum do [IBM developerWorks dW Answers](https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=mobile+client+access%20%2B[bluemix]){:new_window}. 
+* Se você tiver questões técnicas sobre o desenvolvimento ou a implementação de um app com o {{site.data.keyword.amashort}}, poste a sua pergunta no [Stack Overflow ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://stackoverflow.com/search?q={{site.data.keyword.amashort}}+ibm-bluemix "Ícone de link externo"){: new_window} e identifique a sua pergunta com "ibm-bluemix" e "{{site.data.keyword.amashort}}".
+* Para perguntas sobre o serviço e instruções para iniciar, use o [IBM developerWorks ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=mobile+client+access%20%2B[bluemix] "Ícone de link externo"){: new_window}.
 
-Consulte
-[Obtendo
+fórum. 
+
+Veja [Obtendo
 ajuda](https://www.{DomainName}/docs/support/index.html#getting-help) para obter mais detalhes sobre o uso dos fóruns.
 
 Para obter informações sobre como abrir um chamado de suporte IBM ou sobre níveis de suporte e severidades de chamado, consulte [Entrando em contato com o suporte](https://www.{DomainName}/docs/support/index.html#contacting-support).

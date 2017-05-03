@@ -1,14 +1,13 @@
 ---
 
 copyright:
-  year: 2016
+  year: 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
 
 # Abilitazione dell'autenticazione Facebook per le applicazioni Web
-
-Ultimo aggiornamento: 15 giugno 2016
-{: .last-updated}
+{: #facebook_web}
 
 Utilizza  Facebook per autenticare gli utenti alla tua applicazione web.
 
@@ -60,11 +59,11 @@ Per avviare il processo di autorizzazione:
     ```
 
 
-  Il parametro `state` non è utilizzato per ora e può essere lasciato vuoto.
+  Il parametro `state` non è utilizzato per ora e può essere rimanere vuoto.
   Il parametro `redirect_uri` è l'uri per il reindirizzamento dopo l'esito positivo o negativo dell'autenticazione con Facebook.
 
-1. Dopo il reindirizzamento dell'endpoint di autorizzazione visualizzerai un modulo
-di accesso da Facebook. Immetti il nome utente e la password per il reindirizzamento a `redirect_uri`.
+1. Dopo il reindirizzamento dell'endpoint di autorizzazione visualizzerai un modulo di accesso da      
+   Facebook. Immetti il nome utente e la password per il reindirizzamento a `redirect_uri`.
    La risposta restituita dopo il reindirizzamento contiene il codice di autorizzazione nei parametri di query della richiesta.
 
 1. Effettua una richiesta `POST` all'endpoint del token del server di autorizzazione:
@@ -86,5 +85,3 @@ Assicurati di inviare questa richiesta `POST` in 10 minuti perché il codice di 
 ## Verifica dell'autenticazione
 Ora puoi iniziare ad effettuare richieste alle tue risorse protette.
 Tutte le richieste a risorse protette devono contenere il `access_token` nel campo di intestazione della richiesta di autorizzazione.
-
-

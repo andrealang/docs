@@ -1,12 +1,8 @@
 ---
 
- 
-
 copyright:
-
-  years: 2015, 2016
-
- 
+  years: 2015, 2017
+lastupdated: "2017-2-21"
 
 ---
 
@@ -18,17 +14,16 @@ copyright:
 
 #创建“部署到 {{site.data.keyword.Bluemix_notm}}”按钮 {: #deploy-button} 
 
-*上次更新时间：2016 年 3 月 2 日*
-{: .last-updated} 
-
 使用“部署到 {{site.data.keyword.Bluemix}}”按钮，可以高效地将自己的公共 Git 源应用程序共享给其他人员，以便其他人员可以试验代码并将其部署到 IBM {{site.data.keyword.Bluemix_notm}}。此按钮不但需要的配置最少，而且可插入到支持标记的任何位置。无论是谁，只要单击该按钮，即可在新的 Git 存储库中创建代码的克隆副本，而您的原始应用程序将不受影响。
 {: shortdesc} 
 
-**提示：**如果公司品牌很重要，那么可以在您的内容中[嵌入“部署到 {{site.data.keyword.Bluemix_notm}}”iFrame 流](../develop/deploy_button_embed.html)，而不是插入按钮。当其他人员对您的公共 Git 源应用程序创建克隆副本时，他们会停留在您的内容中，而不会被重定向到 bluemix.net Web 站点。 
+**提示：**如果公司品牌很重要，那么可以在您的内容中[嵌入“部署到 {{site.data.keyword.Bluemix_notm}}”iFrame 流](/docs/develop/deploy_button_embed.html)，而不是插入按钮。当其他人员对您的公共 Git 源应用程序创建克隆副本时，他们会停留在您的内容中，而不会被重定向到 bluemix.net Web 站点。 
+
+**注**：现在可以使用工具链功能。单击“部署到 {{site.data.keyword.Bluemix_notm}}”按钮的任何人都可以单击条幅中的链接，以尝试使用工具链来部署应用程序。
 
 当有人单击您的按钮时，会发生以下操作： 
 
-1. 如果该人员没有活动 {{site.data.keyword.Bluemix}} 帐户，那么必须创建一个试用帐户。 
+1. 如果该人员没有活动 {{site.data.keyword.Bluemix_notm}} 帐户，那么必须创建一个试用帐户。 
 
 2. 该人员可以选择区域、组织、空间和应用程序名称。可以从先前的应用程序名称、人员的用户名和时间构建建议的应用程序名称。 
 
@@ -83,12 +78,12 @@ copyright:
 <li>Markdown：<p>
 缺省主分支：</p>
 <pre class="codeblock">
-[&#33;[部署到 Bluemix]&#40;https://bluemix.net/deploy/button.png&#41;]&#40;https://bluemix.net/deploy?repository=&lt;git_repository_URL> # [必需]&#41;
+[&excl;[Deploy to Bluemix]&lpar;https://bluemix.net/deploy/button.png&rpar;]&lpar;https://bluemix.net/deploy?repository=&lt;git_repository_URL> # [required]&rpar;
 </pre>
 <p>指定的 Git 分支：
 </p>
 <pre class="codeblock">
-[&#33;[部署到 Bluemix]&#40;https://bluemix.net/deploy/button.png&#41;]&#40;https://bluemix.net/deploy?repository=&lt;git_repository_URL> &branch=&lt;git_branch&gt; # [必需]&#41;
+[&excl;[Deploy to Bluemix]&lpar;https://bluemix.net/deploy/button.png&rpar;]&lpar;https://bluemix.net/deploy?repository=&lt;git_repository_URL> &branch=&lt;git_branch&gt; # [required]&rpar;
 </pre>
 </li>
 </ul>
@@ -108,7 +103,7 @@ copyright:
 	
 	* 如果您偏向于将图像存储在本地，那么可下载图像并将其存储在 Git 存储库中。调整路径以使用图像的相对位置。 
 	
-	* 如果您希望使用此按钮的翻译版本，那么可远程进行引用或从 [ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button](ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button) 进行下载。 
+	* 如果您希望使用此按钮的翻译版本，那么可远程进行引用或从 [ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button){:new_window} 进行下载。 
 	
 ##按钮的存储库注意事项 {: #button-repo} 
 
@@ -120,11 +115,12 @@ copyright:
 您可以使用此清单文件指定以下内容： 
     <ul>
     <li>唯一应用程序名称。</li>  
-    <li>声明的服务：清单扩展，它可以创建或查找期望在部署应用程序之前先设置好的必需或可选服务，如数据高速缓存服务。您可以查找合格的 {{site.data.keyword.Bluemix_notm}} 服务、标签和计划的列表，方法是使用 <a href="https://github.com/cloudfoundry/cli/releases">CF 命令行界面</a>来运行 <code>cf marketplace</code> 命令，也可以浏览 <a href="https://console.ng.bluemix.net/?ssoLogout=true&cm_mmc=developerWorks-_-dWdevcenter-_-devops-services-_-lp#/store">{{site.data.keyword.Bluemix_notm}} 目录</a>。
+    <li>声明的服务：清单扩展，它可以创建或查找期望在部署应用程序之前先设置好的必需或可选服务，如数据高速缓存服务。您可以查找合格的 {{site.data.keyword.Bluemix_notm}} 服务、标签和计划的列表，方法是使用 <a class="xref" href="https://github.com/cloudfoundry/cli/releases" target="_blank" title="（在新选项卡或窗口中打开）">CF 命令行界面 <img class="image" src="../icons/launch-glyph.svg" alt="外部链接图标"/></a> 运行 <code>cf marketplace</code> 命令或浏览 <a class="xref" href="https://console.ng.bluemix.net/?ssoLogout=true&cm_mmc=developerWorks-_-dWdevcenter-_-devops-services-_-lp#/store" target="_blank" title="（在新选项卡或窗口中打开）"> {{site.data.keyword.Bluemix_notm}} 目录 <img class="image" src="../icons/launch-glyph.svg" alt="外部链接图标"/></a>。
     
+        
     <strong>注：</strong>声明的服务是标准 Cloud Foundry 清单格式的 IBM 扩展。随着该功能部件的演化和改进，在未来发行版中，可能会对此扩展进行修改。
 	
-	<a href="http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#minimal-manifest" target="_blank">了解如何创建 <code>manifest.yml</code> 文件。</a>  
+	<a class="xref" href="http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#minimal-manifest" target="_blank" title="（在新选项卡或窗口中打开）">了解如何创建 <code>manifest.yml</code> 文件 <img class="image" src="../icons/launch-glyph.svg" alt="外部链接图标"/></a>。  
 <pre class="codeblock">
 	---
     #manifest.yml 模板
@@ -134,7 +130,7 @@ copyright:
       label: &lt;`actual_service_name`&gt; # [必需] 市场上的实际服务名称
       plan: Shared # [可选] 如果提供，用于访存声明的服务。否则，缺省值为“Free”或“free”。
 applications:
-  - 服务
+  - services
     - &lt;`arbitrary_service_instance_name`&gt;
     name: &lt;`appname`&gt;
     host: &lt;`apphostname`&gt;
@@ -149,21 +145,21 @@ applications:
         label: cloudantNoSQLDB
         plan: Shared
   applications:
-  - 服务
+  - services
     - sample-java-cloudant-cloudantNoSQLDB
     name: My app
     host: myapp
 </pre>
    </li>
    </ul>
-	<li> 如果必须在部署应用程序之前构建存储库，那么会先触发存储库中代码的自动构建，再进行部署。在存储库的根目录中检测到构建脚本文件时，会执行自动构建。
-
-受支持的构建器：
+	<li> 如果必须在可部署应用程序之前先构建应用程序，那么您必须在存储库中包含构建文件。如果在存储库的根目录中检测到构建脚本文件，那么在部署之前，会触发代码的自动构建。
+	
+	受支持的构建器：
 	    <ul>
-		<li> <a href="http://ant.apache.org/manual/using.html" target="_blank">Ant:</a> /<code>build.xml</code>，它会将输出构建到 <code>./output/</code> 文件夹中</li>
-		<li> <a href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#gradle" target="_blank">Gradle:</a> <code>/build.gradle</code>，它会将输出构建到 <code>.</code> 文件夹中</i>
-		<li> <a href="http://gruntjs.com/getting-started#the-gruntfile" target="_blank">Grunt:</a> <code>/Gruntfile.js</code>，它会将输出构建到 <code>.</code> 文件夹中</li>
-		<li> <a href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#maven" target="_blank">Maven:</a> <code>/pom.xml</code>，它会将输出构建到 <code>./target/</code> 文件夹中</li>
+		<li> <a class="xref" href="http://ant.apache.org/manual/using.html" target="_blank" title="（在新选项卡或窗口中打开）">Ant：<img class="image" src="../icons/launch-glyph.svg" alt="外部链接图标"/></a> /<code>build.xml</code>，它会将输出构建到 <code>./output/</code> 文件夹中</li>
+		<li> <a class="xref" href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#gradle" target="_blank" title="（在新选项卡或窗口中打开）">Gradle：<img class="image" src="../icons/launch-glyph.svg" alt="外部链接图标"/></a> <code>/build.gradle</code>，它会将输出构建到 <code>. </code> 文件夹中</li>
+		<li> <a class="xref" href="http://gruntjs.com/getting-started#the-gruntfile" target="_blank" title="（在新选项卡或窗口中打开）">Grunt：<img class="image" src="../icons/launch-glyph.svg" alt="外部链接图标"/></a> <code>/Gruntfile.js</code>，它会将输出构建到 <code>. </code> 文件夹中</li>
+		<li> <a class="xref" href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#maven" target="_blank" title="（在新选项卡或窗口中打开）">Maven：<img class="image" src="../icons/launch-glyph.svg" alt="外部链接图标"/></a> <code>/pom.xml</code>，它会将输出构建到 <code>./target/</code> 文件夹中</li>
 	   </ul>
 	</li>	
 	<li>要为项目配置管道，请将 <code>pipeline.yml</code> 文件放入 <code>.bluemix</code> 目录中。您可以手动创建 <code>pipeline.yml</code> 文件，也可以根据现有 DevOps Services 项目来生成 pipeline.yml 文件。要根据 {{site.data.keyword.jazzhub_short}} 项目创建 pipeline.yml 文件，并将其添加到您的存储库中，请完成以下步骤。
@@ -175,14 +171,15 @@ applications:
 <li>在项目的根目录中，创建 <code>.bluemix</code> 目录。</li>
 <li>将 <code>pipeline.yml</code> 文件上传到 <code>.bluemix</code> 存储库。</li>
 </ol> </li>
-	<li>如果您要使用 <stong>IBM Containers</strong> 在容器中部署应用程序，那么必须将 Dockerfile 放入存储库的根目录中，并将 <code>pipeline.yml</code> 文件放入 <code>.bluemix</code> 目录中。
+	<li>要使用 <strong>IBM Containers</strong> 在容器中部署应用程序，必须将 Dockerfile 放入存储库的根目录中，并将 <code>pipeline.yml</code> 文件放入 <code>.bluemix</code> 目录中。
 <ul>
-	    <li> 要了解有关创建 Dockerfile 的更多信息，请参阅 <a href="https://docs.docker.com/reference/builder/" target="_blank">Docker 文档</a>。</li>
-	    <li>您可以手动创建 <code>pipeline.yml</code> 文件，也可以根据现有 DevOps Services 项目来生成 pipeline.yml 文件。要手动创建专用于容器的 <code>pipeline.yml</code>，请参阅 <a href="https://github.com/Puquios/" target="_blank">GitHub</a> 中的示例。</li>
+	    <li>Dockerfile 类似于某种应用程序构建脚本。如果在存储库中检测到 Dockerfile，那么在容器中部署应用程序之前，会先自动将其构建到映像中。如果在将应用程序构建到映像中之前必须构建应用程序本身，请包含应用程序的构建脚本和 Dockerfile，如之前所述。</li>
+	    <li> 要了解有关创建 Dockerfile 的更多信息，<a class="xref" href="https://docs.docker.com/reference/builder/" target="_blank" title="（在新选项卡或窗口中打开）">请参阅 Docker 文档 <img class="image" src="../icons/launch-glyph.svg" alt="外部链接图标"/></a>。</li>
+	    <li>您可以手动创建 <code>pipeline.yml</code> 文件，也可以根据现有 DevOps Services 项目来生成 pipeline.yml 文件。要手动创建专用于容器的 <code>pipeline.yml</code>，<a class="xref" href="https://github.com/Puquios/" target="_blank" title="（在新选项卡或窗口中打开）">请参阅 GitHub 中的示例 <img class="image" src="../icons/launch-glyph.svg" alt="外部链接图标"/></a>。</li>
         </ul>
 
  </li>
  </ul>
 </ul>
 
-有关故障诊断帮助，请参阅[“部署到 Bluemix”按钮不部署应用程序](../troubleshoot/index.html#deploytobluemixbuttondoesntdeployanapp){:new_window}。	
+有关故障诊断帮助，请参阅[“部署到 Bluemix”按钮不部署应用程序](/docs/troubleshoot/index.html#deploytobluemixbuttondoesntdeployanapp){:new_window}。	

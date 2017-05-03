@@ -1,51 +1,44 @@
 {
   "id": "docs_homepage_services",
-  "title": "Como usar os serviços do Bluemix",
-  "subtitle": "Aprenda sobre os tipos de serviço e a disponibilidade",
-  "subtitleHref": "services/index.html",
+  "title": "Cálculo e serviços",
   "items": [{
     "id": "cfApp",
     "title": "Aplicativos Cloud Foundry",
+    "img": "homepage/images/cloud-foundry.svg",
     "href": "cfapps/index.html",
-    "category_id": "calcular"
-  }, {
-    "title": "Tempos de execução",
-    "href": "cfapps/runtimes.html",
-    "category_id": "calcular"
+    "category_id": "compute"
   }, {
     "title": "Modelos",
+    "img": "homepage/images/Bluemix-logo.svg",
     "href": "cfapps/boilerplates.html",
-    "category_id": "calcular"
+    "category_id": "compute"
   }, {
-    "id": "whisk",
+    "id": "whisk-rt",
     "title": "IBM OpenWhisk",
+    "img": "homepage/images/whisk_icon.svg",
     "href": "openwhisk/index.html",
-    "category_id": "calcular"
+    "category_id": "compute"
   }, {
-    "id": "contêiner",
-    "title": "IBM Containers",
+    "id": "container",
+    "title": "IBM Bluemix Container Service",
+    "img": "homepage/images/containerServiceIcon.svg",
     "href": "containers/container_index.html",
-    "category_id": "calcular"
-  }, {
-    "id": "MV",
-    "title": "IBM Virtual Servers",
-    "href": "virtualmachines/vm_index.html",
-    "category_id": "calcular"
+    "category_id": "compute"
   }, {
     "type": "extra",
-    "title": "Tente trabalhar com dados",
+    "title": "Trabalhando com dados",
     "href": "services/WorkWithData/index.html",
-    "category_id": "dados"
+    "category_id": "data"
   }, {
     "type": "extra",
-    "title": "Tente as cadeias de ferramentas",
-    "href": "toolchains/toolchains_overview.html",
+    "title": "Dedicated GitHub Enterprise",
+    "href": "services/ghededicated/index.html",
     "category_id": "devops"
   }, {
     "type": "extra",
-    "title": "Tente o painel Móvel do Bluemix",
+    "title": "Construindo projetos móveis",
     "href": "mobile/index.html",
-    "category_id": "móvel"
+    "category_id": "mobile"
   }]
 }
 

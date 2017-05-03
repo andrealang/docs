@@ -2,6 +2,8 @@
 
 copyright:
   years: 2015, 2015
+  
+lastupdated: "2016-08-12"
 
 
 ---
@@ -17,8 +19,6 @@ copyright:
 # Allgemeine Serviceprobleme
 {: #general}
 
-*Letzte Aktualisierung: 12. August 2016*
-{: .last-updated}
 
 Ein {{site.data.keyword.Bluemix}}-Serviceproblem liegt zum Beispiel vor, wenn für ein Gateway ein Zeitlimitfehler auftritt, sobald Sie eine Serviceinstanz löschen. In vielen Fällen können Sie diese Probleme jedoch durch Ausführen weniger einfacher Schritte beheben.
 {:shortdesc}
@@ -30,7 +30,8 @@ Es kann vorkommen, dass eine Fehlernachricht angezeigt wird, wenn Sie versuchen,
 {:shortdesc}
 
 
-Wenn Sie versuchen, eine Serviceinstanz zu löschen, wird die Service-Broker-Fehlernachricht ```Gateway timeout``` (Zeitlimitüberschreitung für Gateway) angezeigt. {: tsSymptoms}
+Wenn Sie versuchen, eine Serviceinstanz zu löschen, wird die Service-Broker-Fehlernachricht `Gateway timeout` (Zeitlimitüberschreitung für Gateway) angezeigt.
+{: tsSymptoms}
 
 
 Dieses Problem tritt auf, wenn die Serviceinstanz bereits vom Cloud-Controller gelöscht wurde.

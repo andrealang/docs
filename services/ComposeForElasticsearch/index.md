@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016
-
+lastupdated: "2017-04-08"
 ---
 
 {:new_window: target="_blank"}
@@ -13,9 +13,6 @@ copyright:
 
 # Getting started with Compose for Elasticsearch
 {: #getting-started-with-compose-for-elasticsearch}
-
-Last updated: 20 September 2016
-{: .last-updated}
 
 {{site.data.keyword.composeForElasticsearch_full}} combines the power of a full text search engine with the indexing strengths of a JSON document database. Together they create a powerful tool for rich data analysis on large volumes of data. With Elasticsearch, your searching can be scored for exactness, letting you dig through your data set for those close matches and near misses that you might be missing.
 {:shortdesc}
@@ -46,19 +43,6 @@ Field Name|Description
 `deployment_id`|An internal identifier for the service as created within Compose.
 `db_type`|The type of database that is offered by the service; in this case `elastic_search`.
 `name`|The database deployment name.
+{: caption="Table 1. {{site.data.keyword.composeForElasticsearch}} credentials" caption-side="top"}
 
 **Note:** Two `haproxy` portals provide access to the Elasticsearch cluster. Both `uri` and `uri_direct_1` can be used to connect to the cluster. In your applications, switch between `uri` and `uri_direct_1` to manage responses to connection failures.
-
-# Related Links
-{: #rellinks}
-
-* [Compose](https://www.compose.com){:new_window}
-* [Compose Articles](https://www.compose.com/articles/){:new_window}
-
-## Tutorials and Samples
-{: #samples}
-* [compose-elasticsearch-helloworld-nodejs](https://github.com/IBM-Bluemix/compose-elasticsearch-helloworld-nodejs){:new_window}
-
-## Related Links
-{: #general}
-* [Compose Help](https://help.compose.com/docs){:new_window}

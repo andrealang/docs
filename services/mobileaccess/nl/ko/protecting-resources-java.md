@@ -1,16 +1,14 @@
 ---
 
 copyright:
-  years: 2015, 2016
-  
+  years: 2015, 2016, 2017
+lastupdated: "2016-12-04"
+
 ---
+{:codeblock:.codeblock}
 
 # {{site.data.keyword.amashort}}로 Liberty for Java 리소스 보호
 {: #protecting-liberty}
-
-마지막 업데이트 날짜: 2016년 6월 30일
-{: .last-updated}
-
 
 {{site.data.keyword.amashort}} 서버 SDK는 {{site.data.keyword.Bluemix}}에 배치된 Liberty for Java&trade; 애플리케이션에 대해 `OAuthTAI` 모듈을 제공합니다. 권한이 없는 액세스에서 Liberty 서버를 보호하고 모니터링 정보를 가져오기 위해 `OAuthTAI` 모듈을 사용하여 Liberty 서버를 인스트루먼트해야 합니다. 
 
@@ -43,6 +41,7 @@ copyright:
 	</featureManager>
 
 	```
+	{: codeblock}
 1. `server.xml` 파일을 계속 편집하여 `OAuthTAI` 기능을 구성하십시오. 보안 역할 `TAIUserRole`은 `ALL_AUTHENTICATED_USERS`로 이름 지정된 특수 주제로 맵핑됩니다. 다음 스니펫은 `/protected` 엔드포인트 GET 메소드를 보호하는 방법을 보여줍니다. 
 
 	```XML
@@ -50,8 +49,9 @@ copyright:
 		<securityConstraint httpMethods="GET" securedURLs="/protected/*"/>
 	</usr_OAuthTAI>
 
-	<basicRegistry id="basic" realm="BasicRealm"/>
-<application type="war" id="myapp" name="myapp"
+	<basicRegistry id="basic" realm="BasicRealm" />
+
+	<application type="war" id="myapp" name="myapp"
 					location="${server.config.dir}/apps/myapp.war">
 		<application-bnd>
 			<security-role name="TAIUserRole">
@@ -60,12 +60,14 @@ copyright:
 		</application-bnd>
 	</application>
 	```
+	{: codeblock}
 
 1. {{site.data.keyword.amashort}} 서비스 URL을 포함하는 다음 특성을 백엔드 애플리케이션의 환경 변수에 추가하십시오. URL을 `manifest.yml` 또는 `server.env` 파일에 추가할 수 있습니다. 
 
 	```
 	imfServiceUrl=http://imf-authserver.{domainName}/imf-authserver
 	```
+	{: codeblock}
 
 ## Liberty for Java 리소스 보호
 {: #protecting-liberty-resources}
@@ -87,10 +89,11 @@ Liberty for Java 애플리케이션에서 호스팅하는 리소스를 보호하
 	</security-constraint>
 
 	<security-role id="SecurityRole_TAIUserRole" >
-  <description>This is the role that MFP OAuthTAI uses to protect the resource, and it is required to be mapped to 'ALL_AUTHENTICATED_USERS' in Liberty</description>
+		<description>This is the role that MFP OAuthTAI uses to protect the resource, and it is required to be mapped to 'ALL_AUTHENTICATED_USERS' in Liberty</description>
 		<role-name>TAIUserRole</role-name>
 	</security-role>
 	```
+	{: codeblock}
 
 * 어노테이션으로 `TAIUserRole`을 지정하려면 다음 구문을 사용하십시오. 
 
@@ -101,6 +104,7 @@ Liberty for Java 애플리케이션에서 호스팅하는 리소스를 보호하
 	    // servlet code
 	}
 	```
+	{: codeblock}
 
 ### 보안 컨텍스트 오브젝트 액세스
 {: #accessing-security}
@@ -117,13 +121,17 @@ Subject callerSubject = WSSubject.getCallerSubject();
 WSCredential callerCredential =
     callerSubject.getPublicCredentials(WSCredential.class).iterator().next();
 ```
-자세한 정보는 [WSCredential](http://www-01.ibm.com/support/knowledgecenter/api/content/nl/en-us/SSEQTP_7.0.0/com.ibm.websphere.javadoc.doc/web/apidocs/index.html?com/ibm/websphere/security/cred/WSCredential.html)을 참조하십시오.
+{: codeblock}
+
+자세한 정보는 [WSCredential](http://www-01.ibm.com/support/knowledgecenter/api/content/nl/en-us/SSEQTP_7.0.0/com.ibm.websphere.javadoc.doc/web/apidocs/index.html?com/ibm/websphere/security/cred/WSCredential.html)을 참조하십시오. 
 
 #### com.worklight.oauth.tai.WLCredential property
 {: #WLCredential}
 `WLCredential` 인터페이스는 사용자, 디바이스 및 애플리케이션에 대한 세부사항을 가져오기 위한 API를 제공합니다. 
 
-```JavaWLCredential callerWLCredential =
+```Java
+
+WLCredential callerWLCredential =
 				callerSubject.getPublicCredentials(WLCredential.class).iterator().next();
 
 JSONObject securityContext = callerWLCredential.getSecurityContext();
@@ -133,3 +141,4 @@ JSONObject imfDevice = securityContext.get("imf.device");
 JSONObject imfApplication = securityContext.get("imf.application");
 
 ```
+{: codeblock}

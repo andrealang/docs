@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
-
+  years: 2015, 2017
+lastupdated: "2017-01-11"
 ---
 
 
@@ -11,11 +11,8 @@ copyright:
 {:codeblock: .codeblock}
 {:screen: .screen}
 
-#Implementando apps
+# Implementando apps
 {: #deployingapps}
-
-*Última atualização: 28 de julho de 2016*
-{: .last-updated}
 
 É possível implementar aplicativos no
 {{site.data.keyword.Bluemix}}
@@ -25,57 +22,117 @@ implementar aplicativos. Ao usar um manifest do aplicativo, reduza o número de 
 você deve especificar sempre que implementar um aplicativo no {{site.data.keyword.Bluemix_notm}}.
 {:shortdesc}
 
-##Implementação do aplicativo
+## Implementação do aplicativo
 {: #appdeploy}
 
 Implementar um aplicativo para {{site.data.keyword.Bluemix_notm}} inclui duas fases, preparação e início do aplicativo.
 
-###Preparando um aplicativo
+O Cloud Foundry suporta o Diego, que é a nova arquitetura de tempo de execução padrão que fornece um conjunto de recursos que aprimoram a experiência de desenvolvimento de aplicativo para hospedar e construir plataformas de nuvem. Essa atualização de arquitetura fornece uma melhoria na operação e desempenho gerais da plataforma Cloud Foundry. A nova arquitetura fornece suporte para várias tecnologias do contêiner de aplicativo, incluindo Garden e Windows, um pacote SSH que permite login direto ao contêiner de aplicativo e outras mudanças inovadoras. Para obter mais informações sobre o upgrade da arquitetura recente, veja [{{site.data.keyword.Bluemix_notm}} Cloud Foundry: Diego está ativo ![Ícone de link externo](../icons/launch-glyph.svg)](https://www.ibm.com/blogs/bluemix/2017/01/bluemix-cloud-foundry-diego-live/){: new_window}.
 
-Durante a fase de preparação, um
-Droplet Execution Agent (DEA) usa as informações que você fornece na interface de linha
-de comandos cf ou o arquivo `manifest.yml` para
-decidir o que criar para preparação do aplicativo. O DEA seleciona um buildpack
-apropriado para preparar o aplicativo e o resultado do processo de preparação é um droplet. Para obter mais informações sobre a implementação de um aplicativo no {{site.data.keyword.Bluemix_notm}}, consulte Arquitetura do [{{site.data.keyword.Bluemix_notm}}, Como o {{site.data.keyword.Bluemix_notm}} funciona](../public/index.html#publicarch).
 
-Durante
-o processo de preparação, o DEA verifica se o buildpack corresponde ao aplicativo. Por
-exemplo, um tempo de execução do Liberty para um arquivo .war, ou um tempo de execução do
-Node.js para arquivos .js. O DEA então cria um contêiner isolado que contém o buildpack e
-o código do aplicativo. O contêiner é gerenciado pelo componente Warden. Para
-obter mais informações, consulte
-[Como
-os aplicativos são preparados](http://docs.cloudfoundry.org/concepts/how-applications-are-staged.html){:new_window}.
+Todos os novos aplicativos criados serão executados no Diego e deve-se iniciar a migração dos aplicativos existentes executados nos DEAs para a nova arquitetura Diego.
 
-###Iniciando um aplicativo
+**Nota**: a arquitetura Cloud Foundry Diego afeta todos os ambientes da região {{site.data.keyword.Bluemix_notm}} Public. Os ambientes do {{site.data.keyword.Bluemix_notm}} Dedicated e do {{site.data.keyword.Bluemix_notm}} Local serão atualizados em uma data posterior.
 
-Quando um aplicativo é iniciado, a
-instância ou as instâncias do contêiner warden são criadas. É possível usar o comando
-**cf files** para ver os arquivos que estão armazenados no sistema de
-arquivos do contêiner Warden, como os logs. Se o aplicativo falha ao ser iniciado, o DEA
-para o aplicativo e o conteúdo inteiro do contêiner Warden é removido. Portanto, se um
+### Preparando um aplicativo
+{: #diego}
+
+Durante a fase de preparação, o Diego cuida de todos os aspectos relacionados à orquestração do contêiner de aplicativo. Quando você envia um app por push, o Cloud Controller envia uma solicitação de preparação para o Diego, que controla a tarefa de alocar as instâncias do app. O backend do Diego orquestra contêineres de aplicativo de uma maneira a assegurar tolerância a falhas e consistência de longo prazo, que equilibra a carga entre uma série de máquinas virtuais chamadas células. Além disso, o Diego assegura que os usuários possam acessar os logs de seus apps. Todos os componentes do Diego são projetados para armazenamento em cluster, o que significa que é possível criar diferentes zonas de disponibilidade.
+
+Para validar o funcionamento do app, o Diego suporta as mesmas verificações baseadas em PORT que são usadas para o DEA. No entanto, o Diego também é projetado para poder ter opções mais genéricas, como verificações de funcionamento baseadas em URL, que poderão ser ativadas no futuro.
+
+#### Montando um novo app
+{: #stageapp}
+
+Todos os novos apps são implementados na arquitetura Diego. Para montar um novo aplicativo, implemente-o com o comando **cf push**:
+
+  1. Implemente o aplicativo:
+  ```
+  $ cf push APPLICATION_NAME
+  ```
+
+Para obter mais detalhes sobre o comando **cf push**, veja [cf push](/docs/cli/reference/cfcommands/index.html#cf_push).
+
+### Migrando um app existente para o Diego
+{: #migrateapp}
+
+Diego é a arquitetura padrão do Cloud Foundry para o {{site.data.keyword.Bluemix_notm}} e o suporte para os DEAs será removido, portanto, deve-se migrar todos os aplicativos existentes atualizando cada app. Inicie a migração de seus apps para o Diego atualizando o aplicativo com a sinalização do Diego. O aplicativo tentará imediatamente iniciar a execução no Diego e parará a execução nos DEAs.
+
+Como seu aplicativo é atualizado da arquitetura do DEA para o Diego, talvez você passe por um curto tempo de inatividade ou por um tempo de inatividade prolongado, se o aplicativo não for compatível com o Diego. Para limitar o tempo de atividade, execute uma [blue-green deploy](/docs/manageapps/updapps.html#blue_green) implementando uma cópia de seu aplicativo no Diego e, em seguida, alternando rotas e reduzindo a escala no aplicativo DEA.
+
+Conclua as etapas a seguir para migrar seu app para o Diego:
+
+ 1.  Instale a [cf CLI ![Ícone de link externo](../icons/launch-glyph.svg)](https://github.com/cloudfoundry/cli/releases){: new_window} e o [CLI do Plug-in Diego-Enabler![Ícone de link externo](../icons/launch-glyph.svg)](https://github.com/cloudfoundry-incubator/Diego-Enabler){:new_window}.
+ 2. Revise a [lista de problemas conhecidos](depapps.html#knownissues).
+ 3. Configure a sinalização do Diego para mudar seu app para execução no Diego:
+  ```
+  $ cf enable-diego APPLICATION_NAME
+  ```
+
+Depois de atualizar o app, verifique se ele foi iniciado. Se o app migrado falhar ao iniciar, ele permanecerá off-line até você identificar e resolver o problema e, em seguida, reiniciar o app.
+
+A IBM alertará sobre o próximo período de migração obrigatória quando o suporte de arquitetura do DEA for removido e, se você não tiver migrado seus apps, a equipe de operações migrará todos para você.
+
+Para validar em qual backend o aplicativo está em execução, use o comando a seguir:
+
+  ```
+  $ cf has-diego-enabled APPLICATION_NAME
+  ```
+
+#### Problemas conhecidos de migração do Diego
+{: #knownissues}
+
+A seguir estão os problemas conhecidos que podem precisar ser tratados ao migrar seus apps para o Diego:
+
+  * Os aplicativos trabalhadores implementados com a opção `--no-route` não são relatados como saudáveis. Para evitar isso, desative a verificação de funcionamento baseada em porta com o comando `cf set-health-check APP_NAME none`.
+  * O comando **cf files** não é mais suportado. A substituição é o comando **cf ssh**. Para obter mais detalhes sobre o comando **cf ssh**, veja [cf ssh](/docs/cli/reference/cfcommands/index.html#cf_ssh).
+  * Alguns apps podem usar um número alto de descritores de arquivos (inodes). Caso encontre esse problema, deve-se aumentar a cota do disco para seu app com o comando `cf scale APP_NAME [-k DISK]`.
+
+Para obter a lista abrangente de problemas conhecidos, veja a página de documentação do Cloud Foundry para [Migrando para o Diego ![Ícone de link externo](../icons/launch-glyph.svg)](https://github.com/cloudfoundry/diego-design-notes/blob/master/migrating-to-diego.md){: new_window}.
+
+Até que o suporte para a arquitetura mais antiga do DEA seja removido, será possível executar o comando a seguir para fazer a transição de volta para os DEAs: `cf disable-diego APPLICATION_NAME`. Ainda será possível implementar novos apps na arquitetura do DEA até que o suporte seja removido:
+
+**Nota**: a [cf CLI ![Ícone de link externo](../icons/launch-glyph.svg)](https://github.com/cloudfoundry/cli/releases){: new_window} e o [CLI do Plug-in Diego-Enabler![Ícone de link externo](../icons/launch-glyph.svg)](https://github.com/cloudfoundry-incubator/Diego-Enabler){:new_window} devem estar ambos instalados para usar o comando `disable-diego`.
+
+1. Implemente o aplicativo sem iniciá-lo:
+```
+$ cf push APPLICATION_NAME --no-start
+```
+2. Execute o comando disable-diego:
+```
+$ cf disable-diego APPLICATION_NAME
+```
+3. Inicie o aplicativo:
+```
+$ cf start APPLICATION_NAME
+```
+
+### Iniciando um aplicativo
+{: #startapp}
+
+Quando um aplicativo é iniciado, a instância ou instâncias do contêiner de aplicativo são criadas. Para aplicativos em execução no Diego, é possível usar o comando **cf ssh** ou **cf scp** para acessar o sistema de arquivos do contêiner de aplicativo que inclui os logs. O comando **cf files** não funciona para apps em execução na arquitetura do Diego.
+
+**Nota**: se você ainda tiver aplicativos em execução nos DEAs, será possível usar o comando **cf files** para visualizar os arquivos dentro do contêiner de aplicativo até que o suporte para os DEAs seja removido.
+
+Se o aplicativo falhar ao ser iniciado, ele será interrompido e todo o conteúdo do contêiner de aplicativo será removido. Portanto, se um
 aplicativo parar ou se o processo de preparação de um aplicativo falhar, os arquivos de
 log não estarão disponíveis para uso.
 
-Se os logs do aplicativo não estiverem mais
-disponíveis de modo que o comando **cf files** não pode mais ser usado
-para ver a causa dos erros de preparação, será possível usar o comando **cf
-logs** em seu lugar. O comando **cf logs** usa o agregador de log
+Se os logs do aplicativo não estiverem mais disponíveis de modo que os comandos **cf ssh**, **cf scp** ou **cf files** não possam mais ser usados para ver a causa dos erros de preparação dentro do contêiner de aplicativo, será possível usar o comando **cf logs** no lugar. O comando **cf logs** usa o agregador de log
 do Cloud Foundry para coletar os detalhes dos logs do aplicativo e do sistema; também é
-possível ver o que foi armazenado em buffer no agregador de log. Para obter mais informações sobre o agregador de log, consulte
-[Efetuando
-login no Cloud Foundry](http://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html){:new_window}.
+possível ver o que foi armazenado em buffer no agregador de log. Para obter mais informações sobre o agregador de log, veja [Efetuando login no Cloud Foundry ![Ícone de link externo](../icons/launch-glyph.svg)](http://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html){:new_window}.
 
-**Nota**: o tamanho do buffer é limitado. Se um aplicativo for executado por um longo período e não for reiniciado, os logs poderão não ser exibidos quando você inserir `cf logs appname --recent` porque o buffer do log pode ter sido limpo. Portanto, para depurar erros de preparação para um aplicativo grande, é possível inserir `cf logs appname` em uma linha de comandos separada da interface de linha de comandos cf para rastrear os logs quando você implementar o aplicativo.
+**Nota**: o tamanho do buffer é limitado. Se um aplicativo for executado por um longo tempo e não for reiniciado, os logs poderão não ser exibidos quando você inserir o comando `cf logs appname --recent`, porque o buffer do log poderá ter sido limpo. Portanto, para depurar erros de preparação de um aplicativo grande, será possível inserir o comando `cf logs appname` em uma linha de comandos separada da interface da linha de comandos cf para rastrear os logs quando você implementar o aplicativo.
 
 Se
 você tiver problemas ao preparar seus aplicativos no
 {{site.data.keyword.Bluemix_notm}}, é possível
 seguir as etapas em
 [Depurando
-erros de preparação](../debug/index.html#debugging-staging-errors) para resolver o problema.
+erros de preparação](/docs/debug/index.html#debugging-staging-errors) para resolver o problema.
 
-##Implementando aplicativos usando o comando cf
+
+## Implementando aplicativos usando o comando cf
 {: #dep_apps}
 
 Ao implementar seus aplicativos no
@@ -94,45 +151,45 @@ usando a opção **-b** quando implementar seu aplicativo no
 a partir do prompt de comandos.
 
   * Para implementar os pacotes do servidor Liberty no {{site.data.keyword.Bluemix_notm}}, use o comando a seguir a partir de seu diretório de origem:
-  
+
   ```
   cf push
   ```
-  
+
   Para obter mais informações sobre
 o Liberty Buildpack, consulte
 [Liberty
-for Java](../runtimes/liberty/index.html).
-  
+for Java](/docs/runtimes/liberty/index.html).
+
   * Para implementar aplicativos Java Tomcat no {{site.data.keyword.Bluemix_notm}}, use o comando a seguir:
-  
+
   ```
   cf push appname -b https://github.com/cloudfoundry/java-buildpack.git -p app_path
   ```
-  
+
   * Para implementar pacotes do WAR no
 {{site.data.keyword.Bluemix_notm}}, use o
 comando a seguir:
-  
+
   ```
   cf push appname -p app.war
   ```
   Ou
 você pode especificar um diretório que contenha os arquivos de aplicativos usando o
 comando a seguir:
-  
+
   ```
   cf push appname -p "./app"
   ```
-  
+
   * Para implementar aplicativos Node.js no
 {{site.data.keyword.Bluemix_notm}},
 use o comando a seguir:
-  
+
   ```
   cf push appname -p app_path
   ```
-  
+
 Um
 arquivo `package.json` deve estar no aplicativo Node.js para que o
 aplicativo seja reconhecido pelo buildpack do Node.js. O arquivo `app.js` é
@@ -156,36 +213,35 @@ o script de entrada para o aplicativo e pode ser especificado no arquivo `packag
         "repository": {}
   }
   ```
-    
-  Para obter mais informações sobre o arquivo `package.json`, consulte
-[package.json](https://www.npmjs.org/doc/files/package.json.html){:new_window}.
-  
+
+  Para obter mais informações sobre o arquivo `package.json`, veja [package.json ![Ícone de link externo](../icons/launch-glyph.svg)](https://www.npmjs.org/doc/files/package.json.html){:new_window}.
+
   * Para implementar aplicativos PHP, Ruby ou Python no {{site.data.keyword.Bluemix_notm}},
 use o comando a seguir a partir do diretório que contém sua origem de aplicativo:
-  
+
   ```
   cf push appname
   ```
 
-###Implementando um app em vários espaços
+### Implementando um app em vários espaços
 
 Um app é específico para o espaço em que é implementado. Não é possível mover ou copiar um app de um espaço para outro no {{site.data.keyword.Bluemix_notm}}. Para implementar um app em vários espaços, deve-se implementar o app em cada
 espaço em que você deseja usar o app de acordo com as etapas a seguir:
 
   1. Alterne para o espaço em que deseja implementar seu app
 usando o comando **cf target** com a opção **-s**:
-  
+
   ```
   cf target -s <space_name>
   ```
-  
+
   2. Acesse seu diretório de app e implemente seu app usando o comando **cf push**, em que appname deve ser exclusivo dentro de seu domínio.
-  
+
   ```
   cf push appname
   ```
-  
-##Manifest do aplicativo
+
+## Manifest do aplicativo
 {: #appmanifest}
 
 Os manifests do aplicativo contêm opções que são aplicadas ao comando
@@ -199,7 +255,7 @@ disco a ser alocada para os aplicativos e outras variáveis de ambiente do aplic
 possível também usar manifests do aplicativo para automatizar implementações de
 aplicativos. O nome padrão de um arquivo manifest é `manifest.yml`.
 
-###Opções suportadas no arquivo manifest
+### Opções suportadas no arquivo manifest
 
 A tabela a seguir mostra as opções suportadas que é possível usar em um arquivo
 manifest do aplicativo. Se você optar por usar um nome de arquivo diferente de
@@ -230,9 +286,9 @@ cf push -f appManifest.yml
 |**random-route**	|Um valor booleano para designar uma rota aleatória para o aplicativo. O valor padrão é **false**.	|`random-route: true`|
 |**Serviços**	|Os serviços a serem ligados ao aplicativo.	|`services:   - mysql_maptest`|
 |**env**	|As variáveis de ambiente customizadas do aplicativo.|`env: DEV_ENV: production`|
-*Tabela 1. Opções suportadas no arquivo manifest.yml*
+{: caption="Table 1. Supported options in the manifest YAML file" caption-side="top"}
 
-###Um arquivo `manifest.yml` de amostra
+### Um arquivo manifest.yml de amostra
 
 O exemplo a seguir mostra um arquivo manifest para um aplicativo Node.js que usa
 o buildpack do Node.js da comunidade integrada no
@@ -256,7 +312,7 @@ o buildpack do Node.js da comunidade integrada no
 ```
 {:codeblock}
 
-##`Variáveis de ambiente
+## `Variáveis de ambiente
 {: #app_env}
 
 Variáveis de ambiente contêm as informações do ambiente de um aplicativo
@@ -268,12 +324,12 @@ ambiente específicas do aplicativo para aplicativos no {{site.data.keyword.Blue
 {{site.data.keyword.Bluemix_notm}} em execução
 utilizando o comando **cf env** ou a partir da interface com o usuário do
 {{site.data.keyword.Bluemix_notm}}:
-	
-  * Variáveis definidas pelo usuário que são específicas de um aplicativo. Para obter informações sobre como incluir uma variável definida pelo usuário em um app, veja [Incluindo variáveis de ambiente definidas pelo usuário](#ud_env){:new_window}.
-	 
+
+  * Variáveis definidas pelo usuário que são específicas de um aplicativo. Para obter informações sobre como incluir uma variável definida pelo usuário em um app, veja [Incluindo variáveis de ambiente definidas pelo usuário ![Ícone de link externo](../icons/launch-glyph.svg)](#ud_env){:new_window}.
+
   * A variável VCAP_SERVICES, que contém informações de conexão para acessar uma instância de serviço. Se o aplicativo estiver ligado a vários serviços, a variável VCAP_SERVICES incluirá as informações de conexão de cada instância de serviço. Por
 exemplo:
-  
+
   ```
   {
    "VCAP_SERVICES": {
@@ -319,7 +375,7 @@ exemplo:
    }
   }
   ```
-        
+
 Também é possível acessar as variáveis de ambiente configuradas pelo DEA e por buildpacks.
 
 As variáveis a seguir são definidas pelo DEA:
@@ -345,7 +401,7 @@ aplicativo no tempo de preparação.</dd>
   <dt><strong>VCAP_APPLICATION</strong></dt>
   <dd>Uma sequência JSON que contém informações sobre o aplicativo implementado. As
 informações incluem nome do aplicativo, URIs, limites de memória, registro de data e hora
-em que o aplicativo atingiu seu estado atual e assim por diante. Por exemplo: 
+em que o aplicativo atingiu seu estado atual e assim por diante. Por exemplo:
   <pre class="pre codeblock"><code>
   {
     "limits": {
@@ -356,14 +412,14 @@ em que o aplicativo atingiu seu estado atual e assim por diante. Por exemplo:
     "application_version": "df111903-7d95-4c20-96d9-aad4e97d2a9a",
     "application_name": "testapp",
     "application_uris": [
-        "testapp.AppDomainNameng.mybluemix.net"
+        "testapp.AppDomainName.mybluemix.net"
     ],
     "version": "df111903-7d95-4c20-96d9-aad4e97d2a9a",
     "name": "testapp",
     "space_name": "dev",
     "space_id": "c6ed3a8e-436b-43ac-9f96-b676ee335000",
     "uris": [
-        "testapp.AppDomainNameng.mybluemix.net"
+        "testapp.AppDomainName.mybluemix.net"
     ],
     "users": null,
     "application_id": "e984bb73-4c4e-414b-84b7-c28c87f84003",
@@ -409,13 +465,11 @@ em que o aplicativo atingiu seu estado atual e assim por diante. Por exemplo:
 
 </dl>
 
-As variáveis que são definidas por buildpacks são diferentes para cada buildpack. Consulte
-[Buildpacks](https://github.com/cloudfoundry-community/cf-docs-contrib/wiki/Buildpacks){:new_window}
-para obter qualquer outro buildpack compatível.
+As variáveis que são definidas por buildpacks são diferentes para cada buildpack. Veja [Buildpacks ![Ícone de link externo](../icons/launch-glyph.svg)](https://github.com/cloudfoundry-community/cf-docs-contrib/wiki/Buildpacks){:new_window} para obter quaisquer outros buildpacks compatíveis.
 
 <ul>
     <li>As variáveis a seguir são definidas pelo Buildpack do Liberty:
-	
+
 	  <dl>
 	  <dt><strong>JAVA_HOME</strong></dt>
 	  <dd>O local de Java SDK que executa o aplicativo.</dd>
@@ -430,7 +484,7 @@ instância de servidor de perfil do Liberty no DEA.</dd>
 	  <dd>O local da saída gerada, como arquivos de log e diretório ativo de uma instância de
 servidor de perfil do Liberty em execução.</dd>
 	  </dl>
-</li>   
+</li>
 <li>As variáveis a seguir são definidas pelo Buildpack do Node.js:
 	<dl>
 	<dt><strong>BUILD_DIR</strong></dt>
@@ -442,7 +496,7 @@ servidor de perfil do Liberty em execução.</dd>
 	</dl>
 </li>
 </li>
-</ul>	
+</ul>
 
 É possível usar o código de amostra do Node.js a seguir para obter o valor da variável de ambiente VCAP_SERVICES:
 
@@ -453,9 +507,7 @@ if (process.env.VCAP_SERVICES) {
 }
 ```
 
-Para obter mais informações sobre cada variável de ambiente, consulte
-[Variáveis
-de ambiente do Cloud Foundry](http://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html){:new_window}.
+Para obter mais informações sobre cada variável de ambiente, veja [Variáveis de ambiente do Cloud Foundry ![Ícone de link externo](../icons/launch-glyph.svg)](http://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html){:new_window}.
 
 ## Customizando implementações de aplicativos
 {: #customize_dep}
@@ -474,18 +526,18 @@ comandos iniciais padrão que o buildpack fornece.
 **Nota:** para que os comandos iniciais do buildpack tenham precedência, especifique **null** como o comando inicial.
 
   * Use o comando **cf push** e especifique o parâmetro -c. Por exemplo, ao implementar um aplicativo Node.js, é possível especificar o comando inicial **node app.js** no parâmetro -c:
-  
+
   ```
   cf push appname -p app_path -c "node app.js"
   ```
-  
+
   * Use o parâmetro de comando no arquivo `manifest.yml`. Por exemplo, ao implementar um aplicativo Node.js, é possível especificar o
 comando inicial **node app.js** no arquivo manifest:
-  
+
   ```
   command: node app.js
   ```
-  
+
 
 ### Incluindo variáveis de ambiente definidas pelo usuário
 {: #ud_env}
@@ -495,30 +547,30 @@ As variáveis de ambiente definidas pelo usuário são específicas de um aplica
   * Use a interface com o usuário do {{site.data.keyword.Bluemix_notm}}. Conclua
 as etapas a seguir:
     1. No Painel do {{site.data.keyword.Bluemix_notm}}, clique no ladrilho do app. A página de detalhes do app é exibida.
-	2. Clique em **Variáveis de ambiente**.  
+	2. Clique em **Variáveis de ambiente**.
 	3. Clique em **DEFINIDA PELO USUÁRIO** e, em seguida, clique em **INCLUIR**.
 	4. Preencha os campos necessários e, em seguida, clique em **SALVAR**.
   * Use a interface de linha de comandos cf. Inclua uma variável definida pelo usuário usando o comando `cf set-env`. Por
-exemplo: 
+exemplo:
     ```
     cf set-env appname env_var_name env_var_value
     ```
-	
+
   * Use o arquivo `manifest.yml`. Inclua pares de valores no arquivo. Por
-exemplo: 
+exemplo:
     ```
 	env:
       VAR1:value1
       VAR2:value2
     ```
-	
+
 Após incluir uma variável de ambiente definida pelo usuário, será possível usar o código de amostra do Node.js a seguir para obter o valor da variável definida:
 
 ```
 var myEnv = process.env.env_var_name;
 console.log("My user defined = " + myEnv);
 ```
-	
+
 ### Configurando o ambiente de inicialização
 
 Para configurar o ambiente de inicialização de seu aplicativo, é possível
@@ -556,12 +608,12 @@ tmp/
 ```
 
 # Links Relacionados
-{: #rellinks}
+{: #rellinks notoc}
 
 ## Links Relacionados
 {: #general}
 
-* [Implementando com manifests do aplicativo](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html){:new_window}
-* [Gerador de manifest CF](http://cfmanigen.mybluemix.net/){:new_window}
-* [Introdução ao cf v6](http://docs.cloudfoundry.org/devguide/installcf/whats-new-v6.html){:new_window}
-* [Introdução ao IBM Continuous Delivery Pipeline for Bluemix](../services/DeliveryPipeline/index.html#getstartwithCD)
+* [Implementando com Manifests do aplicativo ![Ícone de link externo](../icons/launch-glyph.svg)](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html){:new_window}
+* [Gerador de manifest do CF ![Ícone de link externo](../icons/launch-glyph.svg)](http://cfmanigen.mybluemix.net/){:new_window}
+* [Introdução ao cf v6 ![Ícone de link externo](../icons/launch-glyph.svg)](http://docs.cloudfoundry.org/devguide/installcf/whats-new-v6.html){:new_window}
+* [Introdução ao IBM Continuous Delivery Pipeline for Bluemix](/docs/services/DeliveryPipeline/index.html#getstartwithCD)

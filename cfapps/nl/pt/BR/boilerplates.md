@@ -1,12 +1,12 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2015，2016
+  years: 2015，2017
 
- 
+lastupdated: "2015-11-11"
 
 ---
 
@@ -14,7 +14,6 @@ copyright:
 {:shortdesc: .shortdesc}
 
 # Modelos
-*Última atualização: 11 de novembro de 2015*
 
 No {{site.data.keyword.Bluemix}}, um modelo é um
 contêiner para um aplicativo e seu ambiente de tempo

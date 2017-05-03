@@ -1,5 +1,5 @@
 {
-	"identifier": "ID",
+	"identifier": "id",
 	"label": "titolo",
 	"items": [{
 		"id": "GetStarted"
@@ -293,7 +293,7 @@
 		}]
 		
 	}, {
-		"id": "Risorse",
+		"id": "Resources",
 		"descriptionTitle": "Risorse",
 		"items": [{
 			"title": "Perché Bluemix?",

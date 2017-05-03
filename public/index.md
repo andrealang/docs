@@ -1,11 +1,9 @@
 ---
-
  
 
 copyright:
-
-  years: 2016
-
+  years: 2016, 2017
+lastupdated: "2017-04-12"
  
 
 ---
@@ -15,8 +13,6 @@ copyright:
 
 # {{site.data.keyword.Bluemix_notm}} Public
 {: #public}
-Last updated: 8 August 2016
-{: .last-updated}
 
 
 {{site.data.keyword.Bluemix_notm}} abstracts and hides most of the complexities that are associated with hosting and managing cloud-based apps. As an application developer, you can focus on developing your app without having to manage the infrastructure that is required to host it.
@@ -128,6 +124,7 @@ A unique prefix is assigned to each region. {{site.data.keyword.Bluemix_notm}} p
 | US South region | Dallas, US | ng | api.ng.bluemix.net | console.ng.bluemix.net |
 | United Kingdom region | London, England | eu-gb | api.eu-gb.bluemix.net | console.eu-gb.bluemix.net |
 | Sydney region | Sydney, Australia | au-syd | api.au-syd.bluemix.net | console.au-syd.bluemix.net |
+| Germany region | Frankfurt, Germany | eu-de | api.eu-de.bluemix.net | console.eu-de.bluemix.net |
 
 *Table 1. {{site.data.keyword.Bluemix_notm}} region list*
 
@@ -161,7 +158,7 @@ To integrate a system of record with the app that you create in {{site.data.keyw
 
 <dl>
 <dt>Cloud Integration API</dt>
-    <dd>A Cloud Integration API provides secured access to the systems of record that reside behind a firewall through web APIs. When you create the Cloud Integration API, you choose the resource that you want to access through the web API, specify the operations that are permitted, and include SDKs and samples to access the API. For more information about how to create a Cloud Integration API, see [Creating Cloud Integration APIs](../services/CloudIntegration/index.html#cloudint_add_service).</dd>
+    <dd>A Cloud Integration API provides secured access to the systems of record that reside behind a firewall through web APIs. When you create the Cloud Integration API, you choose the resource that you want to access through the web API, specify the operations that are permitted, and include SDKs and samples to access the API. For more information about how to create a Cloud Integration API, see [Creating Cloud Integration APIs](/docs/services/CloudIntegration/CldInt_GetStart.html).</dd>
 <dt>Private service</dt>
     <dd>A private service consists of a Cloud Integration API, SDKs, and entitlement policies. In addition, the private service might contain documentation or other items from the service provider. Only the organization manager can publish a Cloud Integration API as a private service. To see the private services that are available to you, select the Private checkbox in the {{site.data.keyword.Bluemix_notm}} catalog. You can select and bind a private service to an app without connecting to the Cloud Integration service. You bind private services to your app in the same way as you do for other {{site.data.keyword.Bluemix_notm}} services. For information about how to publish an API as a private service, see Publishing an API as a private service.</dd>
 </dl>

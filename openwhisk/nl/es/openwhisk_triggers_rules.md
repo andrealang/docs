@@ -1,30 +1,25 @@
 ---
 
- 
-
 copyright:
-
-  years: 2016
-
- 
+  years: 2016, 2017
+lastupdated: "2017-02-23"
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
+{:new_window: target="_blank"}
 {:codeblock: .codeblock}
+{:screen: .screen}
 {:pre: .pre}
 
 # Creación de desencadenantes y reglas
 {: #openwhisk_triggers}
-*Última actualización: 22 de febrero de 2016*
-{: .last-updated}
 
-Los desencadenantes y reglas de {{site.data.keyword.openwhisk}} aportan prestaciones dirigidas por sucesos a la plataforma. Los sucesos de orígenes de sucesos externos e internos se ponen en el canal por medio de un desencadenante, y las reglas permiten sus acciones de respuesta para dichos sucesos.
+Los desencadenantes y reglas de {{site.data.keyword.openwhisk_short}} aportan prestaciones dirigidas por sucesos a la plataforma. Los sucesos de orígenes de sucesos externos e internos se ponen en el canal por medio de un desencadenante, y las reglas permiten sus acciones de respuesta para dichos sucesos.
 {: shortdesc}
 
-## Desencadenantes
+## Creación de desencadenantes
+{: #openwhisk_triggers_create}
 
 Los desencadenantes son un canal con nombre para una clase de sucesos. A continuación se muestran ejemplos de desencadenantes:
 - Un desencadenante de sucesos de actualización de ubicación.
@@ -41,7 +36,8 @@ que {{site.data.keyword.openwhisk_short}} pueda consumir. Estos son algunos ejem
 documento en una base de datos.
 - Una información de entrada Git que desencadena un suceso por cada confirmación contra un repositorio Git.
 
-## Rules
+## Utilización de reglas
+{: #openwhisk_rules_use}
 
 Una regla asocia un desencadenante a una acción, con cada activación del desencadenante que hace que se invoque la acción
 correspondiente con un suceso de desencadenante como entrada.
@@ -64,26 +60,24 @@ invoquen la misma acción:
 - Regla `imageUpload -> thumbnailImage`.
 
 Las tres reglas establecen el comportamiento siguiente: las imágenes en ambos tweets y las imágenes subidas se clasifican, las imágenes
-subidas se clasifican y se genera una versión de miniatura. 
+subidas se clasifican y se genera una versión de miniatura.
 
 ## Creación y activación de desencadenante
-{: #openwhisk_triggers}
+{: #openwhisk_triggers_fire}
 
 Los desencadenantes se pueden activar cuando se producen determinados sucesos, o bien se pueden activar manualmente.
 
 Como ejemplo, cree un desencadenante para enviar actualizaciones de ubicación de usuario y activar manualmente el desencadenante.
 
 1. Especifique el mandato siguiente para crear el desencadenante:
- 
+
   ```
   wsk trigger create locationUpdate
   ```
   {: pre}
- 
   ```
   ok: created trigger locationUpdate
   ```
-  {: screen}
 
 2. Compruebe que ha creado el desencadenante mostrando una lista del conjunto de desencadenantes.
 
@@ -91,41 +85,36 @@ Como ejemplo, cree un desencadenante para enviar actualizaciones de ubicación d
   wsk trigger list
   ```
   {: pre}
- 
   ```
   triggers
   /someNamespace/locationUpdate                            private
   ```
-  {: screen}
 
   Hasta ahora ha creado un "canal" con nombre, para el que se pueden activar sucesos.
 
 3. A continuación, active el suceso desencadenante especificando el nombre de desencadenante y los parámetros:
 
   ```
-  wsk trigger fire locationUpdate --param name "Donald" --param place "Washington, D.C."
+  wsk trigger fire locationUpdate --param name Donald --param place "Washington, D.C."
   ```
   {: pre}
-
   ```
   ok: triggered locationUpdate with id fa495d1223a2408b999c3e0ca73b2677
   ```
-  {: screen}
 
-   Los sucesos que active para el desencadenante statusUpdate actualmente no hacen nada. Para ser útil, el
-desencadenante necesita una regla que la asocie con una acción.
+Un desencadenante que se activa sin una regla que lo acompañe con la que cotejarlo, no tendrá ningún efecto visible.
+Los desencadenantes no se pueden crear dentro de un paquete; deben crearse directamente bajo un espacio de nombres.
 
-
-## Uso de reglas para asociar desencadenantes y acciones
-{: #openwhisk_rules}
+## Asociación de desencadenantes y acciones utilizando reglas
+{: #openwhisk_rules_assoc}
 
 Las reglas se utilizan para asociar un desencadenante con una acción. Cada vez que se activa un suceso desencadenante, la acción
 se invoca con parámetros de suceso.
 
-Como ejemplo, cree una regla que invoque la acción hello siempre que se publique una actualización de ubicación. 
+Como ejemplo, cree una regla que invoque la acción hello siempre que se publique una actualización de ubicación.
 
 1. Cree el archivo 'hello.js' con el código de acción que usaremos:
-  ```
+  ```javascript
   function main(params) {
      return {payload:  'Hello, ' + params.name + ' from ' + params.place};
   }
@@ -137,52 +126,68 @@ Como ejemplo, cree una regla que invoque la acción hello siempre que se publiqu
   wsk trigger update locationUpdate
   ```
   {: pre}
-  
   ```
   wsk action update hello hello.js
   ```
   {: pre}
 
-3. Cree y habilite la regla. Los tres parámetros son el nombre de la regla, el desencadenante y la acción.
+3. Cree la regla. Tenga en cuenta que la regla se habilitará después de crearse; es decir, estará disponible de forma inmediata para responder a las activaciones del desencadenante. Los tres parámetros son el nombre de la regla, el desencadenante y la acción.
   ```
-  wsk rule create --enable myRule locationUpdate hello
+  wsk rule create myRule locationUpdate hello
+  ```
+  {: pre}
+
+  Puede inhabilitar una regla en cualquier momento.
+  ```
+  wsk rule disable myRule
   ```
   {: pre}
 
 4. Activar el desencadenante locationUpdate. Cada vez que activa un suceso, la acción hello se invoca con los parámetros de suceso.
   ```
-  wsk trigger fire locationUpdate --param name "Donald" --param place "Washington, D.C."
+  wsk trigger fire locationUpdate --param name Donald --param place "Washington, D.C."
   ```
   {: pre}
-  
   ```
   ok: triggered locationUpdate with id d5583d8e2d754b518a9fe6914e6ffb1e
   ```
-  {: screen}
 
 5. Compruebe que la acción se ha invocado, revisando la activación más reciente.
   ```
   wsk activation list --limit 1 hello
   ```
   {: pre}
-  
   ```
   activations
   9c98a083b924426d8b26b5f41c5ebc0d             hello
   ```
-  {: screen}
-  
   ```
   wsk activation result 9c98a083b924426d8b26b5f41c5ebc0d
   ```
   {: pre}
-  ```
+  ```json
   {
      "payload": "Hello, Donald from Washington, D.C."
   }
   ```
-  {: screen}
 
   Verá que la acción hello ha recibido la carga del suceso y ha devuelto la serie prevista.
 
-  Puede crear varias reglas que se asocien con el mismo desencadenante con distintas acciones.
+Puede crear varias reglas que se asocien con el mismo desencadenante con distintas acciones.
+Los desencadenantes y reglas no pueden pertenecer a un paquete. La regla puede estar asociada a una acción
+que pertenece a un paquete; sin embargo, por ejemplo:
+  ```
+  wsk rule create recordLocation locationUpdate /whisk.system/utils/echo
+  ```
+  {: pre}
+
+También puede utilizar reglas con secuencias. Por ejemplo, se puede crear una secuencia de acción
+`recordLocationAndHello` que se active mediante la regla `anotherRule`.
+  ```
+  wsk action create recordLocationAndHello --sequence /whisk.system/utils/echo,hello
+  ```
+  {: pre}
+  ```
+  wsk rule create anotherRule locationUpdate recordLocationAndHello
+  ```
+  {: pre}

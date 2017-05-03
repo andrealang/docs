@@ -1,18 +1,18 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2016, 2017
+lastupdated: "2017-01-11"
 
 ---
 
 
-{:new_window: target="_blank"}  
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
 
 #服務
 {: #services}
-*前次更新：2016 年 8 月 10 日*
 
 您可以在 {{site.data.keyword.Bluemix}} 使用者介面的**型錄**中，在**服務**下找到可用的服務。
 {:shortdesc}
@@ -38,18 +38,15 @@ copyright:
 
 |類型	|說明	|支援詳細資料|
 |:------|:--------------|:--------------|
-|IBM	|IBM 所提供且正式發行的服務。	|在 IBM 所提供且正式發行的服務中，判定為錯誤的問題會受到支援。支援會根據您設定的嚴重性來提供。如需問題單嚴重性的相關資訊，請參閱[與支援中心聯絡](../support/index.html#contacting-bluemix-support){: new_window}。|
+|IBM	|IBM 所提供且正式發行的服務。	|在 IBM 所提供且正式發行的服務中，判定為錯誤的問題會受到支援。支援會根據您設定的嚴重性來提供。如需問題單嚴重性的相關資訊，請參閱[與支援中心聯絡](/docs/support/index.html#contacting-bluemix-support)。|
 |協力廠商	|由 IBM 以外的公司所提供的服務。	|協力廠商服務支援是由服務提供者所提供。如果是由 IBM 調查問題，且該問題經判定為協力廠商服務中的錯誤，IBM 並不負責提供修正程式。IBM 會視需要與協力廠商服務提供者分享分析資訊。|
 |社群	|開放程式碼社群所提供的服務。	|社群服務支援是由「{{site.data.keyword.Bluemix_notm}} Developers 社群」所提供。如果是由 IBM 調查問題，且該問題經判定為社群服務中的錯誤，IBM 並不負責提供修正程式。|
-|測試版	|尚未準備好進入正式作業且目前處於開發試用階段的服務。「測試版」服務可協助開發及行銷小組先評量服務價值，再正式發行該服務。	|在 IBM 所提供的測試版服務中判定為錯誤的問題會受到支援，但是 IBM 不負責提供修正程式。此外，還會將問題單的嚴重性指派為 3 或 4（適用時）。如需問題單嚴重性的相關資訊，請參閱[與支援中心聯絡](../support/index.html#contacting-bluemix-support){: new_window}。|
-*表 1. {{site.data.keyword.Bluemix_notm}} 服務支援資訊*
-
-
-
+|測試版	|尚未準備好進入正式作業且目前處於開發試用階段的服務。「測試版」服務可協助開發及行銷小組先評量服務價值，再正式發行該服務。	|在 IBM 所提供的測試版服務中判定為錯誤的問題會受到支援，但是 IBM 不負責提供修正程式。此外，還會將問題單的嚴重性指派為 3 或 4（適用時）。如需問題單嚴重性的相關資訊，請參閱[與支援中心聯絡](/docs/support/index.html#contacting-bluemix-support)。|
+{: caption="表 1. {{site.data.keyword.Bluemix_notm}} 服務支援資訊" caption-side="top"}
 
 {{site.data.keyword.Bluemix_notm}} 也有您可以試用的實驗性服務。若要檢視所有可用的實驗性服務、樣板及運行環境，請登入 {{site.data.keyword.Bluemix_notm}}，並捲動至「型錄」尾端，然後按一下 **{{site.data.keyword.Bluemix_notm}} 實驗型錄**。
 
-實驗性服務可能不穩定，而且可能會變更，而與較舊版不相容。這些服務不建議用於正式作業環境。實驗性服務支援是透過「{{site.data.keyword.Bluemix_notm}} Developers 社群」所提供。如果是由 IBM 調查問題，且該問題經判定為實驗性服務中的錯誤，則 IBM 不負責提供修正程式。
+實驗性服務可能不穩定，且可能變更而與舊版不相容。不建議在正式作業環境中使用這些服務。實驗性服務支援是透過「{{site.data.keyword.Bluemix_notm}} Developers 社群」所提供。如果是由 IBM 調查問題，且該問題經判定為實驗性服務中的錯誤，則 IBM 不負責提供修正程式。
 
 若要在 {{site.data.keyword.Bluemix_notm}} 使用者介面、cf 指令行介面、IBM {{site.data.keyword.Bluemix_notm}} DevOps Services 或任何支援的工具中使用服務，請採取下列步驟：
 
@@ -115,14 +112,13 @@ copyright:
 |{{site.data.keyword.nlclassifierlshort}} 	|是 		|是 		|是|
 |{{site.data.keyword.objectstorageshort}}	|是		|否		|否|
 |{{site.data.keyword.personalityinsightsshort}}	|是		|是		|是|
-|{{site.data.keyword.mobilepush}}Push		|是		|是		|否|
+|{{site.data.keyword.mobilepush}}		|是		|是		|否|
 |Push for iOS 8					|是		|是		|否|
 |{{site.data.keyword.questionandanswershort}}	|是		|是		|是|
 |{{site.data.keyword.rapidApps}}		|是		|是		|否|
 |{{site.data.keyword.relationshipextractionshort}}	|是	|是		|是|
 |{{site.data.keyword.retrieveandrankshort}}	|是 		|是 		|是|
 |{{site.data.keyword.SecureGateway}}		|是		|是		|否|
-|{{site.data.keyword.servicediscoveryshort}}	|是		|否		|否|
 |{{site.data.keyword.sescashort}}		|是		|是		|是|
 |{{site.data.keyword.ssofull}}			|是		|否		|否|
 |{{site.data.keyword.speechtotextshort}}	|是 		|是	 	|是|
@@ -142,9 +138,12 @@ copyright:
 *表 2. 服務可用性*
 
 
+{: caption="表 2. 服務可用性" caption-side="top"}
+
+
 # 將服務新增至您的應用程式
 {: #add_service}
-*前次更新：2016 年 3 月 8 日*
+
 
 {{site.data.keyword.Bluemix}} 有一份服務清單，並代表開發人員管理它們。若要新增服務以供應用程式使用，您必須要求此服務的實例，並配置應用程式以與服務互動。
 
@@ -153,7 +152,7 @@ copyright:
 
 * 從 {{site.data.keyword.Bluemix_notm}} 使用者介面。檢視 {{site.data.keyword.Bluemix_notm}}「型錄」。
 * 從 cf 指令行介面。使用 **cf marketplace** 指令。
-* 從您自己的應用程式。使用 [GET /v2/services Services API](http://apidocs.cloudfoundry.org/197/services/list_all_services.html){: new_window}。
+* 從您自己的應用程式。使用 [GET /v2/services Services API ![外部鏈結圖示](../icons/launch-glyph.svg)](http://apidocs.cloudfoundry.org/197/services/list_all_services.html){: new_window}。
 
 在開發應用程式時，您可以選取需要的服務。
 當您選取時，{{site.data.keyword.Bluemix_notm}} 會與服務互動，並採取必要的步驟以佈建服務資源。不同服務類型的佈建處理程序可能不同。
@@ -201,10 +200,10 @@ cf create-service service_name service_plan service_instance
 cf bind-service appname service_instance
     ```
 
-您可以將服務實例僅連結至位於相同空間或組織中的應用程式實例。然而，使用其他空間或組織中的服務實例的方式，與使用外部應用程式的方式一樣。請使用認證直接配置應用程式實例，而非建立連結。如需外部應用程式如何使用 {{site.data.keyword.Bluemix_notm}} 服務的相關資訊，請參閱[讓外部應用程式能使用 {{site.data.keyword.Bluemix_notm}} 服務](#accser_external){: new_window}。
+您可以將服務實例僅連結至位於相同空間或組織中的應用程式實例。然而，使用其他空間或組織中的服務實例的方式，與使用外部應用程式的方式一樣。請使用認證直接配置應用程式實例，而非建立連結。如需外部應用程式如何使用 {{site.data.keyword.Bluemix_notm}} 服務的相關資訊，請參閱[讓外部應用程式能使用 {{site.data.keyword.Bluemix_notm}} 服務](#accser_external)。
 
 
-## 配置應用程式以與服務互動 
+## 配置應用程式以與服務互動
 {: #config}
 
 將服務實例連結至應用程式之後，您必須配置應用程式以與服務互動。
@@ -223,13 +222,55 @@ cf bind-service appname service_instance
 您可能需要閱讀服務文件，以瞭解預期的內容，以及如何解譯每一份資訊。
 
 
-如果您連結至應用程式的服務當機，應用程式可能會停止執行或發生錯誤。{{site.data.keyword.Bluemix_notm}} 不會自動重新啟動應用程式，以從這些問題中回復。請考慮將應用程式編碼成可識別運作中斷、異常狀況和連線失敗並從其中回復。如需相關資訊，請參閱[應用程式不會自動重新啟動](../troubleshoot/index.html#ts_topmenubar)疑難排解主題。
+如果您連結至應用程式的服務當機，應用程式可能會停止執行或發生錯誤。{{site.data.keyword.Bluemix_notm}} 不會自動重新啟動應用程式，以從這些問題中回復。請考慮將應用程式編碼成可識別運作中斷、異常狀況和連線失敗並從其中回復。如需相關資訊，請參閱[應用程式不會自動重新啟動](/docs/troubleshoot/index.html#ts_topmenubar)疑難排解主題。
 
 
 ## 讓外部應用程式能使用 {{site.data.keyword.Bluemix_notm}} 服務
 {: #accser_external}
 
-您可能有在 {{site.data.keyword.Bluemix_notm}} 之外建立和執行的應用程式，或是您可能使用協力廠商工具。如果 {{site.data.keyword.Bluemix_notm}} 服務提供可從網際網路存取的端點，您可以使用那些服務來搭配本端應用程式或協力廠商工具。
+您可能有在 {{site.data.keyword.Bluemix_notm}} 之外建立和執行的應用程式，或是您可能使用協力廠商工具。如果 {{site.data.keyword.Bluemix_notm}} 服務提供可從網際網路存取的服務金鑰，您可以使用那些服務來搭配本端應用程式或協力廠商工具。
+
+下列服務提供您可在外部使用的服務金鑰：
+
+* {{site.data.keyword.amashort_old}} <!--Advanced Mobile Access-->
+* {{site.data.keyword.alchemyapishort}} <!--AlchemyAPI-->
+* {{site.data.keyword.alertnotificationshort}} <!--Alert Notification-->
+* {{site.data.keyword.sparks}} <!--Analytics for Apache Spark-->
+* {{site.data.keyword.appseccloudshort}} <!--Application Security on Cloud-->
+* {{site.data.keyword.blockchain}} <!--Blockchain-->
+* {{site.data.keyword.cloudant}} <!--Cloudant&reg; NoSQL DB-->
+* {{site.data.keyword.iotmapinsights_short}} <!--Context Mapping-->
+* {{site.data.keyword.conversationshort}} <!--Conversation-->
+* {{site.data.keyword.dashdbshort}} <!--dashDB-->
+* {{site.data.keyword.discoveryshort}} <!--Discovery-->
+* {{site.data.keyword.documentconversionshort}} <!--Document Conversion-->
+* {{site.data.keyword.iotdriverinsights_short}} <!--Driver Behavior-->
+* {{site.data.keyword.geospatialshort_Geospatial}} <!--Geospatial Analytics-->
+* {{site.data.keyword.GlobalizationPipeline_short}} <!--Globalization Pipeline-->
+* {{site.data.keyword.appconserviceshort}} <!--IBM&reg; App Connect-->
+* {{site.data.keyword.dataworks_short}} <!--IBM&reg; Data Connect-->
+* {{site.data.keyword.graphshort}} <!--IBM&reg; Graph-->
+* {{site.data.keyword.iotelectronics_full}} <!--IBM&reg; IoT for Electronics-->
+* {{site.data.keyword.twittershort}} <!--Insights for Twitter-->
+* {{site.data.keyword.iot4auto_short}} <!--IoT for Automotive-->
+* {{site.data.keyword.iotinsurance_short}} <!--IoT for Insurance-->
+* {{site.data.keyword.languagetranslatorshort}} <!--Language Translator-->
+* {{site.data.keyword.dwl_short}} <!--Lift-->
+* {{site.data.keyword.messagehub}} <!--Message Hub-->
+* {{site.data.keyword.mobileanalytics_short}} <!--Mobile Analytics-->
+* {{site.data.keyword.nlclassifiershort}} <!--Natural Language Classifier-->
+* {{site.data.keyword.objectstorageshort}} <!--Object Storage-->
+* {{site.data.keyword.personalityinsightsshort}} <!--Personality Insights-->
+* {{site.data.keyword.HybridConnect_short}} <!--Product Insights-->
+* {{site.data.keyword.mobilepush}} <!--Push-->
+* {{site.data.keyword.retrieveandrankshort}} <!--Retrieve and Rank-->
+* {{site.data.keyword.speechtotextshort}} <!-- Speech to Text-->
+* {{site.data.keyword.streaminganalyticsshort}} <!--Streaming Analytics-->
+* {{site.data.keyword.texttospeechshort}} <!--Text to Speech-->
+* {{site.data.keyword.toneanalyzershort}} <!--Tone Analyzer-->
+* {{site.data.keyword.tradeoffanalyticsshort}} <!--Tradeoff Analytics-->
+* {{site.data.keyword.weather_short}} <!--Weather Company Data-->
+* {{site.data.keyword.workloadscheduler}} <!--Workload Scheduler-->
 
 若要讓外部應用程式或協力廠商工具能使用 {{site.data.keyword.Bluemix_notm}} 服務，請完成下列步驟：
 
@@ -301,33 +342,32 @@ cf uups testups2 -l syslog://example2.com
 
 您現在可以將應用程式配置成使用外部資源。如需如何配置應用程式與服務互動的相關資訊，請參閱[配置應用程式以與服務互動](#config){: new_window}。
 
-## 在另一個地區使用服務
+## 在另一個地區中使用服務
 {: #cross_region_service}
 
 如果您的服務實例建立並連結到某個地區中的應用程式，則可以使用下列其中一種方法，在另一個地區中使用這個服務實例：
 
-  * 使用服務認證直接配置應用程式實例。如需詳細資料，請參閱[讓外部應用程式能使用 {{site.data.keyword.Bluemix_notm}} 服務](#accser_external){: new_window}。
+  * 使用服務認證直接配置應用程式實例。如需詳細資料，請參閱[讓外部應用程式能使用 {{site.data.keyword.Bluemix_notm}} 服務](#accser_external)。
   * 建立使用者提供的服務作為橋接器。
-    
+
 	假設您從想要使用服務實例的地區中開始。若要使用存在於另一個地區的服務實例，請完成下列步驟：
 
       1. 切換至服務實例所在的地區。在 {{site.data.keyword.Bluemix_notm}} 功能表列中，展開**地區**，或按一下**地區**圖示，然後選取服務實例所在的地區。
 
       2. 在服務存在的地區中，從服務實例的 VCAP_SERVICES 環境變數擷取認證及連線參數。請完成下列步驟：
 
-
 	       1. 在 {{site.data.keyword.Bluemix_notm}}「儀表板」中，按一下您的應用程式磚。即會顯示「概觀」頁面。
-	       2. 在導覽窗格中，按一下**環境變數**。右窗格會顯示 *VCAP_SERVICES* 環境變數詳細資料。請記錄服務實例的 JSON 內容。
+	       2. 在導覽窗格中，按一下**環境變數**。即會顯示 *VCAP_SERVICES* 環境變數詳細資料。請記錄服務實例的 JSON 內容。
 
       3. 切換至您從想要使用服務實例的地區。在 {{site.data.keyword.Bluemix_notm}} 功能表列中，展開**地區**，或按一下**地區**圖示，然後選取您要使用服務實例的地區。
 
-      4. 使用您從 *VCAP_SERVICES* 環境變數記錄的認證及連線參數，建立使用者提供的服務實例。如需如何建立使用者提供的服務實例的相關資訊，請參閱[建立使用者提供的服務實例](#user_provide_services){: new_window}。
+      4. 使用您從 *VCAP_SERVICES* 環境變數記錄的認證及連線參數，建立使用者提供的服務實例。如需如何建立使用者提供的服務實例的相關資訊，請參閱[建立使用者提供的服務實例](#user_provide_services)。
 
       5. 使用下列指令，以將使用者提供的服務實例連結至應用程式：
 
 	     ```
 	     cf bind-service myapp user-provided_service_instance
-	```
+	     ```
 
 
 
@@ -337,21 +377,19 @@ cf uups testups2 -l syslog://example2.com
 ## 在另一個服務中使用服務
 {: #s2s_binding}
 
-服務存取授權提供一種方法，讓某個服務直接存取另一個服務。您可以在 {{site.data.keyword.Bluemix_notm}}「儀表板」上授權及配置服務實例對其他服務實例的存取權。
+服務存取授權讓一個服務能直接存取另一個服務。您可以在 {{site.data.keyword.Bluemix_notm}}「儀表板」上授權及配置服務實例對其他服務實例的存取權。
 
 若要使用另一個服務中的服務實例，請完成下列步驟：
 
 1. 在 {{site.data.keyword.Bluemix_notm}}「儀表板」上，按一下您要存取的服務磚。即會顯示服務的儀表板。
 2. 在導覽窗格中，使用服務實例的主控台，按一下**管理**以授權來自其他服務實例的連結。
-3. 如果您要拒絕其他服務對服務實例的存取權，請按一下導覽窗格中的**服務存取授權**，然後使用**撤銷**以移除服務連結。 
+3. 如果您要拒絕其他服務對服務實例的存取權，請按一下導覽窗格中的**服務存取授權**，然後使用**撤銷**以移除服務連結。
 
-# 相關鏈結
+# rellinks
 {: #rellinks}
 
-## 一般
+## general
 {: #general}
 
-* [使用 {{site.data.keyword.Bluemix_notm}} 使用者介面連結服務](../cfapps/ee.html#ee_bindui)
-* [擷取 VCAP_SERVICES](../cli/vcapsvc.html#retrieving)
-
-
+* [使用 {{site.data.keyword.Bluemix_notm}} 使用者介面連結服務](/docs/cfapps/ee.html#ee_bindui)
+* [擷取 VCAP_SERVICES](/docs/cli/vcapsvc.html#retrieving)

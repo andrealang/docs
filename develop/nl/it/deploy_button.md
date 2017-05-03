@@ -1,12 +1,8 @@
 ---
 
- 
-
 copyright:
-
-  years: 2015, 2016
-
- 
+  years: 2015, 2017
+lastupdated: "2017-2-21"
 
 ---
 
@@ -18,20 +14,19 @@ copyright:
 
 #Creazione di un pulsante Distribuisci a {{site.data.keyword.Bluemix_notm}} {: #deploy-button} 
 
-*Ultimo aggiornamento: 2 marzo 2016*
-{: .last-updated} 
-
 Il pulsante Distribuisci a {{site.data.keyword.Bluemix}} è un modo efficiente per condividere la tua applicazione originata da Git pubblica in modo che altri utenti possano sperimentarne il codice ed eseguirne la distribuzione a IBM {{site.data.keyword.Bluemix_notm}}. Il pulsante
 richiede una configurazione minima e puoi inserirlo dovunque siano supportate le markup. Un utente che fa clic sul pulsante crea
 una copia clonata del codice in un nuovo repository Git in modo che la tua applicazione originale rimanga invariata. 
 {: shortdesc} 
 
-**Suggerimento:** se il branding dell'azienda è importante, puoi [incorporare un flusso iFrame Distribuisci a {{site.data.keyword.Bluemix_notm}}](../develop/deploy_button_embed.html) nel tuo contenuto invece di inserire un pulsante. Quando le persone creano una copia clonata della tua applicazione
+**Suggerimento:** se il branding dell'azienda è importante, puoi [incorporare un flusso iFrame Distribuisci a {{site.data.keyword.Bluemix_notm}}](/docs/develop/deploy_button_embed.html) nel tuo contenuto invece di inserire un pulsante. Quando le persone creano una copia clonata della tua applicazione
 originata da Git pubblica, restano nel tuo contenuto invece di essere reindirizzati al sito web di bluemix.net. 
+
+**Nota**: è ora disponibile la funzione toolchain. Chiunque faccia clic sul pulsante Distribuisci a {{site.data.keyword.Bluemix_notm}}, può selezionare il link nel banner per provare a distribuire la propria applicazione utilizzando una toolchain.
 
 Quando qualcuno fa clic sul tuo pulsante, si verificano le seguenti azioni: 
 
-1. Se la persona non ha un account {{site.data.keyword.Bluemix}} attivo,
+1. Se la persona non ha un account {{site.data.keyword.Bluemix_notm}} attivo,
 è necessario che venga creato un account di prova. 
 
 2. La persona può selezionare una regione, organizzazione, spazio e nome applicazione. Il nome applicazione consigliato viene creato in base al nome applicazione precedente,
@@ -99,12 +94,12 @@ Ramo Git specificato:
 Ramo master predefinito:
 </p>
 <pre class="codeblock">
-[&#33;[Deploy to Bluemix]&#40;https://bluemix.net/deploy/button.png&#41;]&#40;https://bluemix.net/deploy?repository=&lt;git_repository_URL> # [required]&#41;
+[&excl;[Deploy to Bluemix]&lpar;https://bluemix.net/deploy/button.png&rpar;]&lpar;https://bluemix.net/deploy?repository=&lt;git_repository_URL> # [required]&rpar;
 </pre>
 <p>Ramo Git specificato:
 </p>
 <pre class="codeblock">
-[&#33;[Deploy to Bluemix]&#40;https://bluemix.net/deploy/button.png&#41;]&#40;https://bluemix.net/deploy?repository=&lt;git_repository_URL> &branch=&lt;git_branch&gt; # [required]&#41;
+[&excl;[Deploy to Bluemix]&lpar;https://bluemix.net/deploy/button.png&rpar;]&lpar;https://bluemix.net/deploy?repository=&lt;git_repository_URL> &branch=&lt;git_branch&gt; # [required]&rpar;
 </pre>
 </li>
 </ul>
@@ -128,7 +123,7 @@ modificare il percorso dell'immagine pulsante esterna utilizzata nel frammento i
 	
 	* Se preferisci memorizzare l'immagine localmente, puoi scaricare l'immagine e memorizzarla nel repository Git. Regola il percorso per utilizzare l'ubicazione relativa dell'immagine. 
 	
-	* Se vuoi utilizzare una versione tradotta del pulsante, puoi fare riferimento a esso in remoto oppure scaricarlo da [ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button](ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button). 
+	* Se vuoi utilizzare una versione tradotta del pulsante, puoi fare riferimento a esso in remoto oppure scaricarlo da [ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button![icona link esterno](../icons/launch-glyph.svg "External link icon")](ftp://public.dhe.ibm.com/cloud/bluemix/deploy_button){:new_window}. 
 	
 ##Considerazione sul repository per il pulsante {: #button-repo} 
 
@@ -144,11 +139,12 @@ Con il file manifest, puoi specificare:
     <li>Un nome applicazioni univoco.</li>  
     <li>Declared services: un'estensione manifest, che crea o cerca i servizi obbligatori o facoltativi
 di cui è prevista la configurazione prima che venga distribuita l'applicazione, come ad esempio
-il servizio di memorizzazione nella cache dei dati. Puoi trovare un elenco dei piani, delle etichette e dei servizi {{site.data.keyword.Bluemix_notm}} idonei utilizzando l'<a href="https://github.com/cloudfoundry/cli/releases">interfaccia riga di comando CF</a> per eseguire il comando <code>cf marketplace</code> oppure sfogliando il <a href="https://console.ng.bluemix.net/?ssoLogout=true&cm_mmc=developerWorks-*-dWdevcenter-*-devops-services-_-lp#/store"> caalogo {{site.data.keyword.Bluemix_notm}}</a>. 
+il servizio di memorizzazione nella cache dei dati. Puoi trovare un elenco dei piani, delle etichette e dei servizi  {{site.data.keyword.Bluemix_notm}} idonei utilizzando l'<a class="xref" href="https://github.com/cloudfoundry/cli/releases" target="_blank" title="(Si apre in una nuova scheda o finestra)">interfaccia riga di comando CF<img class="image" src="../icons/launch-glyph.svg" alt="icona link esterno"/></a> per eseguire il comando <code>cf marketplace</code> oppure sfogliando il  <a class="xref" href="https://console.ng.bluemix.net/?ssoLogout=true&cm_mmc=developerWorks-_-dWdevcenter-_-devops-services-_-lp#/store" target="_blank" title="(Si apre in una nuova scheda o finestra)"> catalogo {{site.data.keyword.Bluemix_notm}} <img class="image" src="../icons/launch-glyph.svg" alt="icona link esterno"/></a>. 
     
+        
     <strong>Nota:</strong> è un'estensione IBM del formato manifest Cloud Foundry standard. Questa estensione potrebbe essere modificata in una futura release man mano che la funzione si evolve e viene migliorata.
 	
-	<a href="http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#minimal-manifest" target="_blank">Impara come creare un file <code>manifest.yml</code>.</a>  
+	<a class="xref" href="http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#minimal-manifest" target="_blank" title="(Si apre in una nuova scheda o finestra)">Impara come creare un file <code>manifest.yml</code> <img class="image" src="../icons/launch-glyph.svg" alt="icona link esterno"/></a>.  
 <pre class="codeblock">
 	---
     #Template manifest.yml
@@ -180,18 +176,14 @@ il servizio di memorizzazione nella cache dei dati. Puoi trovare un elenco dei p
 </pre>
    </li>
    </ul>
-	<li> Se il repository deve essere creato prima che venga distribuita l'applicazione, viene attivato un build automatico del codice nel repository
-prima della distribuzione. I build automatici si verificano quando nella directory root del repository viene rilevato un file script di
-build. 
+	<li> Se occorre creare l'applicazione prima che possa essere distribuita, devi includere un file di build nel tuo repository. Se viene rilevato un file script di build nella directory root del repository, viene attivato un build automatico del codice prima della distribuzione. 
 	
 	Builder supportati: 
 	    <ul>
-		<li> <a href="http://ant.apache.org/manual/using.html" target="_blank">Ant:</a> /<code>build.xml</code>, che crea l'output nella cartella <code>./output/</code> </li>
-		<li> <a href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#gradle" target="_blank">Gradle:</a> <code>/build.gradle</code>, che crea l'output nella cartella <code>. </code> </i>
-		<li> <a href="http://gruntjs.com/getting-started#the-gruntfile" target="_blank">Grunt:</a> <code>/Gruntfile.js</code>,
-che crea l'output nella cartella <code>.</code> </li>
-		<li> <a href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#maven" target="_blank">Maven: </a> <code>/pom.xml</code>, che
-crea l'output nella cartella <code>./target/</code></li>
+		<li> <a class="xref" href="http://ant.apache.org/manual/using.html" target="_blank" title="(Si apre in una nuova scheda o finestra)">Ant:<img class="image" src="../icons/launch-glyph.svg" alt="icona link esterno"/></a> /<code>build.xml</code>, che crea l'output nella cartella <code>./output/</code> </li>
+		<li> <a class="xref" href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#gradle" target="_blank" title="(Si apre in una nuova scheda o finestra)">Gradle:<img class="image" src="../icons/launch-glyph.svg" alt="icona link esterno"/></a> <code>/build.gradle</code>, che crea l'output in <code>. </code> </li>
+		<li> <a class="xref" href="http://gruntjs.com/getting-started#the-gruntfile" target="_blank" title="(Si apre in una nuova scheda o finestra)">Grunt:<img class="image" src="../icons/launch-glyph.svg" alt="icona link esterno"/></a> <code>/Gruntfile.js</code>, che crea l'output in <code>. </code> </li>
+		<li> <a class="xref" href="http://docs.cloudfoundry.org/buildpacks/java/build-tool-int.html#maven" target="_blank" title="(Si apre in una nuova scheda o finestra)">Maven:<img class="image" src="../icons/launch-glyph.svg" alt="icona link esterno"/></a> <code>/pom.xml</code>, che crea l'output nella cartella <code>./target/</code></li>
 	   </ul>
 	</li>	
 	<li>Per configurare la pipeline per il progetto, includi un file <code>pipeline.yml</code> in una directory <code>.bluemix</code>. Puoi creare un file <code>pipeline.yml</code> manualmente oppure puoi generarne uno da un progetto DevOps Services esistente. Per creare un file pipeline.yml da un progetto {{site.data.keyword.jazzhub_short}} e aggiungerlo al tuo repository, completa questa procedura. 
@@ -204,14 +196,15 @@ crea l'output nella cartella <code>./target/</code></li>
 <li>Nella directory root del tuo progetto, crea una directory <code>.bluemix</code>.</li>
 <li>Carica il file <code>pipeline.yml</code> nel repository <code>.bluemix</code>.</li>
 </ol> </li>
-	<li>Se stai distribuendo un'applicazione in un contenitore tramite <strong>IBM Containers</strong>, devi includere Dockerfile nella directory root del repository e un file <code>pipeline.yml</code> in una directory <code>.bluemix</code>. 
+	<li>Per distribuire un'applicazione in un contenitore tramite <strong>IBM Containers</strong>, devi includere Dockerfile nella directory root del repository e un file <code>pipeline.yml</code> in una directory <code>.bluemix</code>. 
 	<ul>
-	    <li> Per saperne di più sulla creazione dei Dockerfile, <a href="https://docs.docker.com/reference/builder/" target="_blank">vedi la documentazione di Docker</a>. </li>
-	    <li>Puoi creare un file <code>pipeline.yml</code> manualmente oppure puoi generarne uno da un progetto DevOps Services esistente. Per creare manualmente un file <code>pipeline.yml</code> specifico per i contenitori, <a href="https://github.com/Puquios/" target="_blank">vedi gli esempi in GitHub</a>. </li>
+	    <li>Il Dockerfile agisce come una sorta di script di build per l'applicazione. Se un Dockerfile viene rilevato nel repository, l'applicazione viene integrata automaticamente in un'immagine prima che venga distribuita in un contenitore. Se la stessa applicazione deve essere creata prima di essere integrata in un'immagine, includi uno script di build per l'applicazione insieme a un Dockerfile, come descritto in precedenza.</li>
+	    <li> Per saperne di più sulla creazione dei Dockerfile, <a class="xref" href="https://docs.docker.com/reference/builder/" target="_blank" title="(Si apre in una nuova scheda o finestra)">vedi la documentazione di Docker<img class="image" src="../icons/launch-glyph.svg" alt="icona link esterno"/></a>. </li>
+	    <li>Puoi creare un file <code>pipeline.yml</code> manualmente oppure puoi generarne uno da un progetto DevOps Services esistente. Per creare manualmente un file <code>pipeline.yml</code> specifico per i contenitori, <a class="xref" href="https://github.com/Puquios/" target="_blank" title="(Si apre in una nuova scheda o finestra)">vedi gli esempi in GitHub<img class="image" src="../icons/launch-glyph.svg" alt="icona link esterno"/></a>. </li>
         </ul>
 
  </li>
  </ul>
 </ul>
 
-Per un aiuto nella risoluzione dei problemi, vedi [Il pulsante Distribuisci a Bluemix non distribuisce un'applicazione](../troubleshoot/index.html#deploytobluemixbuttondoesntdeployanapp){:new_window}.	
+Per un aiuto nella risoluzione dei problemi, vedi [Il pulsante Distribuisci a Bluemix non distribuisce un'applicazione](/docs/troubleshoot/index.html#deploytobluemixbuttondoesntdeployanapp){:new_window}.	

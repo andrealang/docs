@@ -1,18 +1,22 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Autenticando usuários com um provedor de identidade customizado
 {: #custom-id}
 
-Última atualização: 22 de julho de 2016
-{: .last-updated}
 
-
-Crie um provedor de identidade customizado e implemente sua própria lógica para coletar e validar credenciais. Um provedor de identidade customizado é um aplicativo da web que expõe uma interface RESTful. É
+Crie um provedor de identidade customizado que use o serviço {{site.data.keyword.amafull}} e implemente sua própria lógica para coletar e validar credenciais. Um provedor de identidade customizado é um aplicativo da web que expõe uma interface RESTful. É
 possível hospedar o provedor de identidade customizado no local ou no {{site.data.keyword.Bluemix}}. O único requisito é que o provedor
 de identidade customizado deve ser acessível a partir da Internet pública para que seja possível se comunicar com o serviço {{site.data.keyword.amashort}}.
 
@@ -41,16 +45,16 @@ um cabeçalho de autorização.
 * O {{site.data.keyword.amashort}} client SDK reenvia automaticamente a solicitação original que acionou o fluxo de autorização.
 * O {{site.data.keyword.amashort}} server SDK extrai o cabeçalho de autorização da solicitação, valida-o com o serviço {{site.data.keyword.amashort}} e concede acesso a um recurso de backend.
 
-### Fluxo de solicitação de aplicativo da web {{site.data.keyword.amashort}}
+### {{site.data.keyword.amashort}} Fluxo de
+solicitação de aplicativo da Web
 {: #mca-custom-web-sequence}
 
-O fluxo de solicitação de aplicativo da web {{site.data.keyword.amashort}} é semelhante ao fluxo do cliente móvel. Entretanto, o {{site.data.keyword.amashort}} protege o aplicativo da web, em vez de um recurso de backend do {{site.data.keyword.Bluemix_notm}}.
+O aplicativo da Web {{site.data.keyword.amashort}}
+fluxo de pedido é semelhante ao fluxo do cliente móvel. Entretanto, o {{site.data.keyword.amashort}} protege o aplicativo da web, em vez de um recurso de backend do {{site.data.keyword.Bluemix_notm}}.
 
-  * A solicitação inicial é enviada pelo aplicativo da web (a partir de um formulário de login, por exemplo).
-  * O redirecionamento final é para a área protegida do próprio aplicativo da web, em vez do recurso protegido de backend. 
-
-
-
+  * A solicitação inicial é enviada pelo aplicativo da
+Web (de um formulário de login, por exemplo).
+  * O redirecionamento final é para a área protegida do aplicativo da Web em si, em vez de backend do recurso protegido.
 
 ## Entendendo os provedores de identidade customizados
 {: #custom-id-about}
@@ -59,8 +63,9 @@ Com um provedor de identidade customizado, é possível fornecer desafios de aut
 
 Ao criar um provedor de identidade customizado, será possível:
 
-1. Customize um desafio de autenticação a ser enviado pelo serviço {{site.data.keyword.amashort}} para o aplicativo cliente
-móvel ou da web. Um desafio de autenticação é um objeto JSON que contém dados customizados. O cliente pode usar esses dados customizados para customizar os fluxos de autenticação.
+1. Customize um desafio de autenticação a ser enviado
+pelo serviço {{site.data.keyword.amashort}} para o
+aplicativo cliente móvel ou da Web. Um desafio de autenticação é um objeto JSON que contém dados customizados. O cliente pode usar esses dados customizados para customizar os fluxos de autenticação.
 
   Exemplo de um desafio de autenticação customizado:
 
@@ -74,6 +79,7 @@ móvel ou da web. Um desafio de autenticação é um objeto JSON que contém dad
 		}
 	}
 	```
+	{: codeblock}
 
 1. Implemente qualquer fluxo de coleção de credenciais customizado no cliente, incluindo a autenticação de várias etapas e de vários formulários. Da mesma forma que para o desafio de autenticação customizado, deve-se projetar a estrutura de uma resposta de desafio de autenticação customizada.
 
@@ -86,6 +92,8 @@ móvel ou da web. Um desafio de autenticação é um objeto JSON que contém dad
 		pincode:"1234"
 	}
 	```
+	{: codeblock}
+
 1. Implemente a lógica customizada de validação da resposta de desafio de autenticação fornecida.
 
 1. Defina um objeto de identidade do usuário customizado que contém as propriedades customizadas necessárias. Existe um exemplo de um
@@ -102,14 +110,15 @@ objeto de identidade do usuário customizado que é obtido pelo cliente após a 
 		}
 	}
 	```
+	{: codeblock}
 
 ### Implementação de amostra do provedor de identidade customizado
 {: #custom-sample}
 
 Use qualquer uma das implementações de amostra Node.js a seguir de um provedor de identidade customizado como uma referência ao desenvolver seu provedor de identidade customizado. Faça download do código do aplicativo completo dos repositórios GitHub.
 
- * [Amostra simples](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample)
- * [Amostra avançada](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management)
+ * [Amostra simples ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-sample "Ícone de link externo"){: new_window}
+ * [Amostra avançada ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/ibm-bluemix-mobile-services/bms-mca-custom-identity-provider-with-user-management "Ícone de link externo"){: new_window}
 
 ## Comunicação típica entre o servidor {{site.data.keyword.amashort}} e um provedor de identidade customizado
 {: #custom-id-comm}
@@ -135,10 +144,9 @@ Um provedor de identidade customizado suporta um domínio de autenticação cust
 
 ## Próximas Etapas
 {: #next-steps}
+
 * [Criando um provedor de identidade customizado](custom-auth-identity-provider.html)
 * [Configurando o {{site.data.keyword.amashort}} para autenticação customizada](custom-auth-config-mca.html)
 * [Configurando a autenticação customizada para Android](custom-auth-android.html)
 * [Configurando a autenticação customizada para iOS (Swift SDK)](custom-auth-ios-swift-sdk.html)
-* [Configurando a autenticação customizada para iOS (Objective-C SDK)](custom-auth-ios.html)
 * [Configurando a autenticação customizada para Cordova](custom-auth-cordova.html)
-

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-03-22"
 
 ---
 
@@ -11,9 +12,6 @@ copyright:
 
 # Automatic configuration of bound services
 {: #auto_config}
-
-Last Updated: 10 June 2016
-{: .last-updated}
 
 You can bind various services to your Liberty application. Services can be container-managed, application-managed, or both, depending on what the developer wants.
 
@@ -28,22 +26,22 @@ A container managed service is a service that is managed by the Liberty run time
 This process is referred to as automatic configuration.
 The Liberty buildpack provides automatic configuration for the following service types:
 
-* [SQL Database](../../services/SQLDB/index.html#SQLDB)
-* ClearDB MySQL Database
-* [MySQL](../../services/MySQL/index.html#MySQL)
-* ElephantSQL
-* [PostgreSQL](../../services/PostgreSQL/index.html#PostgreSQL)
-* [Cloudant NoSQL Database](../../services/Cloudant/index.html#Cloudant)
-* MongoLab
-* [dashDB](../../services/dashDB/index.html#dashDB)
-* [Data Cache](../../services/DataCache/index.html#data_cache)
-* [Session Cache](../../services/SessionCache/index.html#session_cache)
-* [MQ Light](../../services/MQLight/index.html#mqlight010)
-* [Monitoring and Analytics](../..//services/monana/index.html#gettingstartedtemplate)
-* [Auto-Scaling](../../services/Auto-Scaling/index.html#autoscaling)
-* [Single Sign On](../../services/SingleSignOn/index.html#sso_gettingstarted)
+* [ClearDB MySQL Database ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.cleardb.com/developers)
+* [MySQL](/docs/services/MySQL/index.html#MySQL)
+* [ElephantSQL](docs/services/ElephantSQL/index.html)
+* [PostgreSQL](/docs/services/PostgreSQL/index.html#PostgreSQL)
+* [Cloudant NoSQL Database](/docs/services/Cloudant/index.html#Cloudant)
+* [dashDB](/docs/services/dashDB/index.html#dashDB)
+* [Data Cache](/docs/services/DataCache/index.html#data_cache)
+* [Session Cache](/docs/services/SessionCache/index.html#session_cache)
+* [MQ Light](/docs/services/MQLight/index.html#mqlight010)
+* [Monitoring and Analytics](/docs/services/monana/index.html#gettingstartedtemplate)
+* [Auto-Scaling](/docs/services/Auto-Scaling/index.html#autoscaling)
+* [Single Sign On](/docs/services/SingleSignOn/index.html#sso_gettingstarted)
 * [New Relic](newRelic.html)
 * [Dynatrace](dynatrace.html)
+* [Compose for PostgreSQL](/docs/services/ComposeForPostgreSQL/index.html)
+* [Compose for MongoDB](/docs/services/ComposeForMongoDB/index.html) (Currently only available with the monthly Liberty runtime).
 
 As noted, some services can be application managed, or container managed. Mongo and SQLDB are examples of such services. By default, the Liberty buildpack assumes that these services are container managed and automatically configures them. If you want the application to manage the service, you can opt-out of automatic configuration for the service by setting the services_autoconfig_excludes environment variable. For more information, see [Opting out of service auto-configuration](autoConfig.html#opting_out).
 
@@ -57,7 +55,7 @@ See the documentation for the bound service type for more details.
 ## Generating or updating server.xml configuration stanzas
 {: #generating_or_updating_serverxml}
 
-When you push a standalone application, the Liberty buildpack generates the server.xml stanza as described in [Options for Pushing Liberty Applications](optionsForPushing.html#options_for_pushing) to Bluemix. When you push a standalone application and bind to container managed services, the Liberty buildpack generates the necessary server.xml stanzas for the bound services.
+When you push a standalone application, the Liberty buildpack generates the server.xml stanza, as described in [Options for Pushing Liberty Applications](optionsForPushing.html#options_for_pushing), to Bluemix. When you push a standalone application and bind to container managed services, the Liberty buildpack generates the necessary server.xml stanzas for the bound services.
 
 When you provide a server.xml file and bind to container managed services the Liberty buildpack:
 
@@ -96,7 +94,7 @@ More formally, the grammar of the String follows.
 {: codeblock}
 
 **Important**: The service type that you specify must match the services label as it appears in the VCAP_SERVICES environment variable. White space is not allowed.
-**Important**: No white space is allowed within a <service_type_specification>. The only allowed usage of white space is to separate multiple <service_type_specification> instances.
+**Important**: No white space is allowed within a ```<service_type_specification>```. The only allowed usage of white space is to separate multiple ```<service_type_specification>``` instances.
 
 Use the "all" option to opt out of all automatic configuration actions for a service, as in the Mongo scenario above. Use the "config" option to opt out of only the configuration update actions as in the SQLDB scenario above.
 
@@ -122,9 +120,42 @@ Here are examples of how to set the services_autoconfig_excludes environment var
 ```
 {: codeblock}
 
+## Overriding service configuration
+{: #override_service_config}
+
+In some cases it may be desirable to override the default configuration for a service generated by automatic configuration.
+This can be done using the **LBP_SERVICE_CONFIG_xxxx** environment variable, where "xxxx" is the name of the service in
+all capitals.  For example, to override the default version of the *mysql* service and set it to version 1.4.+ issue a command similar to:
+
+```
+    $ cf set-env myapp LBP_SERVICE_CONFIG_MYSQL "{driver: { version: 1.4.+ }}"
+```
+{: codeblock}
+
+The table that follows shows syntax for overriding some service configuration options:
+
+<table>
+<tr>
+<th align="left">Environment Variable Name</th>
+<th align="left">Configuration Syntax</th>
+</tr>
+
+<tr>
+<td>LBP_SERVICE_CONFIG_MYSQL</td>
+<td>"{driver: { version: x.y.z }, connection_pool_size: 15}"</td>
+</tr>
+
+<tr>
+<td>LBP_SERVICE_CONFIG_POSTGRESQL</td>
+<td>"{driver: { version: x.y.z }}"</td>
+</tr>
+</table>
+
+
+
 # rellinks
-{: #rellinks}
+{: #rellinks notoc}
 ## general
-{: #general}
+{: #general notoc}
 * [Liberty runtime](index.html)
 * [Liberty Profile Overview](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_about.html)

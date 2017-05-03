@@ -1,18 +1,18 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2016, 2017
+lastupdated: "2017-01-11"
 
 ---
 
 
-{:new_window: target="_blank"}  
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
 
 #服务
 {: #services}
-*上次更新时间：2016 年 8 月 10 日*
 
 在 {{site.data.keyword.Bluemix}} 用户界面中，可以在**目录**的**服务**下找到可用的服务。
 {:shortdesc}
@@ -37,14 +37,11 @@ copyright:
 
 |类型	|描述	|支持详细信息|
 |:------|:--------------|:--------------|
-|IBM	|IBM 提供且普遍可用的服务。	|如果问题确定为 IBM 提供且普遍可用的服务中的缺陷，那么将受支持。将基于您设置的严重性提供支持。有关凭单严重性的更多信息，请参阅[联系支持人员](../support/index.html#contacting-bluemix-support){: new_window}。|
+|IBM	|IBM 提供且普遍可用的服务。	|如果问题确定为 IBM 提供且普遍可用的服务中的缺陷，那么将受支持。将基于您设置的严重性提供支持。有关凭单严重性的更多信息，请参阅[联系支持人员](/docs/support/index.html#contacting-bluemix-support)。|
 |第三方	|非 IBM 公司提供的服务。	|对第三方服务的支持由服务提供者提供。如果 IBM 调查的某个问题确定为第三方服务中的缺陷，那么 IBM 没有义务提供修订。如果需要，IBM 将与第三方服务提供者共享分析。|
 |社区	|开放式源代码社区提供的服务。	|对社区服务的支持由 {{site.data.keyword.Bluemix_notm}} 开发者社区提供。如果 IBM 调查的某个问题确定为社区服务中的缺陷，那么 IBM 没有义务提供修订。|
-|Beta	|尚不可用于生产、目前处于开发试用阶段的服务。Beta 服务可帮助开发和市场营销团队先评估服务价值，再使服务普遍可用。	|如果问题确定为 IBM 提供的 beta 服务中的缺陷，那么将受支持，但 IBM 没有义务提供修订。此外，将在适当的情况下为问题凭单分配严重性 3 或 4。有关凭单严重性的信息，请参阅[联系支持人员](../support/index.html#contacting-bluemix-support){: new_window}。|
-*表 1. {{site.data.keyword.Bluemix_notm}} 服务支持信息*
-
-
-
+|Beta	|尚不可用于生产、目前处于开发试用阶段的服务。Beta 服务可帮助开发和市场营销团队先评估服务价值，再使服务普遍可用。	|如果问题确定为 IBM 提供的 beta 服务中的缺陷，那么将受支持，但 IBM 没有义务提供修订。此外，将在适当的情况下为问题凭单分配严重性 3 或 4。有关凭单严重性的信息，请参阅[联系支持人员](/docs/support/index.html#contacting-bluemix-support)。|
+{: caption="表 1. {{site.data.keyword.Bluemix_notm}} 服务支持信息" caption-side="top"}
 
 {{site.data.keyword.Bluemix_notm}} 还包含可供您试用的试验性服务。要查看所有可用的试验性服务、样板和运行时，请登录到 {{site.data.keyword.Bluemix_notm}}，滚动到“目录”的底部，然后单击 **{{site.data.keyword.Bluemix_notm}} Lab Catalog**。
 
@@ -112,14 +109,13 @@ copyright:
 |{{site.data.keyword.nlclassifierlshort}} 	|是 		|是 		|是|
 |{{site.data.keyword.objectstorageshort}}	|是		|否		|否|
 |{{site.data.keyword.personalityinsightsshort}}	|是		|是		|是|
-|{{site.data.keyword.mobilepush}}Push		|是		|是		|否|
+|{{site.data.keyword.mobilepush}}		|是		|是		|否|
 |Push for iOS 8					|是		|是		|否|
 |{{site.data.keyword.questionandanswershort}}	|是		|是		|是|
 |{{site.data.keyword.rapidApps}}		|是		|是		|否|
 |{{site.data.keyword.relationshipextractionshort}}	|是	|是		|是|
 |{{site.data.keyword.retrieveandrankshort}}	|是 		|是 		|是|
 |{{site.data.keyword.SecureGateway}}		|是		|是		|否|
-|{{site.data.keyword.servicediscoveryshort}}	|是		|否		|否|
 |{{site.data.keyword.sescashort}}		|是		|是		|是|
 |{{site.data.keyword.ssofull}}			|是		|否		|否|
 |{{site.data.keyword.speechtotextshort}}	|是 		|是	 	|是|
@@ -139,17 +135,21 @@ copyright:
 *表 2. 服务可用性*
 
 
+{: caption="表 2. 服务可用性" caption-side="top"}
+
+
+
 # 将服务添加到应用程序
 {: #add_service}
-*上次更新时间：2016 年 3 月 8 日*
 
-{{site.data.keyword.Bluemix}} 具有服务列表并为开发人员管理这些服务。要添加服务以供您的应用程序使用，必须请求此服务的实例，并将该应用程序配置为与此服务进行交互。
+
+{{site.data.keyword.Bluemix}} 具有服务列表并为开发者管理这些服务。要添加服务以供您的应用程序使用，必须请求此服务的实例，并将该应用程序配置为与此服务进行交互。
 
 通过下列方式，您可以在 {{site.data.keyword.Bluemix_notm}} 中查看所有可用服务：
 
 * 从 {{site.data.keyword.Bluemix_notm}} 用户界面。查看 {{site.data.keyword.Bluemix_notm}}“目录”。
 * 从 cf 命令行界面。使用 **cf marketplace** 命令。
-* 从您自己的应用程序。使用 [GET /v2/services Services API](http://apidocs.cloudfoundry.org/197/services/list_all_services.html){: new_window}。
+* 从您自己的应用程序。使用 [GET /v2/services Services API ![外部链接图标](../icons/launch-glyph.svg)](http://apidocs.cloudfoundry.org/197/services/list_all_services.html){: new_window}。
 
 在开发应用程序时，您可以选择所需的服务。在您进行选择后，{{site.data.keyword.Bluemix_notm}} 将与该服务进行交互，并执行必要的步骤以供应服务的资源。对于不同类型的服务，供应过程可能会不同。例如，数据库服务会创建数据库，移动应用程序的推送通知服务会生成配置信息。
 
@@ -192,10 +192,10 @@ cf create-service service_name service_plan service_instance
     cf bind-service appname service_instance
     ```
 
-只能将服务实例绑定到位于同一空间或组织中的应用程序实例。不过，也可以按照与外部应用程序相同的方式使用其他空间或组织中的服务实例。不要创建绑定，请改用凭证来直接配置应用程序实例。有关外部应用程序如何使用 {{site.data.keyword.Bluemix_notm}} 服务的更多信息，请参阅[允许外部应用程序使用 {{site.data.keyword.Bluemix_notm}} 服务](#accser_external){: new_window}。
+只能将服务实例绑定到位于同一空间或组织中的应用程序实例。不过，也可以按照与外部应用程序相同的方式使用其他空间或组织中的服务实例。不要创建绑定，请改用凭证来直接配置应用程序实例。有关外部应用程序如何使用 {{site.data.keyword.Bluemix_notm}} 服务的更多信息，请参阅[允许外部应用程序使用 {{site.data.keyword.Bluemix_notm}} 服务](#accser_external)。
 
 
-## 将应用程序配置为与服务进行交互 
+## 将应用程序配置为与服务进行交互
 {: #config}
 
 将服务实例绑定到应用程序后，必须将应用程序配置为与服务交互。
@@ -206,12 +206,54 @@ cf create-service service_name service_plan service_instance
 * 要与移动后端服务交互，请使用 {{site.data.keyword.Bluemix_notm}} 提供的信息，例如，应用程序标识、特定于客户机的安全性信息以及应用程序的访问 URI。移动服务通常彼此配合工作，以便能够在一组服务之间共享上下文信息，例如，应用程序开发者名称和使用应用程序的用户。
 * 要与 Web 应用程序或移动应用程序的服务器端云代码交互，请在应用程序的 *VCAP_SERVICES* 环境变量中使用 {{site.data.keyword.Bluemix_notm}} 提供的信息，例如，运行时凭证。*VCAP_SERVICES* 环境变量的值是序列化 JSON 对象。该变量包含与绑定应用程序的服务进行交互所需要的运行时数据。不同服务的数据格式不同。您可能需要阅读服务文档以了解预期的结果以及如何解读每条信息。
 
-如果绑定到应用程序的服务崩溃，那么应用程序可能会停止运行或发生错误。{{site.data.keyword.Bluemix_notm}} 不会自动重新启动应用程序，以便从这些问题中进行恢复。在进行应用程序编码时，应考虑到识别中断、异常和连接失败以及进行恢复的问题。有关更多信息，请参阅[应用程序不会自动重新启动](../troubleshoot/index.html#ts_topmenubar)故障诊断主题。
+如果绑定到应用程序的服务崩溃，那么应用程序可能会停止运行或发生错误。{{site.data.keyword.Bluemix_notm}} 不会自动重新启动应用程序，以便从这些问题中进行恢复。在进行应用程序编码时，应考虑到识别中断、异常和连接失败以及进行恢复的问题。有关更多信息，请参阅[应用程序不会自动重新启动](/docs/troubleshoot/index.html#ts_topmenubar)故障诊断主题。
 
 ## 允许外部应用程序使用 {{site.data.keyword.Bluemix_notm}} 服务
 {: #accser_external}
 
-您可能会有在 {{site.data.keyword.Bluemix_notm}} 外部创建和运行的应用程序，或者，您可能会使用第三方工具。如果 {{site.data.keyword.Bluemix_notm}} 服务提供可从因特网访问的端点，那么您可以通过本地应用程序或第三方工具来使用这些服务。
+您可能会有在 {{site.data.keyword.Bluemix_notm}} 外部创建和运行的应用程序，或者，您可能会使用第三方工具。如果 {{site.data.keyword.Bluemix_notm}} 服务提供可从因特网访问的服务密钥，那么您可以通过本地应用程序或第三方工具来使用这些服务。
+
+以下服务提供服务密钥供您在外部使用：
+
+* {{site.data.keyword.amashort_old}} <!--Advanced Mobile Access-->
+* {{site.data.keyword.alchemyapishort}} <!--AlchemyAPI-->
+* {{site.data.keyword.alertnotificationshort}} <!--Alert Notification-->
+* {{site.data.keyword.sparks}} <!--Analytics for Apache Spark-->
+* {{site.data.keyword.appseccloudshort}} <!--Application Security on Cloud-->
+* {{site.data.keyword.blockchain}} <!--Blockchain-->
+* {{site.data.keyword.cloudant}} <!--Cloudant&reg; NoSQL DB-->
+* {{site.data.keyword.iotmapinsights_short}} <!--Context Mapping-->
+* {{site.data.keyword.conversationshort}} <!--Conversation-->
+* {{site.data.keyword.dashdbshort}} <!--dashDB-->
+* {{site.data.keyword.discoveryshort}} <!--Discovery-->
+* {{site.data.keyword.documentconversionshort}} <!--Document Conversion-->
+* {{site.data.keyword.iotdriverinsights_short}} <!--Driver Behavior-->
+* {{site.data.keyword.geospatialshort_Geospatial}} <!--Geospatial Analytics-->
+* {{site.data.keyword.GlobalizationPipeline_short}} <!--Globalization Pipeline-->
+* {{site.data.keyword.appconserviceshort}} <!--IBM&reg; App Connect-->
+* {{site.data.keyword.dataworks_short}} <!--IBM&reg; Data Connect-->
+* {{site.data.keyword.graphshort}} <!--IBM&reg; Graph-->
+* {{site.data.keyword.iotelectronics_full}} <!--IBM&reg; IoT for Electronics-->
+* {{site.data.keyword.twittershort}} <!--Insights for Twitter-->
+* {{site.data.keyword.iot4auto_short}} <!--IoT for Automotive-->
+* {{site.data.keyword.iotinsurance_short}} <!--IoT for Insurance-->
+* {{site.data.keyword.languagetranslatorshort}} <!--Language Translator-->
+* {{site.data.keyword.dwl_short}} <!--Lift-->
+* {{site.data.keyword.messagehub}} <!--Message Hub-->
+* {{site.data.keyword.mobileanalytics_short}} <!--Mobile Analytics-->
+* {{site.data.keyword.nlclassifiershort}} <!--Natural Language Classifier-->
+* {{site.data.keyword.objectstorageshort}} <!--Object Storage-->
+* {{site.data.keyword.personalityinsightsshort}} <!--Personality Insights-->
+* {{site.data.keyword.HybridConnect_short}} <!--Product Insights-->
+* {{site.data.keyword.mobilepush}} <!--Push-->
+* {{site.data.keyword.retrieveandrankshort}} <!--Retrieve and Rank-->
+* {{site.data.keyword.speechtotextshort}} <!-- Speech to Text-->
+* {{site.data.keyword.streaminganalyticsshort}} <!--Streaming Analytics-->
+* {{site.data.keyword.texttospeechshort}} <!--Text to Speech-->
+* {{site.data.keyword.toneanalyzershort}} <!--Tone Analyzer-->
+* {{site.data.keyword.tradeoffanalyticsshort}} <!--Tradeoff Analytics-->
+* {{site.data.keyword.weather_short}} <!--Weather Company Data-->
+* {{site.data.keyword.workloadscheduler}} <!--Workload Scheduler-->
 
 要允许外部应用程序或第三方工具使用 {{site.data.keyword.Bluemix_notm}} 服务，请完成以下步骤：
 
@@ -287,9 +329,9 @@ cf uups testups2 -l syslog://example2.com
 
 如果您在一个区域创建了服务实例并将其绑定到应用程序，那么可以通过以下某种方法，在另外一个区域使用此服务实例：
 
-  * 使用服务凭证来直接配置应用程序实例。有关详细信息，请参阅[允许外部应用程序使用 {{site.data.keyword.Bluemix_notm}} 服务](#accser_external){: new_window}。
+  * 使用服务凭证来直接配置应用程序实例。有关详细信息，请参阅[允许外部应用程序使用 {{site.data.keyword.Bluemix_notm}} 服务](#accser_external)。
   * 创建用户提供的服务作为网桥。
-    
+
 	假定您是在要使用服务实例的区域开始操作。要使用另一个区域中存在的服务实例，请完成以下步骤：
 
       1. 切换到服务实例所在的区域。在 {{site.data.keyword.Bluemix_notm}} 菜单栏中，展开**区域**或单击**区域**图标，然后选择服务实例所在的区域。
@@ -297,11 +339,11 @@ cf uups testups2 -l syslog://example2.com
       2. 在服务所在的区域中从服务实例的 VCAP_SERVICES 环境变量检索凭证和连接参数。请完成以下步骤：
 
 	       1. 在 {{site.data.keyword.Bluemix_notm}}“仪表板”中，单击应用程序磁贴。这将显示“概述”页面。
-	       2. 在导航窗格中，单击**环境变量**。*VCAP_SERVICES* 环境变量详细信息会显示在右侧窗格中。记录服务实例的 JSON 内容。
+	       2. 在导航窗格中，单击**环境变量**。这将显示 *VCAP_SERVICES* 环境变量详细信息。记录服务实例的 JSON 内容。
 
       3. 切换到您要在其中使用服务实例的区域。在 {{site.data.keyword.Bluemix_notm}} 菜单栏中，展开**区域**或单击**区域**图标，然后选择要在其中使用服务实例的区域。
 
-      4. 通过使用从 *VCAP_SERVICES* 环境变量记录的凭证和连接参数，以创建用户提供的服务实例。有关如何创建用户提供的服务实例的信息，请参阅[创建用户提供的服务实例](#user_provide_services){: new_window}。
+      4. 通过使用从 *VCAP_SERVICES* 环境变量记录的凭证和连接参数，以创建用户提供的服务实例。有关如何创建用户提供的服务实例的信息，请参阅[创建用户提供的服务实例](#user_provide_services)。
 
       5. 通过使用以下命令，将用户创建的服务实例绑定到您的应用程序：
 
@@ -323,15 +365,13 @@ cf uups testups2 -l syslog://example2.com
 
 1. 在 {{site.data.keyword.Bluemix_notm}}“仪表板”上，单击要访问的服务的磁贴。这将显示该服务的仪表板。
 2. 在导航窗格中，单击**管理**，通过使用该服务实例的控制台来授权其他服务实例绑定该服务实例。
-3. 如果想要拒绝其他服务访问该服务实例，请单击导航窗格中的**服务访问授权**，然后使用**撤销**来除去服务绑定。 
+3. 如果想要拒绝其他服务访问该服务实例，请单击导航窗格中的**服务访问授权**，然后使用**撤销**来除去服务绑定。
 
-# 相关链接
+# rellinks
 {: #rellinks}
 
-## 常规
+## general
 {: #general}
 
-* [使用 {{site.data.keyword.Bluemix_notm}} 用户界面绑定服务](../cfapps/ee.html#ee_bindui)
-* [检索 VCAP_SERVICES](../cli/vcapsvc.html#retrieving)
-
-
+* [使用 {{site.data.keyword.Bluemix_notm}} 用户界面绑定服务](/docs/cfapps/ee.html#ee_bindui)
+* [检索 VCAP_SERVICES](/docs/cli/vcapsvc.html#retrieving)

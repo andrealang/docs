@@ -1,27 +1,21 @@
 ---
 
- 
-
 copyright:
-
-  years: 2016
-
- 
+  years: 2016, 2017
+lastupdated: "2017-02-23"
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
+{:new_window: target="_blank"}
 {:codeblock: .codeblock}
+{:screen: .screen}
 {:pre: .pre}
 
 # Criando acionadores e regras
 {: #openwhisk_triggers}
-Última atualização: 22 de fevereiro de 2016
-{: .last-updated}
 
-Acionadores e regras do {{site.data.keyword.openwhisk}} trazem recursos acionados por eventos para a plataforma. Eventos de origens de eventos externos e internos são canalizados por meio de um acionador e as regras permitem que suas ações reajam a esses eventos.
+Acionadores e regras do {{site.data.keyword.openwhisk_short}} trazem recursos acionados por eventos para a plataforma. Eventos de origens de eventos externos e internos são canalizados por meio de um acionador e as regras permitem que suas ações reajam a esses eventos.
 {: shortdesc}
 
 ## Criando Acionadores
@@ -59,7 +53,7 @@ Além disso, suponhamos que haja duas origens de eventos que estejam disparando 
 - Regra `imageUpload -> classifyImage`.
 - Regra `imageUpload -> thumbnailImage`.
 
-As três regras estabelecem o comportamento a seguir: as imagens em ambos os tweets e as imagens transferidas por upload são classificadas, as imagens transferidas por upload são classificadas e uma versão miniatura é gerada. 
+As três regras estabelecem o comportamento a seguir: as imagens em ambos os tweets e as imagens transferidas por upload são classificadas, as imagens transferidas por upload são classificadas e uma versão miniatura é gerada.
 
 ## Criando e disparando acionadores
 {: #openwhisk_triggers_fire}
@@ -69,16 +63,14 @@ Os acionadores podem ser disparados quando determinados eventos ocorrem ou podem
 Como um exemplo, crie um acionador para enviar atualizações de local do usuário e dispare o acionador manualmente.
 
 1. Insira o comando a seguir para criar o acionador:
- 
+
   ```
   wsk trigger create locationUpdate
   ```
   {: pre}
- 
   ```
   ok: acionador locationUpdate criado
   ```
-  {: screen}
 
 2. Verifique se você criou o acionador listando o conjunto de acionadores.
 
@@ -86,26 +78,22 @@ Como um exemplo, crie um acionador para enviar atualizações de local do usuár
   wsk trigger list
   ```
   {: pre}
- 
   ```
   acionadores
   /someNamespace/locationUpdate                            privado
   ```
-  {: screen}
 
   Até o momento, você criou um "canal" denominado para o qual os eventos podem ser disparados.
 
 3. Em seguida, dispare um evento especificando o nome e os parâmetros do acionador:
 
   ```
-  wsk trigger fire locationUpdate --param name "Donald" --param place "Washington, D.C."
+  wsk trigger fire locationUpdate --param name Donald --param place "Washington, D.C."
   ```
   {: pre}
-
   ```
   ok: locationUpdate acionado com id fa495d1223a2408b999c3e0ca73b2677
   ```
-  {: screen}
 
 Um acionador que é disparado sem uma regra que acompanha para fazer a correspondência não tem efeito visível.
 Acionadores não podem ser criados dentro de um pacote; eles devem ser criados diretamente sob um namespace.
@@ -115,10 +103,10 @@ Acionadores não podem ser criados dentro de um pacote; eles devem ser criados d
 
 As regras são usadas para associar um acionador a uma ação. Toda vez que um evento acionador é disparado, a ação é chamada com os parâmetros de evento.
 
-Como um exemplo, crie uma regra que chame a ação hello sempre que uma atualização de local for postada. 
+Como um exemplo, crie uma regra que chame a ação hello sempre que uma atualização de local for postada.
 
 1. Crie um arquivo 'hello.js' com o código de ação que iremos usar:
-  ```
+  ```javascript
   function main(params) {
      return {payload:  'Hello, ' + params.name + ' from ' + params.place};
   }
@@ -130,58 +118,69 @@ Como um exemplo, crie uma regra que chame a ação hello sempre que uma atualiza
   wsk trigger update locationUpdate
   ```
   {: pre}
-  
   ```
   wsk action update hello hello.js
   ```
   {: pre}
 
-3. Crie e ative a regra. Os três parâmetros são o nome da regra, o acionador e a ação.
+3. Crie a regra. Observe que a regra será ativada no momento da criação, o que significa que ela estará disponível imediatamente para responder às ativações de seu acionador. Os três parâmetros são o nome da regra, o acionador e a ação.
   ```
-  wsk rule create --enable myRule locationUpdate hello
+  wsk rule create myRule locationUpdate hello
+  ```
+  {: pre}
+
+  A qualquer momento, é possível escolher desativar uma regra.
+  ```
+  wsk rule disable myRule
   ```
   {: pre}
 
 4. Dispare o acionador locationUpdate. Toda vez que você disparar um evento, a
 ação hello será chamada com os parâmetros do evento.
-  
   ```
-  wsk trigger fire locationUpdate --param name "Donald" --param place "Washington, D.C."
+  wsk trigger fire locationUpdate --param name Donald --param place "Washington, D.C."
   ```
   {: pre}
-  
   ```
   ok: locationUpdate acionado com id d5583d8e2d754b518a9fe6914e6ffb1e
   ```
-  {: screen}
 
 5. Verifique se a ação foi chamada, verificando a ativação mais recente.
   ```
   wsk activation list --limit 1 hello
   ```
   {: pre}
-  
   ```
   ativações
   9c98a083b924426d8b26b5f41c5ebc0d             hello
   ```
-  {: screen}
-  
   ```
   wsk activation result 9c98a083b924426d8b26b5f41c5ebc0d
   ```
   {: pre}
-  ```
-  {
+  ```json
+     {
      "payload": "Hello, Donald from Washington, D.C."
   }
   ```
-  {: screen}
 
   Você vê que a ação hello recebeu a carga útil do evento e retornou a sequência esperada.
 
 É possível criar várias regras que associem o mesmo acionador a diferentes ações.
-O acionador e a ação que fazem uma regra devem estar no mesmo namespace e não podem pertencer a um pacote.
-Se você desejar usar uma ação que pertença a um pacote, será possível copiar a ação em seu
-namespace. Por exemplo: `wsk action create echo --copy
-/whisk.system/samples/echo`.
+Acionadores e regras não podem pertencer a um pacote. No entanto, a regra pode ser associada
+com uma ação que pertença a um pacote, por exemplo:
+  ```
+  wsk rule create recordLocation locationUpdate /whisk.system/utils/echo
+  ```
+  {: pre}
+
+Também é possível usar regras com sequências. Por exemplo, é possível criar uma sequência
+de ações `recordLocationAndHello` que é ativada pela regra `anotherRule`.
+  ```
+  wsk action create recordLocationAndHello --sequence /whisk.system/utils/echo,hello
+  ```
+  {: pre}
+  ```
+  wsk rule create anotherRule locationUpdate recordLocationAndHello
+  ```
+  {: pre}

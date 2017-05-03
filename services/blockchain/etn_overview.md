@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2016
-
+  years: 2016, 2017
+lastupdated: "2017-03-09"
 ---
 
 {:new_window: target="_blank"}
@@ -14,31 +14,55 @@ years: 2016
 
 # Network landscape
 {: #etn_overview}
-Last updated: 14 September 2016
-{: .last-updated}
 
-Both the Starter Developer Network and the High Security Business Network exploit the latest iterations of Hyperledger Fabric 0.5, and include the Practical Byzantine Fault Tolerance (PBFT) consensus protocol and the Hyperledger Fabric Client (HFC) SDK for Node.js. Both plans consist of four blockchain network nodes and a Certificate Authority. The Certificate Authority governs "Membership Services", which manages  identities, network permissions and confidential transactions through the issuance of digital certificates.
+
+The IBM Blockchain on Bluemix Starter Developer plan and High Security Business Network plan exploit the features provided by Hyperledger Fabric v0.6, the Practical Byzantine Fault Tolerance (PBFT) consensus protocol, and the Hyperledger Fabric Client (HFC) SDK for Node.js. Both plans consist of four network nodes and a Certificate Authority. The Certificate Authority governs "Membership Services", which manages identities, network permissions and confidential transactions, through the issuance of digital certificates.
 {:shortdesc}
+
 The following blockchain capabilities are available in both plans:
 
 * The PBFT consensus protocol manages the ordering of all transactions written to the shared ledger. A PBFT blockchain network of four nodes is able to reach consensus despite one Byzantine (faulty) node. For PBFT consensus testing details, see [Testing consensus and availability](etn_pbft.html).
-* The HFC SDK for Node.js allows client-side Node.js applications to interact with the blockchain network. Client-side apps can securely enroll users via Membership Services, issue transactions and cryptographically exchange assets through the usage of tCerts. For more information about Membership Services and user privacy, see the [HFC SDK for Node.js](etn_sdk.html) section and the Hyperledger Fabric [Protocol Specification](https://github.com/hyperledger/fabric/blob/master/docs/protocol-spec.md).
-* You can access details about your blockchain network environment through the [Bluemix Monitor Dashboard](ibmblockchainmonitor.html).
+* The HFC SDK for Node.js allows client-side Node.js applications to interact with the blockchain network. Client-side apps can securely enroll users via Membership Services, issue transactions and cryptographically exchange assets through the usage of tCerts. For more information about Membership Services and user privacy, see the [HFC SDK for Node.js](etn_sdk.html) section and the Hyperledger Fabric [Protocol Specification](https://github.com/hyperledger/fabric/blob/v0.6/docs/protocol-spec.md).
+* You can access details about your blockchain network environment through the [Bluemix Monitor Dashboard](ibmblockchainmonitor.html).  
 
+<br>
 ## Terminology
 
-Use the following terminology, along with the subsequent diagram, to contextualize some of the more granular components of your IBM Blockchain network:
+The following terminology, along with the subsequent diagram, contextualize the components of an IBM Blockchain network based on Hyperledger Fabric v0.6:
 
-* Member - An identity for participating in the blockchain network. There are different classes of members, including users, peers, validators and auditors.
-* Membership services - Services related to obtaining and managing member identities. Membership services is governed by the Certificate Authorities.  
-* Registration - The act of adding a new member identity to the network. A member can be dynamically added to the network by a user with 'registrar' privilege. Members are also assigned roles and attributes, which control their access and authority on the network. Neither roles nor attributes can be assigned dynamically; you must instead edit the membersrvc.yaml file.
-* Enrollment - Completes the registration process by allowing the new member to access the blockchain network. Enrollment can be done by the new member after obtaining a secret from a registrar (out-of-band), or by a middle-man with delegated authority to act on behalf of the new member.
+**Member**:  - An identity for participating in the blockchain network. There are different classes of members, including users, peers, validators and auditors.
 
+**Membership services**: Services related to obtaining and managing member identities. Membership services is governed by the Certificate Authorities.  
+
+**Registration**: The act of adding a new member identity to the network. A member can be dynamically added to the network by a user with 'registrar' privilege. Members are also assigned roles and attributes, which control their access and authority on the network. Neither roles nor attributes can be assigned dynamically; you must instead edit the membersrvc.yaml file.
+
+**Enrollment****: Completes the registration process by allowing the new member to access the blockchain network. Enrollment can be done by the new member after obtaining a secret from a registrar (out-of-band), or by a middle-man with delegated authority to act on behalf of the new member.  
+
+**Transactor**: A network participant connected to the blockchain network through a node, who submits transactions from a client using an SDK or API.
+
+**Transaction**: A request by a transactor to execute a function on the blockchain network. The transaction types are deploy, invoke, and query, which are implemented through the chaincode functions set forth in the fabric's API contract.
+
+**Ledger**: A sequence of cryptographically-linked blocks, containing transactions and the current world state. In addition to data from previous transactions, the ledger also contains the data for currently-running chaincode applications.
+
+**World state**:  Key-value database used by chaincodes to store their state when executed by a transaction.
+
+**Chaincode**: Embedded logic that encodes the rules for specific types of network transactions. Developers write chaincode applications and deploy them to the network. End users then invoke chaincode through a client-side application that interfaces with a network peer, or node. Chaincode runs network transactions, which if validated, are appended to the shared ledger and modify world state.
+
+**Validating peer**: A network node that runs the consensus protocol for the network to validate transactions and maintain the ledger. Validated transactions are appended to the ledger, in blocks. If a transaction fails consensus, it is purged from the block and therefore, not written to the ledger. A validating peer (VP) has authority to deploy, invoke and query chaincode.
+
+**Non-validating peer**: A network node that functions as a proxy, connecting transactors to validating peers. A non-validating peer (NVP) forwards invocation requests to its connected validating peer (VP). It also hosts the event stream server and the REST service.
+
+
+**Consensus**: A protocol that maintains the order of blockchain network transactions (deploy and invoke). Validating nodes work collectively to approve transactions by implementing the consensus protocol. Consensus ensures that a quorum of nodes agree on the order of transactions on the shared ledger. By resolving any discrepancies in this order, consensus ensures that all nodes operate on an identical blockchain ledger. See the [consensus](etn_pbft.html) topic for more information and test cases.  
+
+**Permissioned network**: A blockchain network where each node is required to maintain a member identity on the network, and each node has access to only the transactions that its permissions allow.  
+
+<br>
 ## Network architecture
 
-Figure 1, and its subsequent description, depict the IBM Blockchain network architecture, and the data flow for member services, transactions, consensus and appending to the ledger:
+Figure 1, and its subsequent description, depict IBM Blockchain network architecture, and the data flow for member services, transactions, consensus and appending to the ledger:
 
-![Dedicated Network](images/Architecture_BMX_dedicated.png "Dedicated Network")
+![Dedicated Network](images/Architecture_BMX_dedicated.png "IBM Blockchain network architecture")
 Figure 1.
 
 The following steps describe the network flow from Figure 1 in detail:

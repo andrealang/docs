@@ -1,12 +1,8 @@
 ---
 
- 
-
 copyright:
-
   years: 2015, 2016
-
- 
+lastupdated: "2016-12-21"
 
 ---
 
@@ -16,8 +12,6 @@ copyright:
 {:codeblock: .codeblock}
 
 #Textbasierte Pipelines in Beispielprojekten von {{site.data.keyword.jazzhub_short}} gemeinsam nutzen {: #share-pipeline}
-
-*Letzte Aktualisierung: 7. Dezember 2015* 
 
 Für Beispielprojekte, die in {{site.data.keyword.Bluemix_notm}} über die Schaltfläche 'In {{site.data.keyword.Bluemix_notm}} bereitstellen' bereitgestellt werden, können Sie {{site.data.keyword.jazzhub_short}}-Pipelinekonfigurationen
 als YAML-Dateien definieren. Pipelines, die als Text definiert sind, können gemeinsam genutzt werden,
@@ -123,7 +117,7 @@ job: <Jobname>			   	;nur für Job-Eingaben
 ```
 {: codeblock} 
 
-Trigger:
+Auslöser:
 ```
 type: 'commit' | 'stage'
 [enabled: 'true | 'false'] ;true, wenn keine Angabe gemacht wird
@@ -189,7 +183,8 @@ Bevor die Pipeline aus einer Datei des Typs `pipeline.yml` erstellt wird, werden
         target:
           url: http://api.ng.bluemix.net
           organization: ${CF_ORGANIZATION}
-        script: \"echo ${CF_ORGANIZATION}\"...
+        script: \"echo ${CF_ORGANIZATION}\"                
+      ...
     "
   }
 }
@@ -210,8 +205,7 @@ CF_ORGANIZATION_ID	| Organisations-GUID
 CF_SPACE |	Bereichsname
 CF_SPACE_ID |	Bereichs-GUID
 CF_APP	| App-Name
-
-*Tabelle - Umgebungsvariablen*
+{: caption="Table 1. Environment variables" caption-side="top"}
 
 **YAML-Datei aus einer Pipeline generieren** 
 
@@ -229,4 +223,3 @@ Dieser Aufruf erfordert keinen Header 'Accept'. Sie können diesen Aufruf in ein
 
 **Hinweis:** Aus Sicherheitsgründen sind die Umgebungseigenschaftswerte für die Stage 'secure'
 nicht in den generierten Pipeline-YAML-Dateien enthalten. 
-

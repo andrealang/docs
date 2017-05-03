@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated: "2016-10-16"
 
 ---
 
@@ -12,8 +13,6 @@ copyright:
 {:pre: .pre}
 
 # Levels of access for gateway roles
-Last updated: 16 September 2016
-{: .last-updated}
 
 The following tables show the level of access for each of the gateway roles.
 

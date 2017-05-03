@@ -1,11 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-03-21"
 
 ---
 
-{:new_window: target="\_blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -14,8 +15,6 @@ copyright:
 
 # MQTT connectivity for devices
 {: #mqtt}
-Last updated: 21 September 2016
-{: .last-updated}
 
 MQTT is the primary protocol that devices and applications use to communicate with the {{site.data.keyword.iot_full}}. Client libraries, information, and samples are provided to help you to connect and integrate your devices with {{site.data.keyword.iot_short_notm}}.
 {:shortdesc}
@@ -60,7 +59,7 @@ The password for each device is the unique authentication token that was generat
 
 Devices publish to the event topics in the following format:
 
-<pre class="pre">iot-2/evt/<var class="keyword varname">event_id</var>/fmt/<var class="keyword varname">format_string</var></pre>
+<pre class="pre"><code class="hljs">iot-2/evt/<var class="keyword varname">event_id</var>/fmt/<var class="keyword varname">format_string</var></code></pre>
 {: codeblock}
 
 Where
@@ -70,13 +69,16 @@ Where
 
 **Important:** The message payload is limited to a maximum of 131072 bytes. Messages larger than this limit are rejected.
 
+### Retained messages
+{{site.data.keyword.iot_short_notm}} organizations are not authorized to publish retained MQTT messages. If a device sends a retained message, the {{site.data.keyword.iot_short_notm}} service overrides the retained message flag when it is set to true and processes the message as if the retained message flag is set to false.
+
 
 ## Subscribing to commands
 {: #subscribing_to_commands}
 
 Devices can subscribe to command topics in the following format:
 
-<pre class="pre">iot-2/cmd/<var class="keyword varname">command_id</var>/fmt/<var class="keyword varname">format_string</var></pre>
+<pre class="pre"><code class="hljs">iot-2/cmd/<var class="keyword varname">command_id</var>/fmt/<var class="keyword varname">format_string</var></code></pre>
 {: codeblock}
 
 Where
@@ -92,7 +94,7 @@ Support for device lifecycle management is optional. The Device Management Proto
 
 ### Quality of service levels and clean session
 
-Managed devices can publish messages that have a quality of service (QoS) level of 0 or 1. Messages from the device must not be retained messages.
+Managed devices can publish messages that have a quality of service (QoS) level of 0 or 1.
 
 Messages with QoS=0 can be discarded and do not persist after the messaging server is restarted. Messages with QoS=1 can be queued and do persist after the messaging server is restarted. The durability of the subscription determines whether a request is queued. The ``cleansession`` parameter of the connection that made the subscription determines the durability of the subscription.  
 
@@ -124,7 +126,7 @@ All messages are sent in JSON format.
 **Requests**  
 Requests are formatted as shown in the following code sample:
 
-<pre class="pre">{  "d": {...}, "<var class="keyword varname">reqId</var>": "b53eb43e-401c-453c-b8f5-94b73290c056" }</pre>
+<pre class="pre"><code class="hljs">{  "d": {...}, "<var class="keyword varname">reqId</var>": "b53eb43e-401c-453c-b8f5-94b73290c056" }</code></pre>
 {: codeblock}
 
 Where:

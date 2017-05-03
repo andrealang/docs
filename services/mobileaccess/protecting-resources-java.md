@@ -1,14 +1,16 @@
 ---
 
 copyright:
-  years: 2015, 2016
-lastupdated: "2016-10-02"  
+  years: 2015, 2016, 2017
+lastupdated: "2017-03-15"
+
 ---
+{:codeblock:.codeblock}
+
+The {{site.data.keyword.amafull}} service is replaced with the {{site.data.keyword.appid_full}} service.
 
 # Protecting Liberty for Java resources with {{site.data.keyword.amashort}}
 {: #protecting-liberty}
-
-
 
 The {{site.data.keyword.amashort}} server SDK provides an `OAuthTAI` module for Liberty for Java&trade;  applications that are deployed on {{site.data.keyword.Bluemix}}. You must instrument your Liberty server with the `OAuthTAI` module to protect it from unauthorized access, and to gather monitoring information.
 
@@ -41,6 +43,7 @@ You must be familiar with developing on Liberty for Java applications on {{site.
 	</featureManager>
 
 	```
+	{: codeblock}
 1. Continue editing the `server.xml` file, and configure the `OAuthTAI` feature. The security role `TAIUserRole` is mapped to a special subject named `ALL_AUTHENTICATED_USERS`. The following snippet demonstrates how to protect `/protected` endpoint GET methods.
 
 	```XML
@@ -59,12 +62,14 @@ You must be familiar with developing on Liberty for Java applications on {{site.
 		</application-bnd>
 	</application>
 	```
+	{: codeblock}
 
 1. Add the following property that contains the {{site.data.keyword.amashort}} service URL to the environment variables of your back-end application. You can add the URL to the `manifest.yml` or `server.env` file.
 
 	```
 	imfServiceUrl=http://imf-authserver.{domainName}/imf-authserver
 	```
+	{: codeblock}
 
 ## Protecting Liberty for Java resources
 {: #protecting-liberty-resources}
@@ -90,6 +95,7 @@ For example:
 		<role-name>TAIUserRole</role-name>
 	</security-role>
 	```
+	{: codeblock}
 
 * To specify `TAIUserRole` with an annotation, use the following syntax:
 
@@ -100,6 +106,7 @@ For example:
 	    // servlet code
 	}
 	```
+	{: codeblock}
 
 ### Accessing a security context object
 {: #accessing-security}
@@ -116,6 +123,8 @@ Subject callerSubject = WSSubject.getCallerSubject();
 WSCredential callerCredential =
     callerSubject.getPublicCredentials(WSCredential.class).iterator().next();
 ```
+{: codeblock}
+
 For more information, see [WSCredential](http://www-01.ibm.com/support/knowledgecenter/api/content/nl/en-us/SSEQTP_7.0.0/com.ibm.websphere.javadoc.doc/web/apidocs/index.html?com/ibm/websphere/security/cred/WSCredential.html).
 
 #### com.worklight.oauth.tai.WLCredential property
@@ -134,3 +143,4 @@ JSONObject imfDevice = securityContext.get("imf.device");
 JSONObject imfApplication = securityContext.get("imf.application");
 
 ```
+{: codeblock}

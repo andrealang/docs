@@ -1,49 +1,42 @@
 {
   "id": "docs_homepage_services",
-  "title": "Vorgehensweise zur Verwendung der Bluemix-Services",
-  "subtitle": "Informationen zu Servicetypen und Verfügbarkeit",
-  "subtitleHref": "services/index.html",
+  "title": "Compute & Services",
   "items": [{
     "id": "cfApp",
     "title": "Cloud Foundry-Anwendungen",
+    "img": "homepage/images/cloud-foundry.svg",
     "href": "cfapps/index.html",
-    "category_id": "Compute"
-  }, {
-    "title": "Laufzeiten",
-    "href": "cfapps/runtimes.html",
-    "category_id": "Compute"
+    "category_id": "compute"
   }, {
     "title": "Boilerplates",
+    "img": "homepage/images/Bluemix-logo.svg",
     "href": "cfapps/boilerplates.html",
-    "category_id": "Compute"
+    "category_id": "compute"
   }, {
-    "id": "whisk",
+    "id": "whisk-rt",
     "title": "IBM OpenWhisk",
+    "img": "homepage/images/whisk_icon.svg",
     "href": "openwhisk/index.html",
-    "category_id": "Compute"
+    "category_id": "compute"
   }, {
-    "id": "Container",
-    "title": "IBM Containers",
+    "id": "container",
+    "title": "IBM Bluemix Container Service",
+    "img": "homepage/images/containerServiceIcon.svg",
     "href": "containers/container_index.html",
-    "category_id": "Compute"
-  }, {
-    "id": "vm",
-    "title": "IBM Virtual Servers",
-    "href": "virtualmachines/vm_index.html",
-    "category_id": "Compute"
+    "category_id": "compute"
   }, {
     "type": "extra",
-    "title": "Arbeit mit Daten versuchen",
+    "title": "Mit Daten arbeiten",
     "href": "services/WorkWithData/index.html",
     "category_id": "data"
   }, {
     "type": "extra",
-    "title": "Toolchains versuchen",
-    "href": "toolchains/toolchains_overview.html",
+    "title": "Dedicated GitHub Enterprise",
+    "href": "services/ghededicated/index.html",
     "category_id": "devops"
   }, {
     "type": "extra",
-    "title": "Mobiles Bluemix-Dashboard versuchen",
+    "title": "Mobilprojekte erstellen",
     "href": "mobile/index.html",
     "category_id": "mobile"
   }]

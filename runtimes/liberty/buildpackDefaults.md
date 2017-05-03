@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2016-06-10"
 
 ---
 
@@ -11,9 +12,6 @@ copyright:
 
 # Buildpack defaults
 {: #buildpack_defauts}
-
-Last Updated: 10 June 2016
-{: .last-updated}
 
 The Liberty buildpack is updated frequently in Bluemix. Each release might contain security fixes or feature enhancements.
 
@@ -52,8 +50,8 @@ To ensure that the application is not affected by the major version change, set 
 
 
 # rellinks
-{: #rellinks}
+{: #rellinks notoc}
 ## general
-{: #general}
+{: #general notoc}
 * [Liberty runtime](index.html)
 * [Liberty Profile Overview](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_about.html)

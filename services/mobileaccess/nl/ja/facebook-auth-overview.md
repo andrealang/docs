@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
 {:new_window: target="_blank"}
@@ -12,10 +13,9 @@ copyright:
 # Facebook 資格情報を使用したユーザーの認証
 {: #facebook-auth-overview}
 
-最終更新日: 2016 年 7 月 22 日
-{: .last-updated}
+Facebook を ID プロバイダーとして使用してリソースを保護するように、{{site.data.keyword.amafull}} サービスを構成できます。モバイル・アプリケーションまたは Web アプリケーションのユーザーは、ユーザー自身の Facebook 資格情報を認証に使用できます。
 
-Facebook を ID プロバイダーとして使用してリソースを保護するように、{{site.data.keyword.amashort}} サービスを構成できます。モバイル・アプリケーションまたは Web アプリケーションのユーザーは、ユーザー自身の Facebook 資格情報を認証に使用できます。
+
 {:shortdesc}
 
 **重要**: Facebook が提供する Client SDK を別個にインストールする必要はありません。Facebook SDK は、{{site.data.keyword.amashort}} Facebook Client SDK を構成するときに、依存関係マネージャーによって自動的にインストールされます。
@@ -48,27 +48,31 @@ Facebook を ID プロバイダーとして使用してリソースを保護す�
 {{site.data.keyword.amashort}} Web アプリケーション要求フローは、モバイル・クライアントのフローに似ています。ただし、{{site.data.keyword.amashort}} は、{{site.data.keyword.Bluemix_notm}} バックエンド・リソースではなくて Web アプリケーションを保護します。
 
   * 最初の要求は Web アプリケーションによって (例えばログイン・フォームから) 送信されます。
-  * 最終のリダイレクトは、バックエンド保護リソースではなく Web アプリケーション自体の保護領域へのリダイレクトです。 
+  * 最終のリダイレクトは、バックエンド保護リソースではなく Web アプリケーション自体の保護領域へのリダイレクトです。
 
 
-## Facebook Developer Portal からの Facebook Application ID の取得
+## Facebook for Developers Web サイトでのアプリケーションの作成
 {: #facebook-appID}
 
-Facebook を ID プロバイダーとして使用し始めるには、Facebook Developer Portal でアプリケーションを作成する必要があります。このプロセスにおいて、ユーザーは Facebook Application ID を取得します。この ID は、どのアプリケーションが接続しようとしているのかを Facebook に知らせるための固有 ID です。
+Facebook を ID プロバイダーとして使用し始めるには、Facebook for Developers Web サイトでアプリケーションを作成する必要があります。このプロセス時に、Facebook App ID が作成されます。これは、どのアプリケーションが接続を試行しているかを認識するために Facebook によって使用される固有 ID です。
 
-1. [Facebook Developer Portal](https://developers.facebook.com) を開きます。
+モバイル・アプリまたは Web アプリ用に Facebook 認証を構成する際にこの値が必要になります。
 
-1. メニューで**「マイ・アプリ」**をクリックして**「新規アプリの作成 (Create a new app)」**を選択します。
-iOS アプリケーションまたは Android アプリケーションのいずれかを選択し、次の画面で**「スキップしてアプリ ID を作成 (Skip and Create App ID)」**をクリックします。
+1. [Facebook for Developers ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://developers.facebook.com "外部リンク・アイコン"){: new_window} サイトにアクセスします。
 
-1. 任意のアプリケーション表示名を設定し、カテゴリーを選択します。**「アプリ ID の作成 (Create App ID)」**をクリックして先に進みます。
+1. **「My Apps」**プルダウン・リストを開き、**「Add a New App」**を選択します。
 
-1. 表示される**「アプリ ID (App ID)」**をコピーします。この値が Facebook Application ID です。モバイル・アプリまたは Web アプリで Facebook 認証を構成する際にこの値が必要になります。
+1. **「Display Name」**および**「Contact Email values」**の値を入力し、プルダウン・リストから**「Category」**を選択します。
+
+1. **「Create a New App ID」**をクリックします。
+
+1. セキュリティー検査が表示されることがあります。要求されたアクションを実行します。
+
+1. **「Product Setup」**ページが表示されます。表示される**「アプリ ID (App ID)」**をコピーします。
 
 ## 次のステップ
 {: #next-steps}
 
 * [Android アプリ用の Facebook 認証の使用可能化](facebook-auth-android.html)
 * [iOS アプリ用の Facebook 認証の使用可能化 (Swift SDK)](facebook-auth-ios-swift-sdk.html)
-* [iOS アプリ用の Facebook 認証の使用可能化 (Objective-C SDK - 非推奨)](facebook-auth-ios.html)
 * [Cordova アプリ用の Facebook 認証の使用可能化](facebook-auth-cordova.html)

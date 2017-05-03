@@ -1,21 +1,19 @@
 ---
 
- 
+
 
 copyright:
 
-  years: 2015，2016
+  years: 2015，2017
 
- 
+lastupdated: "2016-04-18"
 
 ---
 
-{:shortdesc: .shortdesc} 
+{:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 
 # Creating Cloud Foundry apps
-*Last updated: 18 April 2016*
-{: .last-updated}
 
 With {{site.data.keyword.Bluemix}}, you can create your app in the {{site.data.keyword.Bluemix_notm}} user interface. After it's created, you can decide to continue to use the UI, use the cf command line interface, or use {{site.data.keyword.jazzhub_title}} to develop, track, plan, and deploy your app.
 {:shortdesc}
@@ -31,7 +29,7 @@ To get started creating your application, take the following steps:
   2. Click **CREATE AN APP**.
   3. Click **WEB** and follow the guided experience to choose a starter, specify a name, and select how you want to code.
   4. When you are finished with the guided experience, click **VIEW APP OVERVIEW**. The Overview for your app is displayed on the Dashboard.
-  5. You can add a service to your app by clicking **ADD A SERVICE OR API** on the app Overview in the Bluemix user interface. Browse and select services from the catalog, or, scroll to the end of the catalog and click **{{site.data.keyword.Bluemix_notm}} Experimental Services** to browse experimental services. Or, you can use the cf command line interface. See Options for working with apps.
+  5. You can add a service to your app by clicking **ADD A SERVICE OR API** on the app Overview in the {{site.data.keyword.Bluemix_notm}} user interface. Browse and select services from the catalog, or, scroll to the end of the catalog and click **{{site.data.keyword.Bluemix_notm}} Experimental Services** to browse experimental services. Or, you can use the cf command line interface. See Options for working with apps.
   6. On the app Overview, click Add Git to save your application source in a Git repository and create a Git hosted project. You can also deploy the application from {{site.data.keyword.jazzhub_title}}.
 
 **Note:** If a service that you bind to an app crashes, the app might stop running or have errors. {{site.data.keyword.Bluemix_notm}} does not automatically restart the app to recover from these problems. Consider coding your app to identify and recover from outages, exceptions, and connection failures. See the Apps are not automatically restarted troubleshooting topic for more information.
@@ -53,15 +51,14 @@ After your app is created, you have a few options for continuing to add services
 Use the following tips while developing your web apps:
 
 <dl><dt>Persistence</dt>
-<dd>Do not specify any local storage for your applications. Each instance of your application, even if only one instance is running, can be restarted or moved to a different virtual machine at any time, typically for load balancing. Anything stored in local storage is erased when the application is moved or deleted. Use one of the Bluemix data store services for persistence.</dd>
+<dd>Do not specify any local storage for your applications. Each instance of your application, even if only one instance is running, can be restarted or moved to a different virtual machine at any time, typically for load balancing. Anything stored in local storage is erased when the application is moved or deleted. Use one of the {{site.data.keyword.Bluemix_notm}} data store services for persistence.</dd>
 <dt>Resource limits</dt>
 <dd>Be aware of limits on the quantities of resources that a trial account can use. The limits are as follows:
 <table style="width:100%">
+<caption>Table 1. {{site.data.keyword.Bluemix_notm}} resource limits for a trial account</caption>
   <th>Resource type</th>	<th>Quantity limit</th>
 <tr><td>Number of services that are used across all apps</td> <td>10</td>
 <tr><td>Memory used across all apps</td> <td>	2 G</td>
 <tr><td>Number of routes</td> <td>500</td>
 </table>
 </dd></dl>
-
-*Table 1. {{site.data.keyword.Bluemix_notm}} resource limits for a trial account*

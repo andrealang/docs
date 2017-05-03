@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2016-03-17"
 
 ---
 
@@ -11,11 +12,9 @@ copyright:
 {:codeblock: .codeblock}
 {:screen: .screen}
 
-#開發應用程式
+# 開發應用程式
 {: #developingapps}
 
-*前次更新：2016 年 3 月 17 日*
-{: .last-updated}
 
 您可以使用整合開發環境 (IDE) 或文字編輯器來開發應用程式，或是使用 {{site.data.keyword.Bluemix}} DevOps Services。
-{:shortdesc} 
+{:shortdesc}

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-04-04"
 
 ---
 
@@ -15,8 +16,6 @@ copyright:
 # Python for application developers
 {: #python}
 
-Last updated: 29 July 2016
-{: .last-updated}
 
 You can use Python to build and develop applications that interact with your organization on {{site.data.keyword.iot_full}}. The Python client for {{site.data.keyword.iot_short_notm}} provides an API to facilitate simple interaction with {{site.data.keyword.iot_short_notm}} features by abstracting away the underlying protocols such as MQTT and HTTP.
 
@@ -27,7 +26,7 @@ Use the information and examples that are provided to start developing your appl
 ## Downloading the Python client and resources
 {: #python_client_download}
 
-To access the Python client for {{site.data.keyword.iot_short_notm}} and other available resources, go to the [iot-python](https://github.com/ibm-messaging/iot-python) repository in GitHub and complete the installation instructions.
+To access the Python client for {{site.data.keyword.iot_short_notm}} and other available resources, go to the [iot-python ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-messaging/iot-python){: new_window} repository in GitHub and complete the installation instructions.
 
 ## Constructor
 {: #constructor}
@@ -36,11 +35,13 @@ The options dictionary creates definitions that are used to interact with the  {
 
 |Definition|Description |
 |:-----|:-----|
-|``orgId``|Your organization ID|
-|``appId``|The unique ID of an application in your organization|
-|``auth-method``|Method of authentication in which the only value that is supported is ``apikey``|
-|``auth-key``|An optional API key, which is required when auth-method is set to ``apikey``|
-|``auth-token``|An API key token, which is required when auth-method is set to ``apikey``|
+|`orgId`|Your organization ID.|
+|`appId`|The unique ID of an application in your organization.|
+|`auth-method`|The method of authentication. The only method that is supported is `apikey`.|
+|`auth-key`|An optional API key, which you must specify when you set the value of auth-method to `apikey`.|
+|`auth-token`|An API key token, which is also required when you set the value of auth-method to `apikey`.|
+|`clean-session`|A true or false value that is required only if you want to connect the application in durable subscription mode. By default, `clean-session` is set to true.|
+
 
 If no options dictionary is provided, the client connects to the {{site.data.keyword.iot_short_notm}} Quickstart service as an unregistered device.
 
@@ -53,7 +54,8 @@ try:
     "id": appId,
     "auth-method": authMethod,
     "auth-key": authKey,
-    "auth-token": authToken
+    "auth-token": authToken,
+    "clean-session": true
   }
   client = ibmiotf.application.Client(options)
 except ibmiotf.ConnectionException  as e:
@@ -84,6 +86,7 @@ id=myApplication
 auth-method=apikey
 auth-key=key
 auth-token=token
+clean-session=true/false
 
 ```
 
@@ -350,7 +353,7 @@ import ibmiotf.application
 
 client.connect()
 commandData={'rebootDelay' : 50}
-client.publishCommand(myDeviceType, myDeviceId, "reboot", "json", myData)
+client.publishCommand(myDeviceType, myDeviceId, "reboot", "json", commandData)
 ```
 
 
@@ -372,7 +375,7 @@ except IoTFCReSTException as e:
     print("ERROR [" + e.httpcode + "] " + e.message)
 ```
 
-For information about the request and response model and HTTP status codes, refer to the Organization Configuration section of the [{{site.data.keyword.iot_short_notm}} API](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html).
+For information about the request and response model and HTTP status codes, refer to the Organization Configuration section of the [{{site.data.keyword.iot_short_notm}} API ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/apis/swagger/v0002/orgAdmin.html){: new_window}.
 
 
 ## Bulk device operations
@@ -380,7 +383,7 @@ For information about the request and response model and HTTP status codes, refe
 
 Your applications can use bulk operations to get, add, or remove multiple devices simultaneously.
 
-For information about the list of query parameters, the request and response model, and HTTP status codes, see the 'Bulk Operations' section of the [{{site.data.keyword.iot_short_notm}} API](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html#!/Bulk_Operations/).
+For information about the list of query parameters, the request and response model, and HTTP status codes, see the 'Bulk Operations' section of the [{{site.data.keyword.iot_short_notm}} API ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/apis/swagger/v0002/orgAdmin.html){: new_window}.
 
 
 ### Retrieving device information
@@ -456,7 +459,7 @@ except IoTFCReSTException as e:
 
 The device types that you create in your organization can be used to create templates for adding devices. By using the {{site.data.keyword.iot_short_notm}} API features, your applications can list, create, delete, view, or update device types in your organization.
 
-For information about query parameters, the request and response model, and HTTP status codes, see the 'Device types' section of the [{{site.data.keyword.iot_short_notm}} API](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html) documentation.
+For information about query parameters, the request and response model, and HTTP status codes, see the 'Device types' section of the [{{site.data.keyword.iot_short_notm}} API ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html){: new_window} documentation.
 
 
 ### Retrieving all device types
@@ -598,7 +601,7 @@ except IoTFCReSTException as e:
 Device operations that are made available in the API include listing, adding, removing, viewing, updating, viewing location, and viewing device management information of devices in a
  {{site.data.keyword.iot_short_notm}} organization.
 
-For information about the query parameters, the request and response model, and HTTP status codes, see the 'Device section' of the [{{site.data.keyword.iot_short_notm}} API](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html).
+For information about the query parameters, the request and response model, and HTTP status codes, see the 'Device section' of the [{{site.data.keyword.iot_short_notm}} API documentation ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html){: new_window}.
 
 
 ### Retrieving devices of a particular device type
@@ -636,7 +639,7 @@ To add a device to a {{site.data.keyword.iot_short_notm}} organization, use the 
 |``metadata``|Optional|Custom field value string pairs, as outlined in [Sample code for adding a device type](#sample_device_type).|
 |``location``|Optional|Contains the longitude, latitude, elevation, accuracy, and measuredDateTime variables.|
 
-For more information about these parameters and the response format and codes, see the [API documentation](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html#!/Devices/post_device_types_typeId_devices).
+For more information about these parameters and the response format and codes, see the [API documentation ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html#!/Devices/post_device_types_typeId_devices){: new_window}.
 
 When you use the ``registerDevice()`` method, define the mandatory deviceID parameter and the optional parameters that you require for your device and then call the method by using the parameters that you selected.
 
@@ -751,7 +754,7 @@ Use the device diagnostic operations for implementing the following troubleshoot
 - Retrieving device error codes
 - Adding error codes
 
-For more information about query and response models, response codes, and query parameters, see the [API documentation](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html) {{site.data.keyword.iot_short_notm}} API documentation.
+For more information about query and response models, response codes, and query parameters, see the [{{site.data.keyword.iot_short_notm}} API documentation ![External link icon](../../../../icons/launch-glyph.svg "External link icon")](https://docs.internetofthings.ibmcloud.com/swagger/v0002.html){: new_window}.
 
 ### Get diagnostic logs
 

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2016-03-17"
 
 ---
 
@@ -11,11 +12,9 @@ copyright:
 {:codeblock: .codeblock}
 {:screen: .screen}
 
-#Anwendungen entwickeln
+# Apps entwickeln
 {: #developingapps}
 
-*Letzte Aktualisierung: 17. März 2016*
-{: .last-updated}
 
 Sie können Anwendungen in einer integrierten Entwicklungsumgebung (Integrated Development Environment, IDE) oder einem Texteditor entwickeln oder auch {{site.data.keyword.Bluemix}} DevOps Services verwenden.
-{:shortdesc} 
+{:shortdesc}

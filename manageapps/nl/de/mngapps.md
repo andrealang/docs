@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2015-03-17"
 
 ---
 
@@ -9,10 +10,8 @@ copyright:
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 
-#Anwendungen verwalten
+# Anwendungen verwalten
 {: #manageapps}
-
-*Letzte Aktualisierung: 17. März 2015*
 
 Mithilfe des Dashboards in der {{site.data.keyword.Bluemix}}-Benutzerschnittstelle können Sie Ihre Anwendungen und Services anzeigen und verwalten sowie die Ressourcennutzung anhand der Messanzeigen für Kontingente überwachen.
 {:shortdesc}

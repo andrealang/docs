@@ -1,22 +1,20 @@
 ---
 
 copyright:
-  years: 2015, 2016
-  
+  years: 2015, 2016, 2017
+lastupdated: "2016-12-04"
+
 ---
+{:codeblock:.codeblock}
 
 # Protegendo recursos do Liberty for Java com o {{site.data.keyword.amashort}}
 {: #protecting-liberty}
-
-Última atualização: 30 de junho de 2016
-{: .last-updated}
-
 
 O SDK do servidor {{site.data.keyword.amashort}} fornece um módulo `OAuthTAI` para aplicativos Liberty for Java&trade; que são implementados no {{site.data.keyword.Bluemix}}. Deve-se instrumentar seu servidor Liberty com o módulo `OAuthTAI` para protegê-lo contra acesso não autorizado e reunir as informações de monitoramento.
 
 ## Antes de iniciar
 {: #before-you-begin}
-Deve-se estar familiarizado com o desenvolvimento dos aplicativos Liberty for Java no {{site.data.keyword.Bluemix}}. Para obter mais informações, consulte [Liberty for Java](https://console.{DomainName}/docs/runtimes/liberty/index.html).
+Deve-se estar familiarizado com o desenvolvimento dos aplicativos Liberty for Java no {{site.data.keyword.Bluemix}}. Para obter mais informações, veja [Liberty for Java](https://console.{DomainName}/docs/runtimes/liberty/index.html).
 
 ## Instalando o {{site.data.keyword.amashort}} server SDK
 {: #installing-server-sdk}
@@ -44,6 +42,7 @@ Deve-se estar familiarizado com o desenvolvimento dos aplicativos Liberty for Ja
 	</featureManager>
 
 	```
+	{: codeblock}
 1. Continue editando o arquivo `server.xml` e configure o recurso `OAuthTAI`. A função de segurança `TAIUserRole` é mapeada para um assunto especial chamado `ALL_AUTHENTICATED_USERS`. O fragmento a seguir demonstra como proteger métodos GET do terminal `/protected`.
 
 	```XML
@@ -62,6 +61,7 @@ Deve-se estar familiarizado com o desenvolvimento dos aplicativos Liberty for Ja
 		</application-bnd>
 	</application>
 	```
+	{: codeblock}
 
 1. Inclua a propriedade a seguir que contém a URL de serviço {{site.data.keyword.amashort}} nas variáveis do ambiente do seu
 aplicativo backend. É possível incluir a URL no arquivo `manifest.yml` ou `server.env`.
@@ -69,6 +69,7 @@ aplicativo backend. É possível incluir a URL no arquivo `manifest.yml` ou `ser
 	```
 	imfServiceUrl=http://imf-authserver.{domainName}/imf-authserver
 	```
+	{: codeblock}
 
 ## Protegendo recursos do Liberty for Java
 {: #protecting-liberty-resources}
@@ -95,6 +96,7 @@ em Liberty</description>
 		<role-name>TAIUserRole</role-name>
 	</security-role>
 	```
+	{: codeblock}
 
 * Para especificar `TAIUserRole` com uma anotação, use a sintaxe a seguir:
 
@@ -105,6 +107,7 @@ em Liberty</description>
 	    // código de servlet
 	}
 	```
+	{: codeblock}
 
 ### Acessando um objeto de contexto de segurança
 {: #accessing-security}
@@ -121,6 +124,8 @@ Subject callerSubject = WSSubject.getCallerSubject();
 WSCredential callerCredential =
     callerSubject.getPublicCredentials(WSCredential.class).iterator().next();
 ```
+{: codeblock}
+
 Para obter mais informações, consulte [WSCredential](http://www-01.ibm.com/support/knowledgecenter/api/content/nl/en-us/SSEQTP_7.0.0/com.ibm.websphere.javadoc.doc/web/apidocs/index.html?com/ibm/websphere/security/cred/WSCredential.html).
 
 #### Propriedade com.worklight.oauth.tai.WLCredential
@@ -138,3 +143,4 @@ JSONObject imfDevice = securityContext.get("imf.device");
 JSONObject imfApplication = securityContext.get("imf.application");
 
 ```
+{: codeblock}

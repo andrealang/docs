@@ -1,15 +1,13 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated: "2017-01-08"
 
 ---
 
 # Autenticazione personalizzata dell'applicazione web
 {: #custom-web}
-
-Ultimo aggiornamento: 16 giugno 2016
-{: .last-updated}
 
 Aggiungi l'autenticazione personalizzata alla tua applicazione web
 
@@ -45,7 +43,7 @@ Per avviare il processo di autorizzazione:
 1. Vai dalla tua applicazione web al seguente endpoint del server di autenticazione:
 
     https://imf-newauthserver.bluemix.net/oauth/v2/authorization
-  
+
   utilizzando i seguenti parametri di query:
    ```
    response_type=’authorization_code’
@@ -55,7 +53,7 @@ Per avviare il processo di autorizzazione:
    state= <state>
    ```
 
-    Il parametro `state` non è utilizzato per ora e può essere lasciato vuoto. 
+    Il parametro `state` non è utilizzato per ora e può essere lasciato vuoto.
 
     Il parametro `redirect_uri` determina il reindirizzamento dopo l'esito positivo o negativo dell'autenticazione del tuo provider di identità personalizzato.
 
@@ -75,8 +73,8 @@ La risposta restituita dopo un'autenticazione corretta contiene il codice di aut
  redirect_uri = <redirect_uri>
  code = <authorization code>
  ```
-  Il parametro `redirect_uri` deve corrispondere al `redirect_uri` del passo 1. Il codice di autorizzazione è stato restituito dalla richiesta nel passo 2. 
-  
+  Il parametro `redirect_uri` deve corrispondere al `redirect_uri` del passo 1. Il codice di autorizzazione è stato restituito dalla richiesta nel passo 2.
+
   Assicurati di inviare questa richiesta `POST` in 10 minuti perché il codice concesso è valido per un massimo di 10 minuti.
 
 Il corpo della risposta `POST` contiene *access_token* e il
@@ -88,5 +86,3 @@ Il corpo della risposta `POST` contiene *access_token* e il
 Ora puoi iniziare ad effettuare richieste alle tue risorse protette.
 Tutte le richieste a risorse protette devono contenere il `access_token`.
 Invia il token di accesso nel campo intestazione `the-Authorization-request`.
-
-

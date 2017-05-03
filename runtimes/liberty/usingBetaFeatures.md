@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-02-07"
 
 ---
 
@@ -10,9 +11,6 @@ copyright:
 
 # Using the beta features
 {: #using_beta_features}
-
-Last Updated: 10 June 2016
-{: .last-updated}
 
 The Liberty beta features provide early access to new functionality and programming models that might be included in a future Liberty release. Most of the beta features can also be used in applications deployed to Bluemix.
 
@@ -79,8 +77,8 @@ If you are enabling the beta features on an existing application, don't forget t
 {: #codeblock}
 
 # rellinks
-{: #rellinks}
+{: #rellinks notoc}
 ## general
-{: #general}
+{: #general notoc}
 * [Liberty runtime](index.html)
 * [Liberty Profile Overview](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_about.html)

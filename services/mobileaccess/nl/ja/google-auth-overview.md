@@ -1,19 +1,21 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2016, 2017
+lastupdated: "2017-01-15"
 
 ---
-{:screen:  .screen}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
+
 
 # Google 資格情報を使用したユーザーの認証
 {: #google-auth}
 
-最終更新日: 2016 年 7 月 22 日
-
-Google を ID プロバイダーとして使用してリソースを保護するように {{site.data.keyword.amashort}} サービスを構成できます。それにより、モバイル・アプリケーション・ユーザーまたは Web アプリケーション・ユーザーは、Google の資格情報を認証に使用できるようになります。
+Google を ID プロバイダーとして使用してリソースを保護するように {{site.data.keyword.amafull}} サービスを構成できます。それにより、モバイル・アプリケーション・ユーザーまたは Web アプリケーション・ユーザーは、Google の資格情報を認証に使用できるようになります。
 {:shortdesc}
 
 **重要:** Google が提供する Client SDK を別個にインストールする必要はありません。Google SDK は、{{site.data.keyword.amashort}} Client SDK を構成するときに、依存関係マネージャーによって自動的にインストールされます。
@@ -46,7 +48,7 @@ Google を ID プロバイダーとして使用してリソースを保護する
 {{site.data.keyword.amashort}} Web アプリケーション要求フローは、モバイル・クライアントのフローに似ています。ただし、{{site.data.keyword.amashort}} は、{{site.data.keyword.Bluemix_notm}} バックエンド・リソースではなくて Web アプリケーションを保護します。
 
   * 最初の要求は Web アプリケーションによって (例えばログイン・フォームから) 送信されます。
-  * 最終のリダイレクトは、バックエンド保護リソースではなく Web アプリケーション自体の保護領域へのリダイレクトです。 
+  * 最終のリダイレクトは、バックエンド保護リソースではなく Web アプリケーション自体の保護領域へのリダイレクトです。
 
 
 
@@ -55,6 +57,4 @@ Google を ID プロバイダーとして使用してリソースを保護する
 
 * [Android アプリ用の Google 認証の使用可能化](google-auth-android.html)
 * [iOS アプリ用の Google 認証の使用可能化 (Swift SDK)](google-auth-ios-swift-sdk.html)
-* [iOS アプリ用の Google 認証の使用可能化 (Objective-C SDK)](google-auth-ios.html)
 * [Cordova アプリ用の Google 認証の使用可能化](google-auth-cordova.html)
-

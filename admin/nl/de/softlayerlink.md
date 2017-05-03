@@ -4,8 +4,8 @@
 
 copyright:
 
-  years: 2016
-
+  years: 2016, 2017
+lastupdated: "2017-01-11"
  
 
 ---
@@ -15,42 +15,58 @@ copyright:
 {:screen: .screen}
 {:new_window: target="_blank"}
 
-<!-- draft - staging only -->
-
-#SoftLayer- und {{site.data.keyword.Bluemix_notm}}-Abrechnungskonten verknüpfen
+# Abrechnungskonten für {{site.data.keyword.Bluemix_notm}} und SoftLayer aktualisieren und zusammenführen
 {: #softlayerlink}
-*Letzte Aktualisierung: 15. August 2016*
-{: .last-updated}
 
-Sie können nun die SoftLayer- und {{site.data.keyword.Bluemix_notm}}-Abrechnungskonten verknüpfen. Wenn Sie die Konten verknüpfen, erfolgt die Rechnungsstellung sowohl für SoftLayer- als auch für {{site.data.keyword.Bluemix_notm}}-Ressourcen über SoftLayer. Wenn Sie über ein bestehendes Konto verfügen, erfolgt die Rechnungsstellung für {{site.data.keyword.Bluemix_notm}} über SoftLayer ab dem neuen Abrechnungszyklus, der nach dem Verknüpfen der Konten beginnt.
+Wenn Sie über ein {{site.data.keyword.Bluemix_notm}}-Testkonto verfügen und auf das Infrastruktur-Dashboard zugreifen möchten, müssen Sie Ihr Konto auf ein nutzungsabhängiges {{site.data.keyword.Bluemix_notm}}-Konto aktualisieren. Ein Upgrade ist auch dann erforderlich, wenn Sie weitere gebührenpflichtige Ressourcen nutzen wollen, die nicht im Rahmen eines Testkontos verfügbar sind, oder wenn Ihr Testkonto endet. 
+
+Sie können Ihre bestehenden {{site.data.keyword.Bluemix_notm}}- und SoftLayer-Abrechnungskonten zusammenführen, indem Sie die Konten verknüpfen. Wenn Sie die Konten verknüpfen, werden sowohl die {{site.data.keyword.Bluemix_notm}}- als auch die SoftLayer-Ressourcen über {{site.data.keyword.Bluemix_notm}} in Rechnung gestellt.
+
+**Achtung:** Ein {{site.data.keyword.Bluemix_notm}}-Abonnementkonto kann nicht mit einem SoftLayer-Konto verknüpft werden. Um auf das Infrastruktur-Dashboard zuzugreifen, müssen Sie ein nutzungsabhängiges Konto erstellen. Dabei handelt es sich um ein zweites Konto, das automatisch mit einem SoftLayer-Konto verknüpft wird. Daraufhin erhalten Sie zwei separate Rechnungen für die beiden {{site.data.keyword.Bluemix_notm}}-Konten. Obwohl die Rechnungsstellung für Ihre Infrastrukturressourcen in einem separaten nutzungsabhängigen Konto erfolgt, können die Ressourcen mit Apps und Services in Ihrem Abonnementkonto verwendet werden. Wenn Sie beispielsweise einen Watson-Service in Ihrem Abonnementkonto aktivieren, dann können Sie die Serviceberechtigungsnachweise kopieren und die Berechtigungsnachweise dann zu Ihrer Bare-Metal-Anwendung hinzufügen, die aus dem nutzungsabhängigen Konto abgeleitet wird. 
 {:shortdesc}
 
-**Wichtig:** Alle verknüpften Konten in {{site.data.keyword.Bluemix_notm}} müssen nutzungsabhängige Konten sein. Sie können ein neues nutzungsabhängiges Konto erstellen oder ein bestehendes nutzungsabhängiges Konto verknüpfen. Sie können auch ein bestehendes Testkonto verknüpfen, das dann in ein nutzungsabhängiges Konto umgewandelt wird.  
+## Aktualisierung auf ein nutzungsabhängiges {{site.data.keyword.Bluemix_notm}}-Konto
+{: #upgradetopayg}
 
-Nachdem die Konten verknüpft wurden, können Sie die Konten leicht wechseln. Sie können die Nutzung der {{site.data.keyword.Bluemix_notm}}-Ressourcen weiterhin in der {{site.data.keyword.Bluemix_notm}}-Benutzerschnittstelle überwachen. Diese Ressourcen werden nun allerdings über die SoftLayer-Rechnung abgerechnet.
+Wenn Sie sich mit einem Testkonto bei {{site.data.keyword.Bluemix_notm}} anmelden, können Sie nicht auf das {{site.data.keyword.Bluemix_notm}}-Infrastruktur-Dashboard zugreifen. Wenn Ihre Apps die Infrastrukturressourcen nutzen sollen, müssen Sie Ihr Konto auf ein nutzungsabhängiges Konto aktualisieren.
 
-Auch wenn die Kontoabrechnung verknüpft ist, ist die Anmelde-ID abhängig von der Authentifizierung des SoftLayer-Kontos unterschiedlich: 
-* Benutzer mit SoftLayer-Konten, die nicht die IBM ID zur Authentifizierung verwenden, sollten weiterhin ihre SoftLayer-ID für SoftLayer-Produkte und -Services und ihre IBM ID für {{site.data.keyword.Bluemix_notm}}-Produkte und -Services verwenden. 
-* Benutzer mit SoftLayer-Konten, die die IBM ID zur Authentifizierung verwenden, sollten die IBM ID für den Zugriff auf SoftLayer- und {{site.data.keyword.Bluemix_notm}}-Konten verwenden. 
+Zum Aktualisieren Ihres Testkontos auf ein nutzungsabhängiges {{site.data.keyword.Bluemix_notm}}-Konto gehen Sie folgendermaßen vor:
 
-**Achtung:** Das Verknüpfen der Konten kann nicht rückgängig gemacht werden.  
+ 1. Klicken Sie auf **Konto** &gt; **Abrechnung**.
+ 2. Anschließend klicken Sie auf **Kreditkarte hinzufügen**.
+ 3. Geben Sie die erforderlichen Abrechnungsdetails ein. 
+ 4. Lesen und akzeptieren Sie die Vertragsbedingungen für das nutzungsabhängige Konto. 
+ 5. Wenn Sie damit fertig sind, klicken Sie auf **Konto aktualisieren**. 
+ 
+Nachdem Sie die Aktualisierung auf ein nutzungsabhängiges Konto durchgeführt haben, werden die **Infrastruktur**-Optionen im {{site.data.keyword.Bluemix_notm}}-**Katalog** aufgelistet. Wenn Sie in Ihrer Nutzung über die gebührenfreien Leistungen hinausgehen, erhalten Sie eine {{site.data.keyword.Bluemix_notm}}-Rechnung für den Monat. Die Rechnung wird in USD ausgestellt und enthält die Details zu Ihren Ressourcengebühren. 
+
+## Konten für {{site.data.keyword.Bluemix_notm}} und SoftLayer zusammenführen
+{: #unifyingaccounts}
+
+Sie können Ihr {{site.data.keyword.Bluemix_notm}}- und Ihr SoftLayer-Konto zusammenführen, um die Ressourcen beider Konten zu nutzen. Wenn Sie Ihr {{site.data.keyword.Bluemix_notm}}- und Ihr Softlayer-Konto miteinander verknüpfen, erhalten Sie nur eine {{site.data.keyword.Bluemix_notm}}-Abrechnung. Wenn Sie über ein bestehendes {{site.data.keyword.Bluemix_notm}}-Konto verfügen, erfolgt die Rechnungsstellung über {{site.data.keyword.Bluemix_notm}} ab dem neuen Abrechnungszyklus, der nach dem Verknüpfen der Konten beginnt.
+
+**Wichtig:** Alle verknüpften Konten in {{site.data.keyword.Bluemix_notm}} müssen nutzungsabhängige Konten sein. Sie können ein neues nutzungsabhängiges Konto erstellen oder ein bestehendes nutzungsabhängiges Konto verknüpfen. Sie können auch ein bestehendes Testkonto verknüpfen, das dann in ein nutzungsabhängiges Konto umgewandelt wird. {{site.data.keyword.Bluemix_notm}}-Abonnementkonten können nicht verknüpft werden.  
+
+Nach dem Verknüpfen Ihrer Konten gilt Folgendes:
+
+* Für den Zugriff sowohl auf das SoftLayer- als auch auf das {{site.data.keyword.Bluemix_notm}}-Konto müssen Sie Ihre IBMid-Berechtigungsnachweise verwenden.
+* Alle bestehenden SoftLayer-Rabatte werden auf alle {{site.data.keyword.Bluemix_notm}}-Gebühren angewandt. 
+* Sie erhalten nur eine Rechnung; diese ist in USD ausgestellt.
+* Sie können die Nutzung der {{site.data.keyword.BluSoftlayer}}-Ressourcen in der {{site.data.keyword.Bluemix_notm}}-Benutzerschnittstelle überwachen. 
+
+**Achtung:** Das Verknüpfen der Konten kann nicht rückgängig gemacht werden. 
 
 Wenn Sie über ein SoftLayer-Konto verfügen und die SoftLayer- und {{site.data.keyword.Bluemix_notm}}-Konten verknüpfen möchten, führen Sie die folgenden Schritte aus:
- 1. Klicken Sie im {{site.data.keyword.slportal}} auf **{{site.data.keyword.Bluemix_notm}}-Konto verknüpfen**. 
+
+ 1. Klicken Sie im {{site.data.keyword.slportal}} auf **{{site.data.keyword.Bluemix_notm}}-Konto verknüpfen**.
  2. Lesen und akzeptieren Sie die Bedingungen für das Verknüpfen von SoftLayer- und {{site.data.keyword.Bluemix_notm}}-Konten.
  3. Geben Sie nach entsprechender Aufforderung die E-Mail-Adresse an, die Ihrem {{site.data.keyword.Bluemix_notm}}-Konto zugeordnet ist. Wenn Sie über kein {{site.data.keyword.Bluemix_notm}}-Konto verfügen, geben Sie die von Ihnen gewünschte E-Mail-Adresse an und befolgen Sie die Anweisungen für die Einladung zu {{site.data.keyword.Bluemix_notm}} und das Erstellen eines Kontos.
 
 Sie müssen ein Masterbenutzer des SoftLayer-Kontos sein, um Konten verknüpfen zu können.
 
-Wenn die Konten verknüpft sind, wird im globalen Header von SoftLayer der Link **Zu {{site.data.keyword.Bluemix_notm}} wechseln** angezeigt. Wenn Sie auf diesen Link klicken, wird die {{site.data.keyword.Bluemix_notm}}-Anmeldeseite geöffnet. Ferner wird nun der Link **SoftLayer** im {{site.data.keyword.Bluemix_notm}}-Header angezeigt. Wenn Sie auf diesen Link klicken, wird die Homepage von {{site.data.keyword.slportal}} in einem neuen Fenster geöffnet.
+Wenn die Konten verknüpft sind, wird im globalen Header von Softlayer der Link **Zu {{site.data.keyword.Bluemix_notm}} wechseln** angezeigt. Wenn Sie auf diesen Link klicken, wird die {{site.data.keyword.Bluemix_notm}}-Anmeldeseite geöffnet. Zusätzlich wird nun der Link **SoftLayer** im {{site.data.keyword.Bluemix_notm}}-Header angezeigt. Wenn Sie auf diesen Link klicken, wird die Homepage von {{site.data.keyword.slportal}} in einem neuen Fenster geöffnet.
 
-
-## Guthaben für {{site.data.keyword.Bluemix_notm}}-Nutzung bei Verknüpfung der Konten
-{: #slcredit}
-
-Wenn Sie die {{site.data.keyword.Bluemix_notm}}- und SoftLayer-Abrechnungskonten verknüpfen, erhalten Sie ein Guthaben von $ 200,00 für die {{site.data.keyword.Bluemix_notm}}-Nutzung. Das Guthaben muss innerhalb von 30 Tagen nach dem Verknüpfen der Konten aufgebraucht werden.
-
-Weitere Informationen zum Anzeigen von Guthaben und deren Ablaufdatum finden Sie unter [Guthaben anzeigen](https://console.ng.bluemix.net/docs/pricing/index.html#credits).
+Die Angebote der {{site.data.keyword.Bluemix_notm}}-Infrastruktur sind mit einem dreischichtigen Netz verbunden, das den Datenverkehr in öffentlichen, privaten und Managementdatenverkehr segmentiert. Infrastrukturangebote für ein {{site.data.keyword.Bluemix_notm}}-Kundenkonto übertragen im privaten Netz möglicherweise Daten kostenfrei untereinander. Infrastrukturangebote, z. B. Bare-Metal-Server, virtuelle Server und Cloudspeicherung, stellen Verbindungen zu anderen Anwendungen und Services im {{site.data.keyword.Bluemix_notm}}-Katalog her, z. B. Watson-Services, Container oder Laufzeiten im ganzen öffentlichen Netz. Die Datenübertragung zwischen diesen zwei Angebotstypen wird gemessen und zu Standardpreisen für die öffentliche Netzbandbreite berechnet.
 
 ## SoftLayer-Teammitglieder zu {{site.data.keyword.Bluemix_notm}} einladen
 {: #invite_users}
@@ -62,16 +78,88 @@ In der {{site.data.keyword.Bluemix_notm}}-Benutzerschnittstelle können Sie entw
 
 Sie müssen ein Masterbenutzer des SoftLayer-Kontos sein, um Teammitglieder zum {{site.data.keyword.Bluemix_notm}}-Konto einzuladen.
 
-Gehen Sie wie folgt vor, um Teammitglieder über {{site.data.keyword.Bluemix_notm}} einzuladen:
- 1. Klicken Sie auf das Symbol **{{site.data.keyword.avatar}}** ![Avatarsymbol](../icons/i-avatar-icon.svg) > **Konten** > **Teammitglieder einladen**.
- 2. Klicken Sie auf **Hinzufügen**, um sich für das SoftLayer-Konto zu authentifizieren und eine Liste der Teammitglieder aus dem SoftLayer-Konto anzuzeigen.
- 3. Wählen Sie die gewünschten Teammitglieder aus und klicken Sie auf **Senden**.
+Führen Sie die folgenden Schritte aus, um Teammitglieder über {{site.data.keyword.Bluemix_notm}} einzuladen:
 
-Sie können diese Operation für jedes weitere Teammitglied wiederholen, das Ihrem SoftLayer-Konto hinzugefügt wird.
+ 1. Klicken Sie auf **Konto** &gt; **Teammitglieder einladen**.
+ 2. Klicken Sie auf **Hinzufügen**, um sich für das SoftLayer-Konto zu authentifizieren und eine Liste der Teammitglieder aus Ihrem {{site.data.keyword.BluSoftlayer}}-Konto anzuzeigen.
+ 3. Wählen Sie die gewünschten Teammitglieder aus und klicken Sie auf **Senden**.
  
-Das Teammitglied empfängt eine E-Mail mit einem Link zur **Teilnahme an der Organisation**. Wenn das Mitglied über keine IBM ID verfügt, wird es zur Registrierungsseite weitergeleitet. Als Nächstes kann das Teammitglied einige Basisinformationen eingeben und ein {{site.data.keyword.Bluemix_notm}}-Konto erstellen.
+Das Teammitglied empfängt eine E-Mail mit einem Link zur **Teilnahme an der Organisation**. Wenn das Teammitglied über keine IBMid verfügt, wird es zur Registrierungsseite weitergeleitet. Danach kann das Teammitglied einige Basisinformationen eingeben und ein eigenes {{site.data.keyword.Bluemix_notm}}-Konto erstellen.
 
 Weitere Informationen zum Einladen von Teammitgliedern über die {{site.data.keyword.Bluemix_notm}}-Benutzerschnittstelle finden Sie unter [Teammitglieder einladen](https://console.ng.bluemix.net/docs/admin/users_roles.html#inviteteammembers).
+
+## Zur IBMid wechseln
+{: #ibmid_switch}
+
+Für die Authentifizierung in SoftLayer wird jetzt eine IBMid verwendet, die eine einzige Anmeldung bei allen {{site.data.keyword.Bluemix_notm}}-Komponenten ermöglicht. Es wird ein Wechsel für vorhandene SoftLayer-Konten zur Authentifizierung mit IBMid ermöglicht. Sie werden von einem Migrationsassistenten durch diesen Wechsel geführt.
+{:shortdesc}
+
+Wenn Sie Masterbenutzer sind und keine Eingabeaufforderung zum Wechsel zur IBMid im {{site.data.keyword.slportal}} angezeigt wird, [wenden Sie sich an den IBM Support](/docs/support/index.html#contacting-support), um Hilfe zum Aktivieren dieser Funktion zu erhalten.
+
+Sie können diesen Wechsel zur IBMid jederzeit abbrechen, solange der Prozess noch nicht abgeschlossen ist. Bei jeder Anmeldung wird jedoch die Auffordung zum Wechsel zur IBMid angezeigt. Jedes SoftLayer-Konto, das mit einem {{site.data.keyword.Bluemix_notm}}-Konto verknüpft werden soll, muss zu einer eindeutigen IBMid mit einer eindeutigen E-Mail-Adresse gehören.
+
+Führen Sie folgende Schritte aus, um von Ihrem bisherigen SoftLayer-Benutzernamen zu einer IBMid zu wechseln:
+
+ 1. Melden Sie sich bei Ihrem SoftLayer-Konto an. Sobald die Eingabeaufforderung zum Wechseln zu einer IBMid angezeigt wird, klicken Sie auf **OK**. 
+ 
+    Falls Sie bereits angemeldet sind (also bei der Eingabeaufforderung zum Wechsel zu einer IBMid auf **Später** geklickt haben, jedoch in der aktuellen Sitzung zur Authentifizierung mit IBMid wechseln wollen, rufen Sie die Seite für die Bearbeitung des Benutzerprofils auf und klicken Sie auf **Zu IBM ID wechseln**.
+	
+ 2. Befolgen Sie die Anweisungen im Assistenten, um Ihre IBMid zu erstellen. 
+ 
+    Geben Sie zum Erstellen einer neuen IBMid eine E-Mail-Adresse ein, die noch nicht von einer IBMid verwendet wird. Die neue IBMid verwendet diese E-Mail-Adresse als Benutzernamen und als E-Mail-Adresse. Nachdem die IBMid erstellt wurde, können Sie die E-Mail-Adresse aktualisieren, die der IBMid zugeordnet ist, jedoch nicht den Benutzernamen ändern. Die Einladungs-E-Mail wird an die angegebene E-Mail-Adresse gesendet. 
+    
+    Sie erhalten eine E-Mail mit Ihrem Registrierungscode, sobald Sie den Migrationsassistenten abgeschlossen haben.
+ 
+ 3. Wenn Sie die E-Mail erhalten, folgen Sie dem Link oder kopieren Sie die URL in einen Browser. Geben Sie anschließend Ihren Registrierungscode ein. Der Code ist 7 Tage lang gültig und kann nur einmal verwendet werden.
+ 
+    Nachdem Sie zur Authentifizierung mit IBMid gewechselt haben, können Sie sich nur noch mit Ihrer IBMid bei Ihrem Konto anmelden. Wechseln Sie bei der Eingabeaufforderung 'Kontoanmeldung' in den Abschnitt für die **Kontoanmeldung mit IBMid** und klicken Sie auf **Mit IBM ID anmelden**. Verwenden Sie nicht die Felder **Benutzername** und **Kennwort**, die Sie zuvor mit Ihrer SoftLayer-ID verwendet haben.
+ 
+Wenn Sie Ihre Bestellung als neuer Kunde auschecken, werden Sie zur Angabe Ihrer bestehenden IBMid oder zur Erstellung einer neuen IBMid aufgefordert. 
+
+ * Zur Verwendung einer bestehenden IBMid geben Sie den Benutzernamen oder die E-Mail-Adresse der IBMid ein, falls diese eindeutig ist (also nicht von mehreren IBMids gemeinsam genutzt wird).
+ 
+ * Zur Erstellung einer neuen IBMid geben Sie eine E-Mail-Adresse ein, die noch nicht von einer IBMid verwendet wird. Die neue IBMid verwendet diese E-Mail-Adresse als Benutzernamen und als E-Mail-Adresse. Nachdem die IBMid erstellt wurde, können Sie die E-Mail-Adresse aktualisieren, die der IBMid zugeordnet ist, jedoch nicht den Benutzernamen ändern. Die Einladungs-E-Mail wird an die angegebene E-Mail-Adresse gesendet. 
+
+Informationen zur Lösung von Problemen, die bei der Anmeldung mit Ihrer IBMid auftreten könnten, finden Sie unter [Fehlerbehebung für den Zugriff auf Bluemix](/docs/troubleshoot/ts_accessing.html#accessing).
+
+
+### Benutzern den Wechsel zur IBMid ermöglichen
+{: #link_accounts_resellers}
+
+In einigen Fällen muss ein Reseller oder Distributor aktivieren, dass die Authentifizierung mit IBMid für ein Konto verwendet werden kann, bevor ein Benutzer zu einer IBMid wechseln kann. 
+
+ * Um ein vorhandenes Konto mit den bisherigen SoftLayer-Berechtigungsnachweisen für die Verwendung der Authentifizierung mit IBMid zu aktivieren, [wenden Sie sich an den IBM Support](https://console.ng.bluemix.net/docs/support/index.html#contacting-support), um die IBMid-Migration zu aktivieren. Diese Aktivierung ist für jedes vorhandene Endbenutzerkonto erforderlich, das mit einem {{site.data.keyword.Bluemix_notm}}-Konto verknüpft werden soll.
+ 
+ * Um sicherzustellen, dass neue Benutzerkonten mit einer IBMid erstellt werden, muss das Attribut `CREATE_NEW_ACCOUNT_WITH_IBMid_AUTHENTICATION` auf das direkte Masterbenutzerkonto festgelegt werden. [Wenden Sie sich an den IBM Support](https://console.ng.bluemix.net/docs/support/index.html#contacting-support) oder Ihren Anbieter, um diese Einstellung für Ihre Konten vornehmen zu lassen.
+ 
+### Benutzerkonten verknüpfen
+{: #link_user_accounts}
+Nachdem Ihre Benutzer zur Authentifizierung mit IBMid gewechselt haben, können Reseller und Distributoren SoftLayer- und {{site.data.keyword.Bluemix_notm}}-Konten verknüpfen.
+
+**Hinweis:** 
+  * Der Masterbenutzer des Kontos, das verknüpft wird, muss eine IBMid sein.
+  * Melden Sie sich bei jedem Endbenutzerkonto als Masterbenutzer an. Navigieren Sie zur Benutzerprofilseite und klicken Sie auf **Zu IBMid wechseln**.
+  * Jedes Konto, das mit einem {{site.data.keyword.Bluemix_notm}}-Konto verknüpft wird, muss zu einer eindeutigen IBMid mit einer eindeutigen E-Mail-Adresse gehören. Zu einer IBMid können zwar mehrere SoftLayer-Konten gehören, jedoch können die Konten nicht mit {{site.data.keyword.Bluemix_notm}}-Konten verknüpft werden. Wenn eine IBMid der Masterbenutzer für mehrere SoftLayer-Konten ist und Sie diese Konten mit {{site.data.keyword.Bluemix_notm}}-Konten verknüpfen möchten, müssen Sie die Masterbenutzer für jedes Konto in eine jeweils eindeutige IBMid ändern. Wenden Sie sich an den [IBM SoftLayer-Support ![Symbol für externen Link](../icons/launch-glyph.svg)](https://knowledgelayer.softlayer.com/topic/support){: new_window}, um den Masterbenutzer für ein SoftLayer-Konto zu ändern.
+  
+Führen Sie die folgenden Schritte aus, um jedes Konto mit einem {{site.data.keyword.Bluemix_notm}}-Konto zu verknüpfen: 
+
+ 1. Um ein neues {{site.data.keyword.Bluemix_notm}}-Konto zu erstellen oder um eine Verknüpfung mit einem vorhandenen {{site.data.keyword.Bluemix_notm}}-Konto zu erstellen, melden Sie sich als Masterbenutzer bei Ihrem SoftLayer-Konto an und klicken Sie auf den **{{site.data.keyword.Bluemix_notm}}**-Link. Dadurch können Sie entweder ein neues {{site.data.keyword.Bluemix_notm}}-Konto erstellen oder eine Verknüpfung zu einem vorhandenen {{site.data.keyword.Bluemix_notm}}-Konto herstellen. Die IBMid, die der Masterbenutzer für das SoftLayer-Konto ist, muss der Eigner des Bluemix-Kontos sein, zu dem die Verknüpfung hergestellt wird. Befolgen Sie die Eingabeaufforderungen im Assistenten und fügen Sie die Benutzer im SoftLayer-Konto dem {{site.data.keyword.Bluemix_notm}}-Konto hinzu. 
+ 2. Nachdem Sie das Konto verknüpft haben, informieren Sie die Endbenutzer des Kontos darüber, dass sie zur IBMid migrieren müssen. Endbenutzer können dann in der {{site.data.keyword.Bluemix_notm}}-Konsole auf die Dashboards 'Infrastruktur', 'Anwendungen' und 'Services' zugreifen.
+ 3. Wenn dem verknüpften Konto neue Benutzer hinzugefügt werden, müssen Sie sie sowohl dem SoftLayer-Konto als auch dem {{site.data.keyword.Bluemix_notm}}-Konto hinzufügen, damit sie Zugriff auf alle Funktionen in der einheitlichen Konsole erhalten.
+ 
+**Empfehlung:** Migrieren Sie nur die Endbenutzerkonten zur IBMid. Migrieren Sie keine Brandkonten. Dies sind übergeordnete Konten für Endbenutzerkonten und enthalten keine Ressourcen. Brandkontenbenutzer, die zur IBMid migrieren, können sich anschließend nicht mehr bei beim BAP (Brand Agent Portal) anmelden.
+
+<!--
+### Mapping multiple SoftLayer accounts to one IBMid
+{: #map_multiple_accounts}
+
+You can associate one IBMid with multiple SoftLayer accounts by using an existing IBMid email address when setting up the account. Only one SoftLayer user for each account can be mapped to the single IBMid. The IBMid must be unique within each SoftLayer account. However, one user with access to multiple SoftLayer accounts can use one IBMid to access multiple SoftLayer accounts.
+
+For example, an IBMid can map to the master user in accounts A and B, and to an additional user in accounts C and D. One of the accounts mapped to that IBMid is the default account.  Usually, the default account is the account that was first mapped to the IBMid. However, you can switch which account is the default account  through an account switching feature in the Customer Portal.
+
+For a user with IBMid access to multiple accounts with two-factor authentication enabled, an appropriate two-factored authentication verification code per account is required during account log in and account switching.
+-->
+
 
 ## {{site.data.keyword.Bluemix_notm}}-Services mit SoftLayer-Assets verwenden
 {: #bluemix_services}
@@ -88,7 +176,7 @@ Wollten Sie vielleicht schon einmal die kognitiven Fähigkeiten von Watson in Ap
 
 Erweitern Sie Ihr Insights- und Ihr kognitives Wissen, indem Sie Watson-APIs über Ihre Apps in SoftLayer aufrufen, um diese stärker zu personalisieren. Oder nutzen Sie die Daten- und Analyseservices, um leistungsstarke Analysen für Ihre Apps auszuführen. Sie können sich auch für Database as a Service entscheiden und das Management {{site.data.keyword.Bluemix_notm}} überlassen.
 
-Modernisieren Sie die Anwendungsentwicklung unter Verwendung von Containern mit Services wie {{site.data.keyword.activedeployshort}} und {{site.data.keyword.deliverypipeline}}. Sie können dann mit dem {{site.data.keyword.vpn_short}}-Service per Tunnelung zu SoftLayer zurückkehren, um den Container in einem privaten Netz mit dem privaten SoftLayer-Netz zu verbinden. Alle Nutzungsgebühren für Rechenressourcen und -services werden über die SoftLayer-Rechnung abgerechnet. 
+Modernisieren Sie die Anwendungsentwicklung unter Verwendung von Containern mit Services wie {{site.data.keyword.activedeployshort}} und {{site.data.keyword.deliverypipeline}}. Sie können dann über den {{site.data.keyword.vpn_short}}-Service mit SoftLayer kommunizieren, um den Container in einem privaten Netz mit dem privaten SoftLayer-Netz zu verbinden. Alle Nutzungsgebühren für Rechenressourcen und -services werden über die {{site.data.keyword.Bluemix_notm}}-Rechnung abgerechnet. 
 
 ### API-basierte {{site.data.keyword.Bluemix_notm}}-Services
 Mit SoftLayer können nicht alle {{site.data.keyword.Bluemix_notm}}-Services verwendet werden. Die folgenden Services können zur Ausführung mit dem Anwendungscode eingerichtet werden:
@@ -114,13 +202,12 @@ Mit SoftLayer können nicht alle {{site.data.keyword.Bluemix_notm}}-Services ver
 * {{site.data.keyword.mqa}}
 * {{site.data.keyword.mobileappbuilder_short}}
 * {{site.data.keyword.mql}}
-* {{site.data.keyword.nlclassifierlshort}}
+* {{site.data.keyword.nlclassifiershort}}
 * {{site.data.keyword.objectstorageshort}}
 * {{site.data.keyword.personalityinsightsshort}}
 * {{site.data.keyword.presenceinsightsshort}}
 * {{site.data.keyword.relationshipextractionshort}}
 * {{site.data.keyword.retrieveandrankshort}}
-* {{site.data.keyword.servicediscoveryshort}}
 * {{site.data.keyword.speechtotextshort}}
 * {{site.data.keyword.sqldb}}
 * {{site.data.keyword.streaminganalyticsshort}}
@@ -134,26 +221,25 @@ Mit SoftLayer können nicht alle {{site.data.keyword.Bluemix_notm}}-Services ver
 
 **Hinweis:** Nicht alle Pläne für diese Services sind verfügbar. Für verknüpfte Konten können nur die für nutzungsabhängige Konten aktivierten Pläne verwendet werden. Wenn Sie jedoch über ein separates {{site.data.keyword.Bluemix_notm}}-Konto mit separater Rechnungsstellung verfügen, können Sie für diese Services jeden beliebigen Plan verwenden.
 
-
 ## Rechnungsstellung für {{site.data.keyword.Bluemix_notm}}-Nutzung bei verknüpften Konten
 {: #bill_usage}
 
-Nach der Verknüpfung Ihrer {{site.data.keyword.Bluemix_notm}}- und SoftLayer-Abrechnungskonten erfolgt die Rechnungsstellung im nächsten Abrechnungszyklus über eine einzige SoftLayer-Rechnung.
+Nach der Verknüpfung Ihrer {{site.data.keyword.Bluemix_notm}}- und SoftLayer-Abrechnungskonten erfolgt die Rechnungsstellung im nächsten Abrechnungszyklus über eine einzige {{site.data.keyword.Bluemix_notm}}-Rechnung.
 {:shortdesc}
 
 Der {{site.data.keyword.Bluemix_notm}}-Nutzungszyklus basiert auf Kalendermonaten, sodass Ihr Konto monatlich an dem Abrechnungstag abgerechnet wird, der in der Gebührenvereinbarung festgelegt wurde. Bei SoftLayer beginnt der Nutzungszyklus mit dem Beginn der SoftLayer-Nutzung, sodass die Rechnungsstellung jeden Monat an dem Tag erfolgt, an dem Sie sich für Ihr SoftLayer-Konto angemeldet haben. 
 
-Wenn Sie Ihre Konten verknüpfen, wird die {{site.data.keyword.Bluemix_notm}}-Nutzung für den aktuellen Monat noch wie bisher abgerechnet und Sie erhalten für diesen Nutzungszeitraum eine {{site.data.keyword.Bluemix_notm}}-Rechnung. Ab dem ersten des nächsten Monats werden Ihre {{site.data.keyword.Bluemix_notm}}-Gebühren über die SoftLayer-Rechnung abgerechnet.
+Wenn Sie Ihre Konten verknüpfen, wird die {{site.data.keyword.Bluemix_notm}}-Nutzung für den aktuellen Monat noch wie bisher abgerechnet und Sie erhalten für diesen Nutzungszeitraum eine {{site.data.keyword.Bluemix_notm}}-Rechnung. Ab dem Ersten des Folgemonats werden Ihre {{site.data.keyword.Bluemix_notm}}- und SoftLayer-Gebühren zusammen über Ihre {{site.data.keyword.Bluemix_notm}}-Rechnung abgerechnet.
 
-Wenn Sie Ihre Konten beispielsweise am 16. April verknüpft haben, erhalten Sie für die Nutzung im April eine Bluemix-Rechnung. Der Monat Mai wird dann über das SoftLayer-Konto abgerechnet.
+Wenn Sie Ihre Konten beispielsweise am 16. April verknüpft haben, erhalten Sie für die Nutzung im April eine Bluemix-Rechnung. Je nach Zeitpunkt der Verknüpfung Ihrer Konten erhalten Sie möglicherweise eine separate Rechnung für Ihre SoftLayer-Nutzung. Ihre Nutzung sowohl von SoftLayer als auch von {{site.data.keyword.Bluemix_notm}} im Monat Mai wird über Ihr {{site.data.keyword.Bluemix_notm}}-Konto abgerechnet.
 
 ![Verknüpfung von Bluemix- und SoftLayer-Konten - Zusammenfassung](images/BluemixSoftLayerBill.svg)
 
-Nach dem Zusammenführen der Rechnungen ist auf der SoftLayer-Rechnung in der Zusammenfassungsansicht ein Abschnitt **{{site.data.keyword.Bluemix_notm}}** enthalten. In der detaillierten Abrechnungsansicht werden die {{site.data.keyword.Bluemix_notm}}-Gebühren als sonstige Services aufgeführt und beginnen mit *"{{site.data.keyword.Bluemix_notm}} Plan..."*.
+Nach der Verknüpfung Ihrer Rechnungen werden in Ihrer {{site.data.keyword.Bluemix_notm}}-Rechnung die verschiedenen Gebühren für alle genutzten Ressourcen unter den folgenden Überschriften aufgelistet:
+
+* **Bare-Metal-Server und zugeordnete Services**
+* **Virtuelle Server und zugeordnete Services**
+* **Nicht zugeordnete Services**
 
 Informationen zum Anzeigen der {{site.data.keyword.Bluemix_notm}}-Nutzung finden Sie unter [Nutzungsdetails anzeigen](https://console.ng.bluemix.net/docs/pricing/index.html#usage).
 
-
-# Zugehörige Links
-## Allgemein
-* [Video: Link SoftLayer and Bluemix Accounts For a Single Invoice](https://www.youtube.com/watch?v=Xb01idt2NiU&index=1&list=PLzpeuWUENMK2d3L5qCITo2GQEt-7r0oqm)

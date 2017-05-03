@@ -1,7 +1,9 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2015
+  
+lastupdated: "2016-08-12"
 
 
 ---
@@ -17,22 +19,20 @@ copyright:
 # Problemas de servicios generales
 {: #general}
 
-*Última actualización: 9 de diciembre de 2015*
-{: .last-updated}
 
 Entre los problemas de los servicios de {{site.data.keyword.Bluemix}}
 se pueden incluir los errores de tiempo de espera agotado de pasarela que se producen al suprimir
 una instancia de servicio. Sin embargo, en muchos de los casos, puede solucionar estos problemas siguiendo unos sencillos pasos.
 {:shortdesc}
 
-## Se muestra un mensaje de error de tiempo de espera excedido de pasarela cuando suprime una instancia de servicio
+## El error de intermediario de servicio se produce al suprimir una instancia de servicio
 {: #ts_service_broker}
 
 Es posible que reciba un mensaje de error cuando intente suprimir una instancia de servicio que ya se ha suprimido desde el controlador de la nube.
 {:shortdesc}
 
 
-Cuando intenta suprimir una instancia de servicio, ve el mensaje de error del intermediario de servicios, ```Tiempo de espera excedido de pasarela```.
+Cuando intenta suprimir una instancia de servicio, ve el mensaje de error del intermediario de servicios `Tiempo de espera excedido de pasarela`.
 {: tsSymptoms}
 
 

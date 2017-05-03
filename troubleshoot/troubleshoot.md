@@ -1,8 +1,9 @@
 ---
 
 copyright:
-  years: 2015, 2016
-
+  years: 2015, 2017
+  
+lastupdated: "2017-03-08"
 
 ---
 
@@ -14,9 +15,14 @@ copyright:
 # Troubleshooting
 {: #troubleshooting}
 
-Last updated: 4 August 2016
-{: .last-updated}
+If you experience problems with {{site.data.keyword.Bluemix}}, you can use this troubleshooting information to identify and resolve the problem.
 
-If you experience problems with {{site.data.keyword.Bluemix}}, you can perform troubleshooting tasks to determine the corrective action to take.
+Log in to the {{site.data.keyword.Bluemix_notm}} console:
+* To view the status of the running services and runtimes, click **Suport > Status** in the menu bar.
+* To view notifications, click **Account > Notifications** in the menu bar. 
+* To search documentation and Stack Overflow or developerWorks (dW) Answers forums for answers, or to contact Support, click **Suport > Find Answers** in the menu bar.
 
-Log in to the {{site.data.keyword.Bluemix_notm}} user interface and click the {{site.data.keyword.avatar}} icon ![Avatar icon](images/account_support.svg) in the menu bar. You can view the status of the running services and runtimes and view notifications. In addition, you can select **Get help**, where you can search documentation and Stack Overflow or developerWorks (dW) Answers forums for answers, or contact Support.
+If your account is linked between {{site.data.keyword.Bluemix_notm}} and {{site.data.keyword.BluSoftlayer}}, log in to the Bluemix console:
+* To view the status of the running services and runtimes, click the **Status** link.
+* To search for answers, click the **Support** link in the menu bar, then click **Add Ticket > Find Answers**.
+  You can also go directly to *Stack Overflow* or *developerWorks (dW) Answers forums* to search for answers or post questions.

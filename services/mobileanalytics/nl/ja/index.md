@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2016
+  years: 2016, 2017
+lastupdated: "2017-01-13"
 
 ---
 {:new_window: target="_blank"}
@@ -9,115 +10,161 @@ copyright:
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# {{site.data.keyword.mobileanalytics_short}} (体験版) の開始  
+# {{site.data.keyword.mobileanalytics_short}} の概説
 
 {: #gettingstartedtemplate}
-*最終更新日時: 2016 年 8 月 1 日*
-{: .last-updated}
 
-{{site.data.keyword.mobileanalytics_full}} サービスを使用して、状態、動作、モバイル・アプリのコンテキスト、モバイル・ユーザー、モバイル・デバイスを測定します。
+{{site.data.keyword.mobileanalytics_full}} は、開発者、IT 管理者、ビジネス関係者に、モバイル・アプリのパフォーマンスや使用状況についての洞察を提供します。{{site.data.keyword.mobileanalytics_short}} では、以下を行うことができます。
+
+* アプリケーションのパフォーマンスと使用状況を、デスクトップまたはタブレットからモニターします。 
+* 傾向と異常を迅速に特定し、詳しく調べて問題を解決し、主要な測定基準がクリティカルしきい値を超えた場合にはアラートをトリガーします。
 {: shortdesc}
 
-{{site.data.keyword.mobileanalytics_short}} サービスを素早く稼働させるためには、次のステップに従います。
+**重要:** {{site.data.keyword.mobileanalytics_short}} コンソールは、Internet Explorer ブラウザーに未対応であるため、一部の機能が正しく作動しない場合があります。Firefox、Chrome、または Safari を使用することをお勧めします。
 
-1. {{site.data.keyword.mobileanalytics_short}} サービスの [ インスタンスを作成](https://console.{DomainName}/docs/services/reqnsi.html#req_instance)した後、{{site.data.keyword.Bluemix}} の「ダッシュボード」の「サービス」セクション内のタイルをクリックして、{{site.data.keyword.mobileanalytics_short}} コンソールにアクセスできます。
+{{site.data.keyword.mobileanalytics_short}} サービスを迅速に稼働するには、以下のステップを実行します。
 
-  **重要:** 新たに作成された Mobile Analytics サービスを最初に開く際に、ウィンドウが表示されて、サービスが ID を検証できるよう自分自身に関する必要な情報をサービスに {{site.data.keyword.Bluemix_notm}} が提供できるようにすることの確認が行われる場合があります。**「確認」**をクリックすると、続いて {{site.data.keyword.mobileanalytics_short}} コンソールが表示されます。キャンセルする場合、{{site.data.keyword.mobileanalytics_short}} コンソールは開きません。
-2. {{site.data.keyword.mobileanalytics_short}} [クライアント SDK](install-client-sdk.html) をインストールします。
-3. クライアント SDK をインポートし、次のコード・スニペットで初期設定して、使用分析を記録します。
-  #### Android
-  {: #android-initialize}
-  1. Client SDK をインポートします。
-		
-		```
-		import com.ibm.mobilefirstplatform.clientsdk.android.core.api.*;
-		import com.ibm.mobilefirstplatform.clientsdk.android.analytics.api.*;
-		```
+1. {{site.data.keyword.mobileanalytics_short}} サービスのインスタンスを作成<!--[create an instance](https://console.{DomainName}/docs/services/reqnsi.html#req_instance)-->した後、{{site.data.keyword.Bluemix}} ダッシュボードの**「サービス」**セクション内のタイルをクリックして、{{site.data.keyword.mobileanalytics_short}} コンソールにアクセスできます。
 
-  2. [アクセス・キー](sdk.html#analytics-clientkey)値を取得します。
-  3. アプリケーション・コード内のクライアント SDK を初期化して使用分析やアプリケーション・セッションを記録します。
-		
-		```Java
-		try {
-		        BMSClient.getInstance().initialize(this.getApplicationContext(), "", "", BMSClient.REGION_US_SOUTH);
-		    } catch (MalformedURLException e) {
-		        Log.e("your_app_name","URL should not be malformed:  " + e.getLocalizedMessage());
-		    }
-		   Analytics.init(getApplication(), "your_app_name", "your_access_key", Analytics.DeviceEvent.LIFECYCLE);
-		```
-**bluemixRegion** パラメーターは、使用している Bluemix デプロイメントを指定します。例えば、`BMSClient.REGION_US_SOUTH` や `BMSClient.REGION_UK`、あるいは `BMSClient.REGION_SYDNEY` などです。
+ さまざまなビューやグラフ、およびそれらに表示される値を即時に把握できるようにするために、{{site.data.keyword.mobileanalytics_short}} コンソールには**「デモ・モード (demo mode)」**というオプションが用意されています。これを使用すると、ビューやグラフに*デモ・データ* が表示されます。デモ・データは、サービスのインスタンスが生成された後で、コンソールが最初に起動するときのコンソールのデフォルト・モードです。独自のアプリケーションと分析データがサービスに取り込まれている場合は、デモ・モードを*「オフ」*に切り替えると、アプリケーションのデータを別のグラフに表示できます。Mobile Analytics コンソールは、デモ・モードの場合には読み取り専用であるため、新規アラート定義を作成することはできません。
 
-  #### iOS
-  {: #ios-initialize}
-  1. `BMSCore` フレームワークと `BMSAnalytics` フレームワークをインポートします。
+2. {{site.data.keyword.mobileanalytics_short}} [クライアント SDK](/docs/services/mobileanalytics/install-client-sdk.html) をインストールします。オプションで、{{site.data.keyword.mobileanalytics_short}} [REST API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/ "外部リンク・アイコン"){:new_window} を使用できます。
 
-    ```
-import BMSCore
-    import BMSAnalytics
-    ```
+3. クライアント SDK をインポートし、次のコード・スニペットで初期設定して、使用分析を記録するようにします。
 
-  2. [アクセス・キー](sdk.html#analytics-clientkey)値を取得します。
+	#### Android
+	{: #android-import}
 
-  3. アプリケーション・コード内のクライアント SDK を初期化して使用分析やアプリケーション・セッションを記録します。
+	以下の `import` ステートメントをプロジェクト・ファイルの先頭に追加します。
 	
-	```Swift
-	BMSClient.sharedInstance.initializeWithBluemixAppRoute("nil",bluemixAppGUID: "nil", bluemixRegion: BMSClient.REGION_US_SOUTH) //You can change the region
-	Analytics.initializeWithAppName("your_app_name", accessKey: "your_access_key", deviceEvents: DeviceEvent.LIFECYCLE)
-	```
+    ```
+import com.ibm.mobilefirstplatform.clientsdk.android.core.api.*;
+	import com.ibm.mobilefirstplatform.clientsdk.android.analytics.api.*;
+	import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
+  	```
+    {: codeblock}
+  
+ #### iOS
+ {: #ios-import}
+	
+ **注:** Swift SDK は iOS と watchOS 向けに使用できます。
+	
+ 以下の `import` ステートメントを `AppDelegate.swift` プロジェクト・ファイルの先頭に追加して、`BMSCore` および `BMSAnalytics` フレームワークをインポートします。
 
-    **bluemixRegion** パラメーターは、使用している Bluemix デプロイメントを指定します。例えば、`BMSClient.REGION_US_SOUTH` や `BMSClient.REGION_UK`、あるいは `BMSClient.REGION_SYDNEY` などです。
+   ```Swift
+   import BMSCore
+   import BMSAnalytics
+   ```
+   {: codeblock}  
+   
+ #### Cordova
+ {: #cordova-import}
+		
+ Cordova アプリケーション・ルート・ディレクトリーから次のコマンドを実行して、Cordova プラグインを追加します。
 
-4. 記録した使用分析を Mobile Analytics サービスに送信します。分析のテストは、アプリケーションの開始時に次のコードを実行すると簡単に行えます。
+ ```Javascript
+ cordova plugin add bms-core
+ ```
+ {: codeblock}  
+
+4. 使用分析やアプリケーション・セッションを記録するために、[API キー](/docs/services/mobileanalytics/sdk.html#analytics-clientkey)値を使用して、アプリケーション・コード内で {{site.data.keyword.mobileanalytics_short}} クライアント SDK を初期化します。	
+	
+ #### Android
+ {: #android-initialize}	
+
+  ```
+  BMSClient.getInstance().initialize(getApplicationContext(), BMSClient.REGION_US_SOUTH); // You can change the region
+  Analytics.init(getApplication(), "your_app_name_here", "your_api_key_here", hasUserContext, Analytics.DeviceEvent.ALL);
+  ```
+  {: codeblock}
+    
+ **bluemixRegion** パラメーターは、使用する {{site.data.keyword.Bluemix_notm}} デプロイメントを指定します。例えば、`BMSClient.REGION_US_SOUTH` や `BMSClient.REGION_UK` などです。 
+    <!-- , or `BMSClient.Region.Sydney`.-->
+    
+ `hasUserContext` の値を **true** または **false** に設定します。false (デフォルト値) の場合、各デバイスがアクティブ・ユーザーとしてカウントされます。
+
+ #### iOS
+ {: #ios-initialize}
+  
+  使用分析やアプリケーション・セッションを記録するために、[API キー](/docs/services/mobileanalytics/sdk.html#analytics-clientkey)値を使用して、アプリケーション・コード内でクライアント SDK を初期化します。
+	
+  ```Swift
+		BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth) // You can change the region
+		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, deviceEvents: deviceEvents: .lifecycle, .network)
+		```
+  {: codeblock}
+			
+   **bluemixRegion** パラメーターは、使用する Bluemix デプロイメント (例: `BMSClient.Region.usSouth` や `BMSClient.Region.unitedKingdom` など) を指定します。
+	<!-- , or `BMSClient.REGION_SYDNEY`. -->
+ 
+ `hasUserContext` の値を **true** または **false** に設定します。false (デフォルト値) の場合、各デバイスがアクティブ・ユーザーとしてカウントされます。
+	
+ #### Cordova
+ {: #cordova-initialize}
+	
+ 使用分析やアプリケーション・セッションを記録するために、[API キー](/docs/services/mobileanalytics/sdk.html#analytics-clientkey)値を使用して、アプリケーション・コード内でクライアント SDK を初期化します。
+	
+  ```
+  var appName = "your_app_name_here";
+  var apiKey = "your_api_key_here";
+	
+  BMSClient.initialize(BMSClient.REGION_US_SOUTH); // You can change the region
+  BMSAnalytics.initialize(appName, apiKey, false, [BMSAnalytics.ALL])
+  ```
+  {: codeblock}
+  
+  **bluemixRegion** パラメーターは、使用する {{site.data.keyword.Bluemix_notm}} デプロイメントを指定します。例えば、`BMSClient.REGION_US_SOUTH` や `BMSClient.REGION_UK` などです。
+  
+ **注:** アプリケーション用に選択した名前 (`your_app_name_here`) は、アプリケーション名として {{site.data.keyword.mobileanalytics_short}} コンソールに表示されます。アプリケーション名は、ダッシュボードでアプリケーション・ログを検索する場合にフィルターとして使用されます。複数のプラットフォーム (例えば Android と iOS) で同じアプリケーション名を使用すると、ログの送信元がどのプラットフォームであっても、同じ名前のアプリケーションからのすべてのログを表示できます。
+
+5. 記録した使用分析を Mobile Analytics サービスに送信します。分析のテストは、アプリケーションの開始時に次のコードを実行すると簡単に行えます。
 
 	#### Android
 	{: #android-send}
+
+	`Analytics.send()` メソッドを使用して、分析データをサーバーに送信します。`Analytics.send()` メソッドを、Android アプリケーションのメインアクティビティーの `onCreate` メソッド内か、プロジェクトで最も適切な場所に置きます。 
 	
-	`Analytics.send()` メソッドを、Android アプリケーションのメイン・アクティビティーの `onCreate` メソッド内か、プロジェクトで最も適切な場所に追加します。
-	
+	`Analytics.send()` はどこにでも挿入できます。
+
 	```
-	Analytics.send(new ResponseListener() {
-	    @Override
-	    public void onSuccess(Response response) {
-	        Log.d("your_app_name", "Successfully sent analytics: " + response.toString());
-	    }
-		
-	    @Override
-	    public void onFailure(Response response, Throwable throwable, JSONObject jsonObject) {
-	        Log.e("your_app_name", "Failed to send analytics: ");
-	        if (response != null) {
-	            Log.e("your_app_name", response.toString());
-	        }
-	        if (throwable != null) {
-	            Log.e("your_app_name","Stack trace: ", throwable);
-	        }
-	    }
-	});
+	Analytics.send();
 	```
-	
+	{: codeblock}
+
 	#### iOS
 	{: #ios-send}
-	
-	
-	`Analytics.send` メソッドを使用して、分析データをサーバーに送信します。`Analytics.send` メソッドを、アプリケーション・デリゲートの `application(_:didFinishLaunchingWithOptions:)` メソッド内か、プロジェクトで最も適切な場所に置きます。 
-		
-	```
-	Analytics.send { (response: Response?, error: NSError?) in
-	  if response?.statusCode == 201 {
-	      print("Successfully sent analytics: \(response?.responseText)")
-	  }
-	  else {
-	      print("Failed to send analytics: \(response?.responseText). Error: \(error?.localizedDescription)")
-	  }
-	}
-	```
-[アプリケーションの装備](sdk.html)トピックを参照してください。
-5. エミュレーターまたはデバイスでアプリケーションをコンパイルして実行します。
 
-6. {{site.data.keyword.mobileanalytics_short}} の**「ダッシュボード」**に移動して、使用分析を表示します。例えば、アプリケーションを使用する新規デバイスやデバイスの総数などです。<!-- [creating custom charts](app-monitoring.html#custom-charts), --> [アラートを設定する](app-monitoring.html#alerts)こと、および[アプリの異常終了をモニターする](app-monitoring.html#monitor-app-crash)ことによって、アプリをモニターすることもできます。 
+	`Analytics.send` メソッドを使用して、分析データをサーバーに送信します。`Analytics.send` メソッドを、アプリケーション・デリゲートの `application(_:didFinishLaunchingWithOptions:)` メソッド内の任意の場所か、プロジェクトで最も適切な場所に置くことができます。 
+
+	```
+	Analytics.send()
+	```
+	{: codeblock}
+	
+	#### Cordova
+	{: #cordova-send}
+	
+	`BMSAnalytics.send` メソッドを使用して、分析データをサーバーに送信します。`BMSAnalytics.send` メソッドを、プロジェクトで最もうまく動作する場所に配置してください。
+	
+	```
+	BMSAnalytics.send()
+	```
+	{: codeblock}
+	
+	[ロギング](/docs/services/mobileanalytics/sdk.html#app-monitoring-logger)、[ネットワーク要求](/docs/services/mobileanalytics/sdk.html#network-requests)、[クラッシュ分析](/docs/services/mobileanalytics/sdk.html#report-crash-analytics)など、その他の {{site.data.keyword.mobileanalytics_short}} 機能について詳しくは、[アプリケーションの装備](/docs/services/mobileanalytics/sdk.html)トピックを参照してください。
+	
+6. エミュレーターまたはデバイスでアプリケーションをコンパイルして実行します。
+
+7. {{site.data.keyword.mobileanalytics_short}} のコンソールに移動して、ご使用のアプリケーションの使用量分析を表示できます。<!--[creating custom charts](app-monitoring.html#custom-charts),-->[アラートを設定する](/docs/services/mobileanalytics/app-monitoring.html#alerts)こと、および[アプリの異常終了をモニターする](/docs/services/mobileanalytics/app-monitoring.html#monitor-app-crash)ことによって、アプリケーションをモニターすることもできます。
 
 
 # 関連リンク
 
 ## SDK
-* [Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics){: new_window}  
-* [iOS SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics){: new_window}
+* [Android SDK ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics "外部リンク・アイコン"){: new_window}  
+* [iOS SDK ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics "外部リンク・アイコン"){: new_window}
+* [Cordova Plugin Core SDK ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/bms-core "外部リンク・アイコン"){: new_window}
+
+## API リファレンス
+{: #api}
+* [REST API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/ "外部リンク・アイコン"){:new_window}

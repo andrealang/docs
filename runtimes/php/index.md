@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2016
+  years: 2015, 2017
+lastupdated: "2017-03-23"
 
 ---
 
@@ -11,8 +12,6 @@ copyright:
 
 # PHP
 {: #php_runtime}
-*Last Updated: 06 July 2016*
-{: .last-updated}
 
 The PHP runtime on {{site.data.keyword.Bluemix}} is powered by the php_buildpack.
 The php_buildpack provides a complete runtime environment for PHP
@@ -27,8 +26,8 @@ The php_buildpack is used in the following conditions:
 ## Starter application
 {: #starter_application}
 
-{{site.data.keyword.Bluemix}} provides a PHP starter app.  The PHP starter application is a simple PHP app that provides a template that you can use for your app. You can experiment with the starter app, and make and push changes to the {site.data.keyword.Bluemix}}
-environment.  See [Using the starter applications](../../cfapps/starter_app_usage.html) for help with using the starter app.
+{{site.data.keyword.Bluemix}} provides a PHP starter app.  The PHP starter application is a simple PHP app that provides a template that you can use for your app. You can experiment with the starter app, and make and push changes to the {{site.data.keyword.Bluemix}}
+environment.  See [Using the starter applications](/docs/cfapps/starter_app_usage.html) for help with using the starter app.
 
 ## Runtime versions
 {: #runtime_versions}
@@ -43,7 +42,7 @@ You can specify the version of PHP to be used by your app in the composer.json f
 }
 ```
 {: codeblock}
-For more information, see [Composer Package links](https://getcomposer.org/doc/04-schema.md#package-links).
+For more information, see [Composer Package links  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://getcomposer.org/doc/04-schema.md#package-links).
 
 When a version is not specified, version 5.5.34 is chosen by default.
 
@@ -67,10 +66,11 @@ you can use the external
 deploy the app.
 
 # rellinks
-{: #rellinks}
+{: #rellinks notoc}
 ## Tutorials and Samples
-{: #samples}
+{: #samples notoc}
 * [Build and deploy a REST API](http://www.ibm.com/developerworks/library/wa-deployrest-app/)
 * [Build and deploy a mobile-friendly calorie counter](http://www.ibm.com/developerworks/library/mo-bluemix-php-nutritionix-angularjs/)
 ## general
+{: #general notoc}
 * [Cloud Foundry buildpack for PHP](https://github.com/cloudfoundry/php-buildpack.git)
