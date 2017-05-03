@@ -13,11 +13,8 @@ copyright:
 
 # Getting started with IBM® Graph
 {: #gettingstartedtemplate}
-<<<<<<< HEAD
+
 Last updated: 27 April 2017
-=======
-Last updated: 19 October 2016
->>>>>>> branch 'master' of git@github.com:andrealang/docs.git
 {: .last-updated}
 
 {{site.data.keyword.graphfull}} is a fully managed graph database service, accessible through the {{site.data.keyword.graphfull}} console in {{site.data.keyword.Bluemix_short}} or a REST-based HTTP API interface. Use it to build your mobile and web applications that require graph database capabilities. [Unfamiliar with graph databases?](https://developer.ibm.com/clouddataservices/docs/graph/)
